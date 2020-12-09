@@ -22,14 +22,14 @@
       $('.top-region, .main-region, .bottom-region, .footer-region').matchHeight({remove: true});
     }
     didScroll = true;
-    if (window.scrollY > origOffsetY) {
-      mainNavigation.classList.add('w3-sticky');
-    }
-    else {
-      if ($('.w3-sticky').length > 0) {
+    if (mainNavigation){
+      if (window.scrollY > origOffsetY) {
+        mainNavigation.classList.add('w3-sticky');
+      } else {
         mainNavigation.classList.remove('w3-sticky');
       }
     }
+
   };
     // Add and remove classes on window resize.
   let mediaSize = function () {
@@ -284,6 +284,13 @@
             .find('#system-theme-settings details > .details-wrapper')
             .once('.details-wrapper')
             .addClass('w3-padding-large w3-left-align');
+       // Disable top margin if breadcrumb exist.
+      if (document.querySelector('nav.breadcrumb')) {
+        $(context)
+            .find('.main-box')
+            .once('.main-box')
+            .addClass('breadcrumb-found');
+      }
       $(context)
             .find('a > .w3-image')
             .once('a > .w3-image')
