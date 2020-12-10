@@ -47,7 +47,7 @@
   .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: none;
   }
-  #main-container-inner .bradcrumb-found:first-child {
+  #main-container-inner>div:nth-child(2) .breadcrumb-found:first-child {
     margin-top: 0!important;
   }
   .top-container-inner .first-top,
