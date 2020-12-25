@@ -1,11 +1,11 @@
-name: Drupal8 W3CSS Subtheme
+name: Drupal8 W3CSS Sub-theme
 type: theme
 base theme: drupal8_w3css_theme
 core_version_requirement: ^8 || ^9
-description: 'drupal8 w3css subtheme is an empty theme for your customization.'
+description: 'drupal8 w3css sub-theme is an empty theme for your customization.'
 core: '8.x'
 libraries:
-  - drupal8_w3css_subtheme/global-components
+  - drupal8_w3css_subtheme/d8w3css-subtheme-global
 
 #Regions
 regions:
