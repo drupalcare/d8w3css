@@ -69,8 +69,9 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     $variables['top_w3css'] = 'w3-third';
   }
   elseif (($has_top_first && $has_top_second)  ||
-        ($has_top_first && $has_top_third)  ||
-        ($has_top_second && $has_top_third)) {
+    ($has_top_first && $has_top_third)  ||
+    ($has_top_second && $has_top_third)
+  ) {
     $variables['top_w3css'] = 'w3-half';
   }
   else {
@@ -119,17 +120,19 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     $variables['bottom_w3css'] = 'w3-quarter';
   }
   elseif (($has_bottom_first && $has_bottom_second && $has_bottom_third)   ||
-        ($has_bottom_first && $has_bottom_third && $has_bottom_forth)   ||
-        ($has_bottom_first && $has_bottom_second && $has_bottom_forth)  ||
-        ($has_bottom_second && $has_bottom_third && $has_bottom_forth)) {
+    ($has_bottom_first && $has_bottom_third && $has_bottom_forth)   ||
+    ($has_bottom_first && $has_bottom_second && $has_bottom_forth)  ||
+    ($has_bottom_second && $has_bottom_third && $has_bottom_forth)
+  ) {
     $variables['bottom_w3css'] = 'w3-third';
   }
   elseif (($has_bottom_first && $has_bottom_second)  ||
-        ($has_bottom_first && $has_bottom_third)  ||
-        ($has_bottom_first && $has_bottom_forth)  ||
-        ($has_bottom_second && $has_bottom_forth) ||
-        ($has_bottom_second && $has_bottom_third) ||
-        ($has_bottom_third && $has_bottom_forth)) {
+    ($has_bottom_first && $has_bottom_third)  ||
+    ($has_bottom_first && $has_bottom_forth)  ||
+    ($has_bottom_second && $has_bottom_forth) ||
+    ($has_bottom_second && $has_bottom_third) ||
+    ($has_bottom_third && $has_bottom_forth)
+  ) {
     $variables['bottom_w3css'] = 'w3-half';
   }
   else {
@@ -141,8 +144,9 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     $variables['footer_w3css'] = 'w3-third';
   }
   elseif (($has_footer_first && $has_footer_second)  ||
-        ($has_footer_first && $has_footer_third)  ||
-        ($has_footer_second && $has_footer_third)) {
+    ($has_footer_first && $has_footer_third)  ||
+    ($has_footer_second && $has_footer_third)
+  ) {
     $variables['footer_w3css'] = 'w3-half';
   }
   else {
@@ -284,25 +288,26 @@ function drupal8_w3css_theme_theme_suggestions_form_alter(array &$suggestions, a
  * Implements hook_theme_suggestions_page_alter().
  */
 function drupal8_w3css_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // Suggest the node page according to the content type name.
-  // In 8.3 the node id and revision id are both strings
-  // https://www.drupal.org/node/2521876#comment-12144221
-  $node     = \Drupal::routeMatch()->getParameter('node');
-  $revision = \Drupal::routeMatch()->getRawParameter('node_revision');
-  if ($node) {
-    if ($revision) {
-      $revised_node = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($revision);
-      $content_type = $revised_node->bundle();
-    }
-    else {
-      $content_type = $node->bundle();
-    }
-    $suggestions[] = 'page__' . $content_type;
+
+  $routeMatch = \Drupal::routeMatch();
+  // Test route name.
+  switch ($routeMatch->getRouteName()) {
+    // Suggest the node page according to the content type name.
+    case 'entity.node.canonical':
+      array_splice($suggestions, 1, 0, 'page__' . $routeMatch->getParameter('node')->bundle());
+      break;
+
+    // Suggest the vocabulary page according to the vocabulary name.
+    case 'entity.taxonomy_term.canonical':
+      array_splice($suggestions, 1, 0, 'page__taxonomy__' . $routeMatch->getParameter('taxonomy_term')->bundle());
+      break;
+
   }
-  // Suggest the view page according to view name.
-  if ($view_name = \Drupal::routeMatch()->getRouteObject()->getDefault('view_id')) {
+  // Suggest the view page according to the view name.
+  if ($view_name = $routeMatch->getRouteObject()->getDefault('view_id')) {
     $suggestions[] = 'page__' . $view_name;
   }
+
 }
 
 /**
