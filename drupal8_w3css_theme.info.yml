@@ -10,6 +10,7 @@ core_version_requirement: ^8 || ^9
 libraries:
   - drupal8_w3css_theme/w3-css
   - drupal8_w3css_theme/font-awesome
+  - drupal8_w3css_theme/d8w3css-google-font-external
   - drupal8_w3css_theme/global-components
 #Regions
 regions:

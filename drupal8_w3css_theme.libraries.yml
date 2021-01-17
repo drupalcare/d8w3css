@@ -19,11 +19,29 @@ font-awesome:
   css:
     base:
       https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css: { type: external, minified: true }
-global-components:
+
+d8w3css-font-awesome-local:
+  Version: 4.7.0
+  css:
+    base:
+      css/font/font-awesome.4.7.0: {}
+
+d8w3css-google-font-external:
   Version: VERSION
   css:
     base:
       'https://fonts.googleapis.com/css?family=Montserrat': { type: external, minified: true }
+
+d8w3css-google-font-local:
+  Version: VERSION
+  css:
+    base:
+      css/font/google-font.css: {}
+
+global-components:
+  Version: VERSION
+  css:
+    base:
       css/custom/base.css: {}
       css/custom/w3-custom-classes.css: {}
     layout:
