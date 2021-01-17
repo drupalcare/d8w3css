@@ -227,6 +227,25 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
 }
 
 /**
+ * Remove external and add them local.
+ *
+ * Implements hook_page_attachments_alter().
+ */
+function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
+  // Disable font awesome library if fontawesome module installed.
+  if (theme_get_setting('d8w3css_font_awesome_4')) {
+    $external_font_awesome = array_search('drupal8_w3css_theme/font-awesome', $attachments['#attached']['library'], TRUE);
+    unset($attachments['#attached']['library'][$external_font_awesome]);
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-font-awesome-local';
+  }
+  if (theme_get_setting('d8w3css_google_font')) {
+    $external_google_font = array_search('drupal8_w3css_theme/d8w3css-google-font-external', $attachments['#attached']['library'], TRUE);
+    unset($attachments['#attached']['library'][$external_google_font]);
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-google-font-local';
+  }
+}
+
+/**
  * Implements hook_preprocess_breadcrumb().
  */
 function drupal8_w3css_theme_preprocess_breadcrumb(&$variables) {

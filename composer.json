@@ -14,5 +14,11 @@
     "support": {
         "issues": "https://drupal.org/project/issues/d8w3css",
         "source": "https://git.drupalcode.org/project/d8w3css"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ]
 }
