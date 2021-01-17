@@ -24,7 +24,7 @@ d8w3css-font-awesome-local:
   Version: 4.7.0
   css:
     base:
-      css/font/font-awesome.4.7.0: {}
+      css/font/font-awesome.4.7.0.css: {}
 
 d8w3css-google-font-external:
   Version: VERSION
