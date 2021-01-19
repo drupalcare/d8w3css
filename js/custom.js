@@ -10,6 +10,11 @@
   let origOffsetY;
   let didScroll = false;
   let mainNavigation = document.querySelector('#main-navigation-h');
+
+    // In case the admin toolbar search installed.
+  if ($('#admin-toolbar-search-tab').length > 0) {
+    $('#admin-toolbar-search-tab > div').removeClass('w3-section');
+  }
     // In case the main menu not printed.
   if ($('#main-navigation-h .ul-parent').length > 0) {
     origOffsetY = mainNavigation.offsetTop;

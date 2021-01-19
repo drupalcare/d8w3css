@@ -269,9 +269,3 @@ td .form-type-checkbox {
 body .ui-dialog {
   z-index: 1001!important;
 }
-
-/* for admin search bar */
-.toolbar .toolbar-tab > .w3-section {
-  margin-top: 0.3rem !important;
-  margin-bottom: 0 !important;
-}
