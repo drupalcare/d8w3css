@@ -278,4 +278,7 @@
     width: 100%;
     bottom: 0;
   }
+  .node--view-mode-teaser .field--type-image {
+    min-width: 100%;
+  }
 }
