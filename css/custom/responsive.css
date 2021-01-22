@@ -243,9 +243,9 @@
     width: 100%;
     text-align: center;
   }
-
   .block-system-branding-block {
-    margin: 0 8px!important;
+    width: 96%;
+    margin: 0 2%!important;
   }
   .block-system-branding-block .site-slogan {
     text-align: center;
@@ -258,6 +258,7 @@
   }
   .block-system-branding-block > div {
     margin: 0!important;
+    width: 100%;
   }
   .site-name,
   .site-slogan {
@@ -268,7 +269,7 @@
   }
   .site-name a,
   .site-slogan {
-    padding: 0 10px!important;
+    padding: 0px!important;
   }
   .node__meta .node__submitted {
     margin: -2px 10px 0 0 !important;
