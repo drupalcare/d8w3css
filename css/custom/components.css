@@ -760,6 +760,7 @@ nav.w3-bar.w3-section.tabs {
 .node-layout-builder-form .form-actions input:hover,
 .layout-builder-revert-overrides .form-actions a.button:hover,
 .layout-builder-revert-overrides .form-actions input:hover {
+  border-radius: 0;
   color: white!important;
   background: #45484d;
   background: -moz-linear-gradient(-45deg,  #45484d 0%, #000000 100%);
