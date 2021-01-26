@@ -26,8 +26,9 @@
   }
   .ul-parent .li-expanded:hover > ul,
   .ul-parent .li-expanded .li-expanded:hover > ul {
-    display: block;
     z-index: 1;
+    display: block;
+    animation: comeout 0.3s;
   }
   .li-1 .toggle-child .dropdown-arrow {
     display: none;
