@@ -232,17 +232,36 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
  * Implements hook_page_attachments_alter().
  */
 function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
-  // Disable font awesome library if fontawesome module installed.
+
+  // Load font awesome locally.
   if (theme_get_setting('d8w3css_font_awesome_4')) {
     $external_font_awesome = array_search('drupal8_w3css_theme/font-awesome', $attachments['#attached']['library'], TRUE);
     unset($attachments['#attached']['library'][$external_font_awesome]);
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-font-awesome-local';
   }
+
+  // Load google fonts locally.
   if (theme_get_setting('d8w3css_google_font')) {
     $external_google_font = array_search('drupal8_w3css_theme/d8w3css-google-font-external', $attachments['#attached']['library'], TRUE);
     unset($attachments['#attached']['library'][$external_google_font]);
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-google-font-local';
   }
+
+  // don't load full opacity if disabled.
+  if (!theme_get_setting('full_opacity_onscroll')) {
+    $full_opacity = array_search('drupal8_w3css_theme/d8w3css-full-opacity', $attachments['#attached']['library'], TRUE);
+    unset($attachments['#attached']['library'][$full_opacity]);
+  }
+
+  // don't load match height if all are disabled.
+  if ((!theme_get_setting('top_region')) &&
+      (!theme_get_setting('main_region')) &&
+      (!theme_get_setting('bottom_region')) &&
+      (!theme_get_setting('footer_region'))) {
+    $match_height = array_search('drupal8_w3css_theme/match-height', $attachments['#attached']['library'], TRUE);
+    unset($attachments['#attached']['library'][$match_height]);
+  }
+
 }
 
 /**
