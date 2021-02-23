@@ -631,6 +631,14 @@ nav.w3-bar.w3-section.tabs {
 
 /* Layout Builder body */
 
+.node__content .layout--onecol-section,
+.node__content .layout--twocol-section,
+.node__content .layout--threecol-section,
+.node__content .layout--fourcol-section {
+  clear: both;
+  content: "";
+}
+
 .layout-builder {
   margin: 10px;
   padding: 10px 15px;
