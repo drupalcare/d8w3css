@@ -177,6 +177,12 @@ a:hover > img.w3-image {
   float: left;
 }
 
+.field--type-h5p .field__label,
+.field--type-h5p .field__item,
+.field--type-h5p .field__items {
+  width: 100%;
+}
+
 .field--label-above > .field__item,
 .field--label-above > .field__items > .field__item:first-child,
 .field--label-above > .field__items > .field__item:first-child a {
