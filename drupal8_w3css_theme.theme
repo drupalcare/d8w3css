@@ -26,35 +26,38 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
 
     // Add node id to the body class.
     case 'entity.node.canonical':
-      $node = $routeMatch->getParameter('node');
+      $node_id = $routeMatch->getParameter('node')->id();
 
-      if ($node) {
-        $variables['attributes']['class'][] = 'path-node-' . $node->id();
+      if ($node_id) {
+        $variables['attributes']['class'][] = 'path-node-' . $node_id;
       }
       break;
 
     // Add vocabulary name and term id to the body class.
     case 'entity.taxonomy_term.canonical':
-      $term = $routeMatch->getParameter('taxonomy_term');
+      $term            = $routeMatch->getParameter('taxonomy_term');
+      $term_id         = $term->id();
+      $vocabulary_name = $term->bundle();
 
-      if ($term) {
-        $vocabulary_id = $term->bundle();
-        $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term->id();
-        $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($vocabulary_id);
+      if ($term_id) {
+        $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term_id;
+      }
+      if ($vocabulary_name) {
+        $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($vocabulary_name);
       }
       break;
 
     // Add user id to the body class.
     case 'entity.user.canonical':
-      $user = $routeMatch->getParameter('user');
+      $user_id = $routeMatch->getParameter('user')->id();
 
-      if ($user) {
-        $variables['attributes']['class'][] = 'path-user-' . $user->id();
+      if ($user_id) {
+        $variables['attributes']['class'][] = 'path-user-' . $user_id;
       }
       break;
   }
 
-  // Add view id to the body class.
+  // Add view id name to the body class.
   $view_id = $routeMatch->getParameter('view_id');
 
   if ($view_id) {
