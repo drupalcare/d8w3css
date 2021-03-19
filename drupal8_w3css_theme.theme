@@ -35,15 +35,13 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
 
     // Add vocabulary name and term id to the body class.
     case 'entity.taxonomy_term.canonical':
-      $term            = $routeMatch->getParameter('taxonomy_term');
-      $term_id         = $term->id();
-      $vocabulary_name = $term->bundle();
+      $term = $routeMatch->getParameter('taxonomy_term');
 
-      if ($term_id) {
-        $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term_id;
+      if ($term->id()) {
+        $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term->id();
       }
-      if ($vocabulary_name) {
-        $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($vocabulary_name);
+      if ($term->bundle()) {
+        $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($term->bundle());
       }
       break;
 
