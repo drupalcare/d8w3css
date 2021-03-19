@@ -329,6 +329,11 @@ ol {
 .search-form .search-advanced:hover {
   background-color: transparent!important;
 }
+
+.search-form + h2 {
+ clear: both;
+}
+
 .node > .node__title {
   float: left;
 }
