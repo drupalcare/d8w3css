@@ -19,29 +19,48 @@ use Drupal\block_content\BlockContentInterface;
 function drupal8_w3css_theme_preprocess_html(&$variables) {
   // Add node id to the body class.
   $variables['path_info']['args'] = FALSE;
-  $path_raw                       = \Drupal::service('path.current')->getPath();
-  $path_trimmed                   = ltrim($path_raw, '/');
-  $path_args                      = explode('/', $path_trimmed);
-  // Add user id to the body class.
-  if (isset($path_args[0], $path_args[1]) && ($path_args[0] == 'user')) {
-    $variables['attributes']['class'][] = 'path-user-' . $path_args[1];
+
+  $routeMatch = \Drupal::routeMatch();
+  // Test route name.
+  switch ($routeMatch->getRouteName()) {
+
+    // Add node id to the body class.
+    case 'entity.node.canonical':
+      $node = $routeMatch->getParameter('node');
+
+      if ($node) {
+        $variables['attributes']['class'][] = 'path-node-' . $node->id();
+      }
+      break;
+
+    // Add vocabulary name and term id to the body class.
+    case 'entity.taxonomy_term.canonical':
+      $term = $routeMatch->getParameter('taxonomy_term');
+
+      if ($term) {
+        $vocabulary_id = $term->bundle();
+        $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term->id();
+        $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($vocabulary_id);
+      }
+      break;
+
+    // Add user id to the body class.
+    case 'entity.user.canonical':
+      $user = $routeMatch->getParameter('user');
+
+      if ($user) {
+        $variables['attributes']['class'][] = 'path-user-' . $user->id();
+      }
+      break;
   }
-  // Add node id to the body class.
-  if (isset($path_args[0], $path_args[1]) && ($path_args[0] == 'node') && (is_numeric($path_args[1]))) {
-    $variables['attributes']['class'][] = 'path-node-' . $path_args[1];
-  }
-  // Add term id to the body class.
-  if (isset($path_args[0], $path_args[1], $path_args[2]) && $path_args[0] == 'taxonomy' && $path_args[1] == 'term') {
-    $variables['attributes']['class'][] = 'path-taxonomy-term-' . $path_args[2];
-    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($path_args[2]);
-    $vocabulary_id = $term->bundle();
-    $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($vocabulary_id);
-  }
+
   // Add view id to the body class.
-  $view_id = \Drupal::routeMatch()->getParameter('view_id');
+  $view_id = $routeMatch->getParameter('view_id');
+
   if ($view_id) {
     $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier($view_id);
   }
+
 }
 
 /**
