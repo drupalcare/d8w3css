@@ -416,6 +416,11 @@ ol {
   font-size: 0.733em;
   line-height: 1.2;
 }
+
+.comment__author span a {
+  display: inline-block;
+}
+
 .comment__content {
   position: relative;
   display: table-cell;
