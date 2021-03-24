@@ -142,9 +142,6 @@
   #main-navigation-v .li-1 .toggle-child:after {
     content: none;
   }
-  body {
-    font-size: 90%!important;
-  }
 }
 
 /* Medium Screen Only */
@@ -215,13 +212,13 @@
     font-size: 16px;
   }
   h3 {
-    font-size: 14px;
+    font-size: 15px;
   }
   h4 {
-    font-size: 13px;
+    font-size: 14px;
   }
   p {
-    font-size: 13px;
+    font-size: 14px;
     padding-top: 10px!important;
     padding-bottom: 10px!important;
     margin: 0;
@@ -286,9 +283,6 @@
   }
   .copyright-inner .w3-half p {
     text-align: center!important;
-  }
-  body {
-    font-size: 85%!important;
   }
   /* Search Page*/
   .path-search form.search-form>.form-wrapper {
