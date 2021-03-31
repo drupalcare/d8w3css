@@ -278,7 +278,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
       (!theme_get_setting('main_region')) &&
       (!theme_get_setting('bottom_region')) &&
       (!theme_get_setting('footer_region'))) {
-    $match_height = array_search('drupal8_w3css_theme/match-height', $attachments['#attached']['library'], TRUE);
+    $match_height = array_search('drupal8_w3css_theme/d8w3css-match-height', $attachments['#attached']['library'], TRUE);
     unset($attachments['#attached']['library'][$match_height]);
   }
 
