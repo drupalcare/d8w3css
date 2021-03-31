@@ -162,10 +162,15 @@ a:hover > img.w3-image {
 }
 
 /* ul links and tags */
+.field--label-hidden,
 .field--label-inline,
 .field--label-above {
   width: 100%;
   clear: both;
+  float: left;
+}
+
+.field--label-hidden.field__items > .field__item {
   float: left;
 }
 
@@ -175,6 +180,7 @@ a:hover > img.w3-image {
   clear: both;
   display: block;
   float: left;
+  width: 100%;
 }
 
 .field--type-h5p .field__label,
@@ -190,7 +196,7 @@ a:hover > img.w3-image {
   padding-left: 0 !important;
 }
 
-.field--label-above > .field__items .field__item {
+.field--label-above > .field__items > .field__item {
   float: left;
 }
 
@@ -224,10 +230,13 @@ ul.links li a {
 
 .field--name-field-tags .field__item a {
   border: none;
-  padding: 7px 14px !important;
+  padding: 7px 12px !important;
   float: left;
 }
 
+.field--name-field-tags .field__label {
+  padding: 7px 0;
+}
 .node__content ul.links {
   float: right;
 }
@@ -237,6 +246,7 @@ ul.links li a {
   padding-right: 0 !important;
 }
 
+.field--name-field-tags .field__label,
 .field--name-field-tags .field__item a {
   font-size: 13px;
 }

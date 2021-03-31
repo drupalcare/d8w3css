@@ -331,7 +331,7 @@ ol {
 }
 
 .search-form + h2 {
- clear: both;
+  clear: both;
 }
 
 .node > .node__title {
