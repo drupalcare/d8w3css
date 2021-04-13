@@ -25,6 +25,10 @@ a.d8-has-image > img.w3-image {
   float: left;
 }
 
+.w3-disabled-has-image a.d8-has-image > img.w3-image {
+  width: auto;
+}
+
 a:hover img,
 a:hover div img,
 a.d8-has-image:hover,
