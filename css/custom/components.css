@@ -1002,3 +1002,7 @@ form .form-item {
 form .form-item label {
   padding-right: 10px;
 }
+/* default/full layout */
+.sitemap ul {
+  list-style: none;
+}
