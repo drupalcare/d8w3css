@@ -586,9 +586,10 @@ ol {
 #drupal-off-canvas .inline-block-list__item {
   background: #113e5f;
 }
-.ui-dialog.ui-dialog-off-canvas,
+#drupal-off-canvas,
 #drupal-off-canvas *,
-#drupal-off-canvas *:not(div) {
+#drupal-off-canvas *:not(div),
+.ui-dialog.ui-dialog-off-canvas {
   background: #0c2b42;
 }
 #drupal-off-canvas details[open] > summary {
