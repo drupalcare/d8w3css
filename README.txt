@@ -222,27 +222,32 @@ Steps for creating a new sub theme.
 theme directory.
 
 2) Re-name the copied folder to have the new sub-theme name. Example: my new
-sub-theme is Titto.  I will rename the folder from "drupal8_w3css_subtheme" to
- "titto".
+sub-theme is w3css_subtheme.  I will rename the folder from
+"drupal8_w3css_subtheme" to "w3css_subtheme".
 
-3) Open the new named sub-theme folder "titto" and change the following
-files' names from:
+3) Open the new named sub-theme folder "w3css_subtheme" and change the following
+ files' names from:
+drupal8_w3css_subtheme.theme >> To >> w3css_subtheme.theme
 
-drupal8_w3css_subtheme.theme >> To >> titto.theme
+drupal8_w3css_subtheme.info.yml >> To >> w3css_subtheme.info.yml
 
-drupal8_w3css_subtheme.info.yml >> To >> titto.info.yml
+drupal8_w3css_subtheme.libraries.yml >> To >> w3css_subtheme.libraries.yml
 
-drupal8_w3css_subtheme.libraries.yml >> To >> titto.libraries.yml
+4) Open the file w3css_subtheme.info.yml in your text editor and edit the
+following:
+line 1 from "Drupal8 W3CSS Subtheme" >> To "W3css Subtheme",
+This is human readable name.
+line 8 from "drupal8_w3css_subtheme/d8w3css-subtheme-global" >> To >>
+"w3css_subtheme/d8w3css-subtheme-global".
 
-4) Open the file titto.info.yml in your text editor and edit,
+We are only changing the drupal8_w3css_subtheme to the new sub theme name.
+The name "d8w3css-subtheme-global" is the library name and MUST match the
+name in w3css_subtheme.libraries.yml.
 
-line 1 from "Drupal8 W3CSS Subtheme" >> To "Titto"
+If you would like to change the library name you MUST change it in the
+both files.
 
-line 7 from "drupal8_w3css_subtheme/global-components" >>
-
-To >> "titto/global-components".
-
-Make sure the spaces in this file are not changed.
+Make sure the spaces in any of the files are not changed
 
 The sub-theme now is ready to be enabled.
 
@@ -307,9 +312,9 @@ you are done.
 
 1- Create a sub-theme.
 2- copy page .../d8w3css/templates/layout/page.html.twig to the sub-theme.
-3- Open page.html.twig in the sub-theme and find the words "main-navigation-v". 
+3- Open page.html.twig in the sub-theme and find the words "main-navigation-v".
 On the same line, change "w3-animate-left" to "w3-animate-right".
-4- Find the word "open-nav-inner". On the same line, change "w3-left" 
+4- Find the word "open-nav-inner". On the same line, change "w3-left"
 to "w3-right".
 5- Copy and paste the following css in the sub-theme css style file:
 #main-navigation-v.w3-sidebar{right:0;}
@@ -319,11 +324,11 @@ to "w3-right".
   ....................................................
 
 Create a sub-theme.
-Go to d8w3css/css/w3-css-theme-custom and copy w3-theme-00029.css 
+Go to d8w3css/css/w3-css-theme-custom and copy w3-theme-00029.css
 file inside your-sub-theme/css folder.
-Open your-sub-theme.libraries.yml and  paste css/w3-theme-00029.css: {} 
+Open your-sub-theme.libraries.yml and  paste css/w3-theme-00029.css: {}
 under css/styles.css: {}.
 Note: Spacing must be aligned exactly underneath.
-Create a folder inside the sub-theme and name it images. Add the image you 
+Create a folder inside the sub-theme and name it images. Add the image you
 want to use as a background inside images folder.
 The image name must be page-wrapper.jpg.
