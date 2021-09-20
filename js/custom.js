@@ -133,8 +133,8 @@
         });
 
       $(context)
-        .find('.clickable-dropdown-menu-v-fa-down')
-        .once('.clickable-dropdown-menu-v-fa-down')
+        .find('.clickable-dropdown-menu-fa-down-h')
+        .once('.clickable-dropdown-menu-fa-down-h')
         .on('click', function (e) {
           e.preventDefault();
           let $this = $(this);
@@ -142,8 +142,8 @@
         });
 
       $(context)
-        .find('.clickable-dropdown-menu-h-fa-down')
-        .once('.clickable-dropdown-menu-h-fa-down')
+        .find('.clickable-dropdown-menu-fa-down-v')
+        .once('.clickable-dropdown-menu-fa-down-v')
         .on('click', function (e) {
           e.preventDefault();
           let $this = $(this);

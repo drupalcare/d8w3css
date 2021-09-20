@@ -6,15 +6,15 @@
   .highlighted-inner {
     padding: 0 20px;
   }
-  .clickable-dropdown-menu li.li-expanded > span,
-  .clickable-dropdown-menu-h li.li-expanded > span {
+  li.li-expanded > span {
     pointer-events: none;
   }
   /* Main Menu */
-  #main-navigation-h .clickable-dropdown-menu li.li-expanded > a {
-    padding-right: 44px;
+  #main-navigation-h li.li-expanded > a.clickable-dropdown-menu-link {
+    padding-right: 40px;
   }
-  #main-navigation-h .clickable-dropdown-menu li.li-expanded > span {
+  #main-navigation-h li.li-expanded > span.clickable-dropdown-menu-fa-right,
+  #main-navigation-h li.li-expanded > span.clickable-dropdown-menu-fa-down {
     padding-bottom: 15px;
     padding-top: 15px;
   }
@@ -46,7 +46,7 @@
   }
 
   .li-1>span.clickable-dropdown-menu-fa-down,
-  .li-1>span.clickable-dropdown-menu-h-fa-down {
+  .li-1>span.clickable-dropdown-menu-fa-down-h {
     display: none;
   }
 }
@@ -154,26 +154,33 @@
   #main-navigation-h .ul-parent ul ul li > a {
     padding-left: 50px!important;
   }
+
   /* Vertical Menus */
   #main-navigation-v .li-1 .toggle-child:after {
     content: none;
   }
 
   .li-1>span.clickable-dropdown-menu-fa-right,
-  .li-1>span.clickable-dropdown-menu-h-fa-right {
+  .li-1>span.clickable-dropdown-menu-fa-right-h {
     display: none;
   }
-  .clickable-dropdown-menu li.li-expanded > a,
-  .clickable-dropdown-menu-h ul li.li-expanded > a,
-  .clickable-dropdown-menu-v ul li.li-expanded > a {
+  li.li-expanded > a.clickable-dropdown-menu-link,
+  li.li-expanded > a.clickable-dropdown-menu-link-h,
+  li.li-expanded > a.clickable-dropdown-menu-link-v {
     padding-right: 52px;
   }
-  .clickable-dropdown-menu li.li-expanded > span,
-  .clickable-dropdown-menu-h ul li.li-expanded > span,
-  .clickable-dropdown-menu-v ul li.li-expanded > span {
+  li.li-expanded > span.clickable-dropdown-menu-fa-down,
+  li.li-expanded > span.clickable-dropdown-menu-fa-down-h,
+  li.li-expanded > span.clickable-dropdown-menu-fa-down-v {
     padding-right: 16px;
     padding-left: 16px;
   }
+  .toggle-parent>span,
+  .toggle-child>span {
+    display: inline-block;
+    float: right;
+}
+
 }
 
 /* Medium Screen Only */
