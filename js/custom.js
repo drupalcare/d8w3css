@@ -64,6 +64,18 @@
     }
   };
 
+  function show_hide($this) {
+    if ($this.next().hasClass('show')) {
+      $this.next().removeClass('show');
+      $this.next().slideUp(350);
+    } else {
+      $this.parent().parent().find('li .ul-child').removeClass('show');
+      $this.parent().parent().find('li .ul-child').slideUp(350);
+      $this.next().toggleClass('show');
+      $this.next().slideToggle(350);
+    }
+  }
+
   Drupal.behaviors.d8w3cssMenuDepth = {
     attach: function (context, settings) {
       // Add class to any UL/LI according to the depth.
@@ -101,22 +113,43 @@
             }
           }
         });
+
       $(context)
         .find('.tMenu-v')
         .once('.tMenu-v')
         .on('click', function (e) {
           e.preventDefault();
           let $this = $(this);
-          if ($this.next().hasClass('show')) {
-            $this.next().removeClass('show');
-            $this.next().slideUp(350);
-          } else {
-            $this.parent().parent().find('li .ul-child').removeClass('show');
-            $this.parent().parent().find('li .ul-child').slideUp(350);
-            $this.next().toggleClass('show');
-            $this.next().slideToggle(350);
-          }
+          show_hide($this);
         });
+
+      $(context)
+        .find('.clickable-dropdown-menu-fa-down')
+        .once('.clickable-dropdown-menu-fa-down')
+        .on('click', function (e) {
+          e.preventDefault();
+          let $this = $(this);
+          show_hide($this);
+        });
+
+      $(context)
+        .find('.clickable-dropdown-menu-v-fa-down')
+        .once('.clickable-dropdown-menu-v-fa-down')
+        .on('click', function (e) {
+          e.preventDefault();
+          let $this = $(this);
+          show_hide($this);
+        });
+
+      $(context)
+        .find('.clickable-dropdown-menu-h-fa-down')
+        .once('.clickable-dropdown-menu-h-fa-down')
+        .on('click', function (e) {
+          e.preventDefault();
+          let $this = $(this);
+          show_hide($this);
+        });
+
     }
   };
 
@@ -167,15 +200,7 @@
           let currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
           let $this = $(this);
           if ((currentWidth <= 992) || ($('#main-navigation-v').css('display') === 'block')) {
-            if ($this.next().hasClass('show')) {
-              $this.next().removeClass('show');
-              $this.next().slideUp(350);
-            } else {
-              $this.parent().parent().find('li .ul-child').removeClass('show');
-              $this.parent().parent().find('li .ul-child').slideUp(350);
-              $this.next().toggleClass('show');
-              $this.next().slideToggle(350);
-            }
+            show_hide($this);
           }
         });
     }

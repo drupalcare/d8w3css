@@ -65,6 +65,36 @@ ul .ul-child.show {
   display: block;
   text-align: left;
 }
+.clickable-dropdown-menu li.li-expanded > a,
+.clickable-dropdown-menu-h ul li.li-expanded > a,
+.clickable-dropdown-menu-v ul li.li-expanded > a {
+  padding-right: 44px;
+}
+.clickable-dropdown-menu li.li-expanded > a:hover,
+.clickable-dropdown-menu-h ul li.li-expanded > a:hover,
+.clickable-dropdown-menu-v ul li.li-expanded > a:hover {
+  cursor: pointer!important;
+}
+.clickable-dropdown-menu li.li-expanded > span:hover,
+.clickable-dropdown-menu-h ul li.li-expanded > span:hover,
+.clickable-dropdown-menu-v ul li.li-expanded > span:hover {
+  cursor: context-menu!important;
+  opacity: 0.8;
+}
+.clickable-dropdown-menu .li-expanded,
+.clickable-dropdown-menu-h .li-expanded,
+.clickable-dropdown-menu-v .li-expanded {
+  position: relative;
+}
+.clickable-dropdown-menu li.li-expanded > span,
+.clickable-dropdown-menu-h ul li.li-expanded > span,
+.clickable-dropdown-menu-v ul li.li-expanded > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px;
+}
+
 /* Vertical/Horizontal Main Menu */
 #main-navigation-h {
   z-index: 1000;
@@ -87,11 +117,21 @@ ul .ul-child.show {
   -webkit-box-shadow: none!important;
   box-shadow: none!important;
 }
+#main-navigation-v .clickable-dropdown-menu li.li-expanded > span {
+  pointer-events: auto;
+}
 .ul-responsive-v .ul-parent .li-expanded:hover > ul,
 .ul-responsive-v .ul-parent .li-expanded .li-expanded:hover > ul,
 #main-navigation-v .ul-parent .li-expanded:hover > ul,
-#main-navigation-v .ul-parent .li-expanded .li-expanded:hover > ul {
+#main-navigation-v .ul-parent .li-expanded .li-expanded:hover > ul,
+#main-navigation-v  .li-1>span.clickable-dropdown-menu-fa-right,
+#main-navigation-v  .li-1>span.clickable-dropdown-menu-h-fa-right {
   display: none;
+}
+
+#main-navigation-v   .li-1>span.clickable-dropdown-menu-fa-down,
+#main-navigation-v  .li-1>span.clickable-dropdown-menu-h-fa-down {
+  display: inline-block;
 }
 .mobile-nav:hover,
 ul li.li-expanded > a:hover {
@@ -135,16 +175,13 @@ ul li.li-expanded > a:hover {
 #main-navigation-v .li-1 .toggle-child .right-arrow {
   display: none;
 }
+#main-navigation-v .li-1 .toggle-child .dropdown-arrow {
+  display: inline-block;
+}
 .ul-responsive-v .li-1 .toggle-child,
 #main-navigation-v .li-1 .toggle-child {
   width: auto;
   clear: none;
-}
-#main-navigation-v .li-1 .toggle-child:after {
-  content: "\f078";
-  font-family: FontAwesome;
-  padding-left: 5px;
-  text-align: right;
 }
 #open-nav-inner {
   width: 50px;
