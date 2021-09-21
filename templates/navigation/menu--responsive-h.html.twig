@@ -72,11 +72,11 @@
 
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
           <a href="{{ item.url }}" class="w3-button clickable-dropdown-menu-link-h toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="right-arrow clickable-dropdown-menu-fa-right-h"><i class="fa fa-arrow-right"></i></span>
+          <span class="right-arrow clickable-dropdown-menu-fa-right-h"><i class="fa fa-chevron-right"></i></span>
           <span class="dropdown-arrow clickable-dropdown-menu-fa-down-h"><i class="fa fa-chevron-down"></i></span>
         {% else %}
           <a href="#" class="w3-button tMenu toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="right-arrow"><i class="fa fa-arrow-right"></i></span>
+            <span class="right-arrow"><i class="fa fa-chevron-right"></i></span>
             <span class="dropdown-arrow"><i class="fa fa-chevron-down"></i></span>
           </a>
         {% endif %}
