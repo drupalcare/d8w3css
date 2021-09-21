@@ -13,9 +13,8 @@
   #main-navigation-h li.li-expanded > a.clickable-dropdown-menu-link {
     padding-right: 40px;
   }
-  #main-navigation-h li.li-expanded > span.clickable-dropdown-menu-fa-right,
+
   #main-navigation-h li.li-expanded > span.clickable-dropdown-menu-fa-down {
-    padding-bottom: 15px;
     padding-top: 15px;
   }
   #main-navigation-h .ul-parent li > a {

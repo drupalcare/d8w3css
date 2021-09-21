@@ -28,7 +28,7 @@ We call a macro which calls itself to render the full tree.
   {% import _self as menus %}
   {%
     set menu_classes = [
-    'ul-parent clickable-dropdown-menu ul-parent-' ~ menu_name|clean_class,
+    'ul-parent ul-parent-' ~ menu_name|clean_class,
   ]
   %}
   {%
@@ -56,10 +56,10 @@ We call a macro which calls itself to render the full tree.
 
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
           <a href="{{ item.url }}" class="w3-button clickable-dropdown-menu-link toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="fa fa-chevron-down dropdown-arrow clickable-dropdown-menu-fa-down"></span>
+          <span class="dropdown-arrow clickable-dropdown-menu-fa-down"><i class="fa fa-chevron-down"></i></span>
         {% else %}
           <a href="#" class="w3-button tMenu toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="fa fa-chevron-down dropdown-arrow"></span>
+            <span class="dropdown-arrow"><i class="fa fa-chevron-down"></i></span>
           </a>
         {% endif %}
 
@@ -68,11 +68,12 @@ We call a macro which calls itself to render the full tree.
 
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
           <a href="{{ item.url }}" class="w3-button clickable-dropdown-menu-link toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="fa fa-arrow-right right-arrow clickable-dropdown-menu-fa-right"></span>
-          <span class="fa fa-chevron-down dropdown-arrow clickable-dropdown-menu-fa-down"></span>
+          <span class="right-arrow clickable-dropdown-menu-fa-right"><i class="fa fa-arrow-right"></i></span>
+          <span class="dropdown-arrow clickable-dropdown-menu-fa-down"><i class="fa fa-chevron-down"></i></span>
         {% else %}
           <a href="#" class="w3-button tMenu toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="fa fa-arrow-right right-arrow"></span><span class=" fa fa-chevron-down dropdown-arrow"></span>
+            <span class="right-arrow"><i class="fa fa-arrow-right"></i></span>
+            <span class="dropdown-arrow"><i class="fa fa-chevron-down"></i></span>
           </a>
         {% endif %}
 

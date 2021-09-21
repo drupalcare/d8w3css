@@ -23,6 +23,10 @@
 .ul-parent li ul.ul-child li .ul-child {
   z-index: 4000!important;
 }
+li.li-expanded i.fa {
+  float: right;
+  display: block;
+}
 ul .ul-child.show {
   /* display: block; */
   background-color: inherit;
@@ -79,30 +83,32 @@ li.li-expanded > a.clickable-dropdown-menu-link-v:hover {
 .ul-parent .li-expanded {
   position: relative;
 }
-li.li-expanded > span.clickable-dropdown-menu-fa-right,
-li.li-expanded > span.clickable-dropdown-menu-fa-right-h,
-li.li-expanded > span.clickable-dropdown-menu-fa-down,
-li.li-expanded > span.clickable-dropdown-menu-fa-down-h,
-li.li-expanded > span.clickable-dropdown-menu-fa-down-v {
+
+li.li-expanded > span {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 12px;
+  padding: 6px 10px;
 }
-li.li-expanded > span.clickable-dropdown-menu-fa-right:hover,
-li.li-expanded > span.clickable-dropdown-menu-fa-right-h:hover,
-li.li-expanded > span.clickable-dropdown-menu-fa-down:hover,
-li.li-expanded > span.clickable-dropdown-menu-fa-down-h:hover,
-li.li-expanded > span.clickable-dropdown-menu-fa-down-v:hover {
+li.li-expanded > span.right-arrow {
+  padding-top: 14px;
+}
+
+.ul-responsive-h li.li-expanded > span.right-arrow {
+  padding-top: 8px;
+}
+li.li-expanded > span:hover {
   cursor: context-menu!important;
   opacity: 0.8;
 }
-.toggle-parent>span,
-.toggle-child>span {
-  padding: 0 0 0 14px;
-}
+.toggle-parent>span.right-arrow,
+.toggle-child>span.right-arrow,
 .toggle-parent>span.dropdown-arrow,
 .toggle-child>span.dropdown-arrow {
+  margin: 0 0 0 10px;
+  line-height: 16px;
+}
+.toggle-parent>span {
   float: right;
 }
 /* Vertical/Horizontal Main Menu */
@@ -212,6 +218,7 @@ ul li.li-expanded > a:hover {
   width: auto;
   clear: none;
 }
+
 #open-nav-inner {
   width: 50px;
   background-color: transparent!important;
