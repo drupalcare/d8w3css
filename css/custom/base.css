@@ -26,14 +26,23 @@ video {
 }
 a img {
   border: none;
+  outline: none;
 }
 svg:not(:root) {
   overflow: hidden;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
 }
 h4,
 h5,
 h6 {
   font-weight: normal;
+}
+p {
+  line-height: 1.7em;
 }
 h1 a,
 h2 a,
@@ -81,6 +90,7 @@ input:active,
 button:active,
 textarea:active {
   border-radius: 0;
+  outline: none;
 }
 input[type=textarea],
 input[type=button],
@@ -89,6 +99,7 @@ input[type=textfield] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  outline: none;
 }
 .w3-ul li {
   border: none;

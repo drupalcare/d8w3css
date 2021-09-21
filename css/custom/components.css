@@ -286,17 +286,14 @@ ul li.li-expanded > a:hover {
 }
 
 /* Footer/Account Menu */
-.copyright-inner,
-.ul-parent-account,
-.ul-parent-footer {
-  font-family: 'Times New Roman', Times, serif;
-}
-
 .ul-parent-account li a,
 .ul-parent-footer li a {
   padding: 7px 14px;
 }
-
+#footer-menu-inner > div {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 /* User Account Menu */
 .ul-parent-footer {
   width: 100%;
