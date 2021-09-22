@@ -126,8 +126,7 @@
       $(context)
         .find('.clickable-dropdown-menu-fa-down')
         .once('.clickable-dropdown-menu-fa-down')
-        .on('click', function (e) {
-          e.preventDefault();
+        .on('click', function () {
           let $this = $(this);
           show_hide($this);
         });
@@ -135,8 +134,7 @@
       $(context)
         .find('.clickable-dropdown-menu-fa-down-h')
         .once('.clickable-dropdown-menu-fa-down-h')
-        .on('click', function (e) {
-          e.preventDefault();
+        .on('click', function () {
           let $this = $(this);
           show_hide($this);
         });
@@ -144,8 +142,7 @@
       $(context)
         .find('.clickable-dropdown-menu-fa-down-v')
         .once('.clickable-dropdown-menu-fa-down-v')
-        .on('click', function (e) {
-          e.preventDefault();
+        .on('click', function () {
           let $this = $(this);
           show_hide($this);
         });

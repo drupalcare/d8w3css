@@ -46,12 +46,7 @@
     animation: comeout 0.3s;
   }
 
-  .li-1 .toggle-child .dropdown-arrow {
-    display: none;
-  }
-
-  .li-1>span.clickable-dropdown-menu-fa-down,
-  .li-1>span.clickable-dropdown-menu-fa-down-h {
+  .li-1 .dropdown-arrow {
     display: none;
   }
 
@@ -63,8 +58,8 @@
 
   #main-navigation-h .li-1 > span,
   #main-navigation-h .li-1 > a > span {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
 }
@@ -158,9 +153,19 @@
     position: relative !important;
   }
 
-  .li-1 .toggle-child .right-arrow {
+  .li-1 .right-arrow {
     display: none;
   }
+
+  li.li-expanded > a {
+    padding-right: 52px;
+  }
+
+  li.li-expanded > span {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
 
   /* Horizontal Main Menu */
   .ul-responsive-h .li-item > a,
@@ -194,30 +199,6 @@
   /* Vertical Menus */
   #main-navigation-v .li-1 .toggle-child:after {
     content: none;
-  }
-
-  .li-1>span.clickable-dropdown-menu-fa-right,
-  .li-1>span.clickable-dropdown-menu-fa-right-h {
-    display: none;
-  }
-
-  li.li-expanded > a.clickable-dropdown-menu-link,
-  li.li-expanded > a.clickable-dropdown-menu-link-h,
-  li.li-expanded > a.clickable-dropdown-menu-link-v {
-    padding-right: 52px;
-  }
-
-  li.li-expanded > span.clickable-dropdown-menu-fa-down,
-  li.li-expanded > span.clickable-dropdown-menu-fa-down-h,
-  li.li-expanded > span.clickable-dropdown-menu-fa-down-v {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
-  .toggle-parent>span,
-  .toggle-child>span {
-    display: inline-block;
-    float: right;
   }
 
 }

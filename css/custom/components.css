@@ -29,13 +29,6 @@
   z-index: 4000 !important;
 }
 
-li.li-expanded i.fa {
-  font-weight: normal;
-  float: right;
-  display: block;
-  font-size: 16px;
-}
-
 ul .ul-child.show {
   /* display: block; */
   background-color: inherit;
@@ -61,13 +54,6 @@ ul .ul-child.show {
   transition: background .3s ease;
 }
 
-.right-arrow,
-.dropdown-arrow {
-  font-family: FontAwesome;
-  text-align: right;
-  display: inline-block;
-}
-
 .ul-parent li  ul {
   min-width: 160px;
   display: none;
@@ -86,38 +72,6 @@ ul .ul-child.show {
 .ul-parent li a {
   display: block;
   text-align: left;
-}
-
-li.li-expanded > a {
-  padding-right: 45px;
-}
-
-li.li-expanded > a.clickable-dropdown-menu-link:hover,
-li.li-expanded > a.clickable-dropdown-menu-link-h:hover,
-li.li-expanded > a.clickable-dropdown-menu-link-v:hover {
-  cursor: pointer !important;
-}
-
-.ul-parent .li-expanded {
-  position: relative;
-}
-
-li.li-expanded > span,
-li.li-expanded > a > span {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 15px;
-}
-
-li.li-expanded .dropdown-arrow svg,
-li.li-expanded .right-arrow svg {
-  float: right;
-}
-
-li.li-expanded > span:hover {
-  cursor: context-menu !important;
-  opacity: 0.8;
 }
 
 /* Vertical/Horizontal Main Menu */
@@ -141,56 +95,21 @@ li.li-expanded > span:hover {
   width: 100%;
 }
 
-#main-navigation-v li.li-expanded span.right-arrow,
-.ul-responsive-v li.li-expanded span.right-arrow {
-  display: none;
-}
-
-#main-navigation-v li.li-expanded span.drowdown-arrow,
-.ul-responsive-v li.li-expanded span.dropdown-arrow {
-  display: inline-block;
-}
-
-#main-navigation-v li.li-expanded > span,
-.ul-responsive-v li.li-expanded > span {
-  pointer-events: auto;
-}
-
 .ul-responsive-v .ul-parent .ul-child,
 #main-navigation-v .ul-parent .ul-child {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
-#main-navigation-v li.li-expanded > span {
-  pointer-events: auto;
-}
-
 .ul-responsive-v .ul-parent .li-expanded:hover > ul,
 .ul-responsive-v .ul-parent .li-expanded .li-expanded:hover > ul,
 #main-navigation-v .ul-parent .li-expanded:hover > ul,
-#main-navigation-v .ul-parent .li-expanded .li-expanded:hover > ul,
-#main-navigation-v  .li-1>span.clickable-dropdown-menu-fa-right,
-#main-navigation-v  .li-1>span.clickable-dropdown-menu-fa-right-h {
+#main-navigation-v .ul-parent .li-expanded .li-expanded:hover > ul {
   display: none;
 }
 
-#main-navigation-v   .li-1>span.clickable-dropdown-menu-fa-down,
-#main-navigation-v  .li-1>span.clickable-dropdown-menu-fa-down-h {
-  display: inline-block;
-}
-
-.mobile-nav:hover,
-ul li.li-expanded > a:hover {
+.mobile-nav:hover {
   cursor: context-menu !important;
-}
-
-#main-navigation-v  li.li-expanded > span,
-#main-navigation-v  li.li-expanded > a > span,
-.ul-responsive-v li.li-expanded > span,
-.ul-responsive-v li.li-expanded > a > span {
-  top: 0;
-  padding: 12px 15px;
 }
 
 .ul-responsive-v .ul-parent li,
@@ -235,14 +154,6 @@ ul li.li-expanded > a:hover {
   padding-left: 50px !important;
 }
 
-#main-navigation-v .li-1 .toggle-child .right-arrow {
-  display: none;
-}
-
-#main-navigation-v .li-1 .toggle-child .dropdown-arrow {
-  display: inline-block;
-}
-
 .ul-responsive-v .li-1 .toggle-child,
 #main-navigation-v .li-1 .toggle-child {
   width: auto;
@@ -253,6 +164,65 @@ ul li.li-expanded > a:hover {
   width: 50px;
   background-color: transparent !important;
   margin: 10px 20px 0 0;
+}
+
+/* span arrow right or down */
+li.li-expanded i.fa {
+  font-weight: normal;
+  float: right;
+  display: block;
+  font-size: 16px;
+}
+
+li.li-expanded .dropdown-arrow svg,
+li.li-expanded .right-arrow svg {
+  float: right;
+}
+
+.right-arrow,
+.dropdown-arrow {
+  font-family: FontAwesome;
+  text-align: right;
+  display: inline-block;
+}
+
+.ul-parent .li-expanded {
+  position: relative;
+}
+
+li.li-expanded > a {
+  padding-right: 45px;
+}
+
+li.li-expanded > a.link-enabled:hover {
+  cursor: pointer !important;
+}
+
+li.li-expanded > span,
+li.li-expanded > a > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 15px;
+}
+
+#main-navigation-v .right-arrow {
+  display: none;
+}
+
+#main-navigation-v li.li-expanded > span,
+.ul-responsive-v li.li-expanded > span {
+  pointer-events: auto;
+}
+
+.ul-responsive-v .dropdown-arrow,
+#main-navigation-v .dropdown-arrow {
+  display: inline-block;
+}
+
+ul li.li-expanded > span:hover,
+ul li.li-expanded > a:hover {
+  cursor: context-menu !important;
 }
 
 /* Header */

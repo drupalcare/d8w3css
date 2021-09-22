@@ -1509,7 +1509,7 @@ a {
 .w3-right {
   float: right !important;
 }
-
+.w3-hover-over:hover,
 .w3-button:hover {
   color: #000 !important;
   background-color: #ccc !important;
