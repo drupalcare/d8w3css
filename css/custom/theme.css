@@ -29,6 +29,17 @@ a.d8-has-image > img.w3-image {
   width: auto;
 }
 
+.text-transform-none div,
+.text-transform-none h1,
+.text-transform-none h2,
+.text-transform-none h3,
+.text-transform-none h4,
+.text-transform-none h5,
+.text-transform-none h6,
+.text-transform-none a {
+  text-transform: none!important;
+}
+
 a:hover img,
 a:hover div img,
 a.d8-has-image:hover,
