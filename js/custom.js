@@ -44,8 +44,8 @@
     let currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     let mainMenuChild = $('#main-navigation-h').css('background-color');
     const bodyTag = $('body');
-    if (currentWidth >= 993) {
 
+    if (currentWidth >= 993) {
       // Add class to the body for large screen.
       bodyTag.addClass('large-screen').removeClass('small-screen', 'medium-screen');
       $('.ul-parent').removeClass('w3-show');
@@ -55,13 +55,33 @@
       $('#main-navigation-h .ul-parent').removeAttr('style');
       $('#main-navigation-h .ul-child').removeAttr('style').css('background-color', mainMenuChild);
 
-    } else if ((currentWidth >= 601) && (currentWidth <= 992)) {
+      if($('.top-container-inner > div').length > 1) {
+        $('.top-container-inner').addClass('w3-f-display');
+      }
+      if($('.main-container-inner > .w3-clear > div').length > 1) {
+        $('.main-container-inner > .w3-clear').addClass('w3-f-display');
+      }
+      if($('.bottom-container-inner > div').length > 1) {
+        $('.bottom-container-inner').addClass('w3-f-display');
+      }
+      if($('.footer-container-inner > div').length > 1) {
+        $('.footer-container-inner').addClass('w3-f-display');
+      }
+    } else {
+      // Remove the match height on medium/small screen.
+      $('.top-container-inner, .main-container-inner > .w3-clear, .bottom-container-inner, .footer-container-inner').removeClass('w3-f-display');
+    }
+
+    if ((currentWidth >= 601) && (currentWidth <= 992)) {
       // Add class to the body for medium screen.
       bodyTag.addClass('medium-screen').removeClass('large-screen', 'small-screen');
-    } else if (currentWidth <= 600) {
+    }
+
+    if (currentWidth <= 600) {
       // Add class to the body for small screen.
       bodyTag.addClass('small-screen').removeClass('large-screen', 'medium-screen');
     }
+
   };
 
   function show_hide($this) {

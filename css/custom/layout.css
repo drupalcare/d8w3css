@@ -29,6 +29,7 @@
 .footer-container-inner .third-footer {
   float: left;
 }
+
 .top-container-inner .first-top > div,
 .top-container-inner .second-top > div,
 .top-container-inner .third-top > div,
@@ -89,4 +90,7 @@
 }
 .w3-width-800 {
   max-width: 800px!important;
+}
+.w3-f-display {
+  display: flex;
 }
