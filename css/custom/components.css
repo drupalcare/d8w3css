@@ -678,6 +678,9 @@ ol {
   cursor: pointer;
 }
 
+.view-header {
+  padding: 0 16px;
+}
 /* Drupal Off Canvas */
 #drupal-off-canvas details,
 #drupal-off-canvas summary,

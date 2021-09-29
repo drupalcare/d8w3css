@@ -62,6 +62,12 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier($view_id);
   }
 
+  /** @var \Drupal\Core\Routing\AdminContext $admin_context */
+  $admin_context = \Drupal::service('router.admin_context');
+  if ($admin_context->isAdminRoute()) {
+    $variables['attributes']['class'][] = 'admin-context';
+  }
+
 }
 
 /**

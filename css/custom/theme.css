@@ -363,5 +363,33 @@ td .form-type-checkbox {
 body .ui-dialog {
   z-index: 1001 !important;
 }
+.vertical-tabs .vertical-tabs__panes {
+  padding: 0 16px;
+}
+/*Admin pages */
+.admin-context .w3-content {
+  max-width: 100%;
+}
 
-/**/
+.admin-context .action-links {
+  list-style: none;
+}
+.admin-context .action-links li {
+  white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.admin-context form .form-actions > a {
+  margin: 16px 10px;
+  padding: 9px 16px;
+  display: inline-block;
+}
+.admin-context form .form-actions {
+  display: flex;
+}
