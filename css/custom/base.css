@@ -317,3 +317,6 @@ textarea,
 .visuallyhidden {
   opacity: 0;
 }
+dl dd {
+  margin-bottom: 8px;
+}

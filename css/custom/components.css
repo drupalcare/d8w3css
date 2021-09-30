@@ -1046,11 +1046,13 @@ form > details.form-wrapper::after {
 form > details.form-wrapper {
   float: left;
   width: 100%;
+  padding: 0!important;
 }
-
+form > details[open] {
+  padding: 16px 24px!important;
+}
 form details.form-wrapper > summary {
   cursor: pointer;
-  margin: 10px auto;
 }
 
 form .tableselect-sort th:first-child,

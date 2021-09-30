@@ -12,6 +12,7 @@
 
 use Drupal\Component\Utility\Html;
 use Drupal\block_content\BlockContentInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -274,20 +275,22 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
   }
 
   // don't load full opacity if disabled.
-  if (!theme_get_setting('full_opacity_onscroll')) {
+  /** @var \Drupal\Core\Routing\AdminContext $admin_context */
+  $admin_context = \Drupal::service('router.admin_context');
+  if ((!theme_get_setting('full_opacity_onscroll')) || ($admin_context->isAdminRoute())) {
     $full_opacity = array_search('drupal8_w3css_theme/d8w3css-full-opacity', $attachments['#attached']['library'], TRUE);
     unset($attachments['#attached']['library'][$full_opacity]);
   }
 
   // don't load match height if all are disabled.
-  if ((!theme_get_setting('top_region')) &&
-      (!theme_get_setting('main_region')) &&
-      (!theme_get_setting('bottom_region')) &&
-      (!theme_get_setting('footer_region'))) {
-    $match_height = array_search('drupal8_w3css_theme/d8w3css-match-height', $attachments['#attached']['library'], TRUE);
-    unset($attachments['#attached']['library'][$match_height]);
-  }
-
+  // if ((!theme_get_setting('top_region')) &&
+  // (!theme_get_setting('main_region')) &&
+  // (!theme_get_setting('bottom_region')) &&
+  // (!theme_get_setting('footer_region'))) {
+  // $match_height = array_search('drupal8_w3css_theme/d8w3css-match-height',
+  // $attachments['#attached']['library'], TRUE);
+  // unset($attachments['#attached']['library'][$match_height]);
+  // }.
 }
 
 /**
@@ -336,6 +339,26 @@ function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, 
     $suggestions[] = 'block__' . $view_mode;
     $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
   }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Changes vertical tabs to container.
+ */
+function drupal8_w3css_theme_form_node_form_alter(&$form, FormStateInterface $form_state) {
+
+  $form['#theme'] = ['node_edit_form'];
+  $form['#attached']['library'][] = 'seven/node-form';
+
+  $form['advanced']['#type'] = 'container';
+  $form['meta']['#type'] = 'container';
+  $form['meta']['#access'] = TRUE;
+  $form['meta']['changed']['#wrapper_attributes']['class'][] = 'container-inline';
+  $form['meta']['author']['#wrapper_attributes']['class'][] = 'container-inline';
+
+  $form['revision_information']['#type'] = 'container';
+  $form['revision_information']['#group'] = 'meta';
 }
 
 /**
