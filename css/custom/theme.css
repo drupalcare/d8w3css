@@ -293,9 +293,21 @@ table ul.dropbutton {
   background-color: white;
   border: 1px solid #e8e8e8;
   padding: 0 10px !important;
-  border-radius: 10px;
 }
-
+.dropbutton-multiple .dropbutton-widget .dropbutton li {
+  padding: 0;
+}
+.dropbutton-multiple .dropbutton-widget .dropbutton li a {
+  padding: 6px 12px;
+}
+.dropbutton button {
+  border: 1px solid #e8e8e8;
+  border-left: none;
+  background-color: white;
+}
+.js td .dropbutton-wrapper {
+  min-height: 40px;
+}
 table ul.dropbutton li:first-child {
   margin-right: 10px !important;
 }
@@ -373,6 +385,7 @@ body .ui-dialog {
 
 .admin-context nav.action-links {
   list-style: none;
+  margin-left: 16px;
 }
 
 .admin-context nav.action-links li {
@@ -387,12 +400,16 @@ body .ui-dialog {
   cursor: pointer;
 }
 
+.region-title__action a,
 .admin-context form .form-actions > a {
   margin: 16px 10px;
   padding: 9px 16px;
   display: inline-block;
 }
 
+.region-title__action a {
+  margin: 5px;
+}
 .admin-context form .form-actions button,
 .admin-context form .form-actions input {
   margin: 16px 10px 16px 0;
@@ -548,6 +565,13 @@ span.field-edit-link button {
 .layout-region-node-secondary .entity-meta > details > div {
   margin: 0!important;
 }
+.vertical-tabs .w3-panel,
+.vertical-tabs .w3-container,
+.vertical-tabs .w3-section {
+  margin-bottom: 0;
+}
+.vertical-tabs .w3-panel,
+.vertical-tabs .w3-container,
 .layout-region-node-secondary .entity-meta details .w3-panel,
 .layout-region-node-secondary .entity-meta .fieldset-wrapper,
 .layout-region-node-secondary .entity-meta fieldset {
@@ -569,10 +593,17 @@ span.field-edit-link button {
 @keyframes sweep {
   0% {
     opacity: 0;
-    transform: translateX(-10px)
+    transform: translateX(-10px);
 }
   100% {
     opacity: 1;
-    transform: translateX(0)
+    transform: translateX(0);
 }
+}
+.modules-tabs__pane {
+  margin: 0 0 0 240px;
+  padding: 10px 15px!important;
+  background: #fcfcfa;
+  border-left: 1px solid #a6a5a1;
+  float:left;
 }

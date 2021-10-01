@@ -1037,24 +1037,31 @@ nav.w3-bar.w3-section.tabs {
 }
 
 /* CSS Form */
-form > details.form-wrapper::after {
+details.form-wrapper::after {
   content: "";
   clear: both;
   display: table;
 }
 
-form > details.form-wrapper {
+details.form-wrapper {
   float: left;
   width: 100%;
   padding: 0!important;
+  margin-bottom: 8px;
 }
-form > details[open] {
+details[open] {
   padding: 16px 24px!important;
 }
-form details.form-wrapper > summary {
-  cursor: pointer;
+.vertical-tabs details[open] {
+  padding: 0!important;
 }
-
+details.form-wrapper > summary {
+  cursor: pointer;
+  padding: 8px 16px;
+}
+details[open] summary {
+  padding: 0 0 8px 0;
+}
 form .tableselect-sort th:first-child,
 form .tableselect-sort td:first-child {
   width: 85px;
