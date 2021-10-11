@@ -311,10 +311,6 @@ div.item-list > ol.item-list > li article::before,
   padding: 0;
 }
 
-.node__meta .node__submitted {
-  margin-top: -3px;
-}
-
 /* Search page */
 .path-search form.search-form>.form-wrapper {
   position: relative;
@@ -459,7 +455,7 @@ ol {
 
 .node > .node__meta .field--name-user-picture {
   padding: 0 !important;
-  margin: 0 0 0 10px !important;
+  margin: 7px 0 0 10px !important;
 }
 
 /* Pager */
@@ -681,13 +677,40 @@ ol {
 .view-header {
   padding: 0 16px;
 }
+
 /* Drupal Off Canvas */
+#drupal-off-canvas {
+  padding: 8px 16px!important;
+}
+#drupal-off-canvas form div,
+#drupal-off-canvas form fieldset {
+  margin-right: 0!important;
+  margin-left: 0!important;
+}
+#drupal-off-canvas input,
+#drupal-off-canvas select,
+#drupal-off-canvas button,
+#drupal-off-canvas textarea {
+  width: auto!important;
+}
+
+
+#drupal-off-canvas a,
+#drupal-off-canvas .link {
+  color: #007bff;
+}
+
+#drupal-off-canvas .item-list li {
+  padding: 0;
+}
+#drupal-off-canvas .cke_top {
+  padding: 0!important;
+}
 #drupal-off-canvas details,
 #drupal-off-canvas summary,
 #drupal-off-canvas .details-wrapper {
-  margin: 0 -20px !important;
-  display: inline-block;
-  width: 120%;
+  display: block;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -710,14 +733,6 @@ ol {
   font-weight: normal;
 }
 
-#drupal-off-canvas details[open] > summary {
-  color: #eaf4fb;
-}
-
-#drupal-off-canvas a,
-#drupal-off-canvas .link {
-  color: white;
-}
 
 .layout-builder-block .w3-left.field__item {
   float: none !important;
@@ -742,17 +757,6 @@ ol {
 
 #drupal-off-canvas .inline-block-create-button,
 #drupal-off-canvas .inline-block-list__item {
-  background: #113e5f;
-}
-
-#drupal-off-canvas,
-#drupal-off-canvas *,
-#drupal-off-canvas *:not(div),
-.ui-dialog.ui-dialog-off-canvas {
-  background: #0c2b42;
-}
-
-#drupal-off-canvas details[open] > summary {
   background: #113e5f;
 }
 
@@ -917,6 +921,7 @@ nav.w3-bar.w3-section.tabs {
 
 .ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar {
   background: #040f17;
+  color: #eaf4fb;
 }
 
 /* Button Colors */
@@ -1044,24 +1049,34 @@ details.form-wrapper::after {
 }
 
 details.form-wrapper {
-  float: left;
-  width: 100%;
-  padding: 0!important;
-  margin-bottom: 8px;
+  padding: 0 !important;
+  margin-bottom: 8px !important;
+  line-height: inherit;
+  color: inherit;
 }
-details[open] {
-  padding: 16px 24px!important;
-}
-.vertical-tabs details[open] {
-  padding: 0!important;
-}
+
 details.form-wrapper > summary {
   cursor: pointer;
   padding: 8px 16px;
 }
-details[open] summary {
+
+details[open] {
+  padding: 8px 16px !important;
+}
+
+.modules-wrapper details[open] {
+  padding: 8px 16px !important;
+  background: white;
+}
+
+.vertical-tabs details[open] {
+  padding: 0 !important;
+}
+
+details[open] > summary {
   padding: 0 0 8px 0;
 }
+
 form .tableselect-sort th:first-child,
 form .tableselect-sort td:first-child {
   width: 85px;
@@ -1095,14 +1110,6 @@ form tr.draggable .w3-radio {
 
 form .field-multiple-drag {
   width: 50px;
-}
-
-form .w3-table-all tr {
-  border-bottom: none;
-}
-
-form .responsive-enabled {
-  border-collapse: initial;
 }
 
 form div.form-type-datelist.w3-section.form-item {
@@ -1245,7 +1252,13 @@ section.field--type-comment > form {
 form .form-item {
   text-align: left;
 }
-
+fieldset.form-item > .fieldset-wrapper {
+  padding: 0;
+}
+.field-ui-overview .field-plugin-settings-edit {
+  width: auto!important;
+  max-width: 40px;
+}
 form .form-item label {
   padding-right: 10px;
 }

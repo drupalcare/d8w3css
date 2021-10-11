@@ -1,11 +1,12 @@
-name: Drupal 8 W3CSS Theme
+name: W3CSS Theme
 core: 8.x
 description: 'W3.CSS is a modern CSS framework with built-in responsiveness. It is Smaller, faster, easier to learn and easier to use than other CSS frameworks.<br/>Developed & Designed by <strong><a target=_blank href=https://www.alaahaddad.com>Alaa Haddad</a></strong><br/>For theme <a target=_blank href=https://www.drupal.org/node/2866181>documentation</a><br/>To view a <a target=_blank href=http://www.drupal8-w3css-theme.flashwebcenter.com>live demo</a><br/>To view the <a target=_blank href=https://drupal8-w3css-theme.flashwebcenter.com/w3css-predefined-color-themes>color themes</a><br/>For theme issues please <a href=https://www.drupal.org/project/issues/d8w3css>create issue on drupal</a><br/><a target=_blank href=https://www.flashwebcenter.com>Drupal Development</a> and <a target=_blank href=https://www.drupalcare.com>Drupal Maintenance</a>'
 package: W3CSS
 type: theme
 base theme: false
 core_version_requirement: ^8 || ^9
-# core: 8.x
+
+
 #Libraries
 libraries:
   - drupal8_w3css_theme/w3-css
@@ -14,6 +15,8 @@ libraries:
   - drupal8_w3css_theme/d8w3css-global-components
   - drupal8_w3css_theme/d8w3css-match-height
   - drupal8_w3css_theme/d8w3css-full-opacity
+ckeditor_stylesheets:
+  - css/custom/w3-ckeditor-iframe.css
 
 #Regions
 regions:

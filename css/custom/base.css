@@ -1,6 +1,6 @@
 /**
  * @file
- * Overall specifications for Drupal8 W3CSS Theme.
+ * Overall specifications for W3CSS Theme.
  */
 
 /* Reset Links. */
@@ -343,7 +343,14 @@ ul.admin-list {
   display: block;
   min-height: 0;
   padding: 14px 15px 14px 25px;
-  background: url(../../images/chevron-disc-right.svg) no-repeat 1px 16px;
+  background: url(../../images/chevron-disc-right.svg) no-repeat 1px 17px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  border-bottom: 1px solid #eaeaea;
 }
 tr.region-title {
   background-color: #d2d2d2!important;
@@ -361,4 +368,7 @@ tr.region-title {
 .views-ui-view-displays ul li {
   display: inline-block;
   margin-right: 16px;
+}
+.w3-small {
+  font-size: 14px!important;
 }

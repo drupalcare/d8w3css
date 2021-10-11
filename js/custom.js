@@ -1,6 +1,6 @@
 /**
  * @file
- * Defines Javascript behaviors for the drupal8 w3css theme.
+ * Defines Javascript behaviors for the W3CSS Theme.
  */
 
 (function ($, Drupal) {
@@ -310,7 +310,7 @@
       $(context)
         .find('#system-theme-settings details > .details-wrapper')
         .once('.details-wrapper')
-        .addClass('w3-padding-large w3-left-align');
+        .addClass('w3-padding w3-left-align');
 
       // Disable top margin if breadcrumb exist.
       if (document.querySelector('nav.breadcrumb')) {

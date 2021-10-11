@@ -9,20 +9,20 @@
   .layout-region-node-secondary {
     -webkit-box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.1);
     box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.2);
-    width: 28%;
-    margin: 20px 1% 20px 1%;
+    width: 29%;
+    margin: 20px 0 20px 1%;
   }
 
   .layout-region-node-main {
     -webkit-box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.1);
     box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.2);
-    width: 68%;
-    margin: 20px 1% 20px 1%;
+    width: 69%;
+    margin: 20px 1% 20px 0;
   }
 
   .layout-region-node-footer {
     margin-top: 0;
-    flex: 0 0 98%;
+    flex: 0 0 100%;
   }
 
 
