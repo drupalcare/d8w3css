@@ -679,9 +679,6 @@ ol {
 }
 
 /* Drupal Off Canvas */
-#drupal-off-canvas {
-  padding: 8px 16px!important;
-}
 #drupal-off-canvas form div,
 #drupal-off-canvas form fieldset {
   margin-right: 0!important;
@@ -694,12 +691,6 @@ ol {
   width: auto!important;
 }
 
-
-#drupal-off-canvas a,
-#drupal-off-canvas .link {
-  color: #007bff;
-}
-
 #drupal-off-canvas .item-list li {
   padding: 0;
 }
@@ -709,7 +700,7 @@ ol {
 #drupal-off-canvas details,
 #drupal-off-canvas summary,
 #drupal-off-canvas .details-wrapper {
-  display: block;
+  display: inline-block;
   width: 100%;
   box-sizing: border-box;
 }
@@ -726,13 +717,6 @@ ol {
   line-height: 24px;
   font-size: 14px;
 }
-
-#drupal-off-canvas summary {
-  line-height: 30px;
-  font-size: 15px;
-  font-weight: normal;
-}
-
 
 .layout-builder-block .w3-left.field__item {
   float: none !important;
