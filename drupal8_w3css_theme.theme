@@ -45,15 +45,14 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'path-vocabulary-' . Html::cleanCssIdentifier($term->bundle());
       }
       break;
+  }
 
-    // Add user id to the body class.
-    case 'entity.user.canonical':
-      $user_id = $routeMatch->getParameter('user')->id();
-
-      if ($user_id) {
-        $variables['attributes']['class'][] = 'path-user-' . $user_id;
-      }
-      break;
+  // If the user is loogged in use ID if not use second word after user/login.
+  $curr_path = \Drupal::service('path.current')->getPath();
+  $curr_path = ltrim($curr_path, '/');
+  $user_url  = explode('/', $curr_path);
+  if (isset($user_url[0]) && isset($user_url[1]) && ($user_url[0] == 'user')) {
+    $variables['attributes']['class'][] = 'path-user-' . $user_url[1];
   }
 
   // Add view id name to the body class.
