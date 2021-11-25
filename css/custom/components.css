@@ -540,7 +540,7 @@ ol {
   line-height: 1.2;
 }
 
-.comment__author span a {
+.comment__author a {
   display: inline-block;
 }
 
@@ -554,6 +554,7 @@ ol {
   font-size: 0.929em;
   line-height: 1.6;
   word-break: break-all;
+  hyphens: auto;
 }
 
 .comment__content:before {
