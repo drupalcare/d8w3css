@@ -4,7 +4,7 @@ description: 'W3.CSS is a modern CSS framework with built-in responsiveness. It 
 package: W3CSS
 type: theme
 base theme: false
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 
 #Libraries

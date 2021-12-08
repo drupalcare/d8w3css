@@ -1,9 +1,9 @@
 name: Drupal8 W3CSS Sub-theme
+core: '8.x'
 type: theme
 base theme: drupal8_w3css_theme
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 description: 'drupal8 w3css sub-theme is an empty theme for your customization.'
-core: '8.x'
 libraries:
   - drupal8_w3css_subtheme/d8w3css-subtheme-global
 
@@ -39,8 +39,3 @@ features:
   name: true
   node_user_picture: true
   slogan: true
-
-# Information added by Drupal.org packaging script on 2021-10-01
-version: '8.x-1.21+20-dev'
-project: 'd8w3css'
-datestamp: 1633054821
