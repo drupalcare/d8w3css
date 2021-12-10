@@ -431,6 +431,23 @@ body .ui-dialog {
   width: 100%;
   display: inline-block;
 }
+.admin-context .block-system-main-block .modules-tabs__menu + form.system-modules {
+  width: auto;
+}
+.winnow-clear {
+  top: 4px;
+}
+.system-modules label,
+.system-modules-uninstall label {
+  font-size: 16px;
+}
+.modules-tabs__pane table col.checkbox {
+  width: 3%;
+}
+.block-system-main-block .modules-tabs tr td {
+  vertical-align: baseline;
+}
+
 /*.ui-dialog-content .w3-responsive,
 .admin-context .block-system-main-block .w3-responsive {
   max-width: 100%;
