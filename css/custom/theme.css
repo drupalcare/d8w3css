@@ -353,6 +353,9 @@ table ul.dropbutton {
 table ul.dropbutton li:first-child {
   margin-right: 10px !important;
 }
+.node-form table ul.dropbutton li:first-child {
+  margin-right: 0 !important;
+}
 
 table ul.dropbutton li.dropbutton-toggle {
   margin-right: 0 !important;
@@ -447,7 +450,25 @@ body .ui-dialog {
 .block-system-main-block .modules-tabs tr td {
   vertical-align: baseline;
 }
-
+.dropbutton input.w3-margin-bottom,
+.dropbutton input.w3-margin-top {
+  margin: 0!important;
+  width: 100%!important;
+  text-align: left;
+  border: none;
+  transition: 0.4s;
+}
+.paragraph-type-top.w3-row:before {
+  display: inline-block;
+  content: none;
+}
+.paragraph-type-top {
+  align-items: center;
+}
+form .field--widget-entity-reference-paragraphs td.field-multiple-drag {
+  width: auto;
+  padding-left: 0;
+}
 /*.ui-dialog-content .w3-responsive,
 .admin-context .block-system-main-block .w3-responsive {
   max-width: 100%;
@@ -786,7 +807,7 @@ span.field-edit-link button {
   list-style-type: none;
 }
 .system-status-report__entry__value {
-  padding-top: 0!important
+  padding-top: 0!important;
 }
 .system-status-report__status-icon:before {
   top: 11px;
