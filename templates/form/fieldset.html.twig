@@ -49,7 +49,7 @@
   </legend>
   <div class="fieldset-wrapper w3-panel">
     {% if description_display == 'before' and description.content %}
-      <div{{ description.attributes.addClass('w3-row w3-small description') }}>{{ description.content }}</div>
+      <div{{ description.attributes.addClass('w3-panel w3-small description') }}>{{ description.content }}</div>
     {% endif %}
     {% if errors %}
       <div class="w3-section w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message">
@@ -64,7 +64,7 @@
       <span class="field-suffix">{{ suffix }}</span>
     {% endif %}
     {% if description_display in ['after', 'invisible'] and description.content %}
-      <div{{ description.attributes.addClass('w3-row w3-small description') }}>{{ description.content }}</div>
+      <div{{ description.attributes.addClass('w3-panel w3-small description') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>
