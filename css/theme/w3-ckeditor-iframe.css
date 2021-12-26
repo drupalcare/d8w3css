@@ -2,8 +2,9 @@
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
   line-height: 26px;
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
+
 .cke_editable p,
 .cke_editable div,
 .cke_editable li,

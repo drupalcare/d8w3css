@@ -1,9 +1,56 @@
-/**
- * @file
- * Custom w3 css classes.
- */
-
 /* Global Classes */
+.text-transform-none div,
+.text-transform-none h1,
+.text-transform-none h2,
+.text-transform-none h3,
+.text-transform-none h4,
+.text-transform-none h5,
+.text-transform-none h6,
+.text-transform-none a {
+  text-transform: none !important;
+}
+
+.w3-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.w3-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.w3-relative {
+  position: relative;
+  width: 100%;
+}
+
+ol {
+  display: block;
+}
+
+@keyframes comeout {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+.w3-small {
+  font-size: 14px !important;
+}
+
 .w3-animate-opacity {
   animation: opac 3s;
 }

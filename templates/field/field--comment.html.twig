@@ -44,14 +44,14 @@
 <section{{ attributes.addClass(classes) }}>
   {% if comments and not label_hidden %}
     {{ title_prefix }}
-    <h2{{ title_attributes.addClass(title_classes, 'w3-margin-left') }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
     {{ title_suffix }}
   {% endif %}
 
   {{ comments }}
 
   {% if comment_form %}
-    <h2 class="w3-opacity w3-hover-opacity-off w3-margin-left title comment-form__title">{{ 'Add new comment'|t }}</h2>
+    <h2 class="comment-form__title">{{ 'Add new comment'|t }}</h2>
     {{ comment_form }}
   {% endif %}
 

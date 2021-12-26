@@ -8,8 +8,20 @@ w3-css:
   css:
     base:
       css/w3-css/w3.css: {}
-      css/w3-css/w3css-color-libraries.css: {}
+      css/w3-css/w3css-extended-classes.css: {}
+      css/w3-css/w3css-color-libraries-camouflage.css: {}
+      css/w3-css/w3css-color-libraries-european-signal.css: {}
+      css/w3-css/w3css-color-libraries-fashion.css: {}
+      css/w3-css/w3css-color-libraries-flat-ui.css: {}
+      css/w3-css/w3css-color-libraries-food.css: {}
+      css/w3-css/w3css-color-libraries-ios.css: {}
+      css/w3-css/w3css-color-libraries-metro-ui.css: {}
+      css/w3-css/w3css-color-libraries-us-highway.css: {}
+      css/w3-css/w3css-color-libraries-us-safety.css: {}
+      css/w3-css/w3css-color-libraries-vivid.css: {}
+      css/w3-css/w3css-color-libraries-win8.css: {}
 
+# Font Awesome.
 font-awesome:
   remote: https://fortawesome.github.io/Font-Awesome/
   version: 4.7.0
@@ -25,33 +37,65 @@ d8w3css-font-awesome-local:
   Version: 4.7.0
   css:
     base:
-      css/font/font-awesome.4.7.0.css: {}
+      fonts/font-awesome.4.7.0.css: {}
 
+# Google Font.
 d8w3css-google-font-external:
   Version: VERSION
   css:
     base:
-      'https://fonts.googleapis.com/css?family=Montserrat': { type: external, minified: true }
+      'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap': { type: external, minified: true }
 
 d8w3css-google-font-local:
   Version: VERSION
   css:
     base:
-      css/font/google-font.css: {}
+      fonts/google-font.css: {}
 
-d8w3css-global-components:
+# Theme CSS.
+d8w3css-global-styling:
   Version: VERSION
   css:
     base:
-      css/custom/base.css: {}
-      css/custom/w3-custom-classes.css: {}
+      css/base/base.css: {}
     layout:
-      css/custom/layout.css: {}
+      css/layout/layout-regions.css: {}
+      css/layout/layout-width.css: {}
+      css/layout/layout-node-edit.css: {}
     component:
-      css/custom/components.css: {}
+      css/components/system-messages.css: {}
+      css/components/forms.css: {}
+      css/components/breadcrumb.css: {}
+      css/components/system-tabs.css: {}
+      css/components/maintenance-page.css: {}
+      css/components/system-admin.css: {}
+      css/components/w3css-tables.css: {}
+      css/components/global-menu.css: {}
+      css/components/v-menu.css: {}
+      css/components/site-branding.css: {}
+      css/components/user-menu.css: {}
+      css/components/footer-menu.css: {}
+      css/components/default-node.css: {}
+      css/components/page-title.css: {}
+      css/components/search-page.css: {}
+      css/components/search-block.css: {}
+      css/components/pager.css: {}
+      css/components/comments.css: {}
+      css/components/default-views.css: {}
+      css/components/layout-builder.css: {}
+      css/components/webform.css: {}
+      css/components/node-form.css: {}
+      css/components/teaser-mode.css: {}
+      css/components/sitemap.css: {}
+      css/components/ckeditor.css: {}
+
     theme:
-      css/custom/theme.css: {}
-      css/custom/responsive.css: {}
+      css/theme/a-image.css: {}
+      css/theme/min-width-993.css: {}
+      css/theme/max-width-992.css: {}
+      css/theme/max-min-width-992-601.css: {}
+      css/theme/max-width-767.css: {}
+      css/theme/max-width-600.css: {}
   js:
     js/custom.js: {}
   dependencies:
@@ -61,16 +105,13 @@ d8w3css-global-components:
     - core/drupalSettings
     - core/jquery.once
 
-#d8w3css-match-height:
-#  version: VERSION
-#  header: false
-#  js:
-#    js/jquery.matchHeight.js: { preprocess: false }
-#    js/enable.matchHeight.js: { attributes: { defer: true } }
-#  dependencies:
-#    - core/jquery
-#    - core/drupal
+d8w3css-default-color-theme:
+  Version: VERSION
+  css:
+    theme:
+      css/theme/default-color-theme.css: {}
 
+# Full Opacity on Scroll.
 d8w3css-full-opacity:
   version: VERSION
   header: true
@@ -80,6 +121,7 @@ d8w3css-full-opacity:
     - core/jquery
     - core/drupal
 
+# https://www.w3schools.com/w3css/w3css_color_themes.asp
 w3-css-theme-amber:
   Version: VERSION
   css:
@@ -231,7 +273,7 @@ w3-css-theme-grey:
     theme:
       css/w3-css-theme/w3-theme-grey.css: {}
 
-# My custom predefined color themes.
+# Custom predefined color themes.
 w3-css-theme-custom:
   Version: VERSION
   css:

@@ -1,0 +1,13 @@
+.header-inner > div {
+  float: left;
+  width: auto;
+}
+
+.site-name a,
+.site-slogan {
+  text-transform: uppercase;
+}
+
+.site-slogan {
+  padding-left: 16px;
+}

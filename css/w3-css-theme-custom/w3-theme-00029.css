@@ -274,7 +274,7 @@ textarea:focus,
 .page-wrapper {
   background-color: transparent;
   background-size: cover;
-  background-image: url(../images/page-wrapper.jpg);
+  background-image: url(../../images/page-wrapper.jpg);
   background-position: top center;
   background-repeat: repeat;
 }

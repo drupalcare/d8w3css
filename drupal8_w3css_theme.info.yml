@@ -12,10 +12,11 @@ libraries:
   - drupal8_w3css_theme/w3-css
   - drupal8_w3css_theme/font-awesome
   - drupal8_w3css_theme/d8w3css-google-font-external
-  - drupal8_w3css_theme/d8w3css-global-components
+  - drupal8_w3css_theme/d8w3css-global-styling
+  - drupal8_w3css_theme/d8w3css-default-color-theme
   - drupal8_w3css_theme/d8w3css-full-opacity
 ckeditor_stylesheets:
-  - css/custom/w3-ckeditor-iframe.css
+  - css/theme/w3-ckeditor-iframe.css
 
 #Regions
 regions:

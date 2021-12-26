@@ -1,0 +1,150 @@
+/* To roll the text around the image */
+.node .field--name-field-image {
+  float: left;
+}
+
+.node > .node__title {
+  float: left;
+}
+
+.field--type-text::after,
+.field--type-text::before,
+.field--type-text-with-summary::after,
+.field--type-text-with-summary::before,
+div.item-list > ol.item-list > li article::after,
+div.item-list > ol.item-list > li article::before {
+  display: inline !important;
+}
+
+/* User picture on the node */
+.node__header,
+.node__content {
+  margin-bottom: 12px;
+}
+
+.node__meta {
+  display: flex;
+  align-items: center;
+}
+
+.node__meta .node__author-image {
+  margin-right: 12px;
+  overflow: hidden;
+}
+
+.node__meta .node__author-info {
+  font-size: 90%;
+}
+
+.node__meta .node__author-image img {
+  border-radius: 50%;
+}
+
+.node > .node__meta .field--name-user-picture {
+  padding: 0 !important;
+  margin: 7px 0 0 10px !important;
+}
+
+.node--view-mode-full .w3-container.node__content .field--name-body p {
+  text-align: justify;
+}
+
+.node--view-mode-full .field--type-entity-reference .field__item:first-child a {
+  padding-left: 0 !important;
+}
+
+.node--view-mode-full .node__content .field--type-text,
+.node--view-mode-full .node__content .field--type-text-with-summary {
+  font-size: 22px;
+  line-height: 170%;
+}
+
+/* ul links and tags */
+.field--label-inline,
+.field--label-above {
+  width: 100%;
+  clear: both;
+  float: left;
+}
+
+.field--label-hidden.field__items > .field__item {
+  float: left;
+}
+
+.field--label-above > .field__label,
+.field--label-above > .field__item,
+.field--label-above > .field__items {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.field--type-h5p .field__label,
+.field--type-h5p .field__item,
+.field--type-h5p .field__items {
+  width: 100%;
+}
+
+.field--label-above > .field__item,
+.field--label-above > .field__items > .field__item:first-child,
+.field--label-above > .field__items > .field__item:first-child a {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.field--label-above > .field__items > .field__item {
+  float: left;
+}
+
+.field--label-inline > .field__label,
+.field--label-inline > .field__item,
+.field--label-inline > .field__items,
+.field--label-inline > .field__items > .field__item {
+  clear: none !important;
+  float: left;
+}
+
+.field__items > .field__item,
+.field--label-inline > .field__label {
+  margin-right: 10px;
+}
+
+.field--label-inline .field__label::after {
+  content: ':';
+}
+
+.field--name-field-tags .field__item,
+ul.links li {
+  border: none !important;
+}
+
+ul.links li a {
+  border: none;
+  padding: 0 !important;
+  display: inline-block;
+}
+
+.field--name-field-tags .field__item a {
+  border: none;
+  padding: 7px 12px !important;
+  float: left;
+}
+
+.field--name-field-tags .field__label {
+  padding: 7px 0;
+}
+
+.node__content ul.links {
+  float: right;
+}
+
+.node__content ul.links li:last-child {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.field--name-field-tags .field__label,
+.field--name-field-tags .field__item a {
+  font-size: 14px;
+}
