@@ -270,7 +270,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $attachments['#attached']['library'][] = $current_exgf;
   }
 
-  // load default color theme if not.
+  // Load default color theme if not.
   if ((!theme_get_setting('current_theme')) ||  (theme_get_setting('current_theme') == 'none')) {
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
   }

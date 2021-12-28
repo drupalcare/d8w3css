@@ -19,10 +19,177 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
   '#title' => t('Advanced Site Colors'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t('<table>
+  '#description'   => t("
+
+<h2>This is a visual guide to show each region's placement on the page. Click on the name to go to the field.</h2>
+
+<table style='width: 100%; background-color: AliceBlue; color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue' border = '1' cellpadding = '8'>
+  <tbody>
+    <tr>
+      <td style='text-align: center;'> <h1><a href='#edit-color-primary-menu'>Main Navigation - Vertical</a></h1></td>
+    </tr>
+  </tbody>
+</table>
+<table style='width: 100%; background-color: AliceBlue; color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue' cellpadding = '8'>
+  <tbody>
+    <tr>
+      <td style='text-align: center;'>
+        <br><h1><a href='#edit-color-page-wrapper'>Page Wrapper</a></h1><br>
+        <table style='width: 100%;' cellpadding = '6'>
+          <tbody>
+            <tr>
+              <td>
+                <table style='width: 100%; background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'> <h1><a href='#edit-color-header'>Header</a></h1></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'> <h1><a href='#edit-color-primary-menu'>Main Navigation - Horizontal</a></h1></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h1><a href='#edit-color-welcome-text'>Welcome Text</a></h1></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h1><a href='#edit-color-highlighted'>Highlighted</a></h1> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style='text-align: center;'>
+                <br><h1><a href='#edit-color-top-container'>Top Container Wrapper</a></h1><br>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h2><a href='#edit-color-top-first'>Top First</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-top-second'>Top Second</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-top-third'>Top Third</a></h2></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><br><h1><a href='#edit-color-page-title'>Page Title</a></h1><br></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style='text-align: center;'>
+                <br><h1><a href='#edit-color-main'>Main Container Wrapper</a></h1><br>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h2><a href='#edit-color-breadcrumb'>Breadcrumb</a></h2> </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h2><a href='#edit-color-sidebar-first'>Left SideBar</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-content'>W3CSS Content</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-sidebar-second'>Right SideBar</a></h2></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style='text-align: center;'>
+                <br><h1><a href='#edit-color-bottom-container'>Bottom Container Wrapper</a></h1><br>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-first'>Bottom First</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-second'>Bottom Second</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-third'>Bottom Third</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-forth'>Bottom Forth</a></h2></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style='text-align: center;'>
+                <br><h1><a href='#edit-color-footer-container'> Footer Container Wrapper</a></h1><br>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h2><a href='#edit-color-footer-first'>Footer First</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-footer-second'>Footer Second</a></h2></td>
+                      <td style='text-align: center;'><h2><a href='#edit-color-footer-third'>Footer Third</a></h2></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'> <h1><a href='#edit-color-footer-menu'>Footer Menu</a></h1></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
+                  <tbody>
+                    <tr>
+                      <td style='text-align: center;'><h1><a href='#edit-color-copyright'>Copyright</a></h1> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table style='width: 100%; line-height:1.6; background-color: WhiteSmoke; color: LightSlateGray; font-size: 16px; font-family: Helvetica;'>
 <tr>
   <td> </td>
-  <th>Copy and paste your desired backgournd color, text color and link color in any region. </th>
+  <th><h3>Copy and paste any of the css classes inside the text field. You can paste more than one; just leave a space between each class.</h></th>
  </tr>
   <tr>
     <th>Background Colors:</th>
@@ -37,12 +204,12 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
     <td>w3-link-red, w3-link-pink, w3-link-purple, w3-link-deep-purple, w3-link-indigo, w3-link-blue, w3-link-light-blue, w3-link-cyan, w3-link-aqua, w3-link-teal, w3-link-green, w3-link-light-green, w3-link-lime, w3-link-sand, w3-link-khaki, w3-link-yellow, w3-link-amber, w3-link-orange, w3-link-deep-orange, w3-link-blue-grey, w3-link-brown, w3-link-light-grey, w3-link-grey, w3-link-dark-grey, w3-link-black and w3-link-white</td>
   </tr>
   <tr>
-    <th>Link Background Colors:</th>
-    <td>w3-link-bg-red, w3-link-bg-green, w3-link-bg-blue, w3-link-bg-yellow, w3-link-bg-white, w3-link-bg-black, w3-link-bg-grey, w3-link-bg-amber, w3-link-bg-aqua, w3-link-bg-light-blue, w3-link-bg-brown, w3-link-bg-cyan, w3-link-bg-blue-grey, w3-link-bg-blue-gray, w3-link-bg-light-green, w3-link-bg-indigo, w3-link-bg-khaki, w3-link-bg-lime, w3-link-bg-orange, w3-link-bg-deep-orange, w3-link-bg-pink, w3-link-bg-purple, w3-link-bg-deep-purple, w3-link-bg-sand, w3-link-bg-teal, w3-link-bg-light-gray, w3-link-bg-light-grey, w3-link-bg-dark-gray, w3-link-bg-dark-grey</td>
+    <th>Link Text Hover Colors:</th>
+    <td>w3-link-red-hover, w3-link-green-hover, w3-link-blue-hover, w3-link-yellow-hover, w3-link-white-hover, w3-link-black-hover, w3-link-grey-hover, w3-link-amber-hover, w3-link-aqua-hover, w3-link-light-blue-hover, w3-link-brown-hover, w3-link-cyan-hover, w3-link-blue-grey-hover, w3-link-blue-gray-hover, w3-link-light-green-hover, w3-link-indigo-hover, w3-link-khaki-hover, w3-link-lime-hover, w3-link-orange-hover, w3-link-deep-orange-hover, w3-link-pink-hover, w3-link-purple-hover, w3-link-deep-purple-hover, w3-link-sand-hover, w3-link-teal-hover, w3-link-light-gray-hover, w3-link-light-grey-hover, w3-link-dark-gray-hover, w3-link-dark-grey-hover</td>
   </tr>
   <tr>
-    <th>Link Hover Colors:</th>
-    <td>w3-link-red-hover, w3-link-green-hover, w3-link-blue-hover, w3-link-yellow-hover, w3-link-white-hover, w3-link-black-hover, w3-link-grey-hover, w3-link-amber-hover, w3-link-aqua-hover, w3-link-light-blue-hover, w3-link-brown-hover, w3-link-cyan-hover, w3-link-blue-grey-hover, w3-link-blue-gray-hover, w3-link-light-green-hover, w3-link-indigo-hover, w3-link-khaki-hover, w3-link-lime-hover, w3-link-orange-hover, w3-link-deep-orange-hover, w3-link-pink-hover, w3-link-purple-hover, w3-link-deep-purple-hover, w3-link-sand-hover, w3-link-teal-hover, w3-link-light-gray-hover, w3-link-light-grey-hover, w3-link-dark-gray-hover, w3-link-dark-grey-hover</td>
+    <th>Link Background Colors:</th>
+    <td>w3-link-bg-red, w3-link-bg-green, w3-link-bg-blue, w3-link-bg-yellow, w3-link-bg-white, w3-link-bg-black, w3-link-bg-grey, w3-link-bg-amber, w3-link-bg-aqua, w3-link-bg-light-blue, w3-link-bg-brown, w3-link-bg-cyan, w3-link-bg-blue-grey, w3-link-bg-blue-gray, w3-link-bg-light-green, w3-link-bg-indigo, w3-link-bg-khaki, w3-link-bg-lime, w3-link-bg-orange, w3-link-bg-deep-orange, w3-link-bg-pink, w3-link-bg-purple, w3-link-bg-deep-purple, w3-link-bg-sand, w3-link-bg-teal, w3-link-bg-light-gray, w3-link-bg-light-grey, w3-link-bg-dark-gray, w3-link-bg-dark-grey</td>
   </tr>
   <tr>
     <th>Button Colors:</th>
@@ -56,7 +223,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
     <th>To Disable:</th>
     <td>To disable shadow: w3-box-shadow-0 | To disable border: w3-border-0 | To disable border round: w3-round-0 | To disable margin: w3-margin-0 | To disable padding: w3-padding-0 | To disable the whole page opacity: w3-animate-opacity-disabled | To disable 100 percent image inside any link: w3-disabled-has-image | To disable text transform: text-transform-none </td>
   </tr>
-</table>'),
+</table>"),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_page_wrapper'] = [
