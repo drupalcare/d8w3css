@@ -241,55 +241,60 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     $variables[$value] = theme_get_setting($value);
   }
 
-  // W3CSS Predefined Themes
-  // https://www.w3schools.com/w3css/w3css_color_themes.asp
-  $my_current_theme = ($variables['current_theme'] = theme_get_setting('current_theme'));
-  $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', $my_current_theme);
-  $variables['#attached']['library'][] = $predefined_theme_filename;
-  // Disable font awesome library if fontawesome module installed.
-  // if (\Drupal::moduleHandler()->moduleExists('fontawesome')) {
-  // unset($variables['#attached']['library']['drupal8_w3css_theme/font-awesome']);
-  // }.
 }
 
 /**
- * Remove external and add them local.
- *
  * Implements hook_page_attachments_alter().
  */
 function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
 
+  // Load default fonts.
+  if (!theme_get_setting('d8w3css_site_gf') || (theme_get_setting('d8w3css_site_gf') == 'none')) {
+    if (theme_get_setting('d8w3css_google_font_local')) {
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfin-open-sans';
+    }
+    else {
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfex-open-sans';
+    }
+  }
+  // Load google fonts locally.
+  if (theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gf')) {
+    $in_font = theme_get_setting('d8w3css_site_gf');
+    $current_ingf = 'drupal8_w3css_theme/d8w3css-gfin' . substr($in_font, 7);
+    $attachments['#attached']['library'][] = $current_ingf;
+  }
+  // Load fonts external.
+  if (!theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gf')) {
+    $ex_font = theme_get_setting('d8w3css_site_gf');
+    $current_exgf = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font, 7);
+    $attachments['#attached']['library'][] = $current_exgf;
+  }
+
+  // load default color theme if not.
+  if ((!theme_get_setting('current_theme')) ||  (theme_get_setting('current_theme') == 'none')) {
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
+  }
+  else {
+    $my_current_theme = theme_get_setting('current_theme');
+    $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', $my_current_theme);
+    $attachments['#attached']['library'][] = $predefined_theme_filename;
+  }
+
   // Load font awesome locally.
   if (theme_get_setting('d8w3css_font_awesome_4')) {
-    $external_font_awesome = array_search('drupal8_w3css_theme/font-awesome', $attachments['#attached']['library'], TRUE);
-    unset($attachments['#attached']['library'][$external_font_awesome]);
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-font-awesome-local';
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-in';
+  }
+  else {
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-ex';
   }
 
-  // Load google fonts locally.
-  if (theme_get_setting('d8w3css_google_font')) {
-    $external_google_font = array_search('drupal8_w3css_theme/d8w3css-google-font-external', $attachments['#attached']['library'], TRUE);
-    unset($attachments['#attached']['library'][$external_google_font]);
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-google-font-local';
-  }
-
-  // don't load full opacity if disabled.
+  // Load full opacity if enabled but not on admin pages.
   /** @var \Drupal\Core\Routing\AdminContext $admin_context */
   $admin_context = \Drupal::service('router.admin_context');
-  if ((!theme_get_setting('full_opacity_onscroll')) || ($admin_context->isAdminRoute())) {
-    $full_opacity = array_search('drupal8_w3css_theme/d8w3css-full-opacity', $attachments['#attached']['library'], TRUE);
-    unset($attachments['#attached']['library'][$full_opacity]);
+  if ((theme_get_setting('full_opacity_onscroll')) && (!$admin_context->isAdminRoute())) {
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-full-opacity';
   }
 
-  // don't load match height if all are disabled.
-  // if ((!theme_get_setting('top_region')) &&
-  // (!theme_get_setting('main_region')) &&
-  // (!theme_get_setting('bottom_region')) &&
-  // (!theme_get_setting('footer_region'))) {
-  // $match_height = array_search('drupal8_w3css_theme/d8w3css-match-height',
-  // $attachments['#attached']['library'], TRUE);
-  // unset($attachments['#attached']['library'][$match_height]);
-  // }.
 }
 
 /**

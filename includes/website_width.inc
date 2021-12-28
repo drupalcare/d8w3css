@@ -19,10 +19,21 @@ $form['drupal8_w3css_theme_settings']['w3_website_width'] = [
   '#title' => t("Website's Width"),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t("<p><strong>You can change the whole website's width by entering any of the desired width in pixel.</strong></p><p>w3-width-100-percent, w3-width-2560, w3-width-1920, w3-width-1600, w3-width-1360, w3-width-1280, w3-width-1024 and w3-width-800</p>"),
+  '#description'   => t("<p><strong>You can change the whole website's width by selecting any of the desired width in pixel.</strong></p><p>w3-width-100-percent, w3-width-2560, w3-width-1920, w3-width-1360, w3-width-1280, w3-width-1024 and w3-width-800. The default width is 1600 pixel.</p>"),
 ];
+
 $form['drupal8_w3css_theme_settings']['w3_website_width']['website_width'] = [
-  '#type' => 'textfield',
-  '#title' => t("Enter Your Desired Website's Width"),
+  '#type' => 'select',
+  '#title' => t("Choose the desired website's width"),
+  '#options' => [
+    'none' => t('None'),
+    'w3-width-2560' => t('2560 Pixel'),
+    'w3-width-1920' => t('1920 Pixel'),
+    'w3-width-1360' => t('1360 Pixel'),
+    'w3-width-1280' => t('1280 Pixel'),
+    'w3-width-1024' => t('1024 Pixel'),
+    'w3-width-800' => t('800 Pixel'),
+    'w3-width-100-percent' => t('100%'),
+  ],
   '#default_value' => theme_get_setting('website_width'),
 ];

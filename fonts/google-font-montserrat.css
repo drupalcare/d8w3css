@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts-files/montserrat/montserrat-v18-latin-regular.eot');
+  src: local(''),url('fonts-files/montserrat/montserrat-v18-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/montserrat/montserrat-v18-latin-regular.woff2') format('woff2'),url('fonts-files/montserrat/montserrat-v18-latin-regular.woff') format('woff'),url('fonts-files/montserrat/montserrat-v18-latin-regular.ttf') format('truetype'),url('fonts-files/montserrat/montserrat-v18-latin-regular.svg#Montserrat') format('svg');
+}

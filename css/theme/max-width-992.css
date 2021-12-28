@@ -134,10 +134,10 @@
   #main-navigation-v .li-1 .toggle-child:after {
     content: none;
   }
-
-  .node--view-mode-full .node__content .field--type-text,
+  .node--view-mode-full .node__content .field--type-text-long,
+  .node--view-mode-full .node__content .field--type-string-long,
   .node--view-mode-full .node__content .field--type-text-with-summary {
-    font-size: 17px;
+    font-size: 100%;
     line-height: 1.7;
   }
 

@@ -21,37 +21,6 @@ w3-css:
       css/w3-css/w3css-color-libraries-vivid.css: {}
       css/w3-css/w3css-color-libraries-win8.css: {}
 
-# Font Awesome.
-font-awesome:
-  remote: https://fortawesome.github.io/Font-Awesome/
-  version: 4.7.0
-  license:
-    name: MIT
-    url: https://fortawesome.github.io/Font-Awesome/license/
-    gpl-compatible: true
-  css:
-    base:
-      https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css: { type: external, minified: true }
-
-d8w3css-font-awesome-local:
-  Version: 4.7.0
-  css:
-    base:
-      fonts/font-awesome.4.7.0.css: {}
-
-# Google Font.
-d8w3css-google-font-external:
-  Version: VERSION
-  css:
-    base:
-      'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap': { type: external, minified: true }
-
-d8w3css-google-font-local:
-  Version: VERSION
-  css:
-    base:
-      fonts/google-font.css: {}
-
 # Theme CSS.
 d8w3css-global-styling:
   Version: VERSION
@@ -105,11 +74,177 @@ d8w3css-global-styling:
     - core/drupalSettings
     - core/jquery.once
 
-d8w3css-default-color-theme:
+
+# Font Awesome.
+font-awesome-4-ex:
+  remote: https://fortawesome.github.io/Font-Awesome/
+  version: 4.7.0
+  license:
+    name: MIT
+    url: https://fortawesome.github.io/Font-Awesome/license/
+    gpl-compatible: true
+  css:
+    base:
+      https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css: { type: external, minified: true }
+font-awesome-4-in:
+  Version: 4.7.0
+  css:
+    base:
+      fonts/font-awesome.4.7.0.css: {}
+
+
+
+
+# Google Font Libraries.
+d8w3css-gfex-alegreya-sans:
   Version: VERSION
   css:
-    theme:
-      css/theme/default-color-theme.css: {}
+    base:
+      'https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-alegreya-sans.css: {}
+d8w3css-gfin-alegreya-sans:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-alegreya-sans.css: {}
+      fonts/css/d8w3css-alegreya-sans.css: {}
+
+
+d8w3css-gfex-alegreya-sans-sc:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-alegreya-sans-sc.css: {}
+d8w3css-gfin-alegreya-sans-sc:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-alegreya-sans-sc.css: {}
+      fonts/css/d8w3css-alegreya-sans-sc.css: {}
+
+d8w3css-gfex-lato:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Lato&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-lato.css: {}
+d8w3css-gfin-lato:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-lato.css: {}
+      fonts/css/d8w3css-lato.css: {}
+
+d8w3css-gfex-montserrat:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Montserrat&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-montserrat.css: {}
+d8w3css-gfin-montserrat:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-montserrat.css: {}
+      fonts/css/d8w3css-montserrat.css: {}
+
+d8w3css-gfex-nunito:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Nunito&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-nunito.css: {}
+d8w3css-gfin-nunito:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-nunito.css: {}
+      fonts/css/d8w3css-nunito.css: {}
+
+
+d8w3css-gfex-oooh-baby:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-oooh-baby.css: {}
+d8w3css-gfin-oooh-baby:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-oooh-baby.css: {}
+      fonts/css/d8w3css-oooh-baby.css: {}
+
+
+d8w3css-gfex-open-sans:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-open-sans.css: {}
+d8w3css-gfin-open-sans:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-open-sans.css: {}
+      fonts/css/d8w3css-open-sans.css: {}
+
+d8w3css-gfex-oswald:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Oswald&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-oswald.css: {}
+d8w3css-gfin-oswald:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-oswald.css: {}
+      fonts/css/d8w3css-oswald.css: {}
+
+d8w3css-gfex-playfair-display:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-playfair-display.css: {}
+d8w3css-gfin-playfair-display:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-playfair-display.css: {}
+      fonts/css/d8w3css-playfair-display.css: {}
+
+d8w3css-gfex-roboto:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Roboto&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-roboto.css: {}
+d8w3css-gfin-roboto:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-roboto.css: {}
+      fonts/css/d8w3css-roboto.css: {}
+
+
+d8w3css-gfex-roboto-condensed:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-roboto-condensed.css: {}
+d8w3css-gfin-roboto-condensed:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-roboto-condensed.css: {}
+      fonts/css/d8w3css-roboto-condensed.css: {}
+
+
+
 
 # Full Opacity on Scroll.
 d8w3css-full-opacity:
@@ -120,6 +255,16 @@ d8w3css-full-opacity:
   dependencies:
     - core/jquery
     - core/drupal
+
+
+
+w3css-default-theme:
+  Version: VERSION
+  css:
+    theme:
+      css/theme/default-color-theme.css: {}
+
+
 
 # https://www.w3schools.com/w3css/w3css_color_themes.asp
 w3-css-theme-amber:

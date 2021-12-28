@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts-files/lato/lato-v20-latin-regular.eot');
+  src: local(''),url('fonts-files/lato/lato-v20-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/lato/lato-v20-latin-regular.woff2') format('woff2'),url('fonts-files/lato/lato-v20-latin-regular.woff') format('woff'),url('fonts-files/lato/lato-v20-latin-regular.ttf') format('truetype'),url('fonts-files/lato/lato-v20-latin-regular.svg#Lato') format('svg');
+}

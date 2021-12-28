@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts-files/open-sans/open-sans-v27-latin-regular.eot');
+  src: local(''),url('fonts-files/open-sans/open-sans-v27-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/open-sans/open-sans-v27-latin-regular.woff2') format('woff2'),url('fonts-files/open-sans/open-sans-v27-latin-regular.woff') format('woff'),url('fonts-files/open-sans/open-sans-v27-latin-regular.ttf') format('truetype'),url('fonts-files/open-sans/open-sans-v27-latin-regular.svg#OpenSans') format('svg');
+}
