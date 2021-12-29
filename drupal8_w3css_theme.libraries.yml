@@ -7,8 +7,8 @@ w3-css:
     gpl-compatible: true
   css:
     base:
-      css/w3-css/w3.css: {}
-      css/w3-css/w3css-extended-classes.css: {}
+      css/w3-css/w3.css: {weight: -11}
+      css/w3-css/w3css-extended-classes.css: {weight: -10}
       css/w3-css/w3css-color-libraries-camouflage.css: {}
       css/w3-css/w3css-color-libraries-european-signal.css: {}
       css/w3-css/w3css-color-libraries-fashion.css: {}
@@ -26,10 +26,10 @@ d8w3css-global-styling:
   Version: VERSION
   css:
     base:
-      css/base/base.css: {}
+      css/base/base.css: { weight: -9 }
     layout:
-      css/layout/layout-regions.css: {}
-      css/layout/layout-width.css: {}
+      css/layout/layout-regions.css: { weight: -8 }
+      css/layout/layout-width.css: { weight: -7 }
       css/layout/layout-node-edit.css: {}
     component:
       css/components/system-messages.css: {}
@@ -59,12 +59,12 @@ d8w3css-global-styling:
       css/components/ckeditor.css: {}
 
     theme:
-      css/theme/a-image.css: {}
-      css/theme/min-width-993.css: {}
-      css/theme/max-width-992.css: {}
-      css/theme/max-min-width-992-601.css: {}
-      css/theme/max-width-767.css: {}
-      css/theme/max-width-600.css: {}
+      css/theme/a-image.css: {weight: -10}
+      css/theme/min-width-993.css: {weight: -10}
+      css/theme/max-width-992.css: {weight: -10}
+      css/theme/max-min-width-992-601.css: {weight: -10}
+      css/theme/max-width-767.css: {weight: -10}
+      css/theme/max-width-600.css: {weight: -10}
   js:
     js/custom.js: {}
   dependencies:
@@ -73,7 +73,6 @@ d8w3css-global-styling:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
-
 
 # Font Awesome.
 font-awesome-4-ex:
@@ -92,8 +91,15 @@ font-awesome-4-in:
     base:
       fonts/font-awesome.4.7.0.css: {}
 
-
-
+# Full Opacity on Scroll.
+d8w3css-full-opacity:
+  version: VERSION
+  header: true
+  js:
+    js/full.opacity.on.scroll.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
 
 # Google Font Libraries.
 d8w3css-gfex-alegreya-sans:
@@ -108,7 +114,6 @@ d8w3css-gfin-alegreya-sans:
     base:
       fonts/google-font-alegreya-sans.css: {}
       fonts/css/d8w3css-alegreya-sans.css: {}
-
 
 d8w3css-gfex-alegreya-sans-sc:
   Version: VERSION
@@ -162,20 +167,18 @@ d8w3css-gfin-nunito:
       fonts/google-font-nunito.css: {}
       fonts/css/d8w3css-nunito.css: {}
 
-
-d8w3css-gfex-oooh-baby:
+d8w3css-gfex-kavivanar:
   Version: VERSION
   css:
     base:
-      'https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap': { type: external, minified: true }
-      fonts/css/d8w3css-oooh-baby.css: {}
-d8w3css-gfin-oooh-baby:
+      'https://fonts.googleapis.com/css2?family=Kavivanar&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-kavivanar.css: {}
+d8w3css-gfin-kavivanar:
   Version: VERSION
   css:
     base:
-      fonts/google-font-oooh-baby.css: {}
-      fonts/css/d8w3css-oooh-baby.css: {}
-
+      fonts/google-font-kavivanar.css: {}
+      fonts/css/d8w3css-kavivanar.css: {}
 
 d8w3css-gfex-open-sans:
   Version: VERSION
@@ -229,7 +232,6 @@ d8w3css-gfin-roboto:
       fonts/google-font-roboto.css: {}
       fonts/css/d8w3css-roboto.css: {}
 
-
 d8w3css-gfex-roboto-condensed:
   Version: VERSION
   css:
@@ -243,364 +245,413 @@ d8w3css-gfin-roboto-condensed:
       fonts/google-font-roboto-condensed.css: {}
       fonts/css/d8w3css-roboto-condensed.css: {}
 
+d8w3css-gfex-source-sans-pro:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-source-sans-pro.css: {}
+d8w3css-gfin-source-sans-pro:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-source-sans-pro.css: {}
+      fonts/css/d8w3css-source-sans-pro.css: {}
+
+d8w3css-gfex-domine:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Domine&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-domine.css: {}
+d8w3css-gfin-domine:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-domine.css: {}
+      fonts/css/d8w3css-domine.css: {}
+
+d8w3css-gfex-glegoo:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Glegoo&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-glegoo.css: {}
+d8w3css-gfin-glegoo:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-glegoo.css: {}
+      fonts/css/d8w3css-glegoo.css: {}
+
+d8w3css-gfex-amita:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Amita&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-amita.css: {}
+d8w3css-gfin-amita:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-amita.css: {}
+      fonts/css/d8w3css-amita.css: {}
+
+d8w3css-gfex-oranienbaum:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-oranienbaum.css: {}
+d8w3css-gfin-oranienbaum:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-oranienbaum.css: {}
+      fonts/css/d8w3css-oranienbaum.css: {}
 
 
-
-# Full Opacity on Scroll.
-d8w3css-full-opacity:
-  version: VERSION
-  header: true
-  js:
-    js/full.opacity.on.scroll.js: { }
-  dependencies:
-    - core/jquery
-    - core/drupal
-
-
-
+# Predefined themes.
 w3css-default-theme:
   Version: VERSION
   css:
     theme:
-      css/theme/default-color-theme.css: {}
+      css/theme/default-color-theme.css: { weight: -9 }
 
-
-
-# https://www.w3schools.com/w3css/w3css_color_themes.asp
 w3-css-theme-amber:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-amber.css: {}
-      css/w3-css-theme/w3-theme-amber-custom.css: {}
+      css/w3-css-theme/w3-theme-amber.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-amber-custom.css: { weight: -9 }
 
 w3-css-theme-blue:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-blue.css: {}
-      css/w3-css-theme/w3-theme-blue-custom.css: {}
+      css/w3-css-theme/w3-theme-blue.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-blue-custom.css: { weight: -9 }
 
 w3-css-theme-blue-grey:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-blue-grey.css: {}
-      css/w3-css-theme/w3-theme-blue-grey-custom.css: {}
+      css/w3-css-theme/w3-theme-blue-grey.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-blue-grey-custom.css: { weight: -9 }
 
 w3-css-theme-brown:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-brown.css: {}
-      css/w3-css-theme/w3-theme-brown-custom.css: {}
+      css/w3-css-theme/w3-theme-brown.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-brown-custom.css: { weight: -9 }
 
 w3-css-theme-cyan:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-cyan.css: {}
-      css/w3-css-theme/w3-theme-cyan-custom.css: {}
+      css/w3-css-theme/w3-theme-cyan.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-cyan-custom.css: { weight: -9 }
 
 w3-css-theme-deep-orange:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-deep-orange.css: {}
-      css/w3-css-theme/w3-theme-deep-orange-custom.css: {}
+      css/w3-css-theme/w3-theme-deep-orange.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-deep-orange-custom.css: { weight: -9 }
 
 w3-css-theme-deep-purple:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-deep-purple.css: {}
-      css/w3-css-theme/w3-theme-deep-purple-custom.css: {}
+      css/w3-css-theme/w3-theme-deep-purple.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-deep-purple-custom.css: { weight: -9 }
 
 w3-css-theme-green:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-green.css: {}
-      css/w3-css-theme/w3-theme-green-custom.css: {}
+      css/w3-css-theme/w3-theme-green.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-green-custom.css: { weight: -9 }
 
 w3-css-theme-indigo:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-indigo.css: {}
-      css/w3-css-theme/w3-theme-indigo-custom.css: {}
+      css/w3-css-theme/w3-theme-indigo.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-indigo-custom.css: { weight: -9 }
 
 w3-css-theme-khaki:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-khaki.css: {}
-      css/w3-css-theme/w3-theme-khaki-custom.css: {}
+      css/w3-css-theme/w3-theme-khaki.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-khaki-custom.css: { weight: -9 }
 
 w3-css-theme-light-blue:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-light-blue.css: {}
-      css/w3-css-theme/w3-theme-light-blue-csutom.css: {}
+      css/w3-css-theme/w3-theme-light-blue.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-light-blue-csutom.css: { weight: -9 }
 
 w3-css-theme-light-green:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-light-green.css: {}
-      css/w3-css-theme/w3-theme-light-green-custom.css: {}
+      css/w3-css-theme/w3-theme-light-green.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-light-green-custom.css: { weight: -9 }
 
 w3-css-theme-lime:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-lime.css: {}
-      css/w3-css-theme/w3-theme-lime-custom.css: {}
+      css/w3-css-theme/w3-theme-lime.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-lime-custom.css: { weight: -9 }
 
 w3-css-theme-orange:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-orange.css: {}
-      css/w3-css-theme/w3-theme-orange-custom.css: {}
+      css/w3-css-theme/w3-theme-orange.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-orange-custom.css: { weight: -9 }
 
 w3-css-theme-pink:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-pink.css: {}
-      css/w3-css-theme/w3-theme-pink-custom.css: {}
+      css/w3-css-theme/w3-theme-pink.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-pink-custom.css: { weight: -9 }
 
 w3-css-theme-purple:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-purple.css: {}
-      css/w3-css-theme/w3-theme-purple-custom.css: {}
+      css/w3-css-theme/w3-theme-purple.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-purple-custom.css: { weight: -9 }
 
 w3-css-theme-red:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-red.css: {}
-      css/w3-css-theme/w3-theme-red-custom.css: {}
+      css/w3-css-theme/w3-theme-red.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-red-custom.css: { weight: -9 }
 
 w3-css-theme-teal:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-teal.css: {}
-      css/w3-css-theme/w3-theme-teal-custom.css: {}
+      css/w3-css-theme/w3-theme-teal.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-teal-custom.css: { weight: -9 }
 
 w3-css-theme-yellow:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-yellow.css: {}
-      css/w3-css-theme/w3-theme-yellow-custom.css: {}
+      css/w3-css-theme/w3-theme-yellow.css: { weight: -9 }
+      css/w3-css-theme/w3-theme-yellow-custom.css: { weight: -9 }
 
 w3-css-theme-black:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-black.css: {}
+      css/w3-css-theme/w3-theme-black.css: { weight: -9 }
 
 w3-css-theme-dark-grey:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-dark-grey.css: {}
+      css/w3-css-theme/w3-theme-dark-grey.css: { weight: -9 }
 
 w3-css-theme-grey:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme/w3-theme-grey.css: {}
+      css/w3-css-theme/w3-theme-grey.css: { weight: -9 }
 
 # Custom predefined color themes.
 w3-css-theme-custom:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-custom.css: {}
+      css/w3-css-theme-custom/w3-theme-custom.css: { weight: -9 }
 
 w3-css-theme-00000:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00000.css: {}
+      css/w3-css-theme-custom/w3-theme-00000.css: { weight: -9 }
 
 w3-css-theme-00001:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00001.css: {}
+      css/w3-css-theme-custom/w3-theme-00001.css: { weight: -9 }
 
 w3-css-theme-00002:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00002.css: {}
+      css/w3-css-theme-custom/w3-theme-00002.css: { weight: -9 }
 
 w3-css-theme-00003:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00003.css: {}
+      css/w3-css-theme-custom/w3-theme-00003.css: { weight: -9 }
 
 w3-css-theme-00004:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00004.css: {}
+      css/w3-css-theme-custom/w3-theme-00004.css: { weight: -9 }
 
 w3-css-theme-00005:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00005.css: {}
+      css/w3-css-theme-custom/w3-theme-00005.css: { weight: -9 }
 
 w3-css-theme-00006:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00006.css: {}
+      css/w3-css-theme-custom/w3-theme-00006.css: { weight: -9 }
 
 w3-css-theme-00007:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00007.css: {}
+      css/w3-css-theme-custom/w3-theme-00007.css: { weight: -9 }
 
 w3-css-theme-00008:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00008.css: {}
+      css/w3-css-theme-custom/w3-theme-00008.css: { weight: -9 }
 
 w3-css-theme-00009:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00009.css: {}
+      css/w3-css-theme-custom/w3-theme-00009.css: { weight: -9 }
 
 w3-css-theme-00010:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00010.css: {}
+      css/w3-css-theme-custom/w3-theme-00010.css: { weight: -9 }
 
 w3-css-theme-00011:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00011.css: {}
+      css/w3-css-theme-custom/w3-theme-00011.css: { weight: -9 }
 
 w3-css-theme-00012:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00012.css: {}
+      css/w3-css-theme-custom/w3-theme-00012.css: { weight: -9 }
 
 w3-css-theme-00013:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00013.css: {}
+      css/w3-css-theme-custom/w3-theme-00013.css: { weight: -9 }
 
 w3-css-theme-00014:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00014.css: {}
+      css/w3-css-theme-custom/w3-theme-00014.css: { weight: -9 }
 
 w3-css-theme-00015:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00015.css: {}
+      css/w3-css-theme-custom/w3-theme-00015.css: { weight: -9 }
 
 w3-css-theme-00016:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00016.css: {}
+      css/w3-css-theme-custom/w3-theme-00016.css: { weight: -9 }
 
 w3-css-theme-00017:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00017.css: {}
+      css/w3-css-theme-custom/w3-theme-00017.css: { weight: -9 }
 
 w3-css-theme-00018:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00018.css: {}
+      css/w3-css-theme-custom/w3-theme-00018.css: { weight: -9 }
 
 w3-css-theme-00019:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00019.css: {}
+      css/w3-css-theme-custom/w3-theme-00019.css: { weight: -9 }
 
 w3-css-theme-00020:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00020.css: {}
+      css/w3-css-theme-custom/w3-theme-00020.css: { weight: -9 }
 
 w3-css-theme-00021:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00021.css: {}
+      css/w3-css-theme-custom/w3-theme-00021.css: { weight: -9 }
 
 w3-css-theme-00022:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00022.css: {}
+      css/w3-css-theme-custom/w3-theme-00022.css: { weight: -9 }
 
 w3-css-theme-00023:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00023.css: {}
+      css/w3-css-theme-custom/w3-theme-00023.css: { weight: -9 }
 
 w3-css-theme-00024:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00024.css: {}
+      css/w3-css-theme-custom/w3-theme-00024.css: { weight: -9 }
 
 w3-css-theme-00025:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00025.css: {}
+      css/w3-css-theme-custom/w3-theme-00025.css: { weight: -9 }
 
 w3-css-theme-00026:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00026.css: {}
+      css/w3-css-theme-custom/w3-theme-00026.css: { weight: -9 }
 
 w3-css-theme-00027:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00027.css: {}
+      css/w3-css-theme-custom/w3-theme-00027.css: { weight: -9 }
 
 w3-css-theme-00028:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00028.css: {}
+      css/w3-css-theme-custom/w3-theme-00028.css: { weight: -9 }
 
 w3-css-theme-00029:
   Version: VERSION
   css:
     theme:
-      css/w3-css-theme-custom/w3-theme-00029.css: {}
+      css/w3-css-theme-custom/w3-theme-00029.css: { weight: -9 }

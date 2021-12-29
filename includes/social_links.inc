@@ -16,7 +16,7 @@
 
 $form['drupal8_w3css_theme_settings']['social_icon'] = [
   '#type' => 'details',
-  '#title' => t('Social Media Links'),
+  '#title' => t('Social Media Links - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
 ];

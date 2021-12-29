@@ -16,7 +16,7 @@
 
 $form['drupal8_w3css_theme_settings']['credit_link'] = [
   '#type' => 'details',
-  '#title' => t('Credit'),
+  '#title' => t('Credit - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
 ];

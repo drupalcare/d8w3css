@@ -16,7 +16,7 @@
 
 $form['drupal8_w3css_theme_settings']['copyright'] = [
   '#type' => 'details',
-  '#title' => t('Copyright'),
+  '#title' => t('Copyright - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
 ];

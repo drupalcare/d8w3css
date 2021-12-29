@@ -16,7 +16,7 @@
 
 $form['drupal8_w3css_theme_settings']['w3_full_opacity'] = [
   '#type' => 'details',
-  '#title' => t("Enable Full Opacity On Scroll"),
+  '#title' => t("Enable Full Opacity On Scroll - W3CSS Theme"),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
   '#description'   => t('<p>When you visit the page, the hidden blocks are invisible and they will start to show/animate when you scroll down. The default setting is disabled.</p>'),

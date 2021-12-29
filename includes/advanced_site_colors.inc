@@ -16,7 +16,7 @@
 
 $form['drupal8_w3css_theme_settings']['w3_colors'] = [
   '#type' => 'details',
-  '#title' => t('Advanced Site Colors'),
+  '#title' => t('Advanced Site Colors - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
   '#description'   => t("
