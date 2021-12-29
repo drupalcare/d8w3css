@@ -91,6 +91,7 @@ h6 a {
 #footer-container,
 .search-slide-wrapper,
 #top-container .top-box>div,
+#main-container .main-box > div,
 #footer-container .footer-box>div,
 #bottom-container .bottom-box>div {
   background-color: #fff;
@@ -151,6 +152,7 @@ ul.primary > li,
   color: #dde5e5 !important;
   background-color: #3580ba !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -187,16 +189,19 @@ textarea:focus,
     height: 0;
     border-bottom-color: #fff;
   }
+
   99.9999% {
     width: 100%;
     height: 100%;
     border-bottom-color: #fff;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -252,6 +257,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -260,6 +266,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -308,6 +315,7 @@ textarea:focus,
     border-bottom-color: #3a89c6;
     border-left-color: #3a89c6;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -316,4 +324,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

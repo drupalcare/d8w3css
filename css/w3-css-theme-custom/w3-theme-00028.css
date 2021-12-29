@@ -72,8 +72,9 @@ h6 a {
 .close-nav,
 .mobile-nav,
 .main-navigation-wrapper {
-  color: white!important;
+  color: white !important;
 }
+
 #footer-menu,
 #footer-menu h1,
 #footer-menu h2,
@@ -94,6 +95,7 @@ h6 a {
 .search-slide-wrapper,
 #top-container .top-box>div,
 #footer-container .footer-box>div,
+#main-container .main-box > div,
 #bottom-container .bottom-box>div {
   background-color: #fff;
 }
@@ -150,9 +152,10 @@ ul.primary > li,
 .w3-button:hover,
 #open-search:hover,
 #open-nav-inner:hover {
-  color: #fff!important;
+  color: #fff !important;
   background-color: #004d5d !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -189,16 +192,19 @@ textarea:focus,
     height: 0;
     border-bottom-color: #19d7ff;
   }
+
   99.9999% {
     width: 100%;
     height: 100%;
     border-bottom-color: #19d7ff;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -254,6 +260,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -262,6 +269,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -310,6 +318,7 @@ textarea:focus,
     border-bottom-color: #00cbf6;
     border-left-color: #00cbf6;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -318,4 +327,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

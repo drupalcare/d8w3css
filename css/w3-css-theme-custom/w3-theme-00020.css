@@ -69,8 +69,9 @@ h6 a {
 #header h5,
 #header a,
 #header p {
-  color: #e1f4fd!important;
+  color: #e1f4fd !important;
 }
+
 #copyright,
 .close-nav,
 .mobile-nav,
@@ -83,7 +84,7 @@ h6 a {
 #footer-menu a,
 #footer-menu p,
 .main-navigation-wrapper {
-  color: #12a7ef!important;
+  color: #12a7ef !important;
 }
 
 /* dark Background  */
@@ -145,20 +146,23 @@ ul.secondary,
 ul.primary > li {
   border-color: #074461 !important;
 }
+
 #top-container .top-box>div,
 #bottom-container .bottom-box>div,
 #footer-container .footer-box>div {
   border-color: #074461;
 }
+
 /* Hover Color  */
 .w3-hover-over:hover,
 .w3-button:hover,
 #open-search:hover,
 #open-nav-inner:hover,
 #footer-menu a.w3-button:hover {
-  color: #91d6f7!important;
+  color: #91d6f7 !important;
   background-color: #074461 !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -166,8 +170,9 @@ textarea:focus,
 #bottom-container .bottom-box>div:hover,
 #footer-container .footer-box>div:hover {
   box-shadow: 0 25px 57px 0 rgba(114, 202, 245, .30);
-  border-color: #22acf0!important;
+  border-color: #22acf0 !important;
 }
+
 /* button animation  */
 .w3-button {
   position: relative;
@@ -200,11 +205,13 @@ textarea:focus,
     height: 100%;
     border-bottom-color: #22acf0;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -213,6 +220,7 @@ textarea:focus,
 #footer-container .footer-box>.animate-border {
   position: relative;
 }
+
 #top-container .top-box>.animate-border:before,
 #bottom-container .bottom-box>.animate-border:before,
 #footer-container .footer-box>.animate-border:before {
@@ -259,6 +267,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -267,6 +276,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -315,6 +325,7 @@ textarea:focus,
     border-bottom-color: #22acf0;
     border-left-color: #22acf0;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -323,4 +334,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

@@ -29,6 +29,7 @@ a:hover > img.w3-image {
   animation: animateimg 5s;
 }
 
+a,
 li a,
 a .fa,
 button,

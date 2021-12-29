@@ -323,133 +323,114 @@ w3-css-theme-amber:
   css:
     theme:
       css/w3-css-theme/w3-theme-amber.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-amber-custom.css: { weight: -9 }
 
 w3-css-theme-blue:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-blue.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-blue-custom.css: { weight: -9 }
 
 w3-css-theme-blue-grey:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-blue-grey.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-blue-grey-custom.css: { weight: -9 }
 
 w3-css-theme-brown:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-brown.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-brown-custom.css: { weight: -9 }
 
 w3-css-theme-cyan:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-cyan.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-cyan-custom.css: { weight: -9 }
 
 w3-css-theme-deep-orange:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-deep-orange.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-deep-orange-custom.css: { weight: -9 }
 
 w3-css-theme-deep-purple:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-deep-purple.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-deep-purple-custom.css: { weight: -9 }
 
 w3-css-theme-green:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-green.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-green-custom.css: { weight: -9 }
 
 w3-css-theme-indigo:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-indigo.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-indigo-custom.css: { weight: -9 }
 
 w3-css-theme-khaki:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-khaki.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-khaki-custom.css: { weight: -9 }
 
 w3-css-theme-light-blue:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-light-blue.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-light-blue-csutom.css: { weight: -9 }
 
 w3-css-theme-light-green:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-light-green.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-light-green-custom.css: { weight: -9 }
 
 w3-css-theme-lime:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-lime.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-lime-custom.css: { weight: -9 }
 
 w3-css-theme-orange:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-orange.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-orange-custom.css: { weight: -9 }
 
 w3-css-theme-pink:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-pink.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-pink-custom.css: { weight: -9 }
 
 w3-css-theme-purple:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-purple.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-purple-custom.css: { weight: -9 }
 
 w3-css-theme-red:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-red.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-red-custom.css: { weight: -9 }
 
 w3-css-theme-teal:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-teal.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-teal-custom.css: { weight: -9 }
 
 w3-css-theme-yellow:
   Version: VERSION
   css:
     theme:
       css/w3-css-theme/w3-theme-yellow.css: { weight: -9 }
-      css/w3-css-theme/w3-theme-yellow-custom.css: { weight: -9 }
 
 w3-css-theme-black:
   Version: VERSION

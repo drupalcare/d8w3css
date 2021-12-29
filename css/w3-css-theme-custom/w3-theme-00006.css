@@ -93,23 +93,28 @@ a,
 #footer-container,
 .search-slide-wrapper,
 #top-container .top-box>div,
+#main-container .main-box > div,
 #footer-container .footer-box>div,
 #bottom-container .bottom-box>div {
   background-color: white;
   color: #6a011b;
 }
+
 #footer-container .footer-box>div {
   color: #6a011b;
 }
+
 #main-container {
   background-color: #fff3f6;
   color: #6a011b;
 }
+
 /* Four panels - light color */
 .search-slide-wrapper,
 .pager__item.is-active {
-  background-color: #fff3f6!important;
+  background-color: #fff3f6 !important;
 }
+
 #bottom-container {
   background-color: #ffe2e9;
 }
@@ -120,18 +125,19 @@ a,
   border: 1px solid #ffe2e9;
   transition: 0.4s !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus {
   box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
   border-color: #fec0cf;
 }
+
 #top-container .top-box>div:hover,
 #bottom-container .bottom-box>div:hover,
 #footer-container .footer-box>div:hover {
   box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
 }
-
 
 /* map and contact  */
 #footer-menu {
@@ -174,16 +180,19 @@ textarea:focus {
     height: 0;
     border-bottom-color: #fff;
   }
+
   99.9999% {
     width: 100%;
     height: 100%;
     border-bottom-color: #fff;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -239,6 +248,7 @@ textarea:focus {
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -247,6 +257,7 @@ textarea:focus {
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -295,6 +306,7 @@ textarea:focus {
     border-bottom-color: #cf0234;
     border-left-color: #cf0234;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -303,4 +315,5 @@ textarea:focus {
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

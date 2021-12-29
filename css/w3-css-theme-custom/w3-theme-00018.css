@@ -144,11 +144,13 @@ ul.secondary,
 ul.primary > li {
   border-color: #3e4446 !important;
 }
+
 #top-container .top-box>div,
 #bottom-container .bottom-box>div,
 #footer-container .footer-box>div {
   border-color: #3e4446;
 }
+
 /* Hover Color  */
 .w3-hover-over:hover,
 .w3-button:hover,
@@ -200,11 +202,13 @@ textarea:focus,
     height: 100%;
     border-bottom-color: #b4bbbd;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -260,6 +264,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -268,6 +273,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -316,6 +322,7 @@ textarea:focus,
     border-bottom-color: #b4bbbd;
     border-left-color: #b4bbbd;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -324,4 +331,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

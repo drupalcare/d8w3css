@@ -91,6 +91,7 @@ h6 a {
 #footer-container,
 .search-slide-wrapper,
 #top-container .top-box>div,
+#main-container .main-box > div,
 #footer-container .footer-box>div,
 #bottom-container .bottom-box>div {
   background-color: #fff;
@@ -128,10 +129,12 @@ h6 a {
 #copyright {
   background-color: #54504b;
 }
+
 .field--type-entity-reference a,
 .w3-small.node__submitted {
-  color: #0c85e6!important;
+  color: #0c85e6 !important;
 }
+
 /* Border Color  */
 .cke_top,
 .w3-border,
@@ -154,6 +157,7 @@ ul.primary > li,
   color: #fff !important;
   background-color: #e49e01 !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -161,7 +165,7 @@ textarea:focus,
 #bottom-container .bottom-box>div:hover,
 #footer-container .footer-box>div:hover {
   box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
-  border-color: #0c85e6!important;
+  border-color: #0c85e6 !important;
 }
 
 /* button animation  */
@@ -190,16 +194,19 @@ textarea:focus,
     height: 0;
     border-bottom-color: #fff;
   }
+
   99.9999% {
     width: 100%;
     height: 100%;
     border-bottom-color: #fff;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -255,6 +262,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -263,6 +271,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -311,6 +320,7 @@ textarea:focus,
     border-bottom-color: #0c85e6;
     border-left-color: #0c85e6;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -319,4 +329,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

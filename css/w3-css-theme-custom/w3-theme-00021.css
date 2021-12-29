@@ -69,8 +69,9 @@ h6 a {
 #header h5,
 #header a,
 #header p {
-  color: #f8dffa!important;
+  color: #f8dffa !important;
 }
+
 #copyright,
 .close-nav,
 .mobile-nav,
@@ -145,20 +146,23 @@ ul.secondary,
 ul.primary > li {
   border-color: #510e55 !important;
 }
+
 #top-container .top-box>div,
 #bottom-container .bottom-box>div,
 #footer-container .footer-box>div {
   border-color: #510e55 !important;
 }
+
 /* Hover Color  */
 .w3-hover-over:hover,
 .w3-button:hover,
 #open-search:hover,
 #open-nav-inner:hover,
 #footer-menu a.w3-button:hover {
-  color: #e06ae7!important;
+  color: #e06ae7 !important;
   background-color: #350938 !important;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -166,8 +170,9 @@ textarea:focus,
 #bottom-container .bottom-box>div:hover,
 #footer-container .footer-box>div:hover {
   box-shadow: 0 25px 57px 0 rgba(219, 92, 227, .30);
-  border-color: #bf22c9!important;
+  border-color: #bf22c9 !important;
 }
+
 /* button animation  */
 .w3-button {
   position: relative;
@@ -200,18 +205,22 @@ textarea:focus,
     height: 100%;
     border-bottom-color: #a31dac;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
+
 /* Border animation  */
 #top-container .top-box>.animate-border,
 #bottom-container .bottom-box>.animate-border,
 #footer-container .footer-box>.animate-border {
   position: relative;
 }
+
 #top-container .top-box>.animate-border:before,
 #bottom-container .bottom-box>.animate-border:before,
 #footer-container .footer-box>.animate-border:before {
@@ -258,6 +267,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -266,6 +276,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -314,6 +325,7 @@ textarea:focus,
     border-bottom-color: #bf22c9;
     border-left-color: #bf22c9;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -322,4 +334,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

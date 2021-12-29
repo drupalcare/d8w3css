@@ -64,6 +64,7 @@ a,
 #footer-container,
 .search-slide-wrapper,
 #top-container .top-box > div,
+#main-container .main-box > div,
 #footer-container .footer-box>div,
 #bottom-container .bottom-box>div {
   background-color: white;
@@ -81,6 +82,7 @@ a,
   background-color: #007fbe;
   color: white !important;
 }
+
 #footer-menu h1,
 #footer-menu h2,
 #footer-menu h3,
@@ -120,7 +122,6 @@ textarea:focus,
   border-color: #c1d0da;
 }
 
-
 #bottom-container,
 .pager__item.is-active {
   background-color: #f9f9f9;
@@ -140,7 +141,6 @@ textarea:focus,
   background-color: #000203;
   color: white;
 }
-
 
 /* button animation  */
 .w3-button {
@@ -174,11 +174,13 @@ textarea:focus,
     height: 100%;
     border-bottom-color: #fff;
   }
+
   100% {
     width: 0;
     height: 0;
     border-bottom-color: transparent;
   }
+
 }
 
 /* Border animation  */
@@ -234,6 +236,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -242,6 +245,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }
 
 #top-container .top-box>.animate-border:after,
@@ -290,6 +294,7 @@ textarea:focus,
     border-bottom-color: #819fb4;
     border-left-color: #819fb4;
   }
+
   100% {
     width: 0;
     height: 0;
@@ -298,4 +303,5 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
 }

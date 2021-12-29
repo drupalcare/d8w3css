@@ -84,7 +84,7 @@ h6 a {
 #footer-menu a,
 #footer-menu p,
 .main-navigation-wrapper {
-  color: #f5c709!important;
+  color: #f5c709 !important;
 }
 
 /* dark Background  */
@@ -159,7 +159,7 @@ ul.primary > li {
 #open-search:hover,
 #open-nav-inner:hover,
 #footer-menu a.w3-button:hover {
-  color: #fef7dd!important;
+  color: #fef7dd !important;
   background-color: #312702 !important;
 }
 
@@ -258,6 +258,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   99.9999% {
     width: 100%;
     height: 100%;
@@ -266,6 +267,7 @@ textarea:focus,
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
+
   100% {
     width: 0;
     height: 0;
