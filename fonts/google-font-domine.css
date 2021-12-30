@@ -1,4 +1,7 @@
-/* domine-regular - latin */
+body {
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Domine';
   font-style: normal;

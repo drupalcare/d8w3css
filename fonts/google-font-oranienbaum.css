@@ -1,4 +1,8 @@
-@font-face {
+body {
+  font-style: normal;
+}
+
+font-face {
   font-family: 'Oranienbaum';
   font-style: normal;
   font-weight: 400;
