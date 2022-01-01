@@ -11,8 +11,8 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\block_content\BlockContentInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -50,7 +50,7 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
   // If the user is loogged in use ID if not use second word after user/login.
   $curr_path = \Drupal::service('path.current')->getPath();
   $curr_path = ltrim($curr_path, '/');
-  $user_url  = explode('/', $curr_path);
+  $user_url = explode('/', $curr_path);
   if (isset($user_url[0]) && isset($user_url[1]) && ($user_url[0] == 'user')) {
     $variables['attributes']['class'][] = 'path-user-' . $user_url[1];
   }
@@ -94,8 +94,8 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   if ($has_top_first && $has_top_second && $has_top_third) {
     $variables['top_w3css'] = 'w3-third';
   }
-  elseif (($has_top_first && $has_top_second)  ||
-    ($has_top_first && $has_top_third)  ||
+  elseif (($has_top_first && $has_top_second) ||
+    ($has_top_first && $has_top_third) ||
     ($has_top_second && $has_top_third)
   ) {
     $variables['top_w3css'] = 'w3-half';
@@ -145,16 +145,16 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   if ($has_bottom_first && $has_bottom_second && $has_bottom_third && $has_bottom_forth) {
     $variables['bottom_w3css'] = 'w3-quarter';
   }
-  elseif (($has_bottom_first && $has_bottom_second && $has_bottom_third)   ||
-    ($has_bottom_first && $has_bottom_third && $has_bottom_forth)   ||
-    ($has_bottom_first && $has_bottom_second && $has_bottom_forth)  ||
+  elseif (($has_bottom_first && $has_bottom_second && $has_bottom_third) ||
+    ($has_bottom_first && $has_bottom_third && $has_bottom_forth) ||
+    ($has_bottom_first && $has_bottom_second && $has_bottom_forth) ||
     ($has_bottom_second && $has_bottom_third && $has_bottom_forth)
   ) {
     $variables['bottom_w3css'] = 'w3-third';
   }
-  elseif (($has_bottom_first && $has_bottom_second)  ||
-    ($has_bottom_first && $has_bottom_third)  ||
-    ($has_bottom_first && $has_bottom_forth)  ||
+  elseif (($has_bottom_first && $has_bottom_second) ||
+    ($has_bottom_first && $has_bottom_third) ||
+    ($has_bottom_first && $has_bottom_forth) ||
     ($has_bottom_second && $has_bottom_forth) ||
     ($has_bottom_second && $has_bottom_third) ||
     ($has_bottom_third && $has_bottom_forth)
@@ -169,8 +169,8 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   if ($has_footer_first && $has_footer_second && $has_footer_third) {
     $variables['footer_w3css'] = 'w3-third';
   }
-  elseif (($has_footer_first && $has_footer_second)  ||
-    ($has_footer_first && $has_footer_third)  ||
+  elseif (($has_footer_first && $has_footer_second) ||
+    ($has_footer_first && $has_footer_third) ||
     ($has_footer_second && $has_footer_third)
   ) {
     $variables['footer_w3css'] = 'w3-half';
@@ -244,6 +244,81 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function drupal8_w3css_theme_preprocess_node(&$variables) {
+  // Remove the "Add new comment" link on teasers or when the comment form is
+  // displayed on the page.
+  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
+    unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function drupal8_w3css_theme_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')
+      ->getTitle($request, $route_match->getRouteObject());
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+      ];
+      // Add cache context based on url.
+      $variables['#cache']['contexts'][] = 'url';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function drupal8_w3css_theme_preprocess_field__node__created(&$variables) {
+  foreach (Element::children($variables['items']) as $item) {
+    unset($variables['items'][$item]['content']['#prefix']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for setting classes.
+ */
+function drupal8_w3css_theme_preprocess_filter_caption(&$variables) {
+  $variables['classes'] = isset($variables['classes']) && !empty($variables['classes']) ? $variables['classes'] . ' caption' : 'caption';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for comment.html.twig.
+ */
+function drupal8_w3css_theme_preprocess_comment(&$variables) {
+  // Getting the node creation time stamp from the comment object.
+  $date = $variables['comment']->getCreatedTime();
+  // Formatting "created" as "X days ago".
+  $variables['created'] = t('@time ago', [
+    '@time' => \Drupal::service('date.formatter')
+      ->formatInterval(\Drupal::time()->getRequestTime() - $date),
+  ]);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
+ */
+function drupal8_w3css_theme_preprocess_maintenance_page(&$variables) {
+  // By default, site_name is set to Drupal if no db connection is available
+  // or during site installation. Setting site_name to an empty string makes
+  // the site and update pages look cleaner.
+  // @see template_preprocess_maintenance_page
+  if (!$variables['db_is_active']) {
+    $variables['site_name'] = '';
+  }
+
+  // drupal8_w3css_theme has custom styling for the maintenance page.
+  $variables['#attached']['library'][] = 'drupal8_w3css_theme/templates/layout/maintenance_page';
+}
+
+/**
  * Implements hook_page_attachments_alter().
  */
 function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
@@ -284,13 +359,18 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
   }
 
   // Load default color theme if not.
-  if ((!theme_get_setting('current_theme')) ||  (theme_get_setting('current_theme') == 'none')) {
+  if ((!theme_get_setting('current_theme')) || (theme_get_setting('current_theme') == 'none')) {
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
   }
   else {
     $my_current_theme = theme_get_setting('current_theme');
     $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', $my_current_theme);
     $attachments['#attached']['library'][] = $predefined_theme_filename;
+  }
+
+  // Load font awesome locally.
+  if (theme_get_setting('layout_user_login_custom')) {
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
   }
 
   // Load font awesome locally.
@@ -308,54 +388,6 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-full-opacity';
   }
 
-}
-
-/**
- * Implements hook_preprocess_breadcrumb().
- */
-function drupal8_w3css_theme_preprocess_breadcrumb(&$variables) {
-  if ($variables['breadcrumb']) {
-    $request = \Drupal::request();
-    $route_match = \Drupal::routeMatch();
-    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
-    if (!empty($page_title)) {
-      $variables['breadcrumb'][] = [
-        'text' => $page_title,
-      ];
-      // Add cache context based on url.
-      $variables['#cache']['contexts'][] = 'url';
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
- */
-function drupal8_w3css_theme_preprocess_maintenance_page(&$variables) {
-  // By default, site_name is set to Drupal if no db connection is available
-  // or during site installation. Setting site_name to an empty string makes
-  // the site and update pages look cleaner.
-  // @see template_preprocess_maintenance_page
-  if (!$variables['db_is_active']) {
-    $variables['site_name'] = '';
-  }
-
-  // drupal8_w3css_theme has custom styling for the maintenance page.
-  $variables['#attached']['library'][] = 'drupal8_w3css_theme/templates/layout/maintenance_page';
-}
-
-/**
- * Implements hook_theme_suggestions_block_alter().
- */
-function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  $content = $variables['elements']['content'];
-  if (isset($content['#block_content']) && $content['#block_content'] instanceof BlockContentInterface) {
-    $bundle = $content['#block_content']->bundle();
-    $view_mode = $content['#view_mode'];
-    $suggestions[] = 'block__' . $bundle;
-    $suggestions[] = 'block__' . $view_mode;
-    $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
-  }
 }
 
 /**
@@ -379,6 +411,68 @@ function drupal8_w3css_theme_form_node_form_alter(&$form, FormStateInterface $fo
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function drupal8_w3css_theme_form_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $comment = $form_state->getFormObject()
+    ->getEntity();
+  /** @var \Drupal\comment\Entity\Comment $comment */
+  if ($comment->hasParentComment()) {
+    $form['actions']['submit']['#value'] = t('Reply to comment');
+  }
+  else {
+    $form['actions']['submit']['#value'] = t('Post comment');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function drupal8_w3css_theme_form_search_block_form_alter(&$form, &$form_state) {
+  $form['keys']['#attributes']['placeholder'] = t('Search');
+  $form['actions']['submit']['#value'] = html_entity_decode('&#xf061;');
+  $form['actions']['submit']['#attributes']['class'][] = 'search-button-block';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function drupal8_w3css_theme_form_search_form_alter(&$form, &$form_state) {
+  unset($form['help_link']);
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id'])) {
+
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+    if ($block) {
+
+      // Add region-specific block theme suggestions.
+      $region = $block
+        ->getRegion();
+      $suggestions[] = 'block__' . $region;
+      $suggestions[] = 'block__' . $region . '__' . 'plugin_id' . '__' . $variables['elements']['#plugin_id'];
+      $suggestions[] = 'block__' . $region . '__' . 'id' . '__' . $variables['elements']['#id'];
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.
+ */
+function drupal8_w3css_theme_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['attributes']['region'];
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  */
 function drupal8_w3css_theme_theme_suggestions_form_alter(array &$suggestions, array $variables) {
@@ -398,12 +492,14 @@ function drupal8_w3css_theme_theme_suggestions_page_alter(array &$suggestions, a
   switch ($routeMatch->getRouteName()) {
     // Suggest the node page according to the content type name.
     case 'entity.node.canonical':
-      array_splice($suggestions, 1, 0, 'page__' . $routeMatch->getParameter('node')->bundle());
+      array_splice($suggestions, 1, 0, 'page__' . $routeMatch->getParameter('node')
+        ->bundle());
       break;
 
     // Suggest the vocabulary page according to the vocabulary name.
     case 'entity.taxonomy_term.canonical':
-      array_splice($suggestions, 1, 0, 'page__taxonomy__' . $routeMatch->getParameter('taxonomy_term')->bundle());
+      array_splice($suggestions, 1, 0, 'page__taxonomy__' . $routeMatch->getParameter('taxonomy_term')
+        ->bundle());
       break;
 
   }
@@ -415,17 +511,8 @@ function drupal8_w3css_theme_theme_suggestions_page_alter(array &$suggestions, a
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
-function drupal8_w3css_theme_form_search_block_form_alter(&$form, &$form_state) {
-  $form['keys']['#attributes']['placeholder'] = t('Search');
-  $form['actions']['submit']['#value'] = html_entity_decode('&#xf061;');
-  $form['actions']['submit']['#attributes']['class'][] = 'search-button-block';
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function drupal8_w3css_theme_form_search_form_alter(&$form, &$form_state) {
-  unset($form['help_link']);
+function drupal8_w3css_theme_theme_suggestions_user_alter(&$suggestions, $variables) {
+  $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
 }

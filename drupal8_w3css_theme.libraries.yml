@@ -44,6 +44,7 @@ d8w3css-global-styling:
       css/components/v-menu.css: {}
       css/components/site-branding.css: {}
       css/components/user-menu.css: {}
+      css/components/user-login.css: {}
       css/components/footer-menu.css: {}
       css/components/default-node.css: {}
       css/components/page-title.css: {}
@@ -58,7 +59,6 @@ d8w3css-global-styling:
       css/components/teaser-mode.css: {}
       css/components/sitemap.css: {}
       css/components/ckeditor.css: {}
-
     theme:
       css/theme/a-image.css: {weight: -10}
       css/theme/min-width-993.css: {weight: -10}
@@ -74,6 +74,14 @@ d8w3css-global-styling:
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+# custom user login page.
+
+d8w3css-user-login-custom:
+  Version: VERSION
+  css:
+    layout:
+      css/layout/layout-user-login.css: {}
 
 # Font Awesome.
 
