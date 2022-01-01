@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.domine {
   font-family: 'Domine', serif;
 }

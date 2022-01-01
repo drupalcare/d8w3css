@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.lato {
   font-family: 'Lato','Helvetica Neue', Helvetica, Arial, sans-serif;
 }

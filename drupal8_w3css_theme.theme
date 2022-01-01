@@ -248,7 +248,7 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
  */
 function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
 
-  // Load default fonts.
+  // Load default fonts - Global.
   if (!theme_get_setting('d8w3css_site_gf') || (theme_get_setting('d8w3css_site_gf') == 'none')) {
     if (theme_get_setting('d8w3css_google_font_local')) {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfin-open-sans';
@@ -257,17 +257,30 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfex-open-sans';
     }
   }
-  // Load google fonts locally.
+  // Load google fonts locally - Global.
   if (theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gf')) {
     $in_font = theme_get_setting('d8w3css_site_gf');
     $current_ingf = 'drupal8_w3css_theme/d8w3css-gfin' . substr($in_font, 7);
     $attachments['#attached']['library'][] = $current_ingf;
   }
-  // Load fonts external.
+  // Load fonts external - Global.
   if (!theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gf')) {
     $ex_font = theme_get_setting('d8w3css_site_gf');
     $current_exgf = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font, 7);
     $attachments['#attached']['library'][] = $current_exgf;
+  }
+
+  // Load google fonts locally - Heading.
+  if (theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gfh')) {
+    $in_font_h = theme_get_setting('d8w3css_site_gfh');
+    $current_ingfh = 'drupal8_w3css_theme/d8w3css-gfin' . substr($in_font_h, 7);
+    $attachments['#attached']['library'][] = $current_ingfh;
+  }
+  // Load fonts external - Heading.
+  if (!theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gfh')) {
+    $ex_font_h = theme_get_setting('d8w3css_site_gfh');
+    $current_exgfh = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_h, 7);
+    $attachments['#attached']['library'][] = $current_exgfh;
   }
 
   // Load default color theme if not.

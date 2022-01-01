@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.playfair-display {
   font-family: 'Playfair Display','Helvetica Neue', Helvetica, Arial, serif;
 }

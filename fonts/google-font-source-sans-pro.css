@@ -6,6 +6,5 @@ body {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.eot');
-  src: local(''),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.woff2') format('woff2'),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.woff') format('woff'),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.ttf') format('truetype'),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.svg#SourceSansPro') format('svg');
+  src: local(''),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.woff2') format('woff2'),url('fonts-files/source-sans-pro/source-sans-pro-v18-latin-regular.woff') format('woff');
 }

@@ -6,6 +6,5 @@ body {
   font-family: 'Amita';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts-files/amita/amita-v9-latin-regular.eot');
-  src: local(''),url('fonts-files/amita/amita-v9-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/amita/amita-v9-latin-regular.woff2') format('woff2'),url('fonts-files/amita/amita-v9-latin-regular.woff') format('woff'),url('fonts-files/amita/amita-v9-latin-regular.ttf') format('truetype'),url('fonts-files/amita/amita-v9-latin-regular.svg#Amita') format('svg');
+  src: local(''),url('fonts-files/amita/amita-v9-latin-regular.woff2') format('woff2'),url('fonts-files/amita/amita-v9-latin-regular.woff') format('woff');
 }

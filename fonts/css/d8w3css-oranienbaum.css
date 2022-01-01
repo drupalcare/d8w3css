@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.oranienbaum {
   font-family: 'Oranienbaum', serif;
 }

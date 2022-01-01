@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.nunito {
   font-family: 'Nunito','Helvetica Neue', Helvetica, Arial, sans-serif;
 }

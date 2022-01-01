@@ -2,10 +2,9 @@ body {
   font-style: normal;
 }
 
-font-face {
+@font-face {
   font-family: 'Oranienbaum';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.eot');
-  src: local(''),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.woff2') format('woff2'),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.woff') format('woff'),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.ttf') format('truetype'),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.svg#Oranienbaum') format('svg');
+  src: local(''),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.woff2') format('woff2'),url('fonts-files/oranienbaum/oranienbaum-v10-latin-regular.woff') format('woff');
 }

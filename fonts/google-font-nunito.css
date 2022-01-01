@@ -6,6 +6,5 @@ body {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts-files/nunito/nunito-v20-latin-regular.eot');
-  src: local(''),url('fonts-files/nunito/nunito-v20-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/nunito/nunito-v20-latin-regular.woff2') format('woff2'),url('fonts-files/nunito/nunito-v20-latin-regular.woff') format('woff'),url('fonts-files/nunito/nunito-v20-latin-regular.ttf') format('truetype'),url('fonts-files/nunito/nunito-v20-latin-regular.svg#Nunito') format('svg');
+  src: local(''),url('fonts-files/nunito/nunito-v20-latin-regular.woff2') format('woff2'),url('fonts-files/nunito/nunito-v20-latin-regular.woff') format('woff');
 }

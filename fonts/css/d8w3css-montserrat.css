@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.montserrat {
   font-family: 'Montserrat','Helvetica Neue', Helvetica, Arial, sans-serif;
 }

@@ -6,6 +6,5 @@ body {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts-files/roboto/roboto-v29-latin-regular.eot');
-  src: local(''),url('fonts-files/roboto/roboto-v29-latin-regular.eot?#iefix') format('embedded-opentype'),url('fonts-files/roboto/roboto-v29-latin-regular.woff2') format('woff2'),url('fonts-files/roboto/roboto-v29-latin-regular.woff') format('woff'),url('fonts-files/roboto/roboto-v29-latin-regular.ttf') format('truetype'),url('fonts-files/roboto/roboto-v29-latin-regular.svg#Roboto') format('svg');
+  src: local(''),url('fonts-files/roboto/roboto-v29-latin-regular.woff2') format('woff2'),url('fonts-files/roboto/roboto-v29-latin-regular.woff') format('woff');
 }

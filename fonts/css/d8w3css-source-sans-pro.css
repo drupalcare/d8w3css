@@ -4,6 +4,7 @@ h3,
 h4,
 p,
 html,
-body {
+body,
+.source-sans-pro {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
