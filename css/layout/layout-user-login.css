@@ -1,7 +1,7 @@
 .path-user-register .main-container-inner .w3css-content,
 .path-user-password .main-container-inner .w3css-content,
 .path-user-login .main-container-inner .w3css-content {
-  width: auto !important;
+  width: 100% !important;
   max-width: 900px;
   margin: 16px auto !important;
   float: none !important;
