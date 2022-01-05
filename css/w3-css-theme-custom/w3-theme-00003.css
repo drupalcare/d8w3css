@@ -122,10 +122,13 @@ textarea:focus,
   border-color: #c1e4c2;
 }
 
-#bottom-container,
-.pager__item.is-active {
+\ .pager__item.is-active {
   background-color: #e4f3e5;
   color: #19391a;
+}
+
+#bottom-container {
+  background-color: #e4f3e5;;
 }
 
 #footer-menu {

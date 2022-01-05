@@ -123,9 +123,12 @@ textarea:focus,
 }
 
 /* Four panels - light color */
-#bottom-container,
 .pager__item.is-active {
   background-color: #ecf0f3;
+}
+
+#bottom-container {
+  background-color: #e2e8ec;
 }
 
 /* map and contact  */

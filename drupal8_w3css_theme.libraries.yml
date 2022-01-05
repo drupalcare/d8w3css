@@ -58,6 +58,7 @@ d8w3css-global-styling:
       css/components/node-form.css: {}
       css/components/teaser-mode.css: {}
       css/components/sitemap.css: {}
+      css/components/contact-form.css: {}
       css/components/ckeditor.css: {}
     theme:
       css/theme/a-image.css: {weight: -10}

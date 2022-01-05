@@ -1,91 +1,85 @@
-h1,
-h2,
-h3,
-h4,
-p,
-html,
-body {
-  color: #666;
+.main-container-inner {
+  color: #442900;
 }
 
 #copyright p,
 #copyright a {
-  color: white;
+  color: #fff1dd;
 }
 
 #main-container .main-box > div {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .w3-theme-l5 {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #fff9f0 !important;
 }
 
 .w3-theme-l4 {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #ffebcc !important;
 }
 
 .w3-theme-l3 {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #ffd699 !important;
 }
 
 .w3-theme-l2 {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #ffc266 !important;
 }
 
 .w3-theme-l1 {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #ffad33 !important;
 }
 
 .w3-theme-d1 {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #e68a00 !important;
 }
 
 .w3-theme-d2 {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #cc7a00 !important;
 }
 
 .w3-theme-d3 {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #b36b00 !important;
 }
 
 .w3-theme-d4 {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #995c00 !important;
 }
 
 .w3-theme-d5 {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #804d00 !important;
 }
 
 .w3-theme-light {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #fff9f0 !important;
 }
 
 .w3-theme-dark {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #804d00 !important;
 }
 
 .w3-theme-action {
-  color: #fff !important;
+  color: #fff8ee !important;
   background-color: #804d00 !important;
 }
 
 .w3-theme,
 .close-nav,
 .mobile-nav {
-  color: #333 !important;
+  color: #442900 !important;
   background-color: #ff9800 !important;
 }
 
@@ -98,7 +92,7 @@ body {
 }
 
 .w3-hover-theme:hover {
-  color: #000 !important;
+  color: #442900 !important;
   background-color: #ff9800 !important;
 }
 

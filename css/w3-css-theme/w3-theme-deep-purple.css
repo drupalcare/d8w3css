@@ -1,91 +1,85 @@
-h1,
-h2,
-h3,
-h4,
-p,
-html,
-body {
-  color: #666;
+.main-container-inner {
+  color: #1e1136;
 }
 
 #copyright p,
 #copyright a {
-  color: white;
+  color: #f7f4fc;
 }
 
 #main-container .main-box > div {
-  background-color: #ffffff;
+  background-color: #f7f4fc;
 }
 
 .w3-theme-l5 {
-  color: #000 !important;
-  background-color: #f6f3fb !important;
+  color: #1e1136 !important;
+  background-color: #ede7f7 !important;
 }
 
 .w3-theme-l4 {
-  color: #000 !important;
-  background-color: #e0d6f2 !important;
+  color: #1e1136 !important;
+  background-color: #f7f4fc!important;
 }
 
 .w3-theme-l3 {
-  color: #000 !important;
+  color: #1e1136 !important;
   background-color: #c1ade5 !important;
 }
 
 .w3-theme-l2 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #a384d8 !important;
 }
 
 .w3-theme-l1 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #845bcb !important;
 }
 
 .w3-theme-d1 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #5d34a4 !important;
 }
 
 .w3-theme-d2 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #532e92 !important;
 }
 
 .w3-theme-d3 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #482880 !important;
 }
 
 .w3-theme-d4 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #3e236d !important;
 }
 
 .w3-theme-d5 {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #341d5b !important;
 }
 
 .w3-theme-light {
-  color: #000 !important;
+  color: #1e1136 !important;
   background-color: #f6f3fb !important;
 }
 
 .w3-theme-dark {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #341d5b !important;
 }
 
 .w3-theme-action {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #341d5b !important;
 }
 
 .w3-theme,
 .close-nav,
 .mobile-nav {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #673ab7 !important;
 }
 
@@ -98,7 +92,7 @@ body {
 }
 
 .w3-hover-theme:hover {
-  color: #fff !important;
+  color: #f7f4fc !important;
   background-color: #673ab7 !important;
 }
 

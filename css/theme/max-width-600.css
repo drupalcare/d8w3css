@@ -84,34 +84,25 @@
     margin: 0 2% !important;
   }
 
-  .block-system-branding-block .site-slogan {
-    text-align: center;
-    margin-bottom: 20px !important;
-  }
-
-  .block-system-branding-block .site-name a {
+  .site-name,
+  .site-slogan,
+  .site-name a {
     display: block;
-    padding: 0 !important;
     text-align: center;
   }
 
-  .block-system-branding-block > div {
-    margin: 0 !important;
+  .site-name-slogan {
+    display: inline-block;
+    margin: 16px auto;
     width: 100%;
   }
 
-  .site-name,
-  .site-slogan {
-    margin: 0 !important;
+  .site-name {
+    font-size: 22px;
   }
 
   .site-slogan {
-    font-size: 13px !important;
-  }
-
-  .site-name a,
-  .site-slogan {
-    padding: 0px !important;
+    font-size: 16px !important;
   }
 
   .node__meta .node__submitted {

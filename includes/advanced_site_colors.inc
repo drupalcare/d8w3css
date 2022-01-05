@@ -23,167 +23,236 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 
 <h2>This is a visual guide to show each region's placement on the page. Click on the name to go to the field.</h2>
 
-<table style='width: 100%; background-color: AliceBlue; color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue' border = '1' cellpadding = '8'>
-  <tbody>
-    <tr>
-      <td style='text-align: center;'> <h1><a href='#edit-color-primary-menu'>Main Navigation - Vertical</a></h1></td>
-    </tr>
-  </tbody>
-</table>
-<table style='width: 100%; background-color: AliceBlue; color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue' cellpadding = '8'>
+
+<table border='1' cellpadding='8' style='width: 100%; background-color: WhiteSmoke; color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue'>
   <tbody>
     <tr>
       <td style='text-align: center;'>
-        <br><h1><a href='#edit-color-page-wrapper'>Page Wrapper</a></h1><br>
-        <table style='width: 100%;' cellpadding = '6'>
-          <tbody>
-            <tr>
-              <td>
-                <table style='width: 100%; background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'> <h1><a href='#edit-color-header'>Header</a></h1></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'> <h1><a href='#edit-color-primary-menu'>Main Navigation - Horizontal</a></h1></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h1><a href='#edit-color-welcome-text'>Welcome Text</a></h1></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h1><a href='#edit-color-highlighted'>Highlighted</a></h1> </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style='text-align: center;'>
-                <br><h1><a href='#edit-color-top-container'>Top Container Wrapper</a></h1><br>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h2><a href='#edit-color-top-first'>Top First</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-top-second'>Top Second</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-top-third'>Top Third</a></h2></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><br><h1><a href='#edit-color-page-title'>Page Title</a></h1><br></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style='text-align: center;'>
-                <br><h1><a href='#edit-color-main'>Main Container Wrapper</a></h1><br>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h2><a href='#edit-color-breadcrumb'>Breadcrumb</a></h2> </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h2><a href='#edit-color-sidebar-first'>Left SideBar</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-content'>W3CSS Content</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-sidebar-second'>Right SideBar</a></h2></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style='text-align: center;'>
-                <br><h1><a href='#edit-color-bottom-container'>Bottom Container Wrapper</a></h1><br>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-first'>Bottom First</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-second'>Bottom Second</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-third'>Bottom Third</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-bottom-forth'>Bottom Forth</a></h2></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style='text-align: center;'>
-                <br><h1><a href='#edit-color-footer-container'> Footer Container Wrapper</a></h1><br>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h2><a href='#edit-color-footer-first'>Footer First</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-footer-second'>Footer Second</a></h2></td>
-                      <td style='text-align: center;'><h2><a href='#edit-color-footer-third'>Footer Third</a></h2></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'> <h1><a href='#edit-color-footer-menu'>Footer Menu</a></h1></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <table style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue' cellpadding = '5'>
-                  <tbody>
-                    <tr>
-                      <td style='text-align: center;'><h1><a href='#edit-color-copyright'>Copyright</a></h1> </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <h1><a href='#edit-color-primary-menu'>Main Navigation - Vertical</a></h1>
+      <p>Visible on all pages - W3.CSS Color Theme Class w3-theme</p>
       </td>
     </tr>
   </tbody>
 </table>
+<table cellpadding='8' style='width: 100%; background-color: AliceBlue; color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue'>
+  <tbody>
+    <tr>
+      <td style='text-align: center;'>
+      <h1><a href='#edit-color-page-wrapper'>Page Wrapper</a></h1>
+      <table cellpadding='6' style='width: 100%;'>
+        <tbody>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%; background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-header'>Header</a></h1>
+                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l4</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-primary-menu'>Main Navigation - Horizontal</a></h1>
+                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-welcome-text'>Welcome Text</a></h1>
+                  <p>Visible on front page only - W3.CSS Color Theme Class w3-theme-l5</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-highlighted'>Highlighted</a></h1>
+                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l2</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style='text-align: center;'>
+            <h1><a href='#edit-color-top-container'>Top Container Wrapper</a></h1>
+            <p>Visible on front page only - W3.CSS Color Theme Class w3-theme-l4</p>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-top-first'>Top First</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-top-second'>Top Second</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-top-third'>Top Third</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-page-title'>Page Title</a></h1>
+                  <p>Visible on all pages except front page - W3.CSS Color Theme Class w3-theme-d5</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style='text-align: center;'>
+            <h1><a href='#edit-color-main'>Main Container Wrapper</a></h1>
+            <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l5</p>
+            <p>Main Container (Left SideBar - W3CSS Content - Right SideBar) can be (25% - 50% - 25%) or (33% - 33% - 33%).</p>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h2><a href='#edit-color-breadcrumb'>Breadcrumb</a></h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-sidebar-first'>Left SideBar</a></h2>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-content'>W3CSS Content</a></h2>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-sidebar-second'>Right SideBar</a></h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style='text-align: center;'>
+            <h1><a href='#edit-color-bottom-container'>Bottom Container Wrapper</a></h1>
+            Visible on front page only - W3.CSS Color Theme Class w3-theme-l2
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-bottom-first'>Bottom First</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-bottom-second'>Bottom Second</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-bottom-third'>Bottom Third</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-bottom-forth'>Bottom Forth</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style='text-align: center;'>
+            <h1><a href='#edit-color-footer-container'>Footer Container Wrapper</a></h1>
+            Visible on all pages - W3.CSS Color Theme Class w3-theme-d3
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-footer-first'>Footer First</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-footer-second'>Footer Second</a></h2>
+                  <p>w3-theme-l5</p>
+                  </td>
+                  <td style='text-align: center; border:1px solid LightBlue;'>
+                  <h2><a href='#edit-color-footer-third'>Footer Third</a></h2>
+                  <p>w3-theme-l4</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-footer-menu'>Footer Menu</a></h1>
+                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-d4</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+              <tbody>
+                <tr>
+                  <td style='text-align: center;'>
+                  <h1><a href='#edit-color-copyright'>Copyright</a></h1>
+                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-d5</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 <table style='width: 100%; line-height:1.6; background-color: WhiteSmoke; color: LightSlateGray; font-size: 16px; font-family: Helvetica;'>

@@ -3,11 +3,28 @@
   width: auto;
 }
 
+.site-name-slogan {
+  display: inline-block;
+  margin: 16px 0 0 16px;
+}
+
+.site-name,
 .site-name a,
 .site-slogan {
   text-transform: uppercase;
+  line-height: 140%;
+}
+
+.site-name {
+  margin: 0;
+  font-size: 36px;
 }
 
 .site-slogan {
-  padding-left: 16px;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.site-logo {
+  margin-top: 0;
 }

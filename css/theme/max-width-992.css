@@ -1,4 +1,12 @@
 @media (max-width:992px) {
+  .site-name {
+    font-size: 28px;
+  }
+
+  .site-slogan {
+    font-size: 20px !important;
+  }
+
   h1.page-title {
     padding: 16px;
     font-size: 32px;

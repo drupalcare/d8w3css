@@ -1,11 +1,5 @@
-h1,
-h2,
-h3,
-h4,
-p,
-html,
-body {
-  color: #666;
+.main-container-inner {
+  color: #19240c;
 }
 
 #copyright p,
@@ -14,78 +8,78 @@ body {
 }
 
 #main-container .main-box > div {
-  background-color: #ffffff;
+  background-color: #fdfefd;
 }
 
 .w3-theme-l5 {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #f8fbf4 !important;
 }
 
 .w3-theme-l4 {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #e8f3db !important;
 }
 
 .w3-theme-l3 {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #d1e7b7 !important;
 }
 
 .w3-theme-l2 {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #b9db93 !important;
 }
 
 .w3-theme-l1 {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #a2cf6f !important;
 }
 
 .w3-theme-d1 {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #7eb63d !important;
 }
 
 .w3-theme-d2 {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #70a236 !important;
 }
 
 .w3-theme-d3 {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #628e2f !important;
 }
 
 .w3-theme-d4 {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #547a29 !important;
 }
 
 .w3-theme-d5 {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #466522 !important;
 }
 
 .w3-theme-light {
-  color: #000 !important;
+  color: #223110 !important;
   background-color: #f8fbf4 !important;
 }
 
 .w3-theme-dark {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #466522 !important;
 }
 
 .w3-theme-action {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #466522 !important;
 }
 
 .w3-theme,
 .close-nav,
 .mobile-nav {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #8bc34a !important;
 }
 
@@ -98,7 +92,7 @@ body {
 }
 
 .w3-hover-theme:hover {
-  color: #fff !important;
+  color: #fdfefd !important;
   background-color: #8bc34a !important;
 }
 
