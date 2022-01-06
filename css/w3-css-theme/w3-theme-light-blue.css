@@ -114,3 +114,104 @@
   background-color: #f8fcfe !important;
   color: #1b7a9f !important;
 }
+
+/* button animation  */
+@keyframes btnBorderAnimation {
+  0% {
+    width: 0;
+    height: 0;
+    border-bottom-color: #87ceeb;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: #87ceeb;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-bottom-color: transparent;
+  }
+
+}
+
+/* Border animation  */
+@keyframes borderLeftColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: #87ceeb;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: #87ceeb;
+    border-right-color: #87ceeb;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: #87ceeb;
+    border-right-color: #87ceeb;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}
+
+@keyframes borderRightColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #87ceeb;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #87ceeb;
+    border-left-color: #87ceeb;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #87ceeb;
+    border-left-color: #87ceeb;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}

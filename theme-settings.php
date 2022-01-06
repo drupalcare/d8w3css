@@ -22,6 +22,7 @@ function drupal8_w3css_theme_form_system_theme_settings_alter(&$form, FormStateI
   require_once __DIR__ . '/includes/equal_width.inc';
   require_once __DIR__ . '/includes/layout_user_login.inc';
   require_once __DIR__ . '/includes/full_opacity_onscroll.inc';
+  require_once __DIR__ . '/includes/border_animation.inc';
   require_once __DIR__ . '/includes/external_libraries.inc';
   require_once __DIR__ . '/includes/predefined_themes.inc';
   require_once __DIR__ . '/includes/advanced_site_colors.inc';

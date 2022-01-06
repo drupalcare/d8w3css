@@ -180,6 +180,7 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   }
   // Mix variables.
   $mvar = [
+    'border_animation',
     'top_region',
     'main_region',
     'bottom_region',

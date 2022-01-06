@@ -103,3 +103,104 @@
 .w3-hover-border-theme:hover {
   border-color: #9e9e9e !important;
 }
+
+/* button animation  */
+@keyframes btnBorderAnimation {
+  0% {
+    width: 0;
+    height: 0;
+    border-bottom-color: #555;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: #555;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-bottom-color: transparent;
+  }
+
+}
+
+/* Border animation  */
+@keyframes borderLeftColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: #555;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: #555;
+    border-right-color: #555;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: #555;
+    border-right-color: #555;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}
+
+@keyframes borderRightColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #555;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #555;
+    border-left-color: #555;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #555;
+    border-left-color: #555;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}

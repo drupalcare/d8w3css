@@ -119,15 +119,11 @@ a,
 #bottom-container .bottom-box>div,
 #footer-container .footer-box>div {
   border: 1px solid #eadaee;
-  transition: 0.4s !important;
 }
 
 input:focus,
 select:focus,
-textarea:focus,
-#top-container .top-box>div:hover,
-#bottom-container .bottom-box>div:hover,
-#footer-container .footer-box>div:hover {
+textarea:focus {
   box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
   border-color: #ddc2e4;
 }
@@ -148,25 +144,6 @@ textarea:focus,
 }
 
 /* button animation  */
-.w3-button {
-  position: relative;
-}
-
-.w3-button:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  border-bottom: 1px solid transparent;
-}
-
-.w3-button:hover:before {
-  animation: btnBorderAnimation 0.1s linear forwards;
-}
-
 @keyframes btnBorderAnimation {
   0% {
     width: 0;
@@ -189,31 +166,6 @@ textarea:focus,
 }
 
 /* Border animation  */
-#top-container .top-box>.animate-border,
-#bottom-container .bottom-box>.animate-border,
-#footer-container .footer-box>.animate-border {
-  position: relative;
-}
-
-#top-container .top-box>.animate-border:before,
-#bottom-container .bottom-box>.animate-border:before,
-#footer-container .footer-box>.animate-border:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  border: 2px solid transparent;
-}
-
-#top-container .top-box>.animate-border:hover:before,
-#bottom-container .bottom-box>.animate-border:hover:before,
-#footer-container .footer-box>.animate-border:hover:before {
-  animation: borderLeftColors 1s linear forwards;
-}
-
 @keyframes borderLeftColors {
   0% {
     width: 0;
@@ -251,25 +203,6 @@ textarea:focus,
     border-left-color: transparent;
   }
 
-}
-
-#top-container .top-box>.animate-border:after,
-#bottom-container .bottom-box>.animate-border:after,
-#footer-container .footer-box>.animate-border:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  border: 2px solid transparent;
-}
-
-#top-container .top-box>.animate-border:hover:after,
-#bottom-container .bottom-box>.animate-border:hover:after,
-#footer-container .footer-box>.animate-border:hover:after {
-  animation: borderRightColors 1s linear forwards;
 }
 
 @keyframes borderRightColors {

@@ -114,3 +114,108 @@
   background-color: #ffddd3 !important;
   color: #912200 !important;
 }
+
+/* button animation  */
+@keyframes btnBorderAnimation {
+  0% {
+    width: 0;
+    height: 0;
+    border-bottom-color: #ff3d00;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: #ff3d00;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-bottom-color: transparent;
+  }
+
+}
+
+/* Border animation  */
+@keyframes borderLeftColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: #ff3d00;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: #ff3d00;
+    border-right-color: #ff3d00;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: #ff3d00;
+    border-right-color: #ff3d00;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}
+
+@keyframes borderRightColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #ff3d00;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #ff3d00;
+    border-left-color: #ff3d00;
+  }
+
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: #ff3d00;
+    border-left-color: #ff3d00;
+  }
+
+  100% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+}
+
+#footer-container .footer-box>div.animate-border:hover {
+  box-shadow: 0 25px 57px 0 rgba(255, 255, 255, .30);
+}
