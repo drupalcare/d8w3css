@@ -42,7 +42,7 @@ $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['sitename_animati
     'animate-name-11' => t('Style 11 (animate-text-11)'),
     'animate-name-12' => t('Style 12 (animate-text-12)'),
     'animate-name-13' => t('Style 13 (animate-text-13)'),
-    'animate-name-14' => t('Style 06 (animate-text-14)'),
+    'animate-name-14' => t('Style 14 (animate-text-14)'),
   ],
   '#default_value' => theme_get_setting('sitename_animation'),
 ];
