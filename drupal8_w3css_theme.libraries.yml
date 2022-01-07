@@ -36,8 +36,6 @@ d8w3css-global-styling:
       css/components/system-messages.css: {}
       css/components/forms.css: {}
       css/components/breadcrumb.css: {}
-      css/components/border-animation.css: {}
-      css/components/sitename-animation.css: {}
       css/components/system-tabs.css: {}
       css/components/maintenance-page.css: {}
       css/components/system-admin.css: {}
@@ -69,6 +67,8 @@ d8w3css-global-styling:
       css/theme/max-min-width-992-601.css: {weight: -10}
       css/theme/max-width-767.css: {weight: -10}
       css/theme/max-width-600.css: {weight: -10}
+      css/theme/border-animation.css: {weight: -10}
+      css/theme/sitename-animation.css: {weight: 10}
   js:
     js/custom.js: {}
   dependencies:
