@@ -1,0 +1,123 @@
+@keyframes animateSiteName {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+
+}
+
+.animate-text-00,
+header.animate-name-00 .site-name-link {
+  background: linear-gradient(45deg, #30267a, #0085a1, #870074, #ce4676, #ce4676, #870074, #0085a1, #30267a);
+}
+
+.animate-text-01,
+header .animate-name-01 .site-name-link {
+  background: linear-gradient(45deg, #5f2879, #00418d, #00c2de, #fad717, #00ba71, #fa8901, #f43545, #ccc, #f43545, #fa8901, #00ba71, #fad717, #00c2de, #00418d, #5f2879);
+}
+
+.animate-text-02,
+header.animate-name-02 .site-name-link {
+  background: linear-gradient(45deg, #095fab, #25abe8, #57d75b, #ccc, #57d75b, #25abe8, #095fab);
+}
+
+.animate-text-03,
+header.animate-name-03 .site-name-link {
+  background: linear-gradient(45deg, #d0e4f7, #73b1e7, #e2d40b, #539fe1, #87bcea, #539fe1, #e2d40b, #73b1e7, #d0e4f7);
+}
+
+.animate-text-04,
+header.animate-name-04 .site-name-link {
+  background: linear-gradient(45deg, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5, #2196f3, #87ceeb, #00bcd4, #00ffff, #009688, #4caf50, #8bc34a, #8bc34a, #8bc34a, #8bc34a, #4caf50, #009688, #00ffff, #00bcd4, #87ceeb, #2196f3, #3f51b5, #673ab7, #9c27b0, #e91e63, #f44336);
+}
+
+.animate-text-05,
+header.animate-name-05 .site-name-link {
+  background: linear-gradient(45deg, #009688, #2196f3, #ffeb3b, #ff9800, #f44336, #9c27b0, #9c27b0, #f44336, #ff9800, #ffeb3b, #2196f3, #009688);
+}
+
+.animate-text-06,
+header.animate-name-06 .site-name-link {
+  background: linear-gradient(45deg, #f44336, #9c27b0, #2196f3, #4caf50, #ff9800, #ff9800, #4caf50, #2196f3, #9c27b0, #f44336);
+}
+
+.animate-text-07,
+header.animate-name-07 .site-name-link {
+  background: linear-gradient(45deg, #ffb5ba, #ff796c, #ce4676, #87ceeb, #00bcd4, #2196f3, #00bcd4, #87ceeb, #ce4676, #ff796c, #ffb5ba);
+}
+
+.animate-text-08,
+header.animate-name-08 .site-name-link {
+  background: linear-gradient(45deg, #8db600, #27a64c, #008882, #0085a1, #0085a1, #008882, #27a64c, #8db600);
+}
+
+.animate-text-09,
+header.animate-name-09 .site-name-link {
+  background: linear-gradient(45deg, #ffb7a5, #e25822, #f6a600, #dcd300, #dcd300, #f6a600, #e25822, #ffb7a5);
+}
+
+.animate-text-10,
+header.animate-name-10 .site-name-link {
+  background: linear-gradient(45deg, #008856, #00a1c2, #9065ca, #9a4eae, #9a4eae, #9065ca, #00a1c2, #008856);
+}
+
+.animate-text-11,
+header.animate-name-11 .site-name-link {
+  background: linear-gradient(45deg, #ffb5ba, #be0032, #f38400, #f3c300, #f3c300, #f38400, #be0032, #ffb5ba);
+}
+
+.animate-text-12,
+header.animate-name-12 .site-name-link {
+  background: linear-gradient(45deg, #bd1e24, #e97600, #f6c700, #007256, #0067a7, #964f8e, #964f8e, #0067a7, #007256, #f6c700, #e97600, #bd1e24);
+}
+
+.animate-text-13,
+header.animate-name-13 .site-name-link {
+  background: linear-gradient(45deg, #5f2879, #00418d, #00c2de, #fad717, #00ba71, #fa8901, #f43545, #fa8901, #00ba71, #fad717, #00c2de, #00418d, #5f2879);
+}
+
+.animate-text-14,
+header.animate-name-14 .site-name-link {
+  background: linear-gradient(45deg, #fad717, #fa8901, #f43545, #fa8901, #fad717);
+}
+
+.animate-text-00,
+.animate-text-01,
+.animate-text-02,
+.animate-text-03,
+.animate-text-04,
+.animate-text-05,
+.animate-text-06,
+.animate-text-07,
+.animate-text-08,
+.animate-text-09,
+.animate-text-10,
+.animate-text-11,
+.animate-text-12,
+.animate-text-13,
+.animate-text-14,
+header.animate-name-00 .site-name-link,
+header.animate-name-01 .site-name-link,
+header.animate-name-02 .site-name-link,
+header.animate-name-03 .site-name-link,
+header.animate-name-04 .site-name-link,
+header.animate-name-05 .site-name-link,
+header.animate-name-06 .site-name-link,
+header.animate-name-07 .site-name-link,
+header.animate-name-08 .site-name-link,
+header.animate-name-09 .site-name-link,
+header.animate-name-10 .site-name-link,
+header.animate-name-11 .site-name-link,
+header.animate-name-12 .site-name-link,
+header.animate-name-13 .site-name-link,
+header.animate-name-14 .site-name-link {
+  background-size: 200% 200%;
+  animation: animateSiteName 10s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  display: inline-block;
+}
