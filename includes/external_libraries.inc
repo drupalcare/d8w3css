@@ -127,3 +127,38 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh
   ],
   '#default_value' => theme_get_setting('d8w3css_site_gfh'),
 ];
+
+$form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs'] = [
+  '#type' => 'select',
+  '#title' => t('I added some special fonts. They are not applied to any html tags and they are imported only. Each font library has a CSS class you can apply it to any html tag.'),
+  '#options' => [
+    'none' => t('None'),
+    'd8w3css-akronim' => t('akronim - cursive'),
+    'd8w3css-barriecito' => t('barriecito - cursive'),
+    'd8w3css-bungee-shade' => t('bungee-shade - cursive'),
+    'd8w3css-ceviche-one' => t('ceviche-one - cursive'),
+    'd8w3css-creepster' => t('creepster - cursive'),
+    'd8w3css-faster-one' => t('faster-one - cursive'),
+    'd8w3css-finger-paint' => t('finger-paint - cursive'),
+    'd8w3css-frijole' => t('frijole - cursive'),
+    'd8w3css-irish-grover' => t('irish-grover - cursive'),
+    'd8w3css-kumar-one' => t('kumar-one - cursive'),
+    'd8w3css-londrina-outline' => t('londrina-outline - cursive'),
+    'd8w3css-megrim' => t('megrim - cursive'),
+    'd8w3css-metal-mania' => t('metal-mania - cursive'),
+    'd8w3css-monoton' => t('monoton - cursive'),
+    'd8w3css-moo-lah-lah' => t('moo-lah-lah - cursive'),
+    'd8w3css-new-rocker' => t('new-rocker - cursive'),
+    'd8w3css-nosifer' => t('nosifer - cursive'),
+    'd8w3css-pirata-one' => t('pirata-one - cursive'),
+    'd8w3css-ruslan-display' => t('ruslan-display - cursive'),
+    'd8w3css-rye' => t('rye - cursive'),
+    'd8w3css-sancreek' => t('sancreek - cursive'),
+    'd8w3css-slackey' => t('slackey - cursive'),
+    'd8w3css-trade-winds' => t('trade-winds - cursive'),
+    'd8w3css-train-one' => t('train-one - cursive'),
+    'd8w3css-unifrakturmaguntia' => t('unifrakturmaguntia - cursive'),
+
+  ],
+  '#default_value' => theme_get_setting('d8w3css_site_gfs'),
+];

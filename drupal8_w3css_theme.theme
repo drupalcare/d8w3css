@@ -180,6 +180,14 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   }
   // Mix variables.
   $mvar = [
+    'd8w3css_site_gfs',
+    'd8w3css_site_gfh',
+    'd8w3css_site_gf',
+    'd8w3css_google_font_local',
+    'd8w3css_font_awesome_4',
+    'full_opacity_onscroll',
+    'layout_user_login_custom',
+    'pagetitle_animation',
     'sitename_animation',
     'border_animation',
     'top_region',
@@ -359,6 +367,13 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $current_exgfh = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_h, 7);
     $attachments['#attached']['library'][] = $current_exgfh;
   }
+
+  // Load special fonts library.
+  if (theme_get_setting('d8w3css_site_gfs')) {
+    $ex_font_s = theme_get_setting('d8w3css_site_gfs');
+    $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_s, 7);
+    $attachments['#attached']['library'][] = $current_exgfs;
+   }
 
   // Load default color theme if not.
   if ((!theme_get_setting('current_theme')) || (theme_get_setting('current_theme') == 'none')) {

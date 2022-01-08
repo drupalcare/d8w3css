@@ -754,9 +754,7 @@ d8w3css-gfin-work-sans:
       fonts/google-font-work-sans.css: {}
       fonts/css/d8w3css-work-sans.css: {}
 
-
 # Google fonts - Heading.
-
 
 d8w3css-gfex-abril-fatface:
   Version: VERSION
@@ -1095,6 +1093,183 @@ d8w3css-gfin-yanone-kaffeesatz:
     base:
       fonts/google-font-yanone-kaffeesatz.css: {}
       fonts/css/d8w3css-yanone-kaffeesatz.css: {}
+
+# Google fonts - Specail Fonts.
+
+d8w3css-gfex-metal-mania:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-metal-mania.css: {}
+
+d8w3css-gfex-train-one:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Train+One&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-train-one.css: {}
+
+d8w3css-gfex-barriecito:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Barriecito&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-barriecito.css: {}
+
+d8w3css-gfex-sancreek:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Sancreek&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-sancreek.css: {}
+
+d8w3css-gfex-new-rocker:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=New+Rocker&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-new-rocker.css: {}
+
+d8w3css-gfex-nosifer:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Nosifer&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-nosifer.css: {}
+
+d8w3css-gfex-kumar-one:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Kumar+One&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-kumar-one.css: {}
+
+d8w3css-gfex-londrina-outline:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-londrina-outline.css: {}
+
+d8w3css-gfex-trade-winds:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-trade-winds.css: {}
+
+d8w3css-gfex-slackey:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Slackey&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-slackey.css: {}
+
+d8w3css-gfex-frijole:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Frijole&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-frijole.css: {}
+
+d8w3css-gfex-ruslan-display:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-ruslan-display.css: {}
+
+d8w3css-gfex-faster-one:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Faster+One&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-faster-one.css: {}
+
+d8w3css-gfex-akronim:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Akronim&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-akronim.css: {}
+
+d8w3css-gfex-finger-paint:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-finger-paint.css: {}
+
+d8w3css-gfex-ceviche-one:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-ceviche-one.css: {}
+
+d8w3css-gfex-unifrakturmaguntia:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-unifrakturmaguntia.css: {}
+
+d8w3css-gfex-megrim:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Megrim&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-megrim.css: {}
+
+d8w3css-gfex-bungee-shade:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-bungee-shade.css: {}
+
+d8w3css-gfex-irish-grover:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-irish-grover.css: {}
+
+d8w3css-gfex-pirata-one:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Pirata+One&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-pirata-one.css: {}
+
+d8w3css-gfex-rye:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Rye&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-rye.css: {}
+
+d8w3css-gfex-creepster:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Creepster&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-creepster.css: {}
+
+d8w3css-gfex-moo-lah-lah:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-moo-lah-lah.css: {}
+
+d8w3css-gfex-monoton:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Monoton&display=swap': { type: external, minified: true }
+      fonts/css/special/d8w3css-monoton.css: {}
 
 # Predefined themes.
 

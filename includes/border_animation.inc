@@ -24,6 +24,6 @@ $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
 
 $form['drupal8_w3css_theme_settings']['w3_border_animation']['border_animation'] = [
   '#type' => 'checkbox',
-  '#title' => t('Check this box to animate the region\'s border.'),
+  '#title' => t("Check this box to animate the region's border."),
   '#default_value' => theme_get_setting('border_animation'),
 ];
