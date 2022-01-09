@@ -373,7 +373,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $ex_font_s = theme_get_setting('d8w3css_site_gfs');
     $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_s, 7);
     $attachments['#attached']['library'][] = $current_exgfs;
-   }
+  }
 
   // Load default color theme if not.
   if ((!theme_get_setting('current_theme')) || (theme_get_setting('current_theme') == 'none')) {

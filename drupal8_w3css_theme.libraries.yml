@@ -260,6 +260,18 @@ d8w3css-gfin-roboto-condensed:
       fonts/google-font-roboto-condensed.css: {}
       fonts/css/d8w3css-roboto-condensed.css: {}
 
+d8w3css-gfex-roboto-mono:
+  Version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap': { type: external, minified: true }
+      fonts/css/d8w3css-roboto-mono.css: {}
+d8w3css-gfin-roboto-mono:
+  Version: VERSION
+  css:
+    base:
+      fonts/google-font-roboto-mono.css: {}
+      fonts/css/d8w3css-roboto-mono.css: {}
 d8w3css-gfex-source-sans-pro:
   Version: VERSION
   css:
@@ -825,7 +837,7 @@ d8w3css-gfex-big-shoulders-stencil-display:
   Version: VERSION
   css:
     base:
-      'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap': { type: external, minified: true }
+      'https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap': { type: external, minified: true }
       fonts/css/d8w3css-big-shoulders-stencil-display.css: {}
 d8w3css-gfin-big-shoulders-stencil-display:
   Version: VERSION
@@ -838,7 +850,7 @@ d8w3css-gfex-big-shoulders-stencil-text:
   Version: VERSION
   css:
     base:
-      'https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&display=swap': { type: external, minified: true }
+      'https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&display=swap': { type: external, minified: true }
       fonts/css/d8w3css-big-shoulders-stencil-text.css: {}
 d8w3css-gfin-big-shoulders-stencil-text:
   Version: VERSION
