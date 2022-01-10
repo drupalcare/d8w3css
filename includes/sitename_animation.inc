@@ -16,16 +16,16 @@
 
 $form['drupal8_w3css_theme_settings']['w3_sitename_animation'] = [
   '#type' => 'details',
-  '#title' => t("Enable animation for the page title or the site name"),
+  '#title' => t("CSS Text Animation Effects - W3CSS THEME"),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t("<p><strong>You can also use these classes for any text on the site.</strong></p><p>animate-text-00, animate-text-01, animate-text-02, animate-text-03, animate-text-04, animate-text-05, animate-text-06, animate-text-07, animate-text-08, animate-text-09, animate-text-10, animate-text-11, animate-text-12, animate-text-13, animate-text-14, animate-text-14, animate-text-15, animate-text-16, animate-text-17, animate-text-18, animate-text-19, animate-text-20, animate-text-21, animate-text-22, animate-text-23, animate-text-24.</p>
+  '#description'   => t("<p><strong>Available CSS Text Animation Effects Classes: </strong></p><p>animate-text-00, animate-text-01, animate-text-02, animate-text-03, animate-text-04, animate-text-05, animate-text-06, animate-text-07, animate-text-08, animate-text-09, animate-text-10, animate-text-11, animate-text-12, animate-text-13, animate-text-14, animate-text-14, animate-text-15, animate-text-16, animate-text-17, animate-text-18, animate-text-19, animate-text-20, animate-text-21, animate-text-22, animate-text-23, animate-text-24.</p>
     "),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['sitename_animation'] = [
   '#type' => 'select',
-  '#title' => t("Choose the desired site name animation"),
+  '#title' => t("Choose the desired CSS text animation effects for the site name."),
   '#options' => [
     'none' => t('None'),
     'animate-name-01' => t('Style 01 (animate-text-01)'),
@@ -59,7 +59,7 @@ $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['sitename_animati
 
 $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['pagetitle_animation'] = [
   '#type' => 'select',
-  '#title' => t("Choose the desired page title animation"),
+  '#title' => t("Choose the desired CSS text animation effects for the page title."),
   '#options' => [
     'none' => t('None'),
     'animate-title-01' => t('Style 01'),

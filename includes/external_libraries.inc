@@ -19,7 +19,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries'] = [
   '#title' => t('Google Fonts and Font awesome - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t('<p>This section is for Font Awesome and Google Fonts. For any google font you choose, I created a CSS class you can use with any html tag.</p>'),
+  '#description'   => t('<p>This section is for Font Awesome and Google Fonts. For any google font you upload, I created a CSS class you can use with any html tag.</p>'),
 ];
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_font_awesome_4'] = [
   '#type' => 'checkbox',
@@ -36,8 +36,8 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_google_f
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'] = [
   '#type' => 'select',
   '#title' => t('Site Font: Choose the site font - The font will be applied to the whole website. 50 fonts.'),
-  '#description'   => t('<p>Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
-, bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-pro, titillium-web, ubuntu, work-sans.</p>'),
+  '#description'   => t('<p>Global Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
+, bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-pro, titillium-web, ubuntu, work-sans. </p>'),
   '#options' => [
     'none' => t('Default - Open Sans - sans-serif'),
     'd8w3css-abel' => t('Abel - sans-serif'),
@@ -133,7 +133,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs'] = [
   '#type' => 'select',
-  '#title' => t('Special Font: I added some special fonts. They are not applied to any html tags and they are imported only. Each font library has a CSS class you can apply it to any html tag. 25 Fonts.'),
+  '#title' => t('Special Font: They are not applied to any html tags by default and they are imported only. Each font library has a CSS class you can apply it to any html tag. 25 Fonts.'),
   '#description'   => t('<p>Spcial Font CSS Classes: akronim, barriecito, bungee-shade, ceviche-one, creepster, faster-one, finger-paint, frijole, irish-grover, kumar-one, londrina-outline, megrim, metal-mania, monoton, moo-lah-lah, new-rocker, nosifer, pirata-one, ruslan-display, rye, sancreek, slackey, trade-winds, train-one, unifrakturmaguntia.</p>'),
   '#options' => [
     'none' => t('None'),
