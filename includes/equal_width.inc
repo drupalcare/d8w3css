@@ -19,7 +19,7 @@ $form['drupal8_w3css_theme_settings']['w3_equal_width'] = [
   '#title' => t("Main Container Columns' Width - W3CSS Theme"),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t('<p>The default settings for the columns in the main containers is <strong>(25% 50% 25%)</strong></p>'),
+  '#description'   => t('<p>The default settings for the columns in the main containers are <strong>(25% 50% 25%)</strong></p>'),
 ];
 $form['drupal8_w3css_theme_settings']['w3_equal_width']['equal_width'] = [
   '#type' => 'checkbox',

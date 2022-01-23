@@ -19,23 +19,23 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries'] = [
   '#title' => t('Google Fonts and Font awesome - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t('<p>This section is for Font Awesome and Google Fonts. For any google font you upload, I created a CSS class you can use with any html tag.</p>'),
+  '#description'   => t("<p>This section is for Font Awesome and Google Fonts. For any google font you upload, I've created a CSS class you can use with any html tag.</p>"),
 ];
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_font_awesome_4'] = [
   '#type' => 'checkbox',
-  '#title' => t('Load font awesome 4.7 locally. This is for use with the W3CSS Theme'),
+  '#title' => t('Load Font Awesome 4.7 locally. This is for use with the W3CSS Theme.'),
   '#default_value' => theme_get_setting('d8w3css_font_awesome_4'),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_google_font_local'] = [
   '#type' => 'checkbox',
-  '#title' => t('Load Google fonts (site font and heading font only) locally. This is for use with the W3CSS Theme'),
+  '#title' => t('Load Google fonts (site fonts and heading fonts only) locally. This is for use with the W3CSS Theme.'),
   '#default_value' => theme_get_setting('d8w3css_google_font_local'),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'] = [
   '#type' => 'select',
-  '#title' => t('Site Font: Choose the site font - The font will be applied to the whole website. 50 fonts.'),
+  '#title' => t('50 Global Site Fonts: Choose the site font - The font will be applied to the whole website.'),
   '#description'   => t('<p>Global Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
 , bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-pro, titillium-web, ubuntu, work-sans. </p>'),
   '#options' => [
@@ -96,7 +96,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh'] = [
   '#type' => 'select',
-  '#title' => t('Heading Font: Choose the heading font - The font will be applied to h1, h2 and h3 only. 26 fonts.'),
+  '#title' => t('26 Heading Fonts: Choose the heading font - The font will be applied to h1, h2 and h3 only.'),
   '#description'   => t('<p>THeading Font CSS Classes: abril-fatface, aladin, anton, archivo-black, bebas-neue, big-shoulders-stencil-display, big-shoulders-stencil-text, black-ops-one, bree-serif, cinzel, dancing-script, dm-serif-display, doppio-one, fjalla-one, francois-one, fredericka-the-great, fredoka-one, hammersmith-one, indie-flower, kalam, lobster-two, patrick-hand, prosto-one, righteous, staatliches, yanone-kaffeesatz.</p>'),
   '#options' => [
     'none' => t('None'),
@@ -133,7 +133,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs'] = [
   '#type' => 'select',
-  '#title' => t('Special Font: They are not applied to any html tags by default and they are imported only. Each font library has a CSS class you can apply it to any html tag. 25 Fonts.'),
+  '#title' => t('25 Special Fonts: They are not applied to any html tags by default and they are only imported. Each font library has a CSS class that you can apply to any html tag.'),
   '#description'   => t('<p>Spcial Font CSS Classes: akronim, barriecito, bungee-shade, ceviche-one, creepster, faster-one, finger-paint, frijole, irish-grover, kumar-one, londrina-outline, megrim, metal-mania, monoton, moo-lah-lah, new-rocker, nosifer, pirata-one, ruslan-display, rye, sancreek, slackey, trade-winds, train-one, unifrakturmaguntia.</p>'),
   '#options' => [
     'none' => t('None'),

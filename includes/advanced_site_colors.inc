@@ -306,7 +306,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 
   <tr>
     <th>To Disable:</th>
-    <td>To disable shadow: w3-box-shadow-0 | To disable border: w3-border-0 | To disable border round: w3-round-0 | To disable margin: w3-margin-0 | To disable padding: w3-padding-0 | To disable the whole page opacity: w3-animate-opacity-disabled | To disable 100 percent image inside any link: w3-disabled-has-image | To disable text transform: text-transform-none </td>
+    <td>To disable shadow: w3-box-shadow-0 | To disable border: w3-border-0 | To disable border round: w3-round-0 | To disable margin: w3-margin-0 | To disable padding: w3-padding-0 | To disable the whole page opacity: w3-animate-opacity-disabled | To disable 100 percent image inside any link: w3-disabled-has-image | To disable text transform: text-transform-none | To epxand multi items field to 100%: w3-expand-fields </td>
   </tr>
 
 </table>"),

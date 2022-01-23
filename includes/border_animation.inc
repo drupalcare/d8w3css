@@ -19,7 +19,7 @@ $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
   '#title' => t("Enable Border Animation - W3CSS Theme"),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t("<p><strong>You can enable/disable the border animation for top regions, bottom regions and footer regions.</strong></p>"),
+  '#description'   => t("<p><strong>You can enable/disable the border animation for the top regions, bottom regions and footer regions.</strong></p>"),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_border_animation']['border_animation'] = [
