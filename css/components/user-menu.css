@@ -11,4 +11,5 @@
 .ul-parent-account {
   float: right;
   width: auto;
+  position: relative;
 }
