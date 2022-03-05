@@ -7,6 +7,7 @@
 
 #main-navigation-v #close-nav {
   width: 100%;
+  z-index: 1;
 }
 
 .ul-responsive-v .ul-parent .ul-child,
@@ -78,6 +79,7 @@
   width: 50px;
   background-color: transparent !important;
   margin: 10px 20px 0 0;
+  z-index: 1;
 }
 
 #main-navigation-v .right-arrow {
@@ -92,4 +94,8 @@
 .ul-responsive-v .dropdown-arrow,
 #main-navigation-v .dropdown-arrow {
   display: inline-block;
+}
+
+#main-navigation-v li.li-expanded > a {
+  margin-right: 5px;
 }
