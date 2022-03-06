@@ -1,7 +1,8 @@
 INTRODUCTION:
 --------------------------------------------------------------------------------
 
-W3CSS Theme is using the W3.CSS framework with built-in responsiveness:
+When building this theme, I focused on ease of use and a fast load time. Now,
+you have the power to create unlimited UI design by using the W3CSS Paragraphs.
 - Smaller and faster than other CSS frameworks.
 - Easier to learn, and easier to use than other CSS frameworks.
 - Uses standard CSS only (No jQuery or JavaScript library).
@@ -21,101 +22,130 @@ This theme does not require any moduels to be installed.
 INSTALLATION:
 --------------------------------------------------------------------------------
 
-Download the theme to www.your-drupal-site-name/themes/ and go to
-your-site-domain/admin/appearance and scroll to the bottom until you see Drupal8
-W3CSS Theme and click on Install and set as default and click save.
+Download the theme to your-drupal-site-name/themes/ and go to
+your-site-domain/admin/appearance and scroll to the bottom until you see W3CSS
+Theme and click on Install and set as default and click save.
 
 
 FEATURES:
 --------------------------------------------------------------------------------
-1- W3CSS Theme is using the W3.CSS framework with built-in
-responsiveness
+) W3CSS Theme is using the modern W3.CSS framework with built-in responsiveness
 
-2- W3CSS Theme has 22 regions.
+) W3CSS Theme has 22 regions. Check README.txt for more details.
 
-- Regions Will show on ALL pages: Header, Primary Menu Vertical, Primary Menu,
-Highlighted, Breadcrumb, Content, Left Sidebar, Right Sidebar, Footer First
-Container, Footer Second Container, Footer Third Container and Footer Menu
-Container.
+) W3CSS Theme has 26 sections. In the theme settings under Advanced Site Colors
+ you have 26 fields for CSS customization.(Background Colors - Background Hover
+ Colors - Text Colors - Text Hover Colors - Link Text Colors - Link Text Hover
+ Colors - Link Background Colors - Button Colors - Button Hover Colors).
 
-- Regions will show on All pages EXCEPT the front page: Page Title.
+) W3CSS Theme comes with ability to change the website width. Just insert any
+of the predefined classes into website width in theme settings.
+(w3-width-100-percent, w3-width-2560, w3-width-1920, w3-width-1600,
+w3-width-1360, w3-width-1280, w3-width-1024 and w3-width-800).
 
-- Regions will show ONLY on the front page: Welcome Text, Top First container,
-Top Second Container, Top Third Container, Bottom First Container, Bottom Second
-Container, Bottom Third Container and Bottom Forth Container.
+) W3CSS Theme comes with horizontal main menu or vertical side nav. Simply add
+ the main menu to the horizontal region or the vertical region.
 
-3- W3CSS Theme has 26 sections with changeable colors. With ww3.css
-frameworks you can change the background color, text color, text shadow and more
- to any section in your website.  Just simply apply the w3.css class to the
- section.
+) W3CSS Theme V2 comes with 101 fonts. 50 fonts can be applied to the global
+site, 26 fonts for heading (H1, H2 and H3 and 25 special fonts can be applied
+to any html tag. Any uploaded font has a CSS class can be applied to any html
+tag.
 
-4- W3CSS Theme comes with ability to change the site width. Just apply
-any of these per-configured classes to your website. (w3-width-100-percent,
-w3-width-2560, w3-width-1920, w3-width-1600, w3-width-1360, w3-width-1280,
-w3-width-1024 and w3-width-800).
+) W3CSS Theme V2 comes with 24 CSS text animation effects. can be applied to
+site name, page title or use the css class to apply it to any html tag.
 
-5- W3CSS Theme comes with horizontal main menu or vertical side nav.
-Simply add the main menu to the horizontal region or the vertical region.
+) W3CSS Theme V2 comes with a custom page layout for user login/register/reset
+password.
 
-6- W3CSS Theme comes with 22 predefined w3css theme.  Simply insert the
-name of any of the predefined theme.
+) W3CSS Theme V2 comes with a custom border animation for top regions, bottom
+regions and footer regions..
 
-7- W3CSS Theme comes with 6 color libraries. (US Highway Colors, US
-Safety Colors, Camouflage Colors, Vivid Colors, European Signal Colors and Food
-Colors). You can create unlimited color themes.
+) W3CSS Theme comes with over 50 predefined color themes. Simply insert the
+name of any of the predefined themes. More will be added.
 
-8- W3CSS Theme comes with ability to create your own private w3.css
-theme and apply it to your site.
+) W3CSS Theme comes with the ability to create your own private W3.CSS theme
+and apply it to your site.
 
-9- W3CSS Theme comes with 8 social media links easy to configure.
+) W3CSS Theme V1 comes with 6 color libraries. (US Highway, US Safety,
+Camouflage, Vivid, European Signal and Food).
 
-10- W3CSS Theme has a top region that includes three flexible regions.
-(The total space in the top region will be divided by the number of regions you
+) W3CSS Theme V2 comes with 11 color libraries. (Camouflage, European Signal,
+Fashion, Flat UI, Food, IOS, Metro UI, US highway, US Safety, Vivid and Win8).
+You can create unlimited color themes.
+
+) W3CSS Theme comes with 8 social media links that are easy to configure.
+
+) W3CSS Theme has a top region that includes three flexible regions. (The total
+ space in the top region will be divided by the number of regions you filled.)
+
+) W3CSS Theme has a bottom region that includes four flexible regions. (The
+total space in the bottom region will be divided by the number of regions you
 filled.)
 
-11- W3CSS Theme has a bottom region that includes four flexible regions.
-(The total space in the bottom region will be divided by the number of regions
-you filled.)
+) W3CSS Theme has a footer region that includes three flexible regions. (The
+total space in the footer region will be divided by the number of regions you
+filled.)
 
-12- W3CSS Theme has a footer region that includes three flexible
-regions. (The total space in the footer region will be divided by the number of
-regions you filled.)
+) W3CSS Theme comes with Font Awesome 4.7.0 added to the css library.
 
-13- W3CSS Theme comes with font awesome added to the css library.
+) W3CSS Theme comes with jQuery match height. Example: If you have three blocks
+ in the top area, they will always have matching height on the large screen
+ size. The script was removed and it uses CSS Flexbox.
 
-14- W3CSS Theme comes with jQuery match height. Example, if you have
-three blocks in the top area, they will always have the height in any width.
+) W3CSS Theme comes with a responsive main menu and It is three level
+ drop-down menu. The drop-down works on hover for big screen and on click for
+ small screen.
 
-15- W3CSS Theme comes responsive main menu and a drop-down menu.
-The drop-down works on hover for big screen and on click for small screen.
+) W3CSS Theme will hide completely (divs, wrappers, classes) any region you
+don't use. Nothing will be printed in the back.
 
-16- W3CSS Theme will hide completely (divs, wrappers, classes) any
-region you don't use.  Nothing will be printed in the back.
+) W3CSS Theme uses the minimum HTML structure to show the content. Example,
+You will not see div > div > div > div > div.
 
-17- W3CSS Theme uses the minimum HTML structure to show the content.
-Example, You will not see div > div > div > div > div.
+) W3CSS Theme comes with the ability to create a custom page template according
+ to content type's name. If you have two content types article and video you can
+  have page--article.html.twig and page--video.html.twig
 
-18- W3CSS Theme comes with the ability to create a custom page template
-according to content type's name.  If you have two content types article and
-video you can have page--article.html.twig and page--video.html.twig
+) W3CSS Theme comes with the ability to create a custom page template for any
+view. Example if you have a view name "recent_video", then you can create a page
+ template name page--recent-video.html.twig.
 
-19- W3CSS Theme comes with the ability to create a custom page template
-for any view.  Example if you have a view name "recent_video", then you can
-create a page template name page--recent-video.html.twig.
+) W3CSS Theme comes with the ability to create a custom page template for any
+vocabulary. Example if you have a vocabulary name "Tags", then you can create a
+page template name page--taxonomy--tags.html.twig.
 
-You can view live demo by going to:
-<a href="http://drupal8-w3css-theme.flashwebcenter.com" title="Drupal8 W3CSS
-Theme Demo">http://drupal8-w3css-theme.flashwebcenter.com/</a>
+) W3CSS Theme comes with the ability to change the main container's columns
+layout to equal width. Change the columns from (25% 50% 25%) to (33% 33% 33%)
 
-20- W3CSS Theme comes with the ability to change the Main Container's
-Columns layout.  The main container has three columns. The three columns are
-stacked (25% 50% 25%). To change the three columns to be stacked equal width
-(33% 33% 33%), just insert in the text box 33-33-33 If you want to go back to
-the stacked columns (25% 50% 25%), just remove the text 33-33-33
+) W3CSS Theme comes with the ability to create a responsive horizontal three
+level secondary menu or a responsive vertical three level secondary menu.
 
+) W3CSS Theme comes with customized Sub-themes. Each sub-theme has different
+layout/template.
 
 CONFIGURATION:
 --------------------------------------------------------------------------------
+
+The new version was added with all new featuers. If you are using V1 and you did
+ not override the page.html.twig, then you can update the theme however you
+ normally do. If you did override the page.html.twig, then you will need to
+ clone the new page.html.twig and update it.
+
+You can build any website layout with the w3.css library. I try to add the most
+well-known templates/layouts. I added some sub-themes to include different
+layouts. If you see a w3css template that you want to have available in this
+theme then let me know and I'll customize it and add it to the collection as a
+sub-theme.
+
+Note: All customized Sub-themes have an extra region in addition to the regions
+ in the parent theme for the sticky search block. If you click on the search
+ icon, you'll get a sticky search bar on the top in return.
+
+What are drupal8 w3css Sub-themes? They are custom themes with different page
+layouts.
+
+What are drupal8 w3css predefined color themes? They are color skins that can
+be applied to a W3CSS Theme or any of its sub-themes.
 
   * How to change the logo
   ........................
@@ -123,21 +153,47 @@ CONFIGURATION:
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
 uncheck “Use the logo supplied by the theme” then upload your own website logo
 they insert the path in logo text "Path to custom logo" box and click save.
+Logo size is fixed. If you want to change the logo's size you will have to
+change it in the sub theme.
 
   * How to enable the page title
   ..............................
 
-Go to www.your-drupal-site-name/admin/structure/block and scroll down until you
-see Page Title Region. Page Title block is disabled by default, just click on
-Enable to enable the page title.
+Go to your-drupal-site-name/admin/structure/block and scroll down until you see
+Page Title's region. Page Title block is disabled by default, just click on
+Enable to enable the page title
 
   * How to enable the site slogan
   ...............................
 
-Go to www.your-drupal-site-name/admin/structure/block and in header region.
-You should see two blocks User account menu and Site branding.
+Go to your-drupal-site-name/admin/structure/block and in header region. You
+should see two blocks User account menu and Site branding. Click on configure
+for Site branding and check the check box for Site Slogan.
 
-Click on configure for Site branding and check the check box for Site Slogan.
+
+  * CSS Text Animation Effects Classes | W3CSS Theme V2
+  ...........................
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on CSS TEXT ANIMATION EFFECTS - W3CSS THEME to expand it. You can choose
+the animation for the site name or page title. Also you will see the css text
+animation effect classes that you can use with any html tag.
+
+
+
+  * How to enable/disable region border animation? | W3CSS Theme V2
+  ...........................
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on ENABLE BORDER ANIMATION - W3CSS THEME to expand it. There is a
+checkbox to enable/disable the border animation for top regions, bottom
+regions and footer regions.
+
+  * How to expand multi items field to 100%? | W3CSS Theme V2
+  ...........................
+By default, any drupal field with multiple items (like taxonomy, file, user
+etc. ) will display those items in one line. If you want to change that, go to
+your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and click
+on ADVANCED SITE COLORS - W3CSS THEME to expand it then add w3-expand-fields
+to Page Wrapper field.
 
   * How to change the favicon
   ...........................
@@ -149,31 +205,47 @@ and click save.
   * How to change website width
   .............................
 
-Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Website Width to expand it. Copy and paste your desired website
-width and click save.
+In W3CSS Theme V2 was changed to a dropdown select list.
+
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on Website Width to expand it. Copy and paste your desired website width
+and click save.
+
+
+  * How to change website font or heading font? | W3CSS Theme V2
+  .............................
+
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on GOOGLE FONTS AND FONT AWESOME - W3CSS THEME to expand it. You can
+choose the site font or heading font.
+
+Special font are not applied to any html tage by default. You just choose the
+font then use the css class with any html tag.
+
+Tip: Any font you choose for the site or heading will have a CSS class that
+you can apply to any html tag.
+
+Example: If I have chosen the font "Anton" for the heading and I want to apply
+this font to a paragraph, here is how it's done;
 
   * How to use the w3css predefined themes
   ........................................
 
-Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on  w3css predefined themes to expand it.  Copy and paste any of your
-desired w3css color theme and click save.
-
-FYI: if you have any w3 classes in,Advanced Site Color Section they will not
-override the uploaded color theme because of the CSS order.
-Any predefined theme file it will be loaded after w3.css.
+In W3CSS Theme V2 was changed to a dropdown select list.
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on  w3css predefined color themes to expand it.  Copy and paste any of
+your desired w3css color theme and click save.  FYI: if you have any w3
+classes in Advanced Site Color Section they will not override the uploaded
+color theme because of the CSS order.  Any predefined theme file it will be
+loaded after w3.css.
 
   * How to change website colors
   ..............................
 
-Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Advanced Site Colors to expand it.  Each section in the website can
-be modified and click save.
-
-You can change the text color, background color, padding, margin or borders.
-
-You can use any of W3 CSS Classes
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on Advanced Site Colors to expand it.  Each section in the website can
+be modified and click save. You can change the text color, background color,
+padding, margin or borders. You can use any of W3 CSS Classes
 https://www.w3schools.com/w3css/w3css_references.asp
 
   * How to change Social Media Links
@@ -196,30 +268,45 @@ Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
 and click on Credit to expand it.  Uncheck the Show/Hide Credit Text and click
 save.
 
+  * How to disable the whole page opacity animation.
+  .........................................
+
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on ADVANCED SITE COLORS then insert into the text field Page Wrapper
+w3-animate-opacity-disabled
+
+  * How to disable animate opacity on scroll down.
+  .........................................
+
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on ENABLE FULL OPACITY ON SCROLL then uncheck the checkbox next to Check
+this box to animate the opacity on scroll down.
+
   * How to create a new custom predefined color theme
   ...................................................
 
-1) Go to https://www.w3schools.com/w3css/w3css_color_themes.asp and create your
-custom theme.  Follow the steps to create a private theme.
+You must have a sub-theme to store the generated css.
 
-2) After you finish go to your-drupal-site-directory/themes/drupal8_w3css_theme/
-css/w3-css-theme-custom/w3-theme-custom.css Open w3-theme-custom.css and delete
-the old code then paste the new code for your private theme.
+Go to https://www.w3schools.com/w3css/w3css_color_generator.asp and create your
+custom private theme.  Follow the steps to generate a private theme.
 
-3) Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on W3css Predefined Theme and enter w3-theme-custom. How to install
-drupal8 w3css subtheme >>  Install W3CSS Theme First, then install
-drupal8 w3css subtheme.
+Go to your-drupal-site-directory/themes/custom/your-sub-theme/css/styles.css
+open and paste the generated css inside styles.css.
+
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
+click on W3css Predefined Color Theme and enter w3-theme-custom.
 
   * How to use the drupal8_w3css_subtheme
   .......................................
 
-Inside your-drupal-site-directory/themes/drupal8_w3css_theme/
-drupal8_w3css_subtheme you will have all the necessary files for start up theme.
-Steps for creating a new sub theme.
+Inside the folder
+your-drupal-site-directory/themes/drupal8_w3css_theme/drupal8_w3css_subtheme
+you will have all the necessary files for start up sub-theme.
 
-1) Copy the sub-theme from the W3CSS Theme and paste it in your custom
-theme directory.
+-- Steps for creating a new sub-theme for W3CSS Theme.
+
+1) Copy the sub-theme from the W3CSS Theme and paste it in your custom theme
+directory.
 
 2) Re-name the copied folder to have the new sub-theme name. Example: my new
 sub-theme is w3css_subtheme.  I will rename the folder from
@@ -228,28 +315,52 @@ sub-theme is w3css_subtheme.  I will rename the folder from
 3) Open the new named sub-theme folder "w3css_subtheme" and change the following
  files' names from:
 drupal8_w3css_subtheme.theme >> To >> w3css_subtheme.theme
-
 drupal8_w3css_subtheme.info.yml >> To >> w3css_subtheme.info.yml
-
 drupal8_w3css_subtheme.libraries.yml >> To >> w3css_subtheme.libraries.yml
 
 4) Open the file w3css_subtheme.info.yml in your text editor and edit the
 following:
-line 1 from "Drupal8 W3CSS Subtheme" >> To "W3css Subtheme",
-This is human readable name.
+line 1 from "Drupal8 W3CSS Subtheme" >> To "W3css Subtheme", This is human
+readable name.
 line 8 from "drupal8_w3css_subtheme/d8w3css-subtheme-global" >> To >>
 "w3css_subtheme/d8w3css-subtheme-global".
 
 We are only changing the drupal8_w3css_subtheme to the new sub theme name.
-The name "d8w3css-subtheme-global" is the library name and MUST match the
-name in w3css_subtheme.libraries.yml.
+The name "d8w3css-subtheme-global" is the library name and MUST match the name
+in w3css_subtheme.libraries.yml.
 
-If you would like to change the library name you MUST change it in the
-both files.
+If you would like to change the library name you MUST change it in both files.
 
-Make sure the spaces in any of the files are not changed
+5) Make sure the spaces in this file are not changed. The sub-theme now is
+ready to be enabled.
 
-The sub-theme now is ready to be enabled.
+
+-- Steps for creating a new sub-theme of a sub-theme.
+I will be using the sub-theme Amun as an example and you can follow these steps
+with any of the sub-themes.
+
+1) Copy the amun_subtheme from the Amun Sub-Theme and paste it in your custom
+theme directory.
+
+2) Re-name the copied folder to have the new sub-theme name. Example: my new
+sub-theme is amun_custom_subtheme.  I will rename the folder from
+"amun_subtheme" to "amun_custom_subtheme".
+
+3) Open the new named sub-theme folder "amun_custom_subtheme" and change the
+following files' names from:
+amun_subtheme.theme >> To >> amun_custom_subtheme.theme
+amun_subtheme.info.yml >> To >> amun_custom_subtheme.info.yml
+amun_subtheme.libraries.yml >> To >> amun_custom_subtheme.libraries.yml
+
+4) Open the file amun_custom_subtheme.info.yml in your text editor and edit the
+following:
+line 1 from "Amun Sub-Theme" >> To "Amun Custom Sub-theme", This is human
+readable name.
+line 8 from "amun_subtheme/amun-subtheme-global" >> To >>
+"amun_custom_subtheme/amun-subtheme-global".
+
+5) Make sure the spaces in this file are not changed. The sub-theme now is
+ready to be enabled.
 
   * How to Change The Main Container's Columns to Equal Width
   ...........................................................
@@ -259,6 +370,7 @@ and click on Change The Main Container's Columns to Equal Width and insert
 33-33-33 in the text box then click save.
 
   * How to Create The Main Menu
+  .............................
 
 (Drupal comes with a default main menu.)
 
@@ -332,3 +444,7 @@ Note: Spacing must be aligned exactly underneath.
 Create a folder inside the sub-theme and name it images. Add the image you
 want to use as a background inside images folder.
 The image name must be page-wrapper.jpg.
+
+  * How to use W3.CSS classes with views
+  ....................................................
+https://www.youtube.com/watch?v=wCObqmBn3Xk
