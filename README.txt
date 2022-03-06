@@ -293,8 +293,7 @@ custom private theme.  Follow the steps to generate a private theme.
 Go to your-drupal-site-directory/themes/custom/your-sub-theme/css/styles.css
 open and paste the generated css inside styles.css.
 
-Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on W3css Predefined Color Theme and enter w3-theme-custom.
+Clear caches and it is done.
 
   * How to use the drupal8_w3css_subtheme
   .......................................
