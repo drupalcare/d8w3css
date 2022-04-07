@@ -136,6 +136,21 @@ textarea:focus {
   border: 1px solid #be0032;
 }
 
+/* map and contact  */
+#footer-menu {
+  background-color: #1e1e1e;
+  color: #bebebe;
+}
+
+#footer-menu-inner form.w3-content {
+  border: 1px solid #be0032;
+}
+
+#copyright {
+  background-color: #141414;
+  color: #bebebe;
+}
+
 /* button animation  */
 @keyframes btnBorderAnimation {
   0% {
