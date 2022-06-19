@@ -498,3 +498,29 @@ ol {
   color: #fff !important;
   background-color: #3a3a3a !important;
 }
+
+/* Round Hover Classes */
+.w3-circle:hover {
+  border-radius: 50%;
+}
+
+.w3-round-small:hover {
+  border-radius: 2px;
+}
+
+.w3-round:hover,
+.w3-round-medium:hover {
+  border-radius: 4px;
+}
+
+.w3-round-large:hover {
+  border-radius: 8px;
+}
+
+.w3-round-xlarge:hover {
+  border-radius: 16px;
+}
+
+.w3-round-xxlarge:hover {
+  border-radius: 32px;
+}
