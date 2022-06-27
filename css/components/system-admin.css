@@ -27,7 +27,7 @@ ul.admin-list {
   display: block;
   min-height: 0;
   padding: 14px 15px 14px 25px;
-  background: url(../../images/chevron-disc-right.svg) no-repeat 1px 17px;
+  background: url(../../images/icons/chevron-disc-right.svg) no-repeat 1px 17px;
 }
 
 /*Admin pages */
