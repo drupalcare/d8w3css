@@ -8,8 +8,15 @@
 
   // Used for fixed menu.
   let origOffsetY;
-  let didScroll = false;
+  let didScroll = FALSE;
   let mainNavigation = document.querySelector('#main-navigation-h');
+
+  // Remove Fa class from social links.
+  if ($('.social-media > a > i').length > 0) {
+    if($('.social-media > a > i').hasClass('fa')){
+       $('.social-media > a > i').removeClass('fa')
+     }
+  }
 
   // In case the admin toolbar search installed.
   if ($('#admin-toolbar-search-tab').length > 0) {
@@ -23,7 +30,7 @@
 
   // Add flex position to the main menu at scroll.
   let scrollWindow = function () {
-    didScroll = true;
+    didScroll = TRUE;
     if (mainNavigation) {
       if (window.scrollY > origOffsetY) {
         mainNavigation.classList.add('w3-sticky');
@@ -35,7 +42,7 @@
 
   setInterval(function () {
     if (didScroll) {
-      didScroll = false;
+      didScroll = FALSE;
     }
   }, 100);
 

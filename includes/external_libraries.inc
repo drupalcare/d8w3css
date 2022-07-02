@@ -14,22 +14,38 @@
  * The theme settings.
  */
 
-$form['drupal8_w3css_theme_settings']['w3_external_libraries'] = [
+$form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries'] = [
   '#type' => 'details',
-  '#title' => t('Google Fonts and Font awesome - W3CSS Theme'),
+  '#title' => t('Font awesome - W3CSS Theme'),
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-  '#description'   => t("<p>This section is for Font Awesome and Google Fonts. For any google font you upload, I've created a CSS class you can use with any html tag.</p>"),
+  '#description'   => t("<p>Font awesome is now not enabled by default. All the default theme's icons were replaced by svg images. You can enable this library if you are using any font awesome icons in your site.</p>"),
 ];
-$form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_font_awesome_4'] = [
-  '#type' => 'checkbox',
-  '#title' => t('Load Font Awesome 4.7 locally. This is for use with the W3CSS Theme.'),
-  '#default_value' => theme_get_setting('d8w3css_font_awesome_4'),
+
+$form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries']['d8w3css_font_awesome'] = [
+  '#type' => 'radios',
+  '#title' => t('Select Font Awesome Library'),
+  '#default_value' => theme_get_setting('d8w3css_font_awesome'),
+  '#options' => [
+    0 => t('None'),
+    1 => t('Load Font Awesome 4.7 locally.'),
+    2 => t('Load Font Awesome 4.7 from the CDN.'),
+    3 => t('Load Font Awesome 5.15.4 from the CDN.'),
+    4 => t('Load Font Awesome 6.1.1 from the CDN.'),
+  ],
+];
+
+$form['drupal8_w3css_theme_settings']['w3_external_libraries'] = [
+  '#type' => 'details',
+  '#title' => t('Google Fonts - W3CSS Theme'),
+  '#collapsible' => TRUE,
+  '#collapsed' => FALSE,
+  '#description'   => t("<p>Any of the Google fonts you choose has a CSS class you can use with any html tag.</p>"),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_google_font_local'] = [
   '#type' => 'checkbox',
-  '#title' => t('Load Google fonts (site fonts and heading fonts only) locally. This is for use with the W3CSS Theme.'),
+  '#title' => t('Check this box if you would like to load Google fonts (Global Site and Heading Fonts only) locally. This is for use with the W3CSS Theme.'),
   '#default_value' => theme_get_setting('d8w3css_google_font_local'),
 ];
 

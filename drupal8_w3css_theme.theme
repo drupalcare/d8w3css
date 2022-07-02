@@ -47,11 +47,11 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
       break;
   }
 
-  // If the user is loogged in use ID if not use second word after user/login.
+  // If the user is logged in use ID if not use second word after user/login.
   $curr_path = \Drupal::service('path.current')->getPath();
   $curr_path = ltrim($curr_path, '/');
   $user_url = explode('/', $curr_path);
-  if (isset($user_url[0]) && isset($user_url[1]) && ($user_url[0] == 'user')) {
+  if (isset($user_url[0], $user_url[1]) && ($user_url[0] == 'user')) {
     $variables['attributes']['class'][] = 'path-user-' . $user_url[1];
   }
 
@@ -103,7 +103,7 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   else {
     $variables['top_w3css'] = 'w3-col';
   }
-  // Add W3.CSS Responsive classes to left and right side bar.
+  // Add W3.CSS Responsive classes to left and right sidebar.
   if ($has_sidebar_first && $has_sidebar_second) {
     $variables['content_w3css'] = 'w3-half';
     $variables['sidebarfirst'] = 'w3-quarter';
@@ -178,13 +178,14 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
   else {
     $variables['footer_w3css'] = 'w3-col';
   }
+
   // Mix variables.
   $mvar = [
     'd8w3css_site_gfs',
     'd8w3css_site_gfh',
     'd8w3css_site_gf',
     'd8w3css_google_font_local',
-    'd8w3css_font_awesome_4',
+    'd8w3css_font_awesome',
     'full_opacity_onscroll',
     'layout_user_login_custom',
     'pagetitle_animation',
@@ -369,7 +370,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $attachments['#attached']['library'][] = $current_exgfh;
   }
 
-  // Load special fonts library.
+  // Load special fonts' library.
   if (theme_get_setting('d8w3css_site_gfs')) {
     $ex_font_s = theme_get_setting('d8w3css_site_gfs');
     $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_s, 7);
@@ -386,17 +387,28 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $attachments['#attached']['library'][] = $predefined_theme_filename;
   }
 
-  // Load font awesome locally.
+  // Load custom login page.
   if (theme_get_setting('layout_user_login_custom')) {
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
   }
 
-  // Load font awesome locally.
-  if (theme_get_setting('d8w3css_font_awesome_4')) {
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-in';
-  }
-  else {
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-ex';
+  // Load font awesome.
+  switch (theme_get_setting('d8w3css_font_awesome')) {
+    case 1:
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-in';
+      break;
+
+    case 2:
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-ex';
+      break;
+
+    case 3:
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-5-ex';
+      break;
+
+    case 4:
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-6-ex';
+      break;
   }
 
   // Load full opacity if enabled but not on admin pages.
@@ -448,7 +460,7 @@ function drupal8_w3css_theme_form_comment_form_alter(&$form, FormStateInterface 
  */
 function drupal8_w3css_theme_form_search_block_form_alter(&$form, &$form_state) {
   $form['keys']['#attributes']['placeholder'] = t('Search');
-  $form['actions']['submit']['#value'] = html_entity_decode('&#xf061;');
+  $form['actions']['submit']['#value'] = '';
   $form['actions']['submit']['#attributes']['class'][] = 'search-button-block';
 }
 

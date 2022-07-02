@@ -29,13 +29,25 @@
 }
 
 .w3-search-block-form .form-type-search:before {
-  content: "\f002";
+/*  content: "\f002";
   font-family: FontAwesome;
   position: absolute;
   top: 14px;
   left: 8px;
   background-color: transparent;
-  opacity: 0.5;
+  opacity: 0.5;*/
+  position: absolute;
+  top: 21px;
+  left: 8px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  vertical-align: middle;
+  background-image: url(../../images/icons/search.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 16px 16px;
 }
 
 .w3-search-block-form .form-item,
@@ -44,7 +56,12 @@
   display: inline-block;
 }
 
-.w3-search-block-form .form-actions input {
-  font-family: FontAwesome;
+input.search-button-block {
   margin: 0 !important;
+  content: "";
+  vertical-align: middle;
+  background-image: url(../../images/icons/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
 }

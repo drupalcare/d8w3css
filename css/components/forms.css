@@ -59,7 +59,7 @@ abbr.ajax-changed {
 }
 
 .form-required:after {
-  content: "\f069" !important;
+/*  content: "\f069" !important;
   font-family: FontAwesome;
   color: red;
   vertical-align: super;
@@ -72,17 +72,36 @@ abbr.ajax-changed {
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
-  line-height: 1;
+  line-height: 1;*/
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: super;
+  background-image: url(../../images/icons/required.svg);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
 }
+
 
 /* Inline Error Message. */
 .form-item--error-message:before {
-  font-family: FontAwesome;
+/*  font-family: FontAwesome;
   content: "\f00d";
   display: inline-block;
   vertical-align: baseline;
   color: red;
-  background-size: contain;
+  background-size: contain;*/
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: middle;
+  background-image: url(../../images/icons/error.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
 }
 
 input,

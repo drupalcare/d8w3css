@@ -53,30 +53,44 @@
       %}
       {% if menu_level == 0 and item.is_expanded %}
       <li{{ item.attributes.addClass(item_classes) }} role="none">
-
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
           <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down"><i class="fa fa-chevron-down"></i></span>
+          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
+              {# <i class="fa fa-chevron-down"></i> #}
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
         {% else %}
           <a href="#" class="w3-button link-disabled tMenu toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="dropdown-arrow"><i class="fa fa-chevron-down"></i></span>
+            <span class="dropdown-arrow">
+              {# <i class="fa fa-chevron-down"></i> #}
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
           </a>
         {% endif %}
-
       {% elseif menu_level != 0 and item.is_expanded %}
       <li{{ item.attributes.addClass(item_classes) }} role="none">
-
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
           <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="right-arrow w3-hover-over clickable-dropdown-menu-fa-right"><i class="fa fa-chevron-right"></i></span>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down"><i class="fa fa-chevron-down"></i></span>
+          <span class="right-arrow w3-hover-over clickable-dropdown-menu-fa-right">
+            {# <i class="fa fa-chevron-right"></i> #}
+            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </span>
+          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
+            {# <i class="fa fa-chevron-down"></i> #}
+            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
         {% else %}
           <a href="#" class="w3-button link-disabled tMenu toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="right-arrow w3-hover-over"><i class="fa fa-chevron-right"></i></span>
-            <span class="dropdown-arrow w3-hover-over"><i class="fa fa-chevron-down"></i></span>
+            <span class="right-arrow w3-hover-over">
+              {# <i class="fa fa-chevron-right"></i> #}
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </span>
+            <span class="dropdown-arrow w3-hover-over">
+              {# <i class="fa fa-chevron-down"></i> #}
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
           </a>
         {% endif %}
-
       {% else %}
         {%
           set link_classes = [
