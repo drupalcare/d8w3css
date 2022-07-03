@@ -8,7 +8,7 @@
 
   // Used for fixed menu.
   let origOffsetY;
-  let didScroll = FALSE;
+  let didScroll = false;
   let mainNavigation = document.querySelector('#main-navigation-h');
 
   // Remove Fa class from social links.
@@ -30,7 +30,7 @@
 
   // Add flex position to the main menu at scroll.
   let scrollWindow = function () {
-    didScroll = TRUE;
+    didScroll = true;
     if (mainNavigation) {
       if (window.scrollY > origOffsetY) {
         mainNavigation.classList.add('w3-sticky');
@@ -42,7 +42,7 @@
 
   setInterval(function () {
     if (didScroll) {
-      didScroll = FALSE;
+      didScroll = false;
     }
   }, 100);
 
