@@ -86,7 +86,8 @@ filled.)
 total space in the footer region will be divided by the number of regions you
 filled.)
 
-) W3CSS Theme comes with Font Awesome 4.7.0 added to the css library.
+) W3CSS Theme comes with Font Awesome 4.7.0, 5.51.4 or 6.1.1 optional you can
+enable them in theme settings.
 
 ) W3CSS Theme comes with jQuery match height. Example: If you have three blocks
  in the top area, they will always have matching height on the large screen
@@ -216,7 +217,7 @@ and click save.
   .............................
 
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on GOOGLE FONTS AND FONT AWESOME - W3CSS THEME to expand it. You can
+click on GOOGLE FONTS - W3CSS THEME to expand it. You can
 choose the site font or heading font.
 
 Special font are not applied to any html tage by default. You just choose the

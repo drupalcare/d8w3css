@@ -253,6 +253,16 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     $variables[$value] = theme_get_setting($value);
   }
 
+  // Check if the curren user on login/register or reset.
+  if (theme_get_setting('layout_user_login_custom')) {
+    $curr_path = \Drupal::service('path.current')->getPath();
+    $curr_path = ltrim($curr_path, '/');
+    if ($curr_path == 'user/login' || $curr_path == 'user/register' || $curr_path == 'user/password') {
+      unset($variables['page']['sidebar_first'], $variables['page']['sidebar_second']);
+      $variables['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
+    }
+  }
+
 }
 
 /**
@@ -385,11 +395,6 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
     $my_current_theme = theme_get_setting('current_theme');
     $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', $my_current_theme);
     $attachments['#attached']['library'][] = $predefined_theme_filename;
-  }
-
-  // Load custom login page.
-  if (theme_get_setting('layout_user_login_custom')) {
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
   }
 
   // Load font awesome.

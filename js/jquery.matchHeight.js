@@ -29,7 +29,7 @@
   let _rows = function (elements) {
     let tolerance = 1;
     let $elements = $(elements);
-    let lastTop = NULL;
+    let lastTop = null;
     let rows = [];
 
     // Group elements by their top position.
@@ -37,9 +37,9 @@
       function () {
         let $that = $(this);
         let top = $that.offset().top - _parse($that.css('margin-top'));
-        let lastRow = rows.length > 0 ? rows[rows.length - 1] : NULL;
+        let lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
 
-        if (lastRow === NULL) {
+        if (lastRow === null) {
           // First item on the row, so just push it.
           rows.push($that);
         } else {
@@ -61,10 +61,10 @@
 
   let _parseOptions = function (options) {
     let opts = {
-      byRow: TRUE,
+      byRow: true,
       property: 'height',
-      target: NULL,
-      remove: FALSE
+      target: null,
+      remove: false
     };
 
     if (typeof options === 'object') {
@@ -74,7 +74,7 @@
     if (typeof options === 'boolean') {
       opts.byRow = options;
     } else if (options === 'remove') {
-      opts.remove = TRUE;
+      opts.remove = true;
     }
 
     return opts;
@@ -116,9 +116,9 @@
   matchHeight.version = 'master';
   matchHeight._groups = [];
   matchHeight._throttle = 80;
-  matchHeight._maintainScroll = FALSE;
-  matchHeight._beforeUpdate = NULL;
-  matchHeight._afterUpdate = NULL;
+  matchHeight._maintainScroll = false;
+  matchHeight._beforeUpdate = null;
+  matchHeight._afterUpdate = null;
   matchHeight._rows = _rows;
   matchHeight._parse = _parse;
   matchHeight._parseOptions = _parseOptions;
@@ -130,7 +130,7 @@
 
     // Take note of scroll position.
     let scrollTop = $(window).scrollTop();
-    let htmlHeight = $('html').outerHeight(TRUE);
+    let htmlHeight = $('html').outerHeight(true);
 
     // Get hidden parents.
     let $hiddenParents = $elements.parents().filter(':hidden');
@@ -222,8 +222,8 @@
               $that.css(css);
 
               // Find the max height (including padding, but not margin)
-              if ($that.outerHeight(FALSE) > targetHeight) {
-                targetHeight = $that.outerHeight(FALSE);
+              if ($that.outerHeight(false) > targetHeight) {
+                targetHeight = $that.outerHeight(false);
               }
 
               // Revert styles.
@@ -236,7 +236,7 @@
           );
         } else {
           // If target set, use the height of the target element.
-          targetHeight = opts.target.outerHeight(FALSE);
+          targetHeight = opts.target.outerHeight(false);
         }
 
         // Iterate the row and apply the height to all elements.
@@ -267,13 +267,13 @@
     $hiddenParents.each(
       function () {
         let $that = $(this);
-        $that.attr('style', $that.data('style-cache') || NULL);
+        $that.attr('style', $that.data('style-cache') || null);
       }
     );
 
     // Restore scroll position if enabled.
     if (matchHeight._maintainScroll) {
-      $(window).scrollTop((scrollTop / htmlHeight) * $('html').outerHeight(TRUE));
+      $(window).scrollTop((scrollTop / htmlHeight) * $('html').outerHeight(true));
     }
 
     return this;
@@ -300,7 +300,7 @@
     $.each(
       groups,
       function () {
-        this.matchHeight(TRUE);
+        this.matchHeight(true);
       }
     );
   };
@@ -353,12 +353,12 @@
 
   // Update heights on load and resize events.
   $(window)[on]('load', function (event) {
-    matchHeight._update(FALSE, event);
+    matchHeight._update(false, event);
   });
 
   // Throttled update heights on resize events.
   $(window)[on]('resize orientationchange', function (event) {
-    matchHeight._update(TRUE, event);
+    matchHeight._update(true, event);
   });
 
 });

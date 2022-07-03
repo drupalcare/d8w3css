@@ -6,10 +6,10 @@
 (function ($, Drupal) {
   'use strict';
 
-  let scrollOn = FALSE;
+  let scrollOn = false;
 
   let fadeBox = function () {
-    scrollOn = TRUE;
+    scrollOn = true;
     let animationHeight = $(window).innerHeight() * 0.25;
     let ratio = Math.round((1 / animationHeight) * 10000) / 10000;
     $('.d8-fade').each(function () {
@@ -35,7 +35,7 @@
 
   setInterval(function () {
     if (scrollOn) {
-      scrollOn = FALSE;
+      scrollOn = false;
     }
   }, 100);
 

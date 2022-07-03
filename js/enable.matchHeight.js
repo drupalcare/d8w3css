@@ -12,7 +12,7 @@
         if ($("#layout-builder").length) {
           // Remove the match height on layout builder
           $('.top-region, .main-region, .bottom-region, .footer-region').matchHeight({
-            remove: TRUE
+            remove: true
           });
         }
       };
@@ -27,7 +27,7 @@
         } else {
           // Remove the match height on small screen.
           $('.top-region, .main-region, .bottom-region, .footer-region').matchHeight({
-            remove: TRUE
+            remove: true
           });
         }
       };
