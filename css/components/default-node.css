@@ -90,7 +90,6 @@ div.item-list > ol.item-list > li article::before {
   padding-left: 0 !important;
 }
 
-
 .field__items > .field__item,
 .field--label-inline > .field__label {
   margin-right: 10px;
@@ -128,4 +127,8 @@ ul.links li a {
 .field--type-entity-reference .field__label,
 .field--type-entity-reference .field__item {
   font-size: 100%;
+}
+
+.node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child {
+  margin-top: 0!important;
 }
