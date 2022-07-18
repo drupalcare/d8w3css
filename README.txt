@@ -86,7 +86,7 @@ filled.)
 total space in the footer region will be divided by the number of regions you
 filled.)
 
-) W3CSS Theme comes with Font Awesome 4.7.0, 5.51.4 or 6.1.1 optional you can
+) W3CSS Theme comes with Font Awesome 4.7.0, 5.15.4 or 6.1.1 optional you can
 enable them in theme settings.
 
 ) W3CSS Theme comes with jQuery match height. Example: If you have three blocks
