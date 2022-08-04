@@ -124,3 +124,7 @@ nav.action-links li {
   border: none;
   border-width: 0 !important;
 }
+
+.main-navigation-inner-v li .w3-button {
+  white-space: normal;
+}
