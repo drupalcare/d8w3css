@@ -279,3 +279,7 @@
   -webkit-background-clip: text;
   color: transparent !important;
 }
+
+form input.button.form-submit:hover {
+  animation: wiggle 0.3s;
+}
