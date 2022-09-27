@@ -15,6 +15,9 @@ libraries:
 ckeditor_stylesheets:
   - css/theme/w3-ckeditor-iframe.css
 
+ckeditor5-stylesheets:
+  - css/theme/w3-ckeditor5.css
+
 #Regions
 regions:
   header: 'Header'

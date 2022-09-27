@@ -13,6 +13,7 @@
   width: auto !important;
 }
 
+.ck-editor__top,
 .cke_top {
   border-radius: 6px 6px 0 0;
   border: 1px solid #eaeaea !important;
@@ -23,6 +24,7 @@
   border: 1px solid #eaeaea !important;
 }
 
+.ck-editor__main,
 .cke_bottom {
   border-radius: 0 0 6px 6px;
   border: 1px solid #eaeaea !important;
@@ -35,6 +37,14 @@
   border: 1px solid #eaeaea !important;
   background-color: #f8f8f8;
   padding: 8px 16px;
+  font-size: 14px;
+}
+
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar,
+.ck.ck-editor__top .ck-sticky-panel .ck-toolbar.ck-rounded-corners,
+.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners,
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+  border: 0;
 }
 
 .filter-guidelines-item {
