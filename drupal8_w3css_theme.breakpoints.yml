@@ -1,6 +1,6 @@
 drupal8_w3css_theme.screen-xsm-min:
   label: screen-xsm-min
-  mediaQuery:
+  mediaQuery: ''
   weight: 0
   multipliers:
     - 1x
