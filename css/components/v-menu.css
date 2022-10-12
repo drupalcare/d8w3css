@@ -2,7 +2,7 @@
   z-index: 1000;
   display: none;
   width: auto !important;
-  min-width: 220px;
+  min-width: 250px;
 }
 
 #main-navigation-v #close-nav {
@@ -89,10 +89,12 @@
 }
 
 #open-nav-inner {
-  width: 50px;
+  width: 60px;
   background-color: transparent !important;
   margin: 10px 20px 0 0;
   z-index: 1;
+  line-height: 24px;
+  text-align: center!important;
 }
 
 #main-navigation-v .right-arrow {
