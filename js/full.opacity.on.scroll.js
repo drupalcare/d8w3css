@@ -2,12 +2,9 @@
  * @file
  * Defines Javascript behaviors for the W3CSS Theme.
  */
-
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   'use strict';
-
   let scrollOn = false;
-
   let fadeBox = function () {
     scrollOn = true;
     let animationHeight = $(window).innerHeight() * 0.25;
@@ -32,26 +29,19 @@
       }
     });
   };
-
   setInterval(function () {
     if (scrollOn) {
       scrollOn = false;
     }
   }, 100);
-
   Drupal.behaviors.d8w3cssFullOpacity = {
     attach: function (context, settings) {
-
       // Disable show on scroll if layout builder is active.
       if (!document.getElementById("layout-builder")) {
-        $(context)
-          .find('.d8-fade')
-          .once('.d8-fade')
-          .css('opacity', 0);
+        $(once('body', '.d8-fade', context)).css('opacity', 0);
         fadeBox();
         window.addEventListener('scroll', fadeBox);
       }
-
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

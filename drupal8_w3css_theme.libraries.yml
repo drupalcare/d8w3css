@@ -76,7 +76,7 @@ d8w3css-global-styling:
     - core/drupal.ajax
     - core/drupal
     - core/drupalSettings
-    - core/jquery.once
+    - core/once
 
 # custom user login page.
 

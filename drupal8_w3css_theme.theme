@@ -207,7 +207,6 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     'facebook_url',
     'twitter_url',
     'pinterest_url',
-    'google_plus_url',
     'linkedin_url',
     'instagram_url',
     'youtube_url',
