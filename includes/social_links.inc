@@ -66,3 +66,8 @@ $form['drupal8_w3css_theme_settings']['social_icon']['rss_url'] = [
   '#title' => t('RSS Link'),
   '#default_value' => theme_get_setting('rss_url'),
 ];
+$form['drupal8_w3css_theme_settings']['social_icon']['mastodon_url'] = [
+  '#type' => 'textfield',
+  '#title' => t('Mastodon Profile'),
+  '#default_value' => theme_get_setting('mastodon_url'),
+];

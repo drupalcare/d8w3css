@@ -212,6 +212,7 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
     'youtube_url',
     'drupal_url',
     'rss_url',
+    'mastodon_url',
     'copyright_text',
     'show_credit_link',
   ];
