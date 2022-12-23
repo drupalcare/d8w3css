@@ -27,3 +27,17 @@ table td ul {
 table td li {
   list-style: none;
 }
+
+.w3-table td.views-align-right,
+.w3-table th.views-align-right,
+.w3-table-all td.views-align-right,
+.w3-table-all th.views-align-right {
+  text-align: right;
+}
+
+.w3-table td.views-align-center,
+.w3-table th.views-align-center,
+.w3-table-all td.views-align-center,
+.w3-table-all th.views-align-center {
+  text-align: center;
+}

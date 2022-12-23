@@ -78,10 +78,10 @@
   background-image: url(../../images/icons/drupal-circle.svg);
 }
 
-.social-media a > i.fa-rss {
-  background-image: url(../../images/icons/rss.svg);
+.social-media a > i.fa-mastodon {
+  background-image: url(../../images/icons/mastodon-circle.svg);
 }
 
-.social-media a > i.fa-mastodon {
-  background-image: url(../../images/icons/mastodon.svg);
+.social-media a > i.fa-rss {
+  background-image: url(../../images/icons/rss.svg);
 }
