@@ -28,21 +28,20 @@ table td li {
   list-style: none;
 }
 
+.w3-table-all {
+  border-color: #eaeaea !important;
+}
+
 .w3-table td,
 .w3-table th,
 .w3-table-all td,
 .w3-table-all th {
+  vertical-align: middle;
   text-align: initial;
 }
 
-.views-align-left {
-  text-align: left !important;
+td .form-type-radio,
+td .form-type-checkbox {
+  margin: 0 !important;
 }
 
-.views-align-right {
-  text-align: right !important;
-}
-
-.views-align-center {
-  text-align: center !important;
-}

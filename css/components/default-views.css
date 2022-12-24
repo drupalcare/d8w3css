@@ -62,3 +62,24 @@
 .views-filterable-options-controls .form-item {
   float: left;
 }
+
+.views-ui-display-tab-bucket .views-display-setting {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.views-ui-display-tab-bucket .dropbutton-wrapper {
+  top: 1px;
+}
+
+.views-align-left {
+  text-align: left !important;
+}
+
+.views-align-right {
+  text-align: right !important;
+}
+
+.views-align-center {
+  text-align: center !important;
+}

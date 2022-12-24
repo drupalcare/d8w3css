@@ -248,21 +248,8 @@ table ul.dropbutton li.dropbutton-toggle {
 }
 
 fieldset,
-.w3-border,
-.w3-table-all {
+.w3-border {
   border-color: #eaeaea !important;
-}
-
-.w3-table td,
-.w3-table th,
-.w3-table-all td,
-.w3-table-all th {
-  vertical-align: middle;
-}
-
-td .form-type-radio,
-td .form-type-checkbox {
-  margin: 0 !important;
 }
 
 .ui-dialog,
@@ -276,15 +263,6 @@ body .ui-dialog {
 
 .vertical-tabs .vertical-tabs__panes {
   padding: 0 16px;
-}
-
-.views-ui-display-tab-bucket .views-display-setting {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.views-ui-display-tab-bucket .dropbutton-wrapper {
-  top: 1px;
 }
 
 span.admin-link button,
