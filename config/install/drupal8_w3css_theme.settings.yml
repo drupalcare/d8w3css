@@ -17,7 +17,7 @@ youtube_url: 'https://www.youtube.com/user/flashwebcenter'
 drupal_url: 'https://www.drupal.org/u/flashwebcenter'
 rss_url: 'rss.xml'
 mastodon_url: ''
-copyright_text: 'Copyright 2023 - All Rights Reserved'
+copyright_text: 'Copyright %year% - All Rights Reserved'
 show_social_icon: 1
 show_credit_link: 1
 top_region: 1
