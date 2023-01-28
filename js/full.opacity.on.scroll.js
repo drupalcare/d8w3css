@@ -2,7 +2,7 @@
  * @file
  * Defines Javascript behaviors for the W3CSS Theme.
  */
-(function ($, Drupal, once) {
+(function (Drupal, $, once) {
   'use strict';
   let scrollOn = false;
   let fadeBox = function () {
@@ -44,4 +44,4 @@
       }
     }
   };
-})(jQuery, Drupal, once);
+})(Drupal, jQuery, once);

@@ -78,6 +78,18 @@ d8w3css-global-styling:
     - core/drupalSettings
     - core/once
 
+# Full Opacity on Scroll.
+
+d8w3css-full-opacity:
+  version: VERSION
+  header: true
+  js:
+    js/full.opacity.on.scroll.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
 # custom user login page.
 
 d8w3css-user-login-custom:
@@ -131,16 +143,6 @@ font-awesome-6-ex:
       https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css: { type: external, minified: true, attributes: { defer: true } }
   js:
     https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js: { type: external, minified: true, attributes: { defer: true } }
-# Full Opacity on Scroll.
-
-d8w3css-full-opacity:
-  version: VERSION
-  header: true
-  js:
-    js/full.opacity.on.scroll.js: { }
-  dependencies:
-    - core/jquery
-    - core/drupal
 
 # Google Fonts - Global.
 
