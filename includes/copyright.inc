@@ -23,6 +23,6 @@ $form['drupal8_w3css_theme_settings']['copyright'] = [
 $form['drupal8_w3css_theme_settings']['copyright']['copyright_text'] = [
   '#type' => 'textfield',
   '#title' => t('Enter Copyright Text'),
-  '#description' => t("Type %year% instead of an actual year number for dynamic copyright. (Copyright %year% - All Rights Reserved)."),
+  '#description' => t("Type %year% instead of an actual year number for dynamic copyright. (Copyright © %year% Company Name - All rights reserved)."),
   '#default_value' => theme_get_setting('copyright_text'),
 ];
