@@ -15,6 +15,7 @@
  * @see seven_form_node_form_alter()
  */
 #}
+{{ attach_library('drupal8_w3css_theme/d8w3css-node-edit-form') }}
 <div class="layout-node-form w3-row">
   <div class="layout-region layout-region-node-main w3-row w3-padding">
     {{ form|without('advanced', 'footer', 'actions') }}

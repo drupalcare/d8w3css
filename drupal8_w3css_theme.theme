@@ -433,8 +433,6 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
 function drupal8_w3css_theme_form_node_form_alter(&$form, FormStateInterface $form_state) {
 
   $form['#theme'] = ['node_edit_form'];
-  $form['#attached']['library'][] = 'seven/node-form';
-
   $form['advanced']['#type'] = 'container';
   $form['meta']['#type'] = 'container';
   $form['meta']['#access'] = TRUE;

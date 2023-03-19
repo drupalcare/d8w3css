@@ -31,7 +31,6 @@ d8w3css-global-styling:
     layout:
       css/layout/layout-regions.css: { weight: -8 }
       css/layout/layout-width.css: { weight: -7 }
-      css/layout/layout-node-edit.css: { }
     component:
       css/components/system-messages.css: { }
       css/components/forms.css: { }
@@ -97,6 +96,14 @@ d8w3css-user-login-custom:
   css:
     layout:
       css/layout/layout-user-login.css: { }
+
+# use when node edit.
+
+d8w3css-node-edit-form:
+  Version: VERSION
+  css:
+    layout:
+      css/layout/layout-node-edit.css: { }
 
 # Font Awesome.
 
