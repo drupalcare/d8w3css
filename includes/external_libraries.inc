@@ -55,7 +55,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'
   '#description'   => t('<p>Global Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
 , bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-3, titillium-web, ubuntu, work-sans. </p>'),
   '#options' => [
-    'none' => t('Default - Open Sans - sans-serif'),
+    'none' => t('None'),
     'd8w3css-abel' => t('Abel - sans-serif'),
     'd8w3css-alegreya-sans' => t('Alegreya Sans - sans-serif'),
     'd8w3css-alegreya-sans-sc' => t('Alegreya Sans SC - sans-serif'),
@@ -88,6 +88,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'
     'd8w3css-montserrat' => t('Montserrat - sans-serif'),
     'd8w3css-mukta' => t('Mukta - sans-serif'),
     'd8w3css-nunito' => t('Nunito - sans-serif'),
+    'd8w3css-open-sans' => t('Open Sans - sans-serif'),
     'd8w3css-oranienbaum' => t('Oranienbaum - serif'),
     'd8w3css-oswald' => t('Oswald - sans-serif'),
     'd8w3css-oxygen' => t('Oxygen - sans-serif'),

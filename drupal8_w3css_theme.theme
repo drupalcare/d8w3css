@@ -345,15 +345,6 @@ function drupal8_w3css_theme_preprocess_maintenance_page(&$variables) {
  */
 function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
 
-  // Load default fonts - Global.
-  if (!theme_get_setting('d8w3css_site_gf') || (theme_get_setting('d8w3css_site_gf') == 'none')) {
-    if (theme_get_setting('d8w3css_google_font_local')) {
-      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfin-open-sans';
-    }
-    else {
-      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-gfex-open-sans';
-    }
-  }
   // Load google fonts locally - Global.
   if (theme_get_setting('d8w3css_google_font_local') && theme_get_setting('d8w3css_site_gf')) {
     $in_font = theme_get_setting('d8w3css_site_gf');
