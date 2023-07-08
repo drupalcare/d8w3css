@@ -24,7 +24,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 <h2>This is a visual guide to show each region's placement on the page. Click on the name to go to the field.</h2>
 
 
-<table border='1' cellpadding='8' style='width: 100%; background-color: WhiteSmoke; color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue'>
+<table border='1' cellpadding='8' style='width: 100%;  color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue'>
   <tbody>
     <tr>
       <td style='text-align: center;'>
@@ -34,7 +34,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
     </tr>
   </tbody>
 </table>
-<table cellpadding='8' style='width: 100%; background-color: AliceBlue; color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue'>
+<table cellpadding='8' style='width: 100%;  color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue'>
   <tbody>
     <tr>
       <td style='text-align: center;'>
@@ -43,7 +43,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
         <tbody>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%; background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%; border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -57,7 +57,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -71,7 +71,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -85,7 +85,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -101,7 +101,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
             <td style='text-align: center;'>
             <h1><a href='#edit-color-top-container'>Top Container Wrapper</a></h1>
             <p>Visible on front page only - W3.CSS Color Theme Class w3-theme-l4</p>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center; border:1px solid LightBlue;'>
@@ -123,7 +123,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -140,7 +140,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
             <h1><a href='#edit-color-main'>Main Container Wrapper</a></h1>
             <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l5</p>
             <p>Main Container (Left SideBar - W3CSS Content - Right SideBar) can be (25% - 50% - 25%) or (33% - 33% - 33%).</p>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -149,7 +149,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
                 </tr>
               </tbody>
             </table>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center; border:1px solid LightBlue;'>
@@ -170,7 +170,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
             <td style='text-align: center;'>
             <h1><a href='#edit-color-bottom-container'>Bottom Container Wrapper</a></h1>
             Visible on front page only - W3.CSS Color Theme Class w3-theme-l2
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center; border:1px solid LightBlue;'>
@@ -198,7 +198,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
             <td style='text-align: center;'>
             <h1><a href='#edit-color-footer-container'>Footer Container Wrapper</a></h1>
             Visible on all pages - W3.CSS Color Theme Class w3-theme-d3
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center; border:1px solid LightBlue;'>
@@ -220,7 +220,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -234,7 +234,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
           </tr>
           <tr>
             <td>
-            <table cellpadding='5' style='width: 100%;background-color: WhiteSmoke;border-collapse: collapse; border:3px solid LightBlue'>
+            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
               <tbody>
                 <tr>
                   <td style='text-align: center;'>
@@ -255,7 +255,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 
 
 
-<table style='width: 100%; line-height:1.6; background-color: WhiteSmoke; color: LightSlateGray; font-size: 16px; font-family: Helvetica;'>
+<table style='width: 100%; line-height:1.6;  color: LightSlateGray; font-size: 16px; font-family: Helvetica;'>
 <tr>
   <td> </td>
   <th><h3>Copy and paste any of the css classes inside the text field. You can paste more than one; just leave a space between each class.</h3></th>
@@ -272,36 +272,36 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 
   <tr>
     <th>Text Colors w3-text-<em>color</em>:</th>
-    <td>w3-text-red, w3-text-pink, w3-text-purple, w3-text-deep-purple, w3-text-indigo, w3-text-blue, w3-text-light-blue, w3-text-cyan, w3-text-aqua, w3-text-teal, w3-text-green, w3-text-light-green, w3-text-lime, w3-text-sand, w3-text-khaki, w3-text-yellow, w3-text-amber, w3-text-orange, w3-text-deep-orange, w3-text-blue-grey, w3-text-brown, w3-text-light-grey, w3-text-grey, w3-text-dark-grey, w3-text-black and w3-text-white. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-text-red, w3-text-pink, w3-text-purple, w3-text-deep-purple, w3-text-indigo, w3-text-blue, w3-text-light-blue, w3-text-cyan, w3-text-aqua, w3-text-teal, w3-text-green, w3-text-light-green, w3-text-lime, w3-text-sand, w3-text-khaki, w3-text-yellow, w3-text-amber, w3-text-orange, w3-text-deep-orange, w3-text-blue-grey, w3-text-brown, w3-text-light-grey, w3-text-grey, w3-text-dark-grey, w3-text-blackh, w3-text-white , w3-text-pale-red, w3-text-pale-yellow, w3-text-pale-green and w3-text-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
   <tr>
     <th>Text Hover Colors w3-hover-text-<em>color</em>:</th>
-    <td>w3-hover-text-red, w3-hover-text-pink, w3-hover-text-purple, w3-hover-text-deep-purple, w3-hover-text-indigo, w3-hover-text-blue, w3-hover-text-light-blue, w3-hover-text-cyan, w3-hover-text-aqua, w3-hover-text-teal, w3-hover-text-green, w3-hover-text-light-green, w3-hover-text-lime, w3-hover-text-sand, w3-hover-text-khaki, w3-hover-text-yellow, w3-hover-text-amber, w3-hover-text-orange, w3-hover-text-deep-orange, w3-hover-text-blue-grey, w3-hover-text-brown, w3-hover-text-light-grey, w3-hover-text-grey, w3-hover-text-dark-grey, w3-hover-text-black and w3-hover-text-white. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-hover-text-red, w3-hover-text-pink, w3-hover-text-purple, w3-hover-text-deep-purple, w3-hover-text-indigo, w3-hover-text-blue, w3-hover-text-light-blue, w3-hover-text-cyan, w3-hover-text-aqua, w3-hover-text-teal, w3-hover-text-green, w3-hover-text-light-green, w3-hover-text-lime, w3-hover-text-sand, w3-hover-text-khaki, w3-hover-text-yellow, w3-hover-text-amber, w3-hover-text-orange, w3-hover-text-deep-orange, w3-hover-text-blue-grey, w3-hover-text-brown, w3-hover-text-light-grey, w3-hover-text-grey, w3-hover-text-dark-grey, w3-hover-text-black and w3-hover-text-white, w3-hover-text-pale-red, w3-hover-text-pale-yellow, w3-hover-text-pale-green and w3-hover-text-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
     <th>Link Text Colors w3-link-<em>color</em>:</th>
-    <td>w3-link-red, w3-link-pink, w3-link-purple, w3-link-deep-purple, w3-link-indigo, w3-link-blue, w3-link-light-blue, w3-link-cyan, w3-link-aqua, w3-link-teal, w3-link-green, w3-link-light-green, w3-link-lime, w3-link-sand, w3-link-khaki, w3-link-yellow, w3-link-amber, w3-link-orange, w3-link-deep-orange, w3-link-blue-grey, w3-link-brown, w3-link-light-grey, w3-link-grey, w3-link-dark-grey, w3-link-black and w3-link-white. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-text-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-link-red, w3-link-pink, w3-link-purple, w3-link-deep-purple, w3-link-indigo, w3-link-blue, w3-link-light-blue, w3-link-cyan, w3-link-aqua, w3-link-teal, w3-link-green, w3-link-light-green, w3-link-lime, w3-link-sand, w3-link-khaki, w3-link-yellow, w3-link-amber, w3-link-orange, w3-link-deep-orange, w3-link-blue-grey, w3-link-brown, w3-link-light-grey, w3-link-grey, w3-link-dark-grey, w3-link-black and w3-link-white, w3-link-pale-red, w3-link-pale-yellow, w3-link-pale-green and w3-link-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-text-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
     <th>Link Background Colors w3-link-bg-<em>color</em>:</th>
-    <td>w3-link-bg-red, w3-link-bg-green, w3-link-bg-blue, w3-link-bg-yellow, w3-link-bg-white, w3-link-bg-black, w3-link-bg-grey, w3-link-bg-amber, w3-link-bg-aqua, w3-link-bg-light-blue, w3-link-bg-brown, w3-link-bg-cyan, w3-link-bg-blue-grey, w3-link-bg-blue-gray, w3-link-bg-light-green, w3-link-bg-indigo, w3-link-bg-khaki, w3-link-bg-lime, w3-link-bg-orange, w3-link-bg-deep-orange, w3-link-bg-pink, w3-link-bg-purple, w3-link-bg-deep-purple, w3-link-bg-sand, w3-link-bg-teal, w3-link-bg-light-gray, w3-link-bg-light-grey, w3-link-bg-dark-gray, w3-link-bg-dark-grey. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-background-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-link-bg-red, w3-link-bg-green, w3-link-bg-blue, w3-link-bg-yellow, w3-link-bg-white, w3-link-bg-black, w3-link-bg-grey, w3-link-bg-amber, w3-link-bg-aqua, w3-link-bg-light-blue, w3-link-bg-brown, w3-link-bg-cyan, w3-link-bg-blue-grey, w3-link-bg-blue-gray, w3-link-bg-light-green, w3-link-bg-indigo, w3-link-bg-khaki, w3-link-bg-lime, w3-link-bg-orange, w3-link-bg-deep-orange, w3-link-bg-pink, w3-link-bg-purple, w3-link-bg-deep-purple, w3-link-bg-sand, w3-link-bg-teal, w3-link-bg-light-gray, w3-link-bg-light-grey, w3-link-bg-dark-gray, w3-link-bg-dark-grey, w3-link-bg-pale-red, w3-link-bg-pale-yellow, w3-ling-bg-pale-green and w3-link-bg-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-background-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
     <th>Link Background Hover Colors w3-link-hover-<em>color</em>:</th>
-    <td>w3-link-hover-red, w3-link-hover-green, w3-link-hover-blue, w3-link-hover-yellow, w3-link-hover-white, w3-link-hover-black, w3-link-hover-grey, w3-link-hover-amber, w3-link-hover-aqua, w3-link-hover-light-blue, w3-link-hover-brown, w3-link-hover-cyan, w3-link-hover-blue-grey, w3-link-hover-blue-gray, w3-link-hover-light-green, w3-link-hover-indigo, w3-link-hover-khaki, w3-link-hover-lime, w3-link-hover-orange, w3-link-hover-deep-orange, w3-link-hover-pink, w3-link-hover-purple, w3-link-hover-deep-purple, w3-link-hover-sand, w3-link-hover-teal, w3-link-hover-light-gray, w3-link-hover-light-grey, w3-link-hover-dark-gray, w3-link-hover-dark-grey. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-background-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-link-hover-red, w3-link-hover-green, w3-link-hover-blue, w3-link-hover-yellow, w3-link-hover-white, w3-link-hover-black, w3-link-hover-grey, w3-link-hover-amber, w3-link-hover-aqua, w3-link-hover-light-blue, w3-link-hover-brown, w3-link-hover-cyan, w3-link-hover-blue-grey, w3-link-hover-blue-gray, w3-link-hover-light-green, w3-link-hover-indigo, w3-link-hover-khaki, w3-link-hover-lime, w3-link-hover-orange, w3-link-hover-deep-orange, w3-link-hover-pink, w3-link-hover-purple, w3-link-hover-deep-purple, w3-link-hover-sand, w3-link-hover-teal, w3-link-hover-light-gray, w3-link-hover-light-grey, w3-link-hover-dark-gray, w3-link-hover-dark-grey, w3-link-hover-pale-red, w3-link-hover-pale-yellow, w3-link-hover-pale-green and w3-link-hover-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-link-background-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
     <th>Button Colors w3-button-<em>color</em>:</th>
-    <td>w3-button-red, w3-button-green, w3-button-blue, w3-button-yellow, w3-button-white, w3-button-black, w3-button-gray, w3-button-grey, w3-button-amber, w3-button-aqua, w3-button-light-blue, w3-button-brown, w3-button-cyan, w3-button-blue-grey, w3-button-blue-gray, w3-button-light-green, w3-button-indigo, w3-button-khaki, w3-button-lime, w3-button-orange, w3-button-deep-orange, w3-button-pink, w3-button-purple, w3-button-deep-purple, w3-button-sand, w3-button-teal, w3-button-light-gray, w3-button-light-grey, w3-button-dark-gray, w3-button-dark-grey. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-button-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-button-red, w3-button-green, w3-button-blue, w3-button-yellow, w3-button-white, w3-button-black, w3-button-gray, w3-button-grey, w3-button-amber, w3-button-aqua, w3-button-light-blue, w3-button-brown, w3-button-cyan, w3-button-blue-grey, w3-button-blue-gray, w3-button-light-green, w3-button-indigo, w3-button-khaki, w3-button-lime, w3-button-orange, w3-button-deep-orange, w3-button-pink, w3-button-purple, w3-button-deep-purple, w3-button-sand, w3-button-teal, w3-button-light-gray, w3-button-light-grey, w3-button-dark-gray, w3-button-dark-grey, w3-button-pale-red, w3-button-pale-yellow, w3-button-pale-green and w3-button-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-button-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
     <th>Button Hover Colors w3-button-hover-<em>color</em>:</th>
-    <td>w3-button-hover-red, w3-button-hover-green, w3-button-hover-blue, w3-button-hover-yellow, w3-button-hover-white, w3-button-hover-black, w3-button-hover-gray, w3-button-hover-grey, w3-button-hover-amber, w3-button-hover-aqua, w3-button-hover-light-blue, w3-button-hover-brown, w3-button-hover-cyan, w3-button-hover-blue-grey, w3-button-hover-blue-gray, w3-button-hover-light-green, w3-button-hover-indigo, w3-button-hover-khaki, w3-button-hover-lime, w3-button-hover-orange, w3-button-hover-deep-orange, w3-button-hover-pink, w3-button-hover-purple, w3-button-hover-deep-purple, w3-button-hover-sand, w3-button-hover-teal, w3-button-hover-light-gray, w3-button-hover-light-grey, w3-button-hover-dark-gray, w3-button-hover-dark-grey. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-button-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-button-hover-red, w3-button-hover-green, w3-button-hover-blue, w3-button-hover-yellow, w3-button-hover-white, w3-button-hover-black, w3-button-hover-gray, w3-button-hover-grey, w3-button-hover-amber, w3-button-hover-aqua, w3-button-hover-light-blue, w3-button-hover-brown, w3-button-hover-cyan, w3-button-hover-blue-grey, w3-button-hover-blue-gray, w3-button-hover-light-green, w3-button-hover-indigo, w3-button-hover-khaki, w3-button-hover-lime, w3-button-hover-orange, w3-button-hover-deep-orange, w3-button-hover-pink, w3-button-hover-purple, w3-button-hover-deep-purple, w3-button-hover-sand, w3-button-hover-teal, w3-button-hover-light-gray, w3-button-hover-light-grey, w3-button-hover-dark-gray, w3-button-hover-dark-grey, w3-button-hover-pale-red, w3-button-hover-pale-yellow, w3-button-hover-pale-green and w3-button-hover-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-button-hover-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
 
   <tr>
