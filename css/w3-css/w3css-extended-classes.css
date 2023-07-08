@@ -539,14 +539,14 @@ ol {
 }
 
 .w3-button-pale-green,
-.w3-link-hover-pale-green a:hover
+.w3-link-hover-pale-green a:hover,
 .w3-button-hover-pale-green button:hover {
   color: #000 !important;
   background-color: #e7ffe7 !important;
 }
 
 .w3-button-pale-yellow,
-.w3-link-hover-pale-yellow a:hover
+.w3-link-hover-pale-yellow a:hover,
 .w3-button-hover-pale-yellow button:hover {
   color: #000 !important;
   background-color: #ffffcc !important;

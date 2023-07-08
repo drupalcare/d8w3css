@@ -133,6 +133,7 @@ ul.links li a {
   margin-top: 0!important;
 }
 
-label, .field__label {
+label,
+.field__label {
   font-weight: bold;
 }
