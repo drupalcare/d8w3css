@@ -132,3 +132,7 @@ ul.links li a {
 .node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child {
   margin-top: 0!important;
 }
+
+label, .field__label {
+  font-weight: bold;
+}

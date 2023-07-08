@@ -194,6 +194,22 @@ ol {
   color: #3a3a3a !important;
 }
 
+.w3-link-pale-red a {
+  color: #ffe7e7 !important;
+}
+
+.w3-link-pale-green a {
+  color: #e7ffe7 !important;
+}
+
+.w3-link-pale-yellow a {
+  color: #ffffcc !important;
+}
+
+.w3-link-pale-blue a {
+  color: #e7ffff !important;
+}
+
 /* Link Background Color Classes Hover */
 .w3-link-bg-red a {
   background-color: #f44336 !important;
@@ -301,6 +317,22 @@ ol {
 .w3-link-bg-dark-gray a,
 .w3-link-bg-dark-grey a {
   background-color: #3a3a3a !important;
+}
+
+.w3-link-bg-pale-red a {
+  background-color: #ffe7e7 !important;
+}
+
+.w3-link-bg-pale-green a {
+  background-color: #e7ffe7 !important;
+}
+
+.w3-link-bg-pale-yellow a {
+  background-color: #ffffcc !important;
+}
+
+.w3-link-bg-pale-blue a {
+  background-color: #e7ffff !important;
 }
 
 /* Link Color Classes Hover */
@@ -499,6 +531,55 @@ ol {
   background-color: #3a3a3a !important;
 }
 
+.w3-button-pale-red,
+.w3-link-hover-pale-red a:hover,
+.w3-button-hover-pale-red button:hover {
+  color: #000 !important;
+  background-color: #ffe7e7 !important;
+}
+
+.w3-button-pale-green,
+.w3-link-hover-pale-green a:hover
+.w3-button-hover-pale-green button:hover {
+  color: #000 !important;
+  background-color: #e7ffe7 !important;
+}
+
+.w3-button-pale-yellow,
+.w3-link-hover-pale-yellow a:hover
+.w3-button-hover-pale-yellow button:hover {
+  color: #000 !important;
+  background-color: #ffffcc !important;
+}
+
+.w3-button-pale-blue,
+.w3-link-hover-pale-blue a:hover,
+.w3-button-hover-pale-blue button:hover {
+  color: #000 !important;
+  background-color: #e7ffff !important;
+}
+
+/* Four missing text and hover classes */
+.w3-text-pale-red,
+.w3-hover-text-pale-red:hover {
+  color: #ffe7e7 !important;
+}
+
+.w3-text-pale-green,
+.w3-hover-text-pale-green:hover {
+  color: #e7ffe7 !important;
+}
+
+.w3-text-pale-yellow,
+.w3-hover-text-pale-yellow:hover {
+  color: #ffffcc !important;
+}
+
+.w3-text-pale-blue,
+.w3-hover-text-pale-blue:hover {
+  color: #e7ffff !important;
+}
+
 /* Round Hover Classes */
 .w3-circle:hover {
   border-radius: 50%;
@@ -526,7 +607,6 @@ ol {
 }
 
 /* Custom animation */
-
 .w3-animate-opacity {
   animation: opac 0.6s;
   animation-timing-function: cubic-bezier(0.1, 0.9, 2, 0.1);
