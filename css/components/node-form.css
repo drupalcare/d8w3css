@@ -113,7 +113,7 @@ form .form-type-webform-time {
 form .form-type-date input,
 form .form-type-datetime input,
 form .form-type-webform-time input {
-  width: 99%;
+  width: calc(100% - 2px);
 }
 
 form .form-item-range > span.field-suffix,
@@ -218,37 +218,52 @@ table ul.dropbutton li.dropbutton-toggle {
   margin-left: 10px;
 }
 
+/* Node preview */
 .node-preview-container {
   position: relative;
-  background-color: #dfd;
-  color: #2196f3;
+  background-color: transparent;
 }
 
-.node-preview-container > form {
-  background-color: #dff;
-  border: 1px solid white;
+.node-preview-container .node-preview-form-select {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 100%;
+  margin: 0 auto !important;
 }
 
-.node-preview-container > form select {
-  border: 2px solid #fdd !important;
+.node-preview-container a.node-preview-backlink {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
 }
 
-.node-preview-container .node-preview-backlink {
-  width: 100%;
-  display: block;
-  float: left;
-  text-align: right;
-  color: #3f51b5;
+.node-preview-container a.node-preview-backlink:hover {
+  text-decoration: underline;
 }
 
-.node-preview-container .form-item-view-mode {
-  width: 100%;
-  display: block;
-  margin: 0;
+div.node-preview-container .form-item-view-mode {
+  display: inline-flex;
+  align-items: center;
 }
 
-fieldset,
-.w3-border {
+div.node-preview-container .form-item-view-mode label,
+div.node-preview-container .form-item-view-mode select {
+  display: inline-block;
+  width: auto;
+  border: none !important;
+}
+
+div.node-preview-container .form-item-view-mode select {
+  min-width: 130px;
+}
+
+.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button {
+  margin: 10px auto;
+}
+
+fieldset {
   border-color: #eaeaea !important;
 }
 

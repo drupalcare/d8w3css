@@ -272,7 +272,7 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 
   <tr>
     <th>Text Colors w3-text-<em>color</em>:</th>
-    <td>w3-text-red, w3-text-pink, w3-text-purple, w3-text-deep-purple, w3-text-indigo, w3-text-blue, w3-text-light-blue, w3-text-cyan, w3-text-aqua, w3-text-teal, w3-text-green, w3-text-light-green, w3-text-lime, w3-text-sand, w3-text-khaki, w3-text-yellow, w3-text-amber, w3-text-orange, w3-text-deep-orange, w3-text-blue-grey, w3-text-brown, w3-text-light-grey, w3-text-grey, w3-text-dark-grey, w3-text-blackh, w3-text-white , w3-text-pale-red, w3-text-pale-yellow, w3-text-pale-green and w3-text-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-colors'>Click here to view a live demo for the CSS classes</a></td>
+    <td>w3-text-red, w3-text-pink, w3-text-purple, w3-text-deep-purple, w3-text-indigo, w3-text-blue, w3-text-light-blue, w3-text-cyan, w3-text-aqua, w3-text-teal, w3-text-green, w3-text-light-green, w3-text-lime, w3-text-sand, w3-text-khaki, w3-text-yellow, w3-text-amber, w3-text-orange, w3-text-deep-orange, w3-text-blue-grey, w3-text-brown, w3-text-light-grey, w3-text-grey, w3-text-dark-grey, w3-text-black, w3-text-white , w3-text-pale-red, w3-text-pale-yellow, w3-text-pale-green and w3-text-pale-blue. <a target='_blank' href='https://drupal8-w3css-theme.flashwebcenter.com/w3css-theme-text-colors'>Click here to view a live demo for the CSS classes</a></td>
   </tr>
   <tr>
     <th>Text Hover Colors w3-hover-text-<em>color</em>:</th>
