@@ -124,11 +124,6 @@ ul.links li a {
   padding-right: 0 !important;
 }
 
-.field--type-entity-reference .field__label,
-.field--type-entity-reference .field__item {
-  font-size: 100%;
-}
-
 .node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child {
   margin-top: 0!important;
 }
