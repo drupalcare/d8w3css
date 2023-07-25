@@ -51,9 +51,9 @@ ol {
   font-size: 14px !important;
 }
 
-.w3-animate-opacity {
+/*.w3-animate-opacity {
   animation: opac 3s;
-}
+}*/
 
 .w3-animate-opacity-disabled {
   animation: none !important;
