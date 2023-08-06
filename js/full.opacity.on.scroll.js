@@ -2,46 +2,42 @@
  * @file
  * Defines Javascript behaviors for the W3CSS Theme.
  */
-(function (Drupal, $, once) {
+(function (Drupal, once) {
   'use strict';
   let scrollOn = false;
-  let fadeBox = function () {
+  const animationHeight = window.innerHeight * 0.25;
+  const ratio = Math.round((1 / animationHeight) * 10000) / 10000;
+
+  const fadeBox = () => {
     scrollOn = true;
-    let animationHeight = $(window).innerHeight() * 0.25;
-    let ratio = Math.round((1 / animationHeight) * 10000) / 10000;
-    $('.d8-fade').each(function () {
-      let objectTop = $(this).offset().top;
-      let windowBottom = $(window).scrollTop() + $(window).innerHeight();
-      if (objectTop < windowBottom) {
-        if (objectTop < windowBottom - animationHeight) {
-          $(this).css({
-            transition: 'opacity 1s linear',
-            opacity: 1
-          });
-        } else {
-          $(this).css({
-            transition: 'opacity 0.5s linear',
-            opacity: (windowBottom - objectTop) * ratio
-          });
-        }
-      } else {
-        $(this).css('opacity', 0);
-      }
+    const fadeElements = document.querySelectorAll('.d8-fade');
+    fadeElements.forEach((element) => {
+      const objectTop = element.getBoundingClientRect().top + window.pageYOffset;
+      const windowBottom = window.pageYOffset + window.innerHeight;
+      const opacity = objectTop < windowBottom - animationHeight ? 1 : (windowBottom - objectTop) * ratio;
+      const transition = objectTop < windowBottom - animationHeight ? 'opacity 1s linear' : 'opacity 0.5s linear';
+
+      element.style.transition = transition;
+      element.style.opacity = objectTop < windowBottom ? opacity : 0;
     });
   };
-  setInterval(function () {
+
+  setInterval(() => {
     if (scrollOn) {
       scrollOn = false;
     }
   }, 100);
+
   Drupal.behaviors.d8w3cssFullOpacity = {
     attach: function (context, settings) {
-      // Disable show on scroll if layout builder is active.
       if (!document.getElementById("layout-builder")) {
-        $(once('body', '.d8-fade', context)).css('opacity', 0);
+        const fadeElements = document.querySelectorAll('.d8-fade');
+        fadeElements.forEach((element) => {
+          element.style.opacity = 0;
+        });
         fadeBox();
         window.addEventListener('scroll', fadeBox);
       }
     }
   };
-})(Drupal, jQuery, once);
+})(Drupal, once);
