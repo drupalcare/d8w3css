@@ -18,6 +18,11 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
+
+{% macro svg_icon(icon_value) %}
+  <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="{{ icon_value }}"/></svg>
+{% endmacro %}
+
 <div class="ul-responsive-v">
 {% import _self as menus %}
 {#
@@ -39,9 +44,9 @@
   %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul {{ attributes.addClass(menu_classes) }}>
+  <ul {{ attributes.addClass(menu_classes) }}>
     {% else %}
-      <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
+  <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
     {% endif %}
     {% for item in items %}
       {%
@@ -53,64 +58,68 @@
         ]
       %}
      {% if menu_level == 0 and item.is_expanded %}
-        <li{{ item.attributes.addClass(item_classes) }} role="none">
+    <li{{ item.attributes.addClass(item_classes) }} role="none">
 
-        {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
-          <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link-v toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-v">
-            {# <i class="fa fa-chevron-down"></i> #}
-            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-        {% else %}
-        <li{{ item.attributes.addClass(item_classes) }} role="none">
-        <a href="#" class="w3-button link-disabled tMenu-v toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}
-          <span class="dropdown-arrow w3-hover-over">
-            {# <i class="fa fa-chevron-down"></i> #}
-            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-        </a>
-        {% endif %}
+      {% set rendered_url = item.url|render %}
+      {% import _self as macros %}
 
-      {% elseif menu_level != 0 and item.is_expanded %}
-      <li{{ item.attributes.addClass(item_classes) }} role="none">
-
-        {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
-          <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link-v toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-v">
-            {# <i class="fa fa-chevron-down"></i> #}
-            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-        {% else %}
-          <a href="#" class="w3-button link-disabled tMenu-v toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}
-            <span class="dropdown-arrow w3-hover-over">
-            {# <i class="fa fa-chevron-down"></i> #}
-            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M6 9l6 6 6-6"/></svg>
-            </span>
-          </a>
-        {% endif %}
-
+      {% if (rendered_url starts with '/') or (rendered_url starts with 'http')  %}
+      <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link-v toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title }}
+      </a>
+      <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-v">
+        {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+      </span>
       {% else %}
-      {%
-        set link_classes = [
-          'w3-button li-link li-link-' ~ menu_name|clean_class,
-        ]
-      %}
       <li{{ item.attributes.addClass(item_classes) }} role="none">
-        {{
-          link(
-            item.title,
-            item.url,
-            item.attributes.removeClass(item_classes).addClass(link_classes),
-            item.attributes.setAttribute("role", "menuitem")
-          )
-        }}
+      <a href="#" class="w3-button link-disabled tMenu-v toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title ?? '' }}
+        <span class="dropdown-arrow w3-hover-over">
+          {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+        </span>
+      </a>
       {% endif %}
-      {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
-      {% endif %}
-      </li>
+
+  {% elseif menu_level != 0 and item.is_expanded %}
+  <li{{ item.attributes.addClass(item_classes) }} role="none">
+
+    {% set rendered_url = item.url|render %}
+    {% import _self as macros %}
+
+    {% if rendered_url starts with '/' or rendered_url starts with 'http' %}
+    <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link-v toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}
+    </a>
+    <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-v">
+      {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+    </span>
+    {% else %}
+    <a href="#" class="w3-button link-disabled tMenu-v toggle-child" role="menuitem" aria-haspopup="true">{{ item.title ?? '' }}
+      <span class="dropdown-arrow w3-hover-over">
+      {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+      </span>
+    </a>
+    {% endif %}
+
+  {% else %}
+  {%
+    set link_classes = [
+      'w3-button li-link li-link-' ~ menu_name|clean_class,
+    ]
+  %}
+    <li{{ item.attributes.addClass(item_classes) }} role="none">
+      {{
+        link(
+          item.title,
+          item.url,
+          item.attributes.removeClass(item_classes).addClass(link_classes),
+          item.attributes.setAttribute("role", "menuitem")
+        )
+      }}
+    {% endif %}
+    {% if item.below %}
+        {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
+    {% endif %}
+    </li>
     {% endfor %}
-    </ul>
+  </ul>
   {% endif %}
 {% endmacro %}
 </div>
