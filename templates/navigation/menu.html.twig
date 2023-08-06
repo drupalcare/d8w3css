@@ -64,7 +64,7 @@ We call a macro which calls itself to render the full tree.
     {% if rendered_url starts with '/' or rendered_url starts with 'http' %}
     <a href="{{ item.url|default('#') }}" class="w3-button link-enabled clickable-dropdown-menu-link-h toggle-parent" role="menuitem" aria-haspopup="true">{{ item.title ?? '' }}
     </a>
-    <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-h">
+    <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
       {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
     </span>
     {% else %}
@@ -84,10 +84,10 @@ We call a macro which calls itself to render the full tree.
 
     {% if rendered_url starts with '/' or rendered_url starts with 'http' %}
     <a href="{{ item.url }}" class="w3-button link-enabled clickable-dropdown-menu-link-h toggle-child" role="menuitem" aria-haspopup="true">{{ item.title }}</a>
-      <span class="right-arrow w3-hover-over clickable-dropdown-menu-fa-right-h">
+      <span class="right-arrow w3-hover-over clickable-dropdown-menu-fa-right">
       {{ macros.svg_icon('M9 18l6-6-6-6') }}{# right arrow #}
       </span>
-      <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down-h">
+      <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
       {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
       </span>
     {% else %}
