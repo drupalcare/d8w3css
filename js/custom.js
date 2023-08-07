@@ -259,10 +259,12 @@
       });
       // Disable top margin if breadcrumb exist.
       let breadcrumb = document.querySelector('nav.breadcrumb');
-      let mainBox = document.querySelector('body .main-box');
+      let mainBox = document.querySelectorAll('body .main-box');
       let w3Image = document.querySelectorAll('body a > .w3-image');
       if (breadcrumb && mainBox) {
-        mainBox.classList.add('breadcrumb-found');
+        mainBox.forEach(function(element) {
+          element.classList.add('breadcrumb-found');
+        });
       }
       w3Image.forEach(function(image) {
         image.parentElement.classList.add('d8-has-image');
