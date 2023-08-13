@@ -24,8 +24,7 @@
  * @see template_preprocess_views_view_grid()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-row',
     'views-view-grid',
     options.alignment,
@@ -34,22 +33,20 @@
   ]
 %}
 {% if options.row_class_default %}
-  {%
-    set row_classes = [
+  {% set row_classes = [
       'w3-row',
       'views-row',
       options.alignment == 'horizontal' ? 'clearfix',
-    ]
-  %}
+  ]
+%}
 {% endif %}
 {% if options.col_class_default %}
-  {%
-    set col_classes = [
+  {% set col_classes = [
       'w3-padding',
       'views-col',
       options.alignment == 'vertical' ? 'clearfix',
-    ]
-  %}
+  ]
+%}
 {% endif %}
 {% if title %}
   <h3>{{ title }}</h3>

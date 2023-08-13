@@ -44,8 +44,7 @@
  * @see template_preprocess_form_element()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-section',
     'js-form-item',
     'form-item',
@@ -58,8 +57,7 @@
     errors ? 'form-item--error',
   ]
 %}
-{%
-  set description_classes = [
+{% set description_classes = [
     'w3-small',
     'w3-row',
     'description',

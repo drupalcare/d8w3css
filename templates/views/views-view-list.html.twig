@@ -23,7 +23,7 @@
     <h3>{{ title }}</h3>
   {% endif %}
 
-  <{{ list.type }}{{ list.attributes }}{{ attributes.addClass('w3-ul') }}>
+  <{{ list.type }} {{ list.attributes }} {{ attributes.addClass('w3-ul') }}>
 
     {% for row in rows %}
       <li{{ row.attributes.addClass('w3-panel') }}>{{- row.content -}}</li>

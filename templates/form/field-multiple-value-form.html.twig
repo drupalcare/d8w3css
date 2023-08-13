@@ -20,13 +20,12 @@
  */
 #}
 {% if multiple %}
-  {%
-    set classes = [
-      'w3-block',
-      'js-form-item',
-      'form-item'
-    ]
-  %}
+{% set classes = [
+    'w3-block',
+    'js-form-item',
+    'form-item'
+  ]
+%}
   <div{{ attributes.addClass(classes) }}>
     {{ table }}
     {% if description.content %}

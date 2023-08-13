@@ -31,8 +31,7 @@
  * @see template_preprocess_views_view_table()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-table-all',
     'cols-' ~ header|length,
     responsive ? 'responsive-enabled',
@@ -69,16 +68,16 @@
             {%- if column.wrapper_element -%}
               <{{ column.wrapper_element }}>
                 {%- if column.url -%}
-                  <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+                  <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }} {{ column.sort_indicator }}</a>
                 {%- else -%}
-                  {{ column.content }}{{ column.sort_indicator }}
+                  {{ column.content }} {{ column.sort_indicator }}
                 {%- endif -%}
               </{{ column.wrapper_element }}>
             {%- else -%}
               {%- if column.url -%}
-                <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+                <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }} {{ column.sort_indicator }}</a>
               {%- else -%}
-                {{- column.content }}{{ column.sort_indicator }}
+                {{- column.content }} {{ column.sort_indicator }}
               {%- endif -%}
             {%- endif -%}
           </th>
@@ -91,11 +90,7 @@
       <tr{{ row.attributes }}>
         {% for key, column in row.columns %}
           {% if column.default_classes %}
-            {%
-              set column_classes = [
-                'views-field'
-              ]
-            %}
+            {% set column_classes = ['views-field'] %}
             {% for field in column.fields %}
               {% set column_classes = column_classes|merge(['views-field-' ~ field]) %}
             {% endfor %}
@@ -104,12 +99,12 @@
             {%- if column.wrapper_element -%}
               <{{ column.wrapper_element }}>
               {% for content in column.content %}
-                {{ content.separator }}{{ content.field_output }}
+                {{ content.separator }} {{ content.field_output }}
               {% endfor %}
               </{{ column.wrapper_element }}>
             {%- else -%}
               {% for content in column.content %}
-                {{- content.separator }}{{ content.field_output -}}
+                {{- content.separator }} {{ content.field_output -}}
               {% endfor %}
             {%- endif %}
           </td>

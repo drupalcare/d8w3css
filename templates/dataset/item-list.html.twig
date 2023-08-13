@@ -29,7 +29,7 @@
       <h3>{{ title }}</h3>
     {%- endif -%}
     {%- if items -%}
-      <{{ list_type }}{{ attributes.addClass('w3-ul') }}>
+      <{{ list_type }} {{ attributes.addClass('w3-ul') }}>
         {%- for item in items -%}
           <li{{ item.attributes.addClass('w3-panel') }}>{{ item.value }} </li>
         {%- endfor -%}

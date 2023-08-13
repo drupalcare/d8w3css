@@ -67,8 +67,7 @@
  *
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-row',
     'node',
     'node--type-' ~ node.bundle|clean_class,
@@ -80,7 +79,9 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+
   {% if (label and not page) or display_submitted %}
+
   <header class="w3-row node__header">
     {{ title_prefix }}
     {% if label and not page %}
@@ -107,7 +108,9 @@
     {% endif %}
 
   </header>
+
   {% endif %}
+
   <div{{ content_attributes.addClass('w3-row node__content') }}>
     {{ content }}
   </div>

@@ -37,8 +37,7 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-row',
     'field',
     'field--name-' ~ field_name|clean_class,
@@ -47,8 +46,7 @@
     label_display == 'inline' ? 'clearfix',
   ]
 %}
-{%
-  set title_classes = [
+{% set title_classes = [
     'field__label',
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]

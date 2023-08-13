@@ -25,8 +25,7 @@
  * @see comment_preprocess_field()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'w3-row',
     'field',
     'field--name-' ~ field_name|clean_class,
@@ -35,8 +34,7 @@
     'comment-wrapper',
   ]
 %}
-{%
-  set title_classes = [
+{% set title_classes = [
     'title',
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]

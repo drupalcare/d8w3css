@@ -16,11 +16,7 @@
 <div class="js-text-format-wrapper text-format-wrapper js-form-item form-item">
   {{ children }}
   {% if description %}
-    {%
-      set classes = [
-        aria_description ? 'description',
-      ]
-    %}
+    {% set classes = [aria_description ? 'description'] %}
     <div{{ attributes.addClass(classes) }}>{{ description }}</div>
   {% endif %}
 </div>
