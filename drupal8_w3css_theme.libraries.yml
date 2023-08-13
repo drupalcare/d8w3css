@@ -71,9 +71,8 @@ d8w3css-global-styling:
   js:
     js/custom.js: { }
   dependencies:
-    - core/jquery
-    - core/drupal.ajax
     - core/drupal
+    - core/drupal.ajax
     - core/drupalSettings
     - core/once
 
@@ -85,7 +84,6 @@ d8w3css-full-opacity:
   js:
     js/full.opacity.on.scroll.js: { }
   dependencies:
-    - core/jquery
     - core/drupal
     - core/once
 
