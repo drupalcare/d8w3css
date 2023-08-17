@@ -33,9 +33,10 @@
   transition: transform .2s;
   width: 24px;
   height: 24px;
+  margin: 0 5px;
   display: inline-block;
   background-repeat: no-repeat;
-  background-size: 24px 24px;
+  background-size: 24p;
   -webkit-filter: grayscale(0.8);
   filter: grayscale(0.8);
 }
@@ -84,4 +85,21 @@
 
 .social-media a > i.fa-rss {
   background-image: url(../../images/icons/rss.svg);
+}
+
+.social-media {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media a {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media a > .fa-ext {
+  font-weight: normal;
+  font-size: 16px;
 }

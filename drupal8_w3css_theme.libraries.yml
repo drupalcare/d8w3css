@@ -103,6 +103,20 @@ d8w3css-node-edit-form:
     layout:
       css/layout/layout-node-edit.css: { }
 
+# change the icon media size.
+
+social-media-icon-size-m:
+  Version: VERSION
+  css:
+    theme:
+      css/theme/social-media-icon-size-m.css: { }
+
+social-media-icon-size-l:
+  Version: VERSION
+  css:
+    theme:
+      css/theme/social-media-icon-size-l.css: { }
+
 # Font Awesome.
 
 font-awesome-4-ex:

@@ -248,6 +248,7 @@ function drupal8_w3css_theme_preprocess_page(&$variables) {
       'website_width',
     ],
     'svar' => [
+      'social_media_size',
       'show_social_icon',
       'facebook_url',
       'twitter_url',
@@ -415,6 +416,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
   _load_color_theme($attachments);
   _load_font_awesome($attachments);
   _load_full_opacity($attachments);
+  _load_social_icon_size($attachments);
 }
 
 /**
@@ -465,6 +467,26 @@ function _load_font_awesome(array &$attachments) {
   if (isset($font_awesome_versions[$fw_version])) {
     $attachments['#attached']['library'][] = 'drupal8_w3css_theme/' . $font_awesome_versions[$fw_version];
   }
+}
+
+/**
+ * Helper function.
+ */
+function _load_social_icon_size(array &$attachments) {
+
+  $show_icons = theme_get_setting('show_social_icon');
+
+  if ($show_icons) {
+    $social_media_size = [
+      1 => 'social-media-icon-size-m',
+      2 => 'social-media-icon-size-l',
+    ];
+    $smi = theme_get_setting('social_media_size');
+    if (isset($social_media_size[$smi])) {
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/' . $social_media_size[$smi];
+    }
+  }
+
 }
 
 /**

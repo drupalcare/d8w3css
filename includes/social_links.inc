@@ -20,6 +20,18 @@ $form['drupal8_w3css_theme_settings']['social_icon'] = [
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
 ];
+
+$form['drupal8_w3css_theme_settings']['social_icon']['social_media_size'] = [
+  '#type' => 'radios',
+  '#title' => t('Select The Social Media Icon Size'),
+  '#default_value' => theme_get_setting('social_media_size'),
+  '#options' => [
+    0 => t('Small - Default'),
+    1 => t('Medium'),
+    2 => t('Large'),
+  ],
+];
+
 $form['drupal8_w3css_theme_settings']['social_icon']['show_social_icon'] = [
   '#type' => 'checkbox',
   '#title' => t('Show Social Icons'),
