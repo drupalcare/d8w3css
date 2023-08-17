@@ -36,7 +36,7 @@
   margin: 0 5px;
   display: inline-block;
   background-repeat: no-repeat;
-  background-size: 24p;
+  background-size: 24px;
   -webkit-filter: grayscale(0.8);
   filter: grayscale(0.8);
 }
