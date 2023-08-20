@@ -39,8 +39,6 @@ d8w3css-global-styling:
       css/components/maintenance-page.css: { }
       css/components/system-admin.css: { }
       css/components/w3css-tables.css: { }
-      css/components/global-menu.css: { }
-      css/components/v-menu.css: { }
       css/components/site-branding.css: { }
       css/components/user-menu.css: { }
       css/components/user-login.css: { }
@@ -70,6 +68,23 @@ d8w3css-global-styling:
       css/theme/sitename-animation.css: { weight: 10 }
   js:
     js/custom.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/once
+
+# Menu Styling.
+w3css-menu-styling:
+  Version: VERSION
+  css:
+    component:
+      css/components/global-menu.css: { }
+      css/components/v-menu.css: { }
+    theme:
+      css/theme/menu-media.css: { weight: -10 }
+  js:
+    js/w3css.menu.js: { }
   dependencies:
     - core/drupal
     - core/drupal.ajax

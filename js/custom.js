@@ -6,144 +6,25 @@
 ((Drupal, once) => {
   'use strict';
 
-  // Slide up and down
-  let cssStyles = [
-    ['overflow', 'hidden'],
-    ['height', '0'],
-    ['paddingTop', '0'],
-    ['paddingBottom', '0'],
-    ['marginTop', '0'],
-    ['marginBottom', '0']
-  ];
-
-  var slideUp = (target, duration = 500) => {
-
-    target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = `${duration}ms`;
-    target.style.boxSizing = 'border-box';
-    target.style.height = `${target.offsetHeight}px`;
-    target.offsetHeight;
-    target.classList.remove('show');
-
-    cssStyles.forEach(cssStyle => {
-      target.style[cssStyle[0]] = cssStyle[1];
-    });
-
-    window.setTimeout(() => {
-      target.style.display = 'none';
-      removeStyles(target);
-    }, duration);
-  }
-
-  function removeStyles(target) {
-    const stylesToRemove = ['height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom', 'overflow', 'transition-duration', 'transition-property'];
-    stylesToRemove.forEach(style => target.style.removeProperty(style));
-  }
-
-  var slideDown = (target, duration = 500) => {
-    target.style.removeProperty('display');
-    let display = window.getComputedStyle(target)
-      .display;
-
-    if (display === 'none')
-      display = 'block';
-
-    target.style.display = display;
-    let height = target.offsetHeight;
-
-    cssStyles.forEach(cssStyle => {
-      target.style[cssStyle[0]] = cssStyle[1];
-    });
-
-    target.offsetHeight;
-    target.style.boxSizing = 'border-box';
-    target.style.transitionProperty = "height, margin, padding";
-    target.style.transitionDuration = `${duration}ms`;
-    target.style.height = `${height}px`;
-    target.classList.add('show');
-
-    ['padding-top', 'padding-bottom', 'margin-top', 'margin-bottom'].forEach(property => {
-      target.style.removeProperty(property);
-    });
-
-    window.setTimeout(() => {
-      ['height', 'overflow', 'transition-duration', 'transition-property'].forEach(property => target.style.removeProperty(property));
-    }, duration);
-
-  }
-
-  var slideToggle = (target, duration = 500) => {
-    if (!target.classList.contains('show')) {
-      return slideDown(target, duration);
-    } else {
-      return slideUp(target, duration);
-    }
-  }
-
   // Cache the selectors
-  var socialMediaIcons = document.querySelectorAll('.social-media > a > i');
-  var adminToolbarSearchTab = document.querySelector('#admin-toolbar-search-tab > div');
-
-  var mainMenuBg, displayVertical;
-
-  var mainNavWrapper = document.querySelector('.main-navigation-wrapper');
-  if (mainNavWrapper) {
-    mainMenuBg = window.getComputedStyle(mainNavWrapper)
-      .backgroundColor;
-  }
-
-  var mainNavVertical = document.querySelector('#main-navigation-v');
-  if (mainNavVertical) {
-    displayVertical = window.getComputedStyle(mainNavVertical)
-      .display;
-  }
-
-  // Get current widht
-  function getCurrentWidth() {
-    return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  }
-
-  // Remove Fa class from social links.
-  if (socialMediaIcons.length > 0) {
-    socialMediaIcons.forEach(icon => {
-      if (icon.classList.contains('fa')) {
-        icon.classList.remove('fa');
-      }
-    });
-  }
+  const socialMediaIcons = [...document.querySelectorAll('.social-media > a > i')];
+  socialMediaIcons.forEach(icon => {
+    icon.classList.remove('fa');
+  });
 
   // In case the admin toolbar search installed.
-  if (adminToolbarSearchTab > 0) {
-    adminToolbarSearchTab.classList.remove('w3-section');
-  }
+  const adminToolbarSearchTab = document.querySelector('#admin-toolbar-search-tab > div');
+  adminToolbarSearchTab?.classList.remove('w3-section');
 
-  // Used for fixed menu.
-  let origOffsetY;
-  let mainNavigation = document.querySelector('#main-navigation-h');
-  if (mainNavigation && mainNavigation.querySelector('.ul-parent')) {
-    origOffsetY = mainNavigation.offsetTop;
-  }
+  // Get current widht
+  const getCurrentWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-  // Add flex position to the main menu at scroll.
-  const scrollWindow = () => {
-    if (mainNavigation) {
-      mainNavigation.classList.toggle('w3-sticky', window.scrollY > origOffsetY);
-    }
-  };
 
   // Add/remove css classes according to screen changes.
   let mediaSize = function() {
     const currentWidth = getCurrentWidth();
     const containers = ['.top-container-inner', '.main-container-inner > .w3-clear', '.bottom-container-inner', '.footer-container-inner'];
     const bodyTag = document.body;
-
-    const removeStyles = (selector) => {
-      document.querySelectorAll(selector)
-        .forEach(el => {
-          el.classList.remove('w3-show');
-          el.removeAttribute('style');
-        });
-    };
 
     const addDisplayClass = (selector) => {
       if (document.querySelectorAll(selector + ' > div')
@@ -166,17 +47,6 @@
 
       bodyTag.classList.add('large-screen');
       bodyTag.classList.remove('small-screen', 'medium-screen');
-      removeStyles('.ul-parent');
-      removeStyles('.ul-child');
-      removeStyles('.ul-responsive-h .ul-parent');
-      removeStyles('.ul-responsive-h .ul-child');
-      removeStyles('#main-navigation-h .ul-parent');
-
-      document.querySelectorAll('#main-navigation-h .ul-child')
-        .forEach(el => {
-          el.style.backgroundColor = mainMenuBg;
-        });
-
       containers.forEach(addDisplayClass);
 
     } else {
@@ -194,7 +64,6 @@
     }
 
   };
-  // Add class to any UL/LI according to the depth.
 
   const addClassAccordingToDepth = (element, depth) => {
 
@@ -215,133 +84,6 @@
     }
     return depth;
   };
-
-  function hideChildren(childElement) {
-    // childElement.classList.remove('show');
-    // childElement.style.display = 'none';
-    slideUp(childElement);
-  }
-
-  function hideParents(ulParent, ulChildren = '') {
-
-    if (!ulParent.classList.contains('show')) {
-      slideDown(ulParent);
-    } else {
-      slideUp(ulParent);
-      if (ulChildren) {
-        ulChildren.forEach(function(ulChild) {
-          hideChildren(ulChild);
-        });
-      }
-    }
-
-  }
-
-  const mainSiteNavH = document.querySelector('#main-navigation-h .mobile-nav');
-  if (mainSiteNavH) {
-    mainSiteNavH.addEventListener('click', () => {
-
-      const ulParent = document.querySelector('#main-navigation-h .ul-parent');
-      const ulChildren = document.querySelectorAll('#main-navigation-h .ul-parent .ul-child');
-      hideParents(ulParent, ulChildren);
-    });
-  }
-
-  const ulResposiveH = document.querySelector('.ul-responsive-h .mobile-nav-responsive');
-  if (ulResposiveH) {
-    ulResposiveH.addEventListener('click', () => {
-
-      let ulParent = document.querySelector('.ul-responsive-h .ul-parent');
-      let ulChildren = document.querySelectorAll('.ul-responsive-h .ul-parent .ul-child');
-      hideParents(ulParent, ulChildren);
-    });
-  }
-
-  let closeNav = document.querySelector('#main-navigation-v #close-nav');
-  if (closeNav) {
-    closeNav.addEventListener('click', function() {
-
-      document.getElementById('main-navigation-v')
-        .style.display = 'none';
-      let childElements = document.querySelectorAll('#main-navigation-v .ul-parent li .ul-child');
-
-      if (childElements) {
-        childElements.forEach(function(childElement) {
-          hideChildren(childElement);
-        });
-      }
-
-    });
-  }
-
-  let openNav = document.querySelector('#open-nav-inner');
-  if (openNav) {
-    openNav.addEventListener('click', function() {
-
-      document.getElementById('main-navigation-v')
-        .style.display = 'block';
-      displayVertical = window.getComputedStyle(document.querySelector('#main-navigation-v'))
-        .display;
-    });
-  }
-
-  const ulToggler = (element) => {
-    let getDepth = calculateDepth(element);
-    let menuUl = element.parentNode.querySelector('.ul-child.ul-' + getDepth);
-
-    if (!menuUl.classList.contains('show')) {
-      slideDown(menuUl);
-    } else {
-      slideUp(menuUl);
-    }
-
-  }
-
-  const addClickListener = (selector) => {
-    document.querySelectorAll(selector)
-      .forEach(function(element) {
-
-        element.addEventListener('click', function(event) {
-
-          if (element.classList.contains('link-disabled')) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-
-          if (selector == '.tMenu') {
-            const currentWidth = getCurrentWidth();
-
-            // console.log(display);
-
-            if ((currentWidth <= 992) || (displayVertical === 'block')) {
-              ulToggler(element);
-            }
-
-          } else if (selector == '.tMenu-v') {
-            ulToggler(element);
-
-          } else {
-            ulToggler(element);
-          }
-
-        });
-
-      });
-  } // End of addClickListener
-
-  const selectors = [
-    '.tMenu',
-    '.tMenu-v',
-    '.clickable-dropdown-menu-fa-down',
-    '.clickable-dropdown-menu-fa-down-v',
-    '.clickable-dropdown-menu-fa-down-h'
-  ];
-
-  selectors.forEach(selector => {
-    if (document.querySelector(selector)) {
-      addClickListener(selector);
-    }
-  });
 
   Drupal.behaviors.d8w3cssMenuDepth = {
     attach: (settings) => {
@@ -464,7 +206,6 @@
       mediaSize();
       getCurrentWidth();
       window.addEventListener('resize', mediaSize, getCurrentWidth);
-      window.addEventListener('scroll', scrollWindow);
 
     }
   };
