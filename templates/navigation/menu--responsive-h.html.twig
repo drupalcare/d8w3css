@@ -45,9 +45,9 @@
 %}
   {% if items %}
   {% if menu_level == 0 %}
-  <ul {{ attributes.addClass(menu_classes) }}>
+  <ul {{ attributes.addClass(menu_classes).setAttribute("role", "menubar" ).removeAttribute('region') }}>
     {% else %}
-  <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
+  <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes).setAttribute("role", "menu") }}>
   {% endif %}
   {% for item in items %}
     {% set item_classes = [
