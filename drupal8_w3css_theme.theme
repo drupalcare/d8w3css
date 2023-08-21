@@ -10,15 +10,14 @@
  * Author:       Alaa Haddad http://www.alaahaddad.com.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\comment\CommentInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityBase;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-
-/**
- * Implements hook_preprocess_HOOK() for HTML document templates.
- */
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -50,7 +49,7 @@ function drupal8_w3css_theme_preprocess_html(&$variables) {
 /**
  * Helper function.
  */
-function _add_node_id_to_body_class($route_match, &$variables) {
+function _add_node_id_to_body_class($route_match, &$variables): void {
   $node_id = $route_match->getParameter('node')->id();
   if ($node_id) {
     $variables['attributes']['class'][] = 'path-node-' . $node_id;
@@ -60,7 +59,7 @@ function _add_node_id_to_body_class($route_match, &$variables) {
 /**
  * Helper function.
  */
-function _add_taxonomy_term_to_body_class($route_match, &$variables) {
+function _add_taxonomy_term_to_body_class($route_match, &$variables): void {
   $term = $route_match->getParameter('taxonomy_term');
   if ($term->id()) {
     $variables['attributes']['class'][] = 'path-taxonomy-term-' . $term->id();
@@ -73,7 +72,7 @@ function _add_taxonomy_term_to_body_class($route_match, &$variables) {
 /**
  * Helper function.
  */
-function _add_user_path_to_body_class(&$variables) {
+function _add_user_path_to_body_class(&$variables): void {
   $curr_path = \Drupal::service('path.current')->getPath();
   $curr_path = ltrim($curr_path, '/');
   $user_url = explode('/', $curr_path);
@@ -85,7 +84,7 @@ function _add_user_path_to_body_class(&$variables) {
 /**
  * Helper function.
  */
-function _add_view_id_to_body_class($route_match, &$variables) {
+function _add_view_id_to_body_class($route_match, &$variables): void {
   $view_id = $route_match->getParameter('view_id');
   if ($view_id) {
     $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier($view_id);
@@ -95,7 +94,7 @@ function _add_view_id_to_body_class($route_match, &$variables) {
 /**
  * Helper function.
  */
-function _add_admin_context_to_body_class(&$variables) {
+function _add_admin_context_to_body_class(&$variables): void {
   /** @var \Drupal\Core\Routing\AdminContext $admin_context */
   $admin_context = \Drupal::service('router.admin_context');
   if ($admin_context->isAdminRoute()) {
@@ -389,7 +388,7 @@ function drupal8_w3css_theme_preprocess_maintenance_page(&$variables) {
 /**
  * Helper functions.
  */
-function _set_site_name(&$variables) {
+function _set_site_name(&$variables): void {
   // By default, site_name is set to Drupal if no db connection is available
   // or during site installation. Setting site_name to an empty string makes
   // the site and update pages look cleaner.
@@ -402,7 +401,7 @@ function _set_site_name(&$variables) {
 /**
  * Helper functions.
  */
-function _maintenance_library(&$variables) {
+function _maintenance_library(&$variables): void {
   // drupal8_w3css_theme has custom styling for the maintenance page.
   $variables['#attached']['library'][] = 'drupal8_w3css_theme/templates/layout/maintenance_page';
 }
@@ -422,7 +421,7 @@ function drupal8_w3css_theme_page_attachments_alter(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_google_fonts(array &$attachments) {
+function _load_google_fonts(array &$attachments): void {
   $fonts = ['d8w3css_site_gf', 'd8w3css_site_gfh'];
   foreach ($fonts as $font) {
     if (theme_get_setting($font)) {
@@ -436,7 +435,7 @@ function _load_google_fonts(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_special_fonts(array &$attachments) {
+function _load_special_fonts(array &$attachments): void {
   if (theme_get_setting('d8w3css_site_gfs')) {
     $ex_font_s = theme_get_setting('d8w3css_site_gfs');
     $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_s, 7);
@@ -447,7 +446,7 @@ function _load_special_fonts(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_color_theme(array &$attachments) {
+function _load_color_theme(array &$attachments): void {
   $is_theme = theme_get_setting('current_theme') ?: 'none';
   $theme_path = 'drupal8_w3css_theme/' . ($is_theme == 'none' ? 'w3css-default-theme' : str_replace('w3-theme-', 'w3-css-theme-', $is_theme));
   $attachments['#attached']['library'][] = $theme_path;
@@ -456,7 +455,7 @@ function _load_color_theme(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_font_awesome(array &$attachments) {
+function _load_font_awesome(array &$attachments): void {
   $font_awesome_versions = [
     1 => 'font-awesome-4-in',
     2 => 'font-awesome-4-ex',
@@ -472,7 +471,7 @@ function _load_font_awesome(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_social_icon_size(array &$attachments) {
+function _load_social_icon_size(array &$attachments): void {
 
   $show_icons = theme_get_setting('show_social_icon');
 
@@ -492,7 +491,7 @@ function _load_social_icon_size(array &$attachments) {
 /**
  * Helper function.
  */
-function _load_full_opacity(array &$attachments) {
+function _load_full_opacity(array &$attachments): void {
   /** @var \Drupal\Core\Routing\AdminContext $admin_context */
   $admin_context = \Drupal::service('router.admin_context');
   if (theme_get_setting('full_opacity_onscroll') && !$admin_context->isAdminRoute()) {
@@ -574,37 +573,64 @@ function drupal8_w3css_theme_form_comment_form_alter(&$form, FormStateInterface 
 }
 
 /**
- * Implements hook_theme_suggestions_block_alter().
+ * Helper function.
  */
-function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  // Check if the '#id' key exists in the $variables['elements'] array.
-  if (!empty($variables['elements']['#id'])) {
-    // Load block entity using '#id' key from the $variables['elements'] array.
-    $block = \Drupal::entityTypeManager()
-      ->getStorage('block')
-      ->load($variables['elements']['#id']);
+function _load_block_from_variables(array $variables): Block|EntityInterface|EntityBase|null {
+  $block_id = $variables['elements']['#id'] ?? NULL;
 
-    // Check if the block entity was loaded successfully.
-    if ($block) {
-      // Get the region of the block.
-      $region = $block->getRegion();
+  if (!$block_id) {
+    return NULL;
+  }
 
-      // Add region-specific block theme suggestions.
-      $suggestions[] = 'block__' . $region;
-      $suggestions[] = 'block__' . $region . '__' . 'plugin_id' . '__' . $variables['elements']['#plugin_id'];
-      $suggestions[] = 'block__' . $region . '__' . 'id' . '__' . $variables['elements']['#id'];
-    }
+  return Block::load($block_id);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function drupal8_w3css_theme_preprocess_block(&$variables) {
+  $block = _load_block_from_variables($variables);
+
+  if (!$block) {
+    return;
+  }
+
+  $region = $block->getRegion();
+
+  if ($variables['base_plugin_id'] === 'system_menu_block') {
+    $variables['content']['#attributes']['region'] = $region;
   }
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter().
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.
  */
 function drupal8_w3css_theme_theme_suggestions_menu_alter(&$suggestions, array $variables) {
   $region = $variables['attributes']['region'] ?? NULL;
-  if ($region) {
+  if ($region !== NULL) {
     $suggestions[] = 'menu__' . $region;
   }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.
+ */
+function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block = _load_block_from_variables($variables);
+
+  if (!$block) {
+    return;
+  }
+
+  // Get the region of the block.
+  $region = $block->getRegion();
+      // Add region-specific block theme suggestions.
+  array_push($suggestions,
+      sprintf('block__%s', $region),
+      sprintf('block__%s__plugin_id__%s', $region, $variables['elements']['#plugin_id']),
+      sprintf('block__%s__id__%s', $region, $variables['elements']['#id'])
+  );
+
 }
 
 /**
@@ -620,7 +646,7 @@ function drupal8_w3css_theme_theme_suggestions_page_alter(array &$suggestions, a
 /**
  * Helper function.
  */
-function _add_node_suggestions(RouteMatchInterface $route_match, array &$suggestions) {
+function _add_node_suggestions(RouteMatchInterface $route_match, array &$suggestions): void {
   if ($route_match->getRouteName() === 'entity.node.canonical') {
     $node_bundle = $route_match->getParameter('node')->bundle();
     array_splice($suggestions, 1, 0, 'page__' . $node_bundle);
@@ -630,7 +656,7 @@ function _add_node_suggestions(RouteMatchInterface $route_match, array &$suggest
 /**
  * Helper function.
  */
-function _add_taxonomy_suggestions(RouteMatchInterface $route_match, array &$suggestions) {
+function _add_taxonomy_suggestions(RouteMatchInterface $route_match, array &$suggestions): void {
   if ($route_match->getRouteName() === 'entity.taxonomy_term.canonical') {
     $taxonomy_bundle = $route_match->getParameter('taxonomy_term')->bundle();
     array_splice($suggestions, 1, 0, 'page__taxonomy__' . $taxonomy_bundle);
@@ -640,7 +666,7 @@ function _add_taxonomy_suggestions(RouteMatchInterface $route_match, array &$sug
 /**
  * Helper function.
  */
-function _add_view_suggestions(RouteMatchInterface $route_match, array &$suggestions) {
+function _add_view_suggestions(RouteMatchInterface $route_match, array &$suggestions): void {
   if ($view_name = $route_match->getRouteObject()->getDefault('view_id')) {
     $suggestions[] = 'page__' . $view_name;
   }
@@ -650,7 +676,23 @@ function _add_view_suggestions(RouteMatchInterface $route_match, array &$suggest
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function drupal8_w3css_theme_theme_suggestions_user_alter(&$suggestions, $variables) {
-  if (isset($variables['elements']['#view_mode'])) {
-    $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
+
+  $viewModeKey = '#view_mode';
+  $elements = $variables['elements'] ?? [];
+
+  if (!isset($elements[$viewModeKey])) {
+    return NULL;
   }
+
+  $viewMode = str_replace('.', '_', $elements[$viewModeKey]);
+  $userId = \Drupal::service('current_user')->id();
+
+  $suggestions = [
+    "user__{$viewMode}",
+    "user__{$userId}",
+    "user__{$userId}__{$viewMode}",
+  ];
+
+  return $suggestions;
+
 }

@@ -7,23 +7,28 @@
   'use strict';
 
   // Cache the selectors
-  const socialMediaIcons = [...document.querySelectorAll('.social-media > a > i')];
+  const socialMediaIcons = [...document.querySelectorAll(
+    '.social-media > a > i')];
   socialMediaIcons.forEach(icon => {
     icon.classList.remove('fa');
   });
 
   // In case the admin toolbar search installed.
-  const adminToolbarSearchTab = document.querySelector('#admin-toolbar-search-tab > div');
+  const adminToolbarSearchTab = document.querySelector(
+    '#admin-toolbar-search-tab > div');
   adminToolbarSearchTab?.classList.remove('w3-section');
 
   // Get current widht
-  const getCurrentWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
+  const getCurrentWidth = () => window.innerWidth || document.documentElement
+    .clientWidth || document.body.clientWidth;
 
   // Add/remove css classes according to screen changes.
   let mediaSize = function() {
     const currentWidth = getCurrentWidth();
-    const containers = ['.top-container-inner', '.main-container-inner > .w3-clear', '.bottom-container-inner', '.footer-container-inner'];
+    const containers = ['.top-container-inner',
+      '.main-container-inner > .w3-clear', '.bottom-container-inner',
+      '.footer-container-inner'
+    ];
     const bodyTag = document.body;
 
     const addDisplayClass = (selector) => {
@@ -98,9 +103,11 @@
   Drupal.behaviors.d8w3cssTheme = {
     attach: function(context, settings) {
       // Change the form color to match the footer color.
-      const footerFormBg = window.getComputedStyle(document.querySelector('#footer-menu'))
+      const footerFormBg = window.getComputedStyle(document.querySelector(
+          '#footer-menu'))
         .backgroundColor;
-      const footerFormTxt = window.getComputedStyle(document.querySelector('#footer-menu'))
+      const footerFormTxt = window.getComputedStyle(document
+          .querySelector('#footer-menu'))
         .color;
 
       let footerMenu = document.querySelector('#footer-menu');
@@ -113,7 +120,8 @@
 
       // apply background and color to opened dialog.
       let layoutBuilderBox = function() {
-        if (document.querySelector('.ui-dialog') !== null && document.querySelector('.ui-dialog')
+        if (document.querySelector('.ui-dialog') !== null && document
+          .querySelector('.ui-dialog')
           .style.display !== 'none') {
 
           const pageTitle = document.querySelector('#page-title');
@@ -124,15 +132,19 @@
           const pageTitleTxt = window.getComputedStyle(pageTitleH1)
             .getPropertyValue('color');
 
-          const mainContainer = document.querySelector('#main-container');
+          const mainContainer = document.querySelector(
+            '#main-container');
           const mainContainerBg = window.getComputedStyle(mainContainer)
             .getPropertyValue('background-color');
 
-          const mainContainerP = document.querySelector('#main-container p');
-          const mainContainerTxt = window.getComputedStyle(mainContainerP)
+          const mainContainerP = document.querySelector(
+            '#main-container p');
+          const mainContainerTxt = window.getComputedStyle(
+              mainContainerP)
             .getPropertyValue('color');
 
-          let dialogTitlebar = document.querySelector('.ui-dialog .ui-dialog-titlebar');
+          let dialogTitlebar = document.querySelector(
+            '.ui-dialog .ui-dialog-titlebar');
 
           if (dialogTitlebar) {
             dialogTitlebar.style.background = pageTitleBg;
@@ -146,14 +158,16 @@
             body.style.color = mainContainerTxt;
           }
 
-          let dialogContent = document.querySelector('.ui-dialog .ui-dialog-content');
+          let dialogContent = document.querySelector(
+            '.ui-dialog .ui-dialog-content');
 
           if (dialogContent) {
             dialogContent.style.background = mainContainerBg;
             dialogContent.style.color = mainContainerTxt;
           }
 
-          let dialogButtonpane = document.querySelector('.ui-dialog .ui-dialog-buttonpane');
+          let dialogButtonpane = document.querySelector(
+            '.ui-dialog .ui-dialog-buttonpane');
 
           if (dialogButtonpane) {
             dialogButtonpane.style.background = footerFormBg;
@@ -165,25 +179,35 @@
 
       function addClasses(selector, childSelector, classes, context) {
 
-        const elements = context.querySelectorAll(`${selector} ${childSelector}`);
+        const elements = context.querySelectorAll(
+          `${selector} ${childSelector}`);
         elements.forEach(element => {
           element.classList.add(...classes.split(' '));
         });
       }
 
       // Add classes to search page.
-      addClasses('.search-form', '.search-advanced', 'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom', document);
-      addClasses('.search-form', '.search-advanced > summary', 'w3-button w3-bar w3-left-align', document);
-      addClasses('.search-form', '.search-help-link', 'w3-button w3-right w3-border w3-margin-top', document);
-      addClasses('.tabledrag-toggle-weight-wrapper', 'button', 'w3-button', document);
+      addClasses('.search-form', '.search-advanced',
+        'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom',
+        document);
+      addClasses('.search-form', '.search-advanced > summary',
+        'w3-button w3-bar w3-left-align', document);
+      addClasses('.search-form', '.search-help-link',
+        'w3-button w3-right w3-border w3-margin-top', document);
+      addClasses('.tabledrag-toggle-weight-wrapper', 'button',
+        'w3-button', document);
 
       // Theme settings.
-      addClasses('#system-theme-settings', 'details', 'w3-border w3-bar w3-left-align w3-margin-bottom', document);
-      addClasses('#system-theme-settings', 'details > summary', 'w3-button w3-bar w3-left-align', document);
-      addClasses('#system-theme-settings', 'details > .details-wrapper', 'w3-padding w3-left-align', document);
+      addClasses('#system-theme-settings', 'details',
+        'w3-border w3-bar w3-left-align w3-margin-bottom', document);
+      addClasses('#system-theme-settings', 'details > summary',
+        'w3-button w3-bar w3-left-align', document);
+      addClasses('#system-theme-settings', 'details > .details-wrapper',
+        'w3-padding w3-left-align', document);
       // Remove attribute 'open'
 
-      const detailsElements = document.querySelectorAll('#system-theme-settings details');
+      const detailsElements = document.querySelectorAll(
+        '#system-theme-settings details');
       detailsElements.forEach(element => {
         element.removeAttribute('open');
       });

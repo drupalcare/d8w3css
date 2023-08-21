@@ -61,12 +61,14 @@
     target.style.height = `${height}px`;
     target.classList.add('show');
 
-  ['paddingTop', 'paddingBottom', 'marginTop', 'marginBottom'].forEach(property => {
-      target.style.removeProperty(property);
-    });
+    ['paddingTop', 'paddingBottom', 'marginTop', 'marginBottom'].forEach(
+      property => {
+        target.style.removeProperty(property);
+      });
 
     setTimeout(() => {
-    ['height', 'overflow', 'transitionDuration', 'transitionProperty'].forEach(property => target.style.removeProperty(property));
+      ['height', 'overflow', 'transitionDuration', 'transitionProperty'].forEach(
+        property => target.style.removeProperty(property));
     }, duration);
   }
 
@@ -79,14 +81,17 @@
   }
 
   // Get current width
-  const getCurrentWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  const getCurrentWidth = () => window.innerWidth || document.documentElement
+    .clientWidth || document.body.clientWidth;
 
-  // Used for fixed menu.
-  let mainMenuBg;
-  const mainNavWrapper = document.querySelector('.main-navigation-wrapper');
-  if (mainNavWrapper) {
-    mainMenuBg = window.getComputedStyle(mainNavWrapper)
-      .backgroundColor;
+  // Add parent background to ul child.
+  const getParentBg = (el) => {
+    const closestParent = el.closest('.page-wrapper>div');
+    if (closestParent) {
+      let parentBg = window.getComputedStyle(closestParent)
+        .backgroundColor;
+      return parentBg;
+    }
   }
 
   // Used for fixed menu.
@@ -99,12 +104,14 @@
   // Add flex position to the main menu at scroll.
   const scrollWindow = () => {
     if (mainNavigation) {
-      mainNavigation.classList.toggle('w3-sticky', window.scrollY > origOffsetY);
+      mainNavigation.classList.toggle('w3-sticky', window.scrollY >
+        origOffsetY);
     }
   };
 
   // Add/remove css classes according to screen changes.
   const resizeMedia = () => {
+
     const currentWidth = getCurrentWidth();
     const removeStyles = (selector) => {
       document.querySelectorAll(selector)
@@ -115,13 +122,14 @@
     };
 
     if (currentWidth >= 993) {
-    ['.ul-parent', '.ul-child', '.ul-responsive-h .ul-parent', '.ul-responsive-h .ul-child', '#main-navigation-h .ul-parent'].forEach(selector => removeStyles(selector));
-
-      document.querySelectorAll('#main-navigation-h .ul-child')
+      ['.ul-parent', '.ul-child', '.ul-responsive-h .ul-parent', '.ul-responsive-h .ul-child', '#main-navigation-h .ul-parent']
+      .forEach(selector => removeStyles(selector));
+      document.querySelectorAll('.ul-parent .ul-child')
         .forEach(el => {
-          el.style.backgroundColor = mainMenuBg;
+          el.style.backgroundColor = getParentBg(el);
         });
     }
+
   };
 
   let displayVertical;
@@ -164,17 +172,20 @@
   };
 
   navClickListener('#main-navigation-h .mobile-nav', () => {
-    hideElements('#main-navigation-h .ul-parent', '#main-navigation-h .ul-parent .ul-child');
+    hideElements('#main-navigation-h .ul-parent',
+      '#main-navigation-h .ul-parent .ul-child');
   });
 
   navClickListener('.ul-responsive-h .mobile-nav-responsive', () => {
-    hideElements('.ul-responsive-h .ul-parent', '.ul-responsive-h .ul-parent .ul-child');
+    hideElements('.ul-responsive-h .ul-parent',
+      '.ul-responsive-h .ul-parent .ul-child');
   });
 
   navClickListener('#main-navigation-v #close-nav', () => {
     const nav = document.getElementById('main-navigation-v');
     nav.style.display = 'none';
-    const childElements = document.querySelectorAll('#main-navigation-v .ul-parent li .ul-child');
+    const childElements = document.querySelectorAll(
+      '#main-navigation-v .ul-parent li .ul-child');
     childElements.forEach(hideChildren);
   });
 
@@ -213,7 +224,8 @@
 
             // console.log(display);
 
-            if ((currentWidth <= 992) || (displayVertical === 'block')) {
+            if ((currentWidth <= 992) || (displayVertical ===
+                'block')) {
               ulToggler(element);
             }
 
@@ -229,16 +241,9 @@
       });
   } // End of addClickListener
 
-  const selectors = [
-    '.tMenu'
-
-    , '.tMenu-v'
-
-    , '.clickable-dropdown-menu-fa-down'
-
-    , '.clickable-dropdown-menu-fa-down-v'
-
-    , '.clickable-dropdown-menu-fa-down-h'
+  const selectors = ['.tMenu', '.tMenu-v', '.clickable-dropdown-menu-fa-down',
+    '.clickable-dropdown-menu-fa-down-v',
+    '.clickable-dropdown-menu-fa-down-h'
   ];
 
   selectors.forEach(selector => {
