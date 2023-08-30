@@ -47,7 +47,7 @@ We call a macro which calls itself to render the full tree.
 
 {% set menu_level = menu_level + 1 %}
 {% set menu_classes = [
-'menubar-navigation navigation__menubar navigation__menubar-' ~ menu_name|clean_class,
+'navigation__menubar navigation__menubar-' ~ menu_name|clean_class,
 ]
 %}
 {% set submenu_classes = [

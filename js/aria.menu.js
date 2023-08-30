@@ -11,11 +11,11 @@
 
     let uLm = '';
     let currentWidth = '';
-    const navMenus = [...document.querySelectorAll('nav ul')] ?? null;
+    const navMenus = document.querySelectorAll('.d-inner nav ul') ?? null;
 
-    const menuBars = [...document.querySelectorAll('.navigation__menubar')] ?? null;
-    const subMenus = [...document.querySelectorAll('.navigation__menubar ul')] ?? null;
-    const svgIcons = [...document.querySelectorAll('.navigation__menubar .toggler-icon svg')] ?? null;
+    const menuBars = document.querySelectorAll('.d-inner .navigation__menubar') ?? null;
+    const subMenus = document.querySelectorAll('.d-inner .navigation__menubar ul') ?? null;
+    const svgIcons = document.querySelectorAll('.d-inner .navigation__menubar .toggler-icon svg') ?? null;
 
     // Get current width
     const getCurrentWidth = () => window.innerWidth || document.documentElement
@@ -39,7 +39,7 @@
     // Used for fixed menu.
     let origOffsetY;
     const mainNavigation = document.querySelector('#main-navigation-h');
-    if (mainNavigation && mainNavigation.querySelector('.navigation__menubar')) {
+    if (mainNavigation && mainNavigation.querySelector('.d-inner .navigation__menubar')) {
         origOffsetY = mainNavigation.offsetTop;
     }
 
@@ -53,15 +53,15 @@
 
     const showMenuBarOnResize = (menuBars) => {
         if (currentWidth <= 992) {
-        console.log(currentWidth);
-            let isOpen = document.querySelector('.mobile-nav') ?? null;
+
+            let isOpen = document.querySelector('.d-inner .mobile-nav') ?? null;
 
             if (isOpen) {
                 menuBars.forEach(el => {
-             console.log(el);
+
                     if (isOpen.classList.contains('show')) {
                         Drupal.d8w3css.slideDown(el, 100);
-                        console.log('yes')
+
                     }
                 });
 
@@ -85,7 +85,7 @@
 
     // Used for top navigation only on horizontal.
     const revertIcon = (navId) => {
-        let svgIcons = document.querySelectorAll(`#${navId} .toggler-icon svg`);
+        let svgIcons = document.querySelectorAll(`.d-inner #${navId} .toggler-icon svg`);
         svgIcons.forEach((svgIcon) => {
             svgIcon.style.removeProperty('transform');
         });
@@ -96,8 +96,8 @@
     }
 
     const menubarToggler = menuBar => {
-        const mb = document.querySelector(`#${menuBar} .menubar-navigation`);
-        const childrenOnly = document.querySelectorAll(`#${menuBar} .menubar-navigation ul`);
+        const mb = document.querySelector(`.d-inner #${menuBar} .navigation__menubar`);
+        const childrenOnly = document.querySelectorAll(`.d-inner #${menuBar} .navigation__menubar ul`);
         console.log(menuBar);
 
         if (!mb.classList.contains('show')) {
@@ -125,8 +125,8 @@
         const rotated = btn.querySelector('.toggler-icon svg');
         const ulDepth = Drupal.d8w3css.calculateDepth(uLm);
 
-        const parentChildren = document.querySelector(`#${parentNav} ul`);
-        const childrenOnly = document.querySelectorAll(`#${parentNav} .sub__menu`);
+        const parentChildren = document.querySelector(`.d-inner #${parentNav} ul`);
+        const childrenOnly = document.querySelectorAll(`.d-inner #${parentNav} .sub__menu`);
 
         if (btn.parentElement.classList.contains('navigation__menubar-item')) {
 
@@ -163,10 +163,10 @@
 
         } else {
             // Second level on horizontal menu.
-            const btnSibling = btn.closest('ul');
+            const btnSibling = btn.closest('.d-inner ul');
 
-            const allMenus = Array.from(btnSibling.querySelectorAll('ul'));
-            const allTogglers = Array.from(btnSibling.querySelectorAll('.dropdown-toggler svg'));
+            const allMenus = Array.from(btnSibling.querySelectorAll('.d-inner ul'));
+            const allTogglers = Array.from(btnSibling.querySelectorAll('.d-inner .dropdown-toggler svg'));
 
             if (!uLm.classList.contains('show')) {
                 // close all opened sibling menu
@@ -227,7 +227,7 @@
     // For document click
     document.addEventListener('click', (event) => {
         handleClick(() => {
-            const navMenu = '.navigation__menubar';
+            const navMenu = '.d-inner nav .navigation__menubar';
             if (!event.target.closest(navMenu)) {
                 resetNavs(subMenus, svgIcons);
             }
@@ -241,7 +241,7 @@
         });
     }
 
-    document.querySelectorAll('.dropdown-toggler')
+    document.querySelectorAll('.d-inner .dropdown-toggler')
         .forEach((btn) => {
             btn.addEventListener('click', (event) => {
                 const uLm = btn.nextElementSibling;
@@ -257,7 +257,7 @@
         });
     }
     // Mobile nav button
-    const mobileNavButtons = document.querySelectorAll('.mobile-nav');
+    const mobileNavButtons = document.querySelectorAll('.d-inner .mobile-nav');
     mobileNavButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
             btn.classList.toggle('show');

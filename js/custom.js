@@ -8,7 +8,7 @@
 
   // Cache the selectors
   const socialMediaIcons = [...document.querySelectorAll(
-    '.social-media > a > i')];
+    '.d-inner .social-media > a > i')];
   socialMediaIcons.forEach(icon => {
     icon.classList.remove('fa');
   });
@@ -92,7 +92,7 @@
 
   Drupal.behaviors.d8w3cssMenuDepth = {
     attach: (settings) => {
-      Array.from(document.querySelectorAll('body ul'))
+      Array.from(document.querySelectorAll('.d-inner ul'))
         .forEach((element) => {
           const depth = calculateDepth(element);
           addClassAccordingToDepth(element, depth);

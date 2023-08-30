@@ -46,7 +46,7 @@
 
   const removeStyles = (target) => {
     const stylesToRemove = ['height', 'paddingTop', 'paddingBottom', 'marginTop', 'marginBottom', 'overflow', 'transitionDuration', 'transitionProperty'];
-    stylesToRemove.forEach(st => target.style.removeProperty(st), console.log('hisd'));
+    stylesToRemove.forEach(st => target.style.removeProperty(st));
   }
 
   Drupal.d8w3css.removeStyles = removeStyles;
@@ -124,7 +124,7 @@
 
   Drupal.behaviors.d8w3cssMenuDepth = {
     attach: (settings) => {
-      Array.from(document.querySelectorAll('body ul'))
+      Array.from(document.querySelectorAll('.d-inner ul'))
         .forEach((element) => {
           const depth = calculateDepth(element);
           addClassAccordingToDepth(element, depth);
