@@ -12,6 +12,7 @@ libraries:
   - drupal8_w3css_theme/w3-css
   - drupal8_w3css_theme/d8w3css-global-styling
   - drupal8_w3css_theme/w3css-menu-styling
+  # - drupal8_w3css_theme/aria-menu-styling
 
 ckeditor_stylesheets:
   - css/theme/w3-ckeditor-iframe.css

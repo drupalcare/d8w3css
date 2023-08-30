@@ -67,6 +67,7 @@ d8w3css-global-styling:
       css/theme/border-animation.css: { weight: -10 }
       css/theme/sitename-animation.css: { weight: 10 }
   js:
+    js/utils.js: { }
     js/custom.js: { }
   dependencies:
     - core/drupal
@@ -91,8 +92,20 @@ w3css-menu-styling:
     - core/drupalSettings
     - core/once
 
-# Full Opacity on Scroll.
+aria-menu-styling:
+  Version: VERSION
+  css:
+    theme:
+      css/theme/aria-menu-media.css: { weight: -10 }
+  js:
+    js/aria.menu.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/once
 
+# Full Opacity on Scroll.
 d8w3css-full-opacity:
   version: VERSION
   header: true
