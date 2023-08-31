@@ -586,6 +586,27 @@ function _load_block_from_variables(array $variables): Block|EntityInterface|Ent
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter() for menu.
+ */
+function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block = _load_block_from_variables($variables);
+
+  if (!$block) {
+    return;
+  }
+
+  // Get the region of the block.
+  $region = $block->getRegion();
+  // Add region-specific block theme suggestions.
+  array_push($suggestions,
+      sprintf('block__%s', $region),
+      sprintf('block__%s__plugin_id__%s', $region, $variables['elements']['#plugin_id']),
+      sprintf('block__%s__id__%s', $region, $variables['elements']['#id'])
+  );
+
+}
+
+/**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function drupal8_w3css_theme_preprocess_block(&$variables) {
@@ -610,27 +631,6 @@ function drupal8_w3css_theme_theme_suggestions_menu_alter(&$suggestions, array $
   if ($region !== NULL) {
     $suggestions[] = 'menu__' . $region;
   }
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK_alter() for menu.
- */
-function drupal8_w3css_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  $block = _load_block_from_variables($variables);
-
-  if (!$block) {
-    return;
-  }
-
-  // Get the region of the block.
-  $region = $block->getRegion();
-      // Add region-specific block theme suggestions.
-  array_push($suggestions,
-      sprintf('block__%s', $region),
-      sprintf('block__%s__plugin_id__%s', $region, $variables['elements']['#plugin_id']),
-      sprintf('block__%s__id__%s', $region, $variables['elements']['#id'])
-  );
-
 }
 
 /**
