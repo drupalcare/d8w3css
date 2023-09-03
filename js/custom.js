@@ -1,237 +1,219 @@
 /**
  * @file
  * Defines Javascript behaviors for the W3CSS Theme.
- * https://www.drupal.org/node/3158256
  */
-((Drupal, once) => {
+(function (Drupal, $, once) {
   'use strict';
-
-  // Cache the selectors
-  const socialMediaIcons = [...document.querySelectorAll(
-    '.d-inner .social-media > a > i')];
-  socialMediaIcons.forEach(icon => {
-    icon.classList.remove('fa');
-  });
-
+  // Used for fixed menu.
+  let origOffsetY;
+  let didScroll = false;
+  let mainNavigation = document.querySelector('#main-navigation-h');
+  // Remove Fa class from social links.
+  if ($('.social-media > a > i').length > 0) {
+    if ($('.social-media > a > i').hasClass('fa')) {
+      $('.social-media > a > i').removeClass('fa')
+    }
+  }
   // In case the admin toolbar search installed.
-  const adminToolbarSearchTab = document.querySelector(
-    '#admin-toolbar-search-tab > div');
-  adminToolbarSearchTab?.classList.remove('w3-section');
-
-  // Get current widht
-  const getCurrentWidth = () => window.innerWidth || document.documentElement
-    .clientWidth || document.body.clientWidth;
-
-  // Add/remove css classes according to screen changes.
-  let mediaSize = function() {
-    const currentWidth = getCurrentWidth();
-    const containers = ['.top-container-inner',
-      '.main-container-inner > .w3-clear', '.bottom-container-inner',
-      '.footer-container-inner'
-    ];
-    const bodyTag = document.body;
-
-    const addDisplayClass = (selector) => {
-      if (document.querySelectorAll(selector + ' > div')
-        .length > 1) {
-        document.querySelector(selector)
-          .classList.add('w3-f-display');
+  if ($('#admin-toolbar-search-tab').length > 0) {
+    $('#admin-toolbar-search-tab > div').removeClass('w3-section');
+  }
+  // In case the main menu not printed.
+  if ($('#main-navigation-h .ul-parent').length > 0) {
+    origOffsetY = mainNavigation.offsetTop;
+  }
+  // Add flex position to the main menu at scroll.
+  let scrollWindow = function () {
+    didScroll = true;
+    if (mainNavigation) {
+      if (window.scrollY > origOffsetY) {
+        mainNavigation.classList.add('w3-sticky');
+      } else {
+        mainNavigation.classList.remove('w3-sticky');
       }
-    };
-
-    const removeDisplayClass = (selectors) => {
-      selectors.forEach(selector => {
-        document.querySelectorAll(selector)
-          .forEach(el => {
-            el.classList.remove('w3-f-display');
-          });
-      });
-    };
-
+    }
+  };
+  setInterval(function () {
+    if (didScroll) {
+      didScroll = false;
+    }
+  }, 100);
+  // Add and remove classes on window resize.
+  let mediaSize = function () {
+    let currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    let mainMenuChild = $('#main-navigation-h').css('background-color');
+    const bodyTag = $('body');
     if (currentWidth >= 993) {
-
-      bodyTag.classList.add('large-screen');
-      bodyTag.classList.remove('small-screen', 'medium-screen');
-      containers.forEach(addDisplayClass);
-
+      // Add class to the body for large screen.
+      bodyTag.addClass('large-screen').removeClass('small-screen', 'medium-screen');
+      $('.ul-parent').removeClass('w3-show');
+      $('.ul-child').removeClass('w3-show');
+      $('.ul-responsive-h .ul-parent').removeAttr('style');
+      $('.ul-responsive-h .ul-child').removeAttr('style');
+      $('#main-navigation-h .ul-parent').removeAttr('style');
+      $('#main-navigation-h .ul-child').removeAttr('style').css('background-color', mainMenuChild);
+      if ($('.top-container-inner > div').length > 1) {
+        $('.top-container-inner').addClass('w3-f-display');
+      }
+      if ($('.main-container-inner > .w3-clear > div').length > 1) {
+        $('.main-container-inner > .w3-clear').addClass('w3-f-display');
+      }
+      if ($('.bottom-container-inner > div').length > 1) {
+        $('.bottom-container-inner').addClass('w3-f-display');
+      }
+      if ($('.footer-container-inner > div').length > 1) {
+        $('.footer-container-inner').addClass('w3-f-display');
+      }
     } else {
-      removeDisplayClass(containers);
+      // Remove the match height on medium/small screen.
+      $('.top-container-inner, .main-container-inner > .w3-clear, .bottom-container-inner, .footer-container-inner').removeClass('w3-f-display');
     }
-
     if ((currentWidth >= 601) && (currentWidth <= 992)) {
-      bodyTag.classList.add('medium-screen');
-      bodyTag.classList.remove('large-screen', 'small-screen');
+      // Add class to the body for medium screen.
+      bodyTag.addClass('medium-screen').removeClass('large-screen', 'small-screen');
     }
-
     if (currentWidth <= 600) {
-      bodyTag.classList.add('small-screen');
-      bodyTag.classList.remove('large-screen', 'medium-screen');
+      // Add class to the body for small screen.
+      bodyTag.addClass('small-screen').removeClass('large-screen', 'medium-screen');
     }
-
   };
 
-  const addClassAccordingToDepth = (element, depth) => {
-
-    element.classList.add(`ul-${depth}`);
-    Array.from(element.children)
-      .forEach(child => child.classList.add(`li-${depth}`));
-  };
-
-  const calculateDepth = (element) => {
-    let depth = 0;
-    let parent = element.parentElement;
-
-    while (parent) {
-      if (parent.tagName.toLowerCase() === 'ul') {
-        depth++;
-      }
-      parent = parent.parentElement;
+  function show_hide($this) {
+    if ($this.next().hasClass('show')) {
+      $this.next().removeClass('show');
+      $this.next().slideUp(350);
+    } else {
+      $this.parent().parent().find('li .ul-child').removeClass('show');
+      $this.parent().parent().find('li .ul-child').slideUp(350);
+      $this.next().toggleClass('show');
+      $this.next().slideToggle(350);
     }
-    return depth;
-  };
-
+  }
   Drupal.behaviors.d8w3cssMenuDepth = {
-    attach: (settings) => {
-      Array.from(document.querySelectorAll('.d-inner ul'))
-        .forEach((element) => {
-          const depth = calculateDepth(element);
-          addClassAccordingToDepth(element, depth);
-        });
+    attach: function (context, settings) {
+      // Add class to any UL/LI according to the depth.
+      $(once('body', 'ul', context)).each(function () {
+        let depth = $(this).parents('ul').length;
+        $(this).addClass('ul-' + depth);
+      });
+      $(once('ul', 'li', context)).each(function () {
+        let depth = $(this).parents('li').length;
+        $(this).addClass('li-' + depth);
+      });
     }
   };
-
-  Drupal.behaviors.d8w3cssTheme = {
-    attach: function(context, settings) {
-      // Change the form color to match the footer color.
-      const footerFormBg = window.getComputedStyle(document.querySelector(
-          '#footer-menu'))
-        .backgroundColor;
-      const footerFormTxt = window.getComputedStyle(document
-          .querySelector('#footer-menu'))
-        .color;
-
-      let footerMenu = document.querySelector('#footer-menu');
-      let footerMenuForm = document.querySelector('#footer-menu form');
-
-      if (footerMenu && footerMenuForm) {
-        footerMenuForm.style.background = footerFormBg;
-        footerMenuForm.style.color = footerFormTxt;
-      }
-
-      // apply background and color to opened dialog.
-      let layoutBuilderBox = function() {
-        if (document.querySelector('.ui-dialog') !== null && document
-          .querySelector('.ui-dialog')
-          .style.display !== 'none') {
-
-          const pageTitle = document.querySelector('#page-title');
-          const pageTitleBg = window.getComputedStyle(pageTitle)
-            .getPropertyValue('background-color');
-
-          const pageTitleH1 = document.querySelector('#page-title h1');
-          const pageTitleTxt = window.getComputedStyle(pageTitleH1)
-            .getPropertyValue('color');
-
-          const mainContainer = document.querySelector(
-            '#main-container');
-          const mainContainerBg = window.getComputedStyle(mainContainer)
-            .getPropertyValue('background-color');
-
-          const mainContainerP = document.querySelector(
-            '#main-container p');
-          const mainContainerTxt = window.getComputedStyle(
-              mainContainerP)
-            .getPropertyValue('color');
-
-          let dialogTitlebar = document.querySelector(
-            '.ui-dialog .ui-dialog-titlebar');
-
-          if (dialogTitlebar) {
-            dialogTitlebar.style.background = pageTitleBg;
-            dialogTitlebar.style.color = pageTitleTxt;
+  Drupal.behaviors.d8w3cssResponsiveMenu = {
+    attach: function (context, settings) {
+      // $(context)
+      //   .find('.mobile-nav-responsive')
+      //   .once('.mobile-nav-responsive')
+      $(once('.mobile-nav-responsive', '.mobile-nav-responsive', context)).on('click', function () {
+        if ($('.ul-responsive-h .ul-parent').is(':hidden')) {
+          $('.ul-responsive-h .ul-parent').slideDown(350);
+        } else {
+          $('.ul-responsive-h .ul-parent').slideUp(350);
+          if ($('.ul-responsive-h .ul-parent li .ul-child')) {
+            $('.ul-responsive-h .ul-parent li .ul-child').removeClass('show');
+            $('.ul-responsive-h .ul-parent li .ul-child').slideUp(350);
           }
-
-          let body = document.querySelector('body .ui-dialog');
-
-          if (body) {
-            body.style.background = mainContainerBg;
-            body.style.color = mainContainerTxt;
-          }
-
-          let dialogContent = document.querySelector(
-            '.ui-dialog .ui-dialog-content');
-
-          if (dialogContent) {
-            dialogContent.style.background = mainContainerBg;
-            dialogContent.style.color = mainContainerTxt;
-          }
-
-          let dialogButtonpane = document.querySelector(
-            '.ui-dialog .ui-dialog-buttonpane');
-
-          if (dialogButtonpane) {
-            dialogButtonpane.style.background = footerFormBg;
-            dialogButtonpane.style.color = footerFormTxt;
-          }
-
         }
-      } // End of layoutBuilderBox
-
-      function addClasses(selector, childSelector, classes, context) {
-
-        const elements = context.querySelectorAll(
-          `${selector} ${childSelector}`);
-        elements.forEach(element => {
-          element.classList.add(...classes.split(' '));
-        });
-      }
-
-      // Add classes to search page.
-      addClasses('.search-form', '.search-advanced',
-        'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom',
-        document);
-      addClasses('.search-form', '.search-advanced > summary',
-        'w3-button w3-bar w3-left-align', document);
-      addClasses('.search-form', '.search-help-link',
-        'w3-button w3-right w3-border w3-margin-top', document);
-      addClasses('.tabledrag-toggle-weight-wrapper', 'button',
-        'w3-button', document);
-
-      // Theme settings.
-      addClasses('#system-theme-settings', 'details',
-        'w3-border w3-bar w3-left-align w3-margin-bottom', document);
-      addClasses('#system-theme-settings', 'details > summary',
-        'w3-button w3-bar w3-left-align', document);
-      addClasses('#system-theme-settings', 'details > .details-wrapper',
-        'w3-padding w3-left-align', document);
-      // Remove attribute 'open'
-
-      const detailsElements = document.querySelectorAll(
-        '#system-theme-settings details');
-      detailsElements.forEach(element => {
-        element.removeAttribute('open');
       });
-
-      // Disable top margin if breadcrumb exist.
-      let breadcrumb = document.querySelector('nav.breadcrumb');
-      let mainBox = document.querySelectorAll('body .main-box');
-      let w3Image = document.querySelectorAll('body a > .w3-image');
-
-      if (breadcrumb && mainBox) {
-        mainBox.forEach(function(element) {
-          element.classList.add('breadcrumb-found');
-        });
-      }
-
-      w3Image.forEach(function(image) {
-        image.parentElement.classList.add('d8-has-image');
+      $(once('body', '.tMenu-v', context)).on('click', function (e) {
+        e.preventDefault();
+        let $this = $(this);
+        show_hide($this);
       });
-
-      mediaSize();
-      getCurrentWidth();
-      window.addEventListener('resize', mediaSize, getCurrentWidth);
-
+      $(once('body', '.clickable-dropdown-menu-fa-down', context)).on('click', function () {
+        let $this = $(this);
+        show_hide($this);
+      });
+      $(once('body', '.clickable-dropdown-menu-fa-down-h', context)).on('click', function () {
+        let $this = $(this);
+        show_hide($this);
+      });
+      $(once('body', '.clickable-dropdown-menu-fa-down-v', context)).on('click', function () {
+        let $this = $(this);
+        show_hide($this);
+      });
     }
   };
-
-})(Drupal, once);
+  Drupal.behaviors.d8w3cssMainNav = {
+    attach: function (context, settings) {
+      // Change the sub menu color as the main menu.
+      const mainMenuChild = $('.main-navigation-wrapper').css('background-color');
+      $(once('body', '.main-navigation-wrapper .ul-child', context)).css('background-color', mainMenuChild);
+      // On click show/hide the vertical main menu.
+      $(once('#main-navigation-v', '#close-nav', context)).on('click', function () {
+        document.getElementById('main-navigation-v').style.display = 'none';
+        if ($('#main-navigation-v .ul-parent li .ul-child')) {
+          $('#main-navigation-v .ul-parent li .ul-child').removeClass('show');
+          $('#main-navigation-v .ul-parent li .ul-child').slideUp(350);
+        }
+      });
+      $(once('body', '#open-nav-inner', context)).on('click', function () {
+        document.getElementById('main-navigation-v').style.display = 'block';
+      });
+      // Show the mobile menu on click horizontal.
+      $(once('#main-navigation-h', '.mobile-nav', context)).on('click', function () {
+        if ($('#main-navigation-h .ul-parent').is(':hidden')) {
+          $('#main-navigation-h .ul-parent').slideDown(350);
+        } else {
+          $('#main-navigation-h .ul-parent').slideUp(350);
+          if ($('#main-navigation-h .ul-parent li .ul-child')) {
+            $('#main-navigation-h .ul-parent li .ul-child').removeClass('show');
+            $('#main-navigation-h .ul-parent li .ul-child').slideUp(350);
+          }
+        }
+      });
+      // On click expand the dropdown menu for small device.
+      $(once('body', '.tMenu', context)).on('click', function (e) {
+        e.preventDefault();
+        let currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        let $this = $(this);
+        if ((currentWidth <= 992) || ($('#main-navigation-v').css('display') === 'block')) {
+          show_hide($this);
+        }
+      });
+    }
+  };
+  Drupal.behaviors.d8w3cssTheme = {
+    attach: function (context, settings) {
+      // Change the form color to match the footer color.
+      const footerFormBg = $('#footer-menu').css('background-color')
+      const footerFormTxt = $('#footer-menu').css('color');
+      $(once('#footer-menu', '#footer-menu form', context)).css('background-color', footerFormBg).css('color', footerFormTxt);
+      // apply background and color to opened dialog.
+      let layoutBuilderBox = function () {
+        if ($('.ui-dialog').is(':visible')) {
+          const pageTitleBg = $('#page-title').css('background-color');
+          const pageTitleTxt = $('#page-title h1').css('color');
+          const mainContainerBg = $('#main-container').css('background-color');
+          const mainContainerTxt = $('#main-container p').css('color');
+          $(once('.ui-dialog', '.ui-dialog .ui-dialog-titlebar', context)).css('background', pageTitleBg).css('color', pageTitleTxt);
+          $(once('body', '.ui-dialog', context)).css('background', mainContainerBg).css('color', mainContainerTxt);
+          $(once('.ui-dialog', '.ui-dialog .ui-dialog-content', context)).css('background', mainContainerBg).css('color', mainContainerTxt);
+          $(once('.ui-dialog', '.ui-dialog .ui-dialog-buttonpane', context)).css('background', footerFormBg).css('color', footerFormTxt);
+        }
+      }
+      // Add classes to search page.
+      $(once('.search-form', '.search-form .search-advanced', context)).addClass('w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom');
+      $(once('.search-form', '.search-form .search-advanced > summary', context)).addClass('w3-button w3-bar w3-left-align');
+      $(once('.search-form', '.search-form .search-help-link', context)).addClass('w3-button w3-right w3-border w3-margin-top');
+      $(once('.tabledrag-toggle-weight-wrapper', '.tabledrag-toggle-weight-wrapper button', context)).addClass('w3-button');
+      // Theme settings.
+      $(once('#system-theme-settings', '#system-theme-settings details', context)).removeAttr('open').addClass('w3-border w3-bar w3-left-align w3-margin-bottom');
+      $(once('#system-theme-settings', '#system-theme-settings details > summary', context)).addClass('w3-button w3-bar w3-left-align');
+      $(once('#system-theme-settings', '#system-theme-settings details > .details-wrapper', context)).addClass('w3-padding w3-left-align');
+      // Disable top margin if breadcrumb exist.
+      if (document.querySelector('nav.breadcrumb')) {
+        $(once('body', '.main-box', context)).addClass('breadcrumb-found');
+      }
+      $(once('body', 'a > .w3-image', context)).each(function () {
+        $(this).parent().addClass('d8-has-image');
+      });
+      mediaSize();
+      window.addEventListener('resize', mediaSize);
+      window.addEventListener('scroll', scrollWindow);
+    }
+  };
+})(Drupal, jQuery, once);

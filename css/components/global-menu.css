@@ -51,6 +51,12 @@ ul .ul-child.show {
   float: left;
 }
 
+.ul-parent li a.tMenu {
+  -webkit-transition: background .4s ease;
+  -o-transition: background .4s ease;
+  transition: background .4s ease;
+}
+
 .ul-parent li  ul {
   min-width: 160px;
   display: none;

@@ -39,6 +39,8 @@ d8w3css-global-styling:
       css/components/maintenance-page.css: { }
       css/components/system-admin.css: { }
       css/components/w3css-tables.css: { }
+      css/components/global-menu.css: { }
+      css/components/v-menu.css: { }
       css/components/site-branding.css: { }
       css/components/user-menu.css: { }
       css/components/user-login.css: { }
@@ -67,51 +69,23 @@ d8w3css-global-styling:
       css/theme/border-animation.css: { weight: -10 }
       css/theme/sitename-animation.css: { weight: 10 }
   js:
-    js/utils.js: { }
     js/custom.js: { }
   dependencies:
-    - core/drupal
+    - core/jquery
     - core/drupal.ajax
-    - core/drupalSettings
-    - core/once
-
-# Menu Styling.
-w3css-menu-styling:
-  Version: VERSION
-  css:
-    component:
-      css/components/global-menu.css: { }
-      css/components/v-menu.css: { }
-    theme:
-      css/theme/menu-media.css: { weight: -10 }
-  js:
-    js/w3css.menu.js: { }
-  dependencies:
     - core/drupal
-    - core/drupal.ajax
-    - core/drupalSettings
-    - core/once
-
-aria-menu-styling:
-  Version: VERSION
-  css:
-    theme:
-      css/theme/aria-menu-media.css: { weight: -10 }
-  js:
-    js/aria.menu.js: { }
-  dependencies:
-    - core/drupal
-    - core/drupal.ajax
     - core/drupalSettings
     - core/once
 
 # Full Opacity on Scroll.
+
 d8w3css-full-opacity:
   version: VERSION
   header: true
   js:
     js/full.opacity.on.scroll.js: { }
   dependencies:
+    - core/jquery
     - core/drupal
     - core/once
 

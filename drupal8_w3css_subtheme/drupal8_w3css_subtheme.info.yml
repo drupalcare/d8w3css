@@ -39,3 +39,8 @@ features:
   name: true
   node_user_picture: true
   slogan: true
+
+# Information added by Drupal.org packaging script on 2023-09-02
+version: '2.0.11+32-dev'
+project: 'd8w3css'
+datestamp: 1693684804
