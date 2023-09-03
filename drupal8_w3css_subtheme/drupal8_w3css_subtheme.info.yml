@@ -3,7 +3,7 @@ core: '8.x'
 type: theme
 base theme: drupal8_w3css_theme
 core_version_requirement: ^8 || ^9 || ^10
-description: 'drupal8 w3css sub-theme is an empty theme for your customization.'
+description: '<strong>Coming soon: The W3CSS Theme is going to have a new name. Version 3 is named <a target=_blank href=https://www.drupal.org/project/solo>"Solo"</strong></a> (because the W3.CSS library is a standalone library and also because the new theme will not be dependent on core/jquery library).<br/>drupal8 w3css sub-theme is an empty theme for your customization.'
 libraries:
   - drupal8_w3css_subtheme/d8w3css-subtheme-global
 
