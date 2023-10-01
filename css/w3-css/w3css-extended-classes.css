@@ -59,6 +59,16 @@ ol {
   animation: none !important;
 }
 
+.site-name-lowercase h1.site-name,
+.site-name-lowercase h1.site-name a {
+  text-transform: lowercase!important;
+}
+
+.site-name-capitalize h1.site-name,
+.site-name-capitalize h1.site-name a {
+  text-transform: capitalize!important;
+}
+
 .w3-card {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
