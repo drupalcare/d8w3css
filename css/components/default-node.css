@@ -1,5 +1,7 @@
 /* To roll the text around the image */
-.node .field--name-field-image {
+
+.node .field--name-field-image,
+.node .field--name-field-media-image {
   float: left;
 }
 
