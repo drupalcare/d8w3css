@@ -386,7 +386,6 @@ Vertical region.
 horizontal main menu. menu--main.html.twig
 
 5) You can create two main menus and use the two regions.
-http://drupal8-w3css-theme.flashwebcenter.com
 
 6) Note: A vertical main menu is different from a side menu in your website.
 (Example for the vertical menu:
