@@ -45,7 +45,7 @@ $form['drupal8_w3css_theme_settings']['social_icon']['facebook_url'] = [
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['twitter_url'] = [
   '#type' => 'textfield',
-  '#title' => t('Twitter Profile'),
+  '#title' => t('X Profile'),
   '#default_value' => theme_get_setting('twitter_url'),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['pinterest_url'] = [
