@@ -34,6 +34,7 @@ d8w3css-global-styling:
     component:
       css/components/system-messages.css: { }
       css/components/forms.css: { }
+      css/components/embedded-media.css: { }
       css/components/breadcrumb.css: { }
       css/components/system-tabs.css: { }
       css/components/maintenance-page.css: { }
