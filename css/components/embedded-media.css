@@ -27,7 +27,7 @@ figcaption {
   .align-right {
     float: right;
     max-width: 75%;
-    margin: 0 0 0 0.75rem;
+    margin: 0.75rem 0 0.75rem 0.75rem;
   }
 
   [dir="rtl"] .align-right {
@@ -37,7 +37,7 @@ figcaption {
   .align-left {
     float: left;
     max-width: 75%;
-    margin: 0 0.75rem 0 0;
+    margin: 0.75rem 0.75rem 0.75rem 0;
   }
 
   [dir="rtl"] .align-left {
@@ -50,7 +50,7 @@ figcaption {
   .align-right {
     float: right;
     max-width: 50%;
-    margin: 0 0 0 1rem;
+    margin: 1rem 0 1rem 1rem;
   }
 
   [dir="rtl"] .align-right {
@@ -60,7 +60,7 @@ figcaption {
   .align-left {
     float: left;
     max-width: 50%;
-    margin: 0 1rem 0 0;
+    margin: 1rem 1rem 1rem 0;
   }
 
   [dir="rtl"] .align-left {
