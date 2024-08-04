@@ -4,7 +4,7 @@ description: 'Version 3 <strong><a target=_blank href=https://www.drupal.org/pro
 package: W3CSS
 type: theme
 base theme: false
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 
 
 #Libraries
