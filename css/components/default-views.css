@@ -83,3 +83,18 @@
 .views-align-center {
   text-align: center !important;
 }
+
+@media (min-width:48rem) {
+  .views-exposed-form > div.w3-block,
+  .views-exposed-form > div.w3-block > .form-actions {
+    display: flex;
+    align-items: end;
+  }
+
+  .views-exposed-form > div.w3-block > *:not(:last-child),
+  .views-exposed-form > div.w3-block > .form-actions > *:not(:last-child) {
+    margin-right: 12px;
+  }
+
+}
+
