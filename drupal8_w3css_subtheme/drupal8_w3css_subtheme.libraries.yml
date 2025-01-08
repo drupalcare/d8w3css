@@ -1,5 +1,4 @@
 d8w3css-subtheme-global:
-  version: VERSION
   css:
     theme:
       css/d8w3css-subtheme-style.css: {}
