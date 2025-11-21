@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Site name and page title animation configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     sitename_animation.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  CSS text animation effects settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * CSS text animation theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_sitename_animation'] = [
   '#type' => 'details',
   '#title' => t("CSS Text Animation Effects - W3CSS THEME"),

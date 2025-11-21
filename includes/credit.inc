@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Credit link configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     credit.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Credit link display settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Credit link theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['credit_link'] = [
   '#type' => 'details',
   '#title' => t('Credit - W3CSS Theme'),

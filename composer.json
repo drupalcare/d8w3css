@@ -13,12 +13,16 @@
     "homepage": "https://drupal.org/project/d8w3css",
     "support": {
         "issues": "https://drupal.org/project/issues/d8w3css",
-        "source": "https://git.drupalcode.org/project/d8w3css"
+        "source": "https://git.drupalcode.org/project/d8w3css",
+        "docs": "https://www.drupal.org/node/2866181"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ]
+    ],
+    "require": {
+        "drupal/core": "^9 || ^10 || ^11"
+    }
 }

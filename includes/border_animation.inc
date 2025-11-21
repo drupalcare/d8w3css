@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Border animation configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     border_animation.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Region border animation settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Border animation theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
   '#type' => 'details',
   '#title' => t("Enable Border Animation - W3CSS Theme"),

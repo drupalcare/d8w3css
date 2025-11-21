@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Equal width columns configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     equal_width.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Main container column width settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Equal width columns theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_equal_width'] = [
   '#type' => 'details',
   '#title' => t("Main Container Columns' Width - W3CSS Theme"),

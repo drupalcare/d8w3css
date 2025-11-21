@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Predefined color themes configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     predefined_themes.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  W3.CSS predefined color themes settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Predefined color themes settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_theme_current'] = [
   '#type' => 'details',
   '#title' => t('Predefined Color Themes - W3CSS Theme'),

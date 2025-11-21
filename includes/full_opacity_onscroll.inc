@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Full opacity on scroll configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     full_opacity_onscroll.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Opacity animation on scroll settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Full opacity on scroll theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_full_opacity'] = [
   '#type' => 'details',
   '#title' => t("Enable Full Opacity On Scroll - W3CSS Theme"),

@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Copyright configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     copyright.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Copyright text settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Copyright theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['copyright'] = [
   '#type' => 'details',
   '#title' => t('Copyright - W3CSS Theme'),

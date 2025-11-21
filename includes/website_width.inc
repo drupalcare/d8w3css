@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Website width configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     website_width.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Website maximum width settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Website width theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_website_width'] = [
   '#type' => 'details',
   '#title' => t("Website's Width - W3CSS Theme"),

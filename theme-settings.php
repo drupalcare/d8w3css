@@ -2,20 +2,22 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * W3CSS Theme settings.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     theme-settings.php
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Theme settings form.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function drupal8_w3css_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function drupal8_w3css_theme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state): void {
 
   // Theme settings files.
   require_once __DIR__ . '/includes/website_width.inc';

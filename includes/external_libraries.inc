@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * External libraries configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     external_libraries.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Font Awesome and Google Fonts settings.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * External libraries theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries'] = [
   '#type' => 'details',
   '#title' => t('Font awesome - W3CSS Theme'),

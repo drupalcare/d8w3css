@@ -2,18 +2,19 @@
 
 /**
  * @file
- * W3CSS Theme.theme.
+ * Advanced site colors configuration.
  *
- * Filename:     drupal8_w3css_theme.theme
- * Website:      http://www.flashwebcenter.com
- * Description:  template
- * Author:       Alaa Haddad http://www.alaahaddad.com.
+ * Filename:     advanced_site_colors.inc
+ * Website:      https://www.flashwebcenter.com
+ * Description:  Advanced color settings for theme regions.
+ * Author:       Alaa Haddad https://www.alaahaddad.com.
  */
+
+declare(strict_types=1);
 
 /**
- * The theme settings.
+ * Advanced site colors theme settings.
  */
-
 $form['drupal8_w3css_theme_settings']['w3_colors'] = [
   '#type' => 'details',
   '#title' => t('Advanced Site Colors - W3CSS Theme'),
