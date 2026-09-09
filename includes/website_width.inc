@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Website width theme settings.
  */
@@ -36,5 +39,5 @@ $form['drupal8_w3css_theme_settings']['w3_website_width']['website_width'] = [
     'w3-width-800' => t('800 Pixels'),
     'w3-width-100-percent' => t('100%'),
   ],
-  '#default_value' => theme_get_setting('website_width'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('website_width'), fn() => theme_get_setting('website_width')),
 ];

@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Full opacity on scroll theme settings.
  */
@@ -25,5 +28,5 @@ $form['drupal8_w3css_theme_settings']['w3_full_opacity'] = [
 $form['drupal8_w3css_theme_settings']['w3_full_opacity']['full_opacity_onscroll'] = [
   '#type' => 'checkbox',
   '#title' => t('Check this box to animate the opacity on scroll down.'),
-  '#default_value' => theme_get_setting('full_opacity_onscroll'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('full_opacity_onscroll'), fn() => theme_get_setting('full_opacity_onscroll')),
 ];

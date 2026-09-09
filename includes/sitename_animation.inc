@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * CSS text animation theme settings.
  */
@@ -55,7 +58,7 @@ $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['sitename_animati
     'animate-name-24' => t('Style 24 (animate-text-24)'),
 
   ],
-  '#default_value' => theme_get_setting('sitename_animation'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('sitename_animation'), fn() => theme_get_setting('sitename_animation')),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['pagetitle_animation'] = [
@@ -89,5 +92,5 @@ $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['pagetitle_animat
     'animate-title-24' => t('Style 24'),
 
   ],
-  '#default_value' => theme_get_setting('pagetitle_animation'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('pagetitle_animation'), fn() => theme_get_setting('pagetitle_animation')),
 ];

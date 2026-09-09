@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Predefined color themes settings.
  */
@@ -80,5 +83,5 @@ $form['drupal8_w3css_theme_settings']['w3_theme_current']['current_theme'] = [
     'w3-theme-00028' => t('00028 - DarkRed LightBlue'),
     'w3-theme-00029' => t('00029 - Colorfull Image Background'),
   ],
-  '#default_value' => theme_get_setting('current_theme'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('current_theme'), fn() => theme_get_setting('current_theme')),
 ];

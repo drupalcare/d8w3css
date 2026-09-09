@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * External libraries theme settings.
  */
@@ -26,7 +29,7 @@ $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries'] = [
 $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries']['d8w3css_font_awesome'] = [
   '#type' => 'radios',
   '#title' => t('Select Font Awesome Library'),
-  '#default_value' => theme_get_setting('d8w3css_font_awesome'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_font_awesome'), fn() => theme_get_setting('d8w3css_font_awesome')),
   '#options' => [
     0 => t('None'),
     1 => t('Load Font Awesome 4.7 locally.'),
@@ -47,7 +50,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries'] = [
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_google_font_local'] = [
   '#type' => 'checkbox',
   '#title' => t('Check this box if you would like to load Google fonts (Global Site Fonts and Heading Fonts only) locally. This is for use with the W3CSS Theme.'),
-  '#default_value' => theme_get_setting('d8w3css_google_font_local'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_google_font_local'), fn() => theme_get_setting('d8w3css_google_font_local')),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'] = [
@@ -109,7 +112,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'
     'd8w3css-work-sans' => t('Work Sans - sans-serif'),
 
   ],
-  '#default_value' => theme_get_setting('d8w3css_site_gf'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gf'), fn() => theme_get_setting('d8w3css_site_gf')),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh'] = [
@@ -146,7 +149,7 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh
     'd8w3css-yanone-kaffeesatz' => t('Yanone Kaffeesatz - sans-serif'),
 
   ],
-  '#default_value' => theme_get_setting('d8w3css_site_gfh'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfh'), fn() => theme_get_setting('d8w3css_site_gfh')),
 ];
 
 $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs'] = [
@@ -182,5 +185,5 @@ $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs
     'd8w3css-unifrakturmaguntia' => t('unifrakturmaguntia - cursive'),
 
   ],
-  '#default_value' => theme_get_setting('d8w3css_site_gfs'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfs'), fn() => theme_get_setting('d8w3css_site_gfs')),
 ];

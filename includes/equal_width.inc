@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Equal width columns theme settings.
  */
@@ -25,5 +28,5 @@ $form['drupal8_w3css_theme_settings']['w3_equal_width'] = [
 $form['drupal8_w3css_theme_settings']['w3_equal_width']['equal_width'] = [
   '#type' => 'checkbox',
   '#title' => t('Change the columns in the main container to (33% 33% 33%)'),
-  '#default_value' => theme_get_setting('equal_width'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('equal_width'), fn() => theme_get_setting('equal_width')),
 ];

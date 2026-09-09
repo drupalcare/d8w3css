@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Advanced site colors theme settings.
  */
@@ -308,130 +311,130 @@ $form['drupal8_w3css_theme_settings']['w3_colors'] = [
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_page_wrapper'] = [
   '#type' => 'textfield',
   '#title' => t('Page Wrapper'),
-  '#default_value' => theme_get_setting('color_page_wrapper'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_page_wrapper'), fn() => theme_get_setting('color_page_wrapper')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_header'] = [
   '#type' => 'textfield',
   '#title' => t('Header'),
-  '#default_value' => theme_get_setting('color_header'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_header'), fn() => theme_get_setting('color_header')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_primary_menu'] = [
   '#type' => 'textfield',
   '#title' => t('Main Menu'),
-  '#default_value' => theme_get_setting('color_primary_menu'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_primary_menu'), fn() => theme_get_setting('color_primary_menu')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_welcome_text'] = [
   '#type' => 'textfield',
   '#title' => t('Welcome Text'),
-  '#default_value' => theme_get_setting('color_welcome_text'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_welcome_text'), fn() => theme_get_setting('color_welcome_text')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_highlighted'] = [
   '#type' => 'textfield',
   '#title' => t('Highlighted'),
-  '#default_value' => theme_get_setting('color_highlighted'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_highlighted'), fn() => theme_get_setting('color_highlighted')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_container'] = [
   '#type' => 'textfield',
   '#title' => t('Top Container Wrapper'),
-  '#default_value' => theme_get_setting('color_top_container'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_top_container'), fn() => theme_get_setting('color_top_container')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_first'] = [
   '#type' => 'textfield',
   '#title' => t('Top First'),
-  '#default_value' => theme_get_setting('color_top_first'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_top_first'), fn() => theme_get_setting('color_top_first')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_second'] = [
   '#type' => 'textfield',
   '#title' => t('Top Second'),
-  '#default_value' => theme_get_setting('color_top_second'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_top_second'), fn() => theme_get_setting('color_top_second')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_third'] = [
   '#type' => 'textfield',
   '#title' => t('Top Third'),
-  '#default_value' => theme_get_setting('color_top_third'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_top_third'), fn() => theme_get_setting('color_top_third')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_page_title'] = [
   '#type' => 'textfield',
   '#title' => t('Page Title'),
-  '#default_value' => theme_get_setting('color_page_title'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_page_title'), fn() => theme_get_setting('color_page_title')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_main'] = [
   '#type' => 'textfield',
   '#title' => t('Main Container Wrapper'),
-  '#default_value' => theme_get_setting('color_main'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_main'), fn() => theme_get_setting('color_main')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_breadcrumb'] = [
   '#type' => 'textfield',
   '#title' => t('Breadcrumb'),
-  '#default_value' => theme_get_setting('color_breadcrumb'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_breadcrumb'), fn() => theme_get_setting('color_breadcrumb')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_sidebar_first'] = [
   '#type' => 'textfield',
   '#title' => t('Sidebar First'),
-  '#default_value' => theme_get_setting('color_sidebar_first'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_sidebar_first'), fn() => theme_get_setting('color_sidebar_first')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_content'] = [
   '#type' => 'textfield',
   '#title' => t('W3CSS Content'),
-  '#default_value' => theme_get_setting('color_content'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_content'), fn() => theme_get_setting('color_content')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_sidebar_second'] = [
   '#type' => 'textfield',
   '#title' => t('Sidebar Second'),
-  '#default_value' => theme_get_setting('color_sidebar_second'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_sidebar_second'), fn() => theme_get_setting('color_sidebar_second')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_container'] = [
   '#type' => 'textfield',
   '#title' => t('Bottom Container Wrapper'),
-  '#default_value' => theme_get_setting('color_bottom_container'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_bottom_container'), fn() => theme_get_setting('color_bottom_container')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_first'] = [
   '#type' => 'textfield',
   '#title' => t('Bottom First'),
-  '#default_value' => theme_get_setting('color_bottom_first'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_bottom_first'), fn() => theme_get_setting('color_bottom_first')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_second'] = [
   '#type' => 'textfield',
   '#title' => t('Bottom Second'),
-  '#default_value' => theme_get_setting('color_bottom_second'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_bottom_second'), fn() => theme_get_setting('color_bottom_second')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_third'] = [
   '#type' => 'textfield',
   '#title' => t('Bottom Third'),
-  '#default_value' => theme_get_setting('color_bottom_third'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_bottom_third'), fn() => theme_get_setting('color_bottom_third')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_forth'] = [
   '#type' => 'textfield',
   '#title' => t('Bottom Forth'),
-  '#default_value' => theme_get_setting('color_bottom_forth'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_bottom_forth'), fn() => theme_get_setting('color_bottom_forth')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_container'] = [
   '#type' => 'textfield',
   '#title' => t('Footer Container Wrapper'),
-  '#default_value' => theme_get_setting('color_footer_container'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_footer_container'), fn() => theme_get_setting('color_footer_container')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_first'] = [
   '#type' => 'textfield',
   '#title' => t('Footer First'),
-  '#default_value' => theme_get_setting('color_footer_first'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_footer_first'), fn() => theme_get_setting('color_footer_first')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_second'] = [
   '#type' => 'textfield',
   '#title' => t('Footer Second'),
-  '#default_value' => theme_get_setting('color_footer_second'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_footer_second'), fn() => theme_get_setting('color_footer_second')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_third'] = [
   '#type' => 'textfield',
   '#title' => t('Footer Third'),
-  '#default_value' => theme_get_setting('color_footer_third'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_footer_third'), fn() => theme_get_setting('color_footer_third')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_menu'] = [
   '#type' => 'textfield',
   '#title' => t('Footer Menu'),
-  '#default_value' => theme_get_setting('color_footer_menu'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_footer_menu'), fn() => theme_get_setting('color_footer_menu')),
 ];
 $form['drupal8_w3css_theme_settings']['w3_colors']['color_copyright'] = [
   '#type' => 'textfield',
   '#title' => t('Copyright'),
-  '#default_value' => theme_get_setting('color_copyright'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_copyright'), fn() => theme_get_setting('color_copyright')),
 ];

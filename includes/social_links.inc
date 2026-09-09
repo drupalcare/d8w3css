@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Social media links theme settings.
  */
@@ -25,7 +28,7 @@ $form['drupal8_w3css_theme_settings']['social_icon'] = [
 $form['drupal8_w3css_theme_settings']['social_icon']['social_media_size'] = [
   '#type' => 'radios',
   '#title' => t('Select The Social Media Icon Size'),
-  '#default_value' => theme_get_setting('social_media_size'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('social_media_size'), fn() => theme_get_setting('social_media_size')),
   '#options' => [
     0 => t('Small - Default'),
     1 => t('Medium'),
@@ -36,51 +39,51 @@ $form['drupal8_w3css_theme_settings']['social_icon']['social_media_size'] = [
 $form['drupal8_w3css_theme_settings']['social_icon']['show_social_icon'] = [
   '#type' => 'checkbox',
   '#title' => t('Show Social Icons'),
-  '#default_value' => theme_get_setting('show_social_icon'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('show_social_icon'), fn() => theme_get_setting('show_social_icon')),
   '#description' => t("Check this option to show Social Icon. Uncheck to hide."),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['facebook_url'] = [
   '#type' => 'textfield',
   '#title' => t('Facebook Page'),
-  '#default_value' => theme_get_setting('facebook_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('facebook_url'), fn() => theme_get_setting('facebook_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['twitter_url'] = [
   '#type' => 'textfield',
   '#title' => t('X Profile'),
-  '#default_value' => theme_get_setting('twitter_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('twitter_url'), fn() => theme_get_setting('twitter_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['pinterest_url'] = [
   '#type' => 'textfield',
   '#title' => t('Pinterest Profile'),
-  '#default_value' => theme_get_setting('pinterest_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('pinterest_url'), fn() => theme_get_setting('pinterest_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['linkedin_url'] = [
   '#type' => 'textfield',
   '#title' => t('Linkedin Profile'),
-  '#default_value' => theme_get_setting('linkedin_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('linkedin_url'), fn() => theme_get_setting('linkedin_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['instagram_url'] = [
   '#type' => 'textfield',
   '#title' => t('Instagram Profile'),
-  '#default_value' => theme_get_setting('instagram_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('instagram_url'), fn() => theme_get_setting('instagram_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['youtube_url'] = [
   '#type' => 'textfield',
   '#title' => t('Youtube Profile'),
-  '#default_value' => theme_get_setting('youtube_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('youtube_url'), fn() => theme_get_setting('youtube_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['drupal_url'] = [
   '#type' => 'textfield',
   '#title' => t('Drupal Profile'),
-  '#default_value' => theme_get_setting('drupal_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('drupal_url'), fn() => theme_get_setting('drupal_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['rss_url'] = [
   '#type' => 'textfield',
   '#title' => t('RSS Link'),
-  '#default_value' => theme_get_setting('rss_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('rss_url'), fn() => theme_get_setting('rss_url')),
 ];
 $form['drupal8_w3css_theme_settings']['social_icon']['mastodon_url'] = [
   '#type' => 'textfield',
   '#title' => t('Mastodon Profile'),
-  '#default_value' => theme_get_setting('mastodon_url'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('mastodon_url'), fn() => theme_get_setting('mastodon_url')),
 ];

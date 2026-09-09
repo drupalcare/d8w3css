@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * User login layout theme settings.
  */
@@ -25,5 +28,5 @@ $form['drupal8_w3css_theme_settings']['w3_layout_user'] = [
 $form['drupal8_w3css_theme_settings']['w3_layout_user']['layout_user_login_custom'] = [
   '#type' => 'checkbox',
   '#title' => t('Check this box to change the layout for the login, register and reset password pages.'),
-  '#default_value' => theme_get_setting('layout_user_login_custom'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('layout_user_login_custom'), fn() => theme_get_setting('layout_user_login_custom')),
 ];

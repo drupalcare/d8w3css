@@ -1,0 +1,5 @@
+
+services:
+  Drupal\drupal8_w3css_theme\Hook\Drupal8W3cssThemeHooks:
+    class: Drupal\drupal8_w3css_theme\Hook\Drupal8W3cssThemeHooks
+    autowire: true

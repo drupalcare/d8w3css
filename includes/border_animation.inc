@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Border animation theme settings.
  */
@@ -26,5 +29,5 @@ $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
 $form['drupal8_w3css_theme_settings']['w3_border_animation']['border_animation'] = [
   '#type' => 'checkbox',
   '#title' => t("Check this box to animate the region's border."),
-  '#default_value' => theme_get_setting('border_animation'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('border_animation'), fn() => theme_get_setting('border_animation')),
 ];

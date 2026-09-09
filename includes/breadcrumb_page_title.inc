@@ -12,6 +12,9 @@
 
 declare(strict_types=1);
 
+use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+
 /**
  * Breadcrumb page title theme settings.
  */
@@ -25,5 +28,5 @@ $form['drupal8_w3css_theme_settings']['w3_breadcrumb_page_title'] = [
 $form['drupal8_w3css_theme_settings']['w3_breadcrumb_page_title']['breadcrumb_page_title'] = [
   '#type' => 'checkbox',
   '#title' => t('Check this box to remove the page title from breadcrumb.'),
-  '#default_value' => theme_get_setting('breadcrumb_page_title'),
+  '#default_value' => DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('breadcrumb_page_title'), fn() => theme_get_setting('breadcrumb_page_title')),
 ];
