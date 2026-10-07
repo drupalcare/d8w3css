@@ -25,6 +25,8 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
  * nothing uses any more.
  *
  * @license SPDX-License-Identifier: GPL-2.0-or-later
+ *
+ * @group d8w3css
  */
 #[Group('d8w3css')]
 #[RunTestsInSeparateProcesses]
