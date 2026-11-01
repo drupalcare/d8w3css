@@ -126,24 +126,18 @@
     display: none;
   }
 
-  .li-1 .dropdown-arrow,
   .li-1 .d8w3css-menu__arrow {
     display: flex;
   }
 
-  .ul-parent  li.li-expanded > span,
-  .ul-parent  li.li-expanded > a > span,
   .d8w3css-menu__list  li.li-expanded > span,
   .d8w3css-menu__list  li.li-expanded > a > span,
-  .ul-parent  li.li-expanded > button > span,
   .d8w3css-menu__list  li.li-expanded > button > span {
     padding: 10px 16px;
     height: auto;
   }
 
-  .ul-parent li.li-expanded > a,
   .d8w3css-menu__list li.li-expanded > a,
-  .ul-parent li.li-expanded > button,
   .d8w3css-menu__list li.li-expanded > button {
     padding-right: 56px;
   }
@@ -174,29 +168,24 @@
     float: left;
   }
 
-  .ul-responsive-h .ul-parent,
   #main-navigation-h .ul-parent,
   .d8w3css-responsive-nav .d8w3css-menu__list,
   #main-navigation-h .d8w3css-menu__list {
     display: none;
   }
 
-  .ul-responsive-h .ul-parent ul li > a,
   #main-navigation-h .ul-parent ul li > a,
   .d8w3css-responsive-nav .d8w3css-menu__list ul li > a,
   #main-navigation-h .d8w3css-menu__list ul li > a,
-  .ul-responsive-h .ul-parent ul li > button,
   #main-navigation-h .ul-parent ul li > button,
   .d8w3css-responsive-nav .d8w3css-menu__list ul li > button,
   #main-navigation-h .d8w3css-menu__list ul li > button {
     padding-left: 35px !important;
   }
 
-  .ul-responsive-h .ul-parent ul ul li > a,
   #main-navigation-h .ul-parent ul ul li > a,
   .d8w3css-responsive-nav .d8w3css-menu__list ul ul li > a,
   #main-navigation-h .d8w3css-menu__list ul ul li > a,
-  .ul-responsive-h .ul-parent ul ul li > button,
   #main-navigation-h .ul-parent ul ul li > button,
   .d8w3css-responsive-nav .d8w3css-menu__list ul ul li > button,
   #main-navigation-h .d8w3css-menu__list ul ul li > button {

@@ -12,11 +12,10 @@ include:
       - '/includes/include.drupalci.workflows.yml'
 
 variables:
-  # The theme declares ^9 || ^10 || ^11 || ^12 (drupal8_w3css_theme.info.yml),
-  # so the next major (12) and the previous major (10) get jobs as well as the
-  # current core version. Run the jobs against the next major in addition to
-  # the current core version so the D12 readiness of this branch is verified
-  # on every pipeline.
+  # The theme declares ^11.3 || ^12 (drupal8_w3css_theme.info.yml), so there is
+  # no previous-major (Drupal 10) job. Run the jobs against the next major in
+  # addition to the current core version so the D12 readiness of this branch is
+  # verified on every pipeline.
   OPT_IN_TEST_NEXT_MAJOR: '1'
   # THE LINE THAT WAS MISSING, and its absence is why that job had never run.
   # `OPT_IN_TEST_*` creates the job; `_AUTORUN_*` (default 'none') decides
@@ -30,9 +29,3 @@ variables:
   # job too.
   OPT_IN_TEST_PREVIOUS_MINOR: '1'
   _AUTORUN_PREVIOUS_MINOR: 'all'
-  # Drupal 10 IS claimed. The 2.x wrappers fetched the Hook class with
-  # \Drupal::service(), which below 11.3 is not a service, so every page
-  # fataled on Drupal 10 while every pipeline was green, because no job ever
-  # ran Drupal 10. HookClassResolutionTest goes red on exactly that defect.
-  OPT_IN_TEST_PREVIOUS_MAJOR: '1'
-  _AUTORUN_PREVIOUS_MAJOR: 'all'

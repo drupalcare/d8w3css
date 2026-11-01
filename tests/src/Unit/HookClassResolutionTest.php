@@ -60,7 +60,7 @@ class HookClassResolutionTest extends TestCase {
   }
 
   /**
-   * Procedural theme files: the .theme files, includes/ and theme-settings.
+   * Theme PHP files: any .theme or root file, and the classes in src.
    *
    * @return list<string>
    *   Absolute paths.
@@ -70,7 +70,8 @@ class HookClassResolutionTest extends TestCase {
     return array_merge(
       glob($root . '/*.theme') ?: [],
       glob($root . '/*.php') ?: [],
-      glob($root . '/includes/*.inc') ?: [],
+      glob($root . '/src/Hook/*.php') ?: [],
+      glob($root . '/src/Settings/*.php') ?: [],
       glob($root . '/drupal8_w3css_subtheme/*.theme') ?: [],
     );
   }
@@ -127,7 +128,7 @@ class HookClassResolutionTest extends TestCase {
       implode("\n", $offenders)
     ));
     // The theme ships no .theme file, so no wrappers may remain. A scan of no
-    // files proves nothing: theme-settings.php and the includes must be seen.
+    // files proves nothing: the hook classes and settings sections must be seen.
     $this->assertSame(0, $resolved, 'A procedural wrapper is back; hooks belong in src/Hook.');
     $this->assertGreaterThanOrEqual(14, count($this->proceduralFiles()));
   }

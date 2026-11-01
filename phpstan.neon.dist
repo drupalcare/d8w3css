@@ -11,8 +11,6 @@ parameters:
   level: 6
   paths:
     - src
-    - includes
-    - theme-settings.php
   excludePaths:
     # A contrib project has no vendor/ of its own -- composer installs into the
     # SITE's vendor dir. PHPStan treats a missing excludePath as a FATAL config

@@ -1,5 +1,3 @@
-.ul-parent,
-.ul-child,
 .li-item,
 .d8w3css-menu__list,
 .d8w3css-menu__submenu,
@@ -9,20 +7,16 @@
   list-style: none;
 }
 
-.ul-parent:before,
-.ul-parent:after,
 .d8w3css-menu__list:before,
 .d8w3css-menu__list:after {
   content: " ";
   display: table;
 }
 
-.ul-parent:after,
 .d8w3css-menu__list:after {
   clear: both;
 }
 
-.ul-parent,
 .d8w3css-menu__list {
   z-index: 2000 !important;
 }
@@ -43,27 +37,21 @@ ul .d8w3css-menu__submenu.d8w3css-menu__submenu--open {
   background-color: inherit;
 }
 
-.ul-parent a,
 .d8w3css-menu__list a,
-.ul-parent button,
 .d8w3css-menu__list button {
   font-size: 16px !important;
 }
 
-.ul-parent a:hover,
 .d8w3css-menu__list a:hover,
-.ul-parent button:hover,
 .d8w3css-menu__list button:hover {
   opacity: 1;
 }
 
-.ul-parent li,
 .d8w3css-menu__list li {
   position: relative;
   text-align: left;
 }
 
-.ul-parent > li,
 .d8w3css-menu__list > li {
   display: inline-block;
   float: left;
@@ -78,15 +66,12 @@ ul .d8w3css-menu__submenu.d8w3css-menu__submenu--open {
   transition: background .4s ease;
 }
 
-.ul-parent li  ul,
 .d8w3css-menu__list li  ul {
   min-width: 160px;
   display: none;
 }
 
-.ul-parent li li a,
 .d8w3css-menu__list li li a,
-.ul-parent li li button,
 .d8w3css-menu__list li li button {
   display: block;
   position: relative;
@@ -99,9 +84,7 @@ ul .d8w3css-menu__submenu.d8w3css-menu__submenu--open {
   cursor: pointer !important;
 }
 
-.ul-parent li a,
 .d8w3css-menu__list li a,
-.ul-parent li button,
 .d8w3css-menu__list li button {
   display: block;
   text-align: left;
@@ -127,7 +110,6 @@ li.li-expanded i.fa {
   font-size: 16px;
 }
 
-li.li-expanded .dropdown-arrow svg,
 li.li-expanded .right-arrow svg,
 li.li-expanded .d8w3css-menu__arrow svg,
 li.li-expanded .d8w3css-menu__right-arrow svg {
@@ -135,7 +117,6 @@ li.li-expanded .d8w3css-menu__right-arrow svg {
 }
 
 .right-arrow,
-.dropdown-arrow,
 .d8w3css-menu__right-arrow,
 .d8w3css-menu__arrow {
   font-family: inherit;
@@ -143,7 +124,6 @@ li.li-expanded .d8w3css-menu__right-arrow svg {
   display: inline-block;
 }
 
-.ul-parent .li-expanded,
 .d8w3css-menu__list .li-expanded {
   position: relative;
 }
@@ -169,16 +149,13 @@ ul li.li-expanded > button:hover {
   cursor: context-menu !important;
 }
 
-.mobile-nav-responsive svg,
 .mobile-nav svg,
 .d8w3css-responsive-nav__toggle svg,
 .d8w3css-mobile-nav__toggle svg {
   float: right;
 }
 
-.ul-parent li.li-expanded > a,
 .d8w3css-menu__list li.li-expanded > a,
-.ul-parent li.li-expanded > button,
 .d8w3css-menu__list li.li-expanded > button {
   padding-right: 42px;
 }

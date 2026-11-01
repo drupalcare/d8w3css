@@ -131,14 +131,14 @@ class ThemeSettingsSchemaTest extends KernelTestBase {
   }
 
   /**
-   * Setting names the form files read, parsed from includes/*.inc.
+   * Setting names the form files read, parsed from src/Settings.
    *
    * @return string[]
    *   Key names.
    */
   private function formKeys(): array {
     $keys = [];
-    foreach (glob($this->themeDir() . '/includes/*.inc') ?: [] as $file) {
+    foreach (glob($this->themeDir() . '/src/Settings/*.php') ?: [] as $file) {
       preg_match_all("/getSetting\('([a-z0-9_]+)'\)/", (string) file_get_contents($file), $m);
       $keys = array_merge($keys, $m[1]);
     }

@@ -27,6 +27,43 @@ your-site-domain/admin/appearance and scroll to the bottom until you see W3CSS
 Theme and click on Install and set as default and click save.
 
 
+UPGRADING FROM 2.0.x TO 3.0:
+--------------------------------------------------------------------------------
+
+Back up the site, update the theme, then rebuild caches (drush cr or
+Configuration > Development > Performance). The theme has new hook classes, and
+Drupal finds them only after a cache rebuild.
+
+- Needs Drupal 11.3 or later, or Drupal 12. Drupal 9, 10 and 11.0 to 11.2 stay
+  on 2.0.x.
+- The machine name, setting keys, regions and library names are unchanged, so
+  saved settings and block placement need no migration.
+- The theme ships no .theme file, no theme-settings.php and no includes/
+  folder. Its hooks and the 13 settings sections are classes in src/. A
+  sub-theme or site code that called a drupal8_w3css_theme_* function must move
+  to a hook class (see the sub-theme steps below).
+- jQuery is gone from the theme. A script of yours that uses jQuery must declare
+  core/jquery in its own library. The one exception is the status report page,
+  which still loads it through core/drupal.collapse when this is the admin theme.
+- Menus, regions and several components gained BEM class names that start with
+  d8w3css- . The old class names stay on the markup, so sub-theme CSS written
+  against them keeps working. A copied page or menu template that prints only
+  the old names still works: the theme's script adds the new name to those
+  elements when the page loads.
+- The theme's own CSS no longer lists the old menu names (.ul-parent, .ul-child,
+  .tMenu, .mobile-nav-responsive, .ul-responsive-h, .dropdown-arrow and the
+  clickable-dropdown-menu-fa-down classes) beside the new ones. Old markup is
+  styled once the script has added the new name.
+- Markup changes you may see in a copied template: the open and close side menu
+  toggles are buttons, the site name is a heading on the front page only, and
+  messages use one role (alert for errors and warnings, status otherwise).
+- The theme no longer attaches Claro libraries, except the search results
+  list when Claro is installed. A site that relied on Claro's indent for
+  comments gets the theme's 40px indent.
+- amun, amunet and anhur build on this theme and are released separately. Test
+  each against 3.0 before updating a site that uses one.
+
+
 FEATURES:
 --------------------------------------------------------------------------------
 ) W3CSS Theme is using the modern W3.CSS framework with built-in responsiveness

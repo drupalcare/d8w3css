@@ -85,7 +85,7 @@ PLANTS = {
     'DEPEND a library that pulls it in': ('drupal8_w3css_theme.libraries.yml', '    - core/once\n', '    - core/once\n    - core/drupal.ajax\n', 'DEPEND'),
     'DEPEND attach_library in Twig': ('templates/layout/page.html.twig', '{#', "{{ attach_library('core/drupal.dialog') }}\n{#", 'DEPEND'),
     'DEPEND an exception used elsewhere': ('templates/layout/page.html.twig', '{#', "{{ attach_library('core/drupal.collapse') }}\n{#", 'DEPEND'),
-    'DEPEND attached from PHP': ('theme-settings.php', '<?php', "<?php\n$a['#attached']['library'][] = 'core/drupal.ajax';", 'DEPEND'),
+    'DEPEND attached from PHP': ('src/Settings/Credit.php', '<?php', "<?php\n$a['#attached']['library'][] = 'core/drupal.ajax';", 'DEPEND'),
 }
 
 
