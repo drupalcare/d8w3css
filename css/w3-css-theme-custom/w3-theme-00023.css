@@ -82,7 +82,10 @@ h6 a {
 #footer-menu h5,
 #footer-menu a,
 #footer-menu p,
-.main-navigation-wrapper {
+.main-navigation-wrapper,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   color: #eb2d6e !important;
 }
 
@@ -99,7 +102,8 @@ textarea,
 #top-container .top-box>div,
 #main-container .main-box>div,
 #footer-container .footer-box>div,
-#bottom-container .bottom-box>div {
+#bottom-container .bottom-box>div,
+#main-container .d8w3css-main-box>div {
   background-color: #060707;
 }
 
@@ -119,7 +123,10 @@ textarea,
 
 .close-nav,
 .mobile-nav,
-.main-navigation-wrapper {
+.main-navigation-wrapper,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   background-color: #0e0f10;
 }
 

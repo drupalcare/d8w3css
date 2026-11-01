@@ -32,3 +32,23 @@
   display: block;
   width: 100%;
 }
+
+/* The site name and slogan keep the heading look when printed as paragraphs. */
+p.site-name,
+p.site-slogan {
+  font-family: "Segoe UI", Arial, sans-serif;
+  /* Beats the !important padding on every p in max-width-600.css. */
+  padding: 0 !important;
+  font-weight: 600;
+}
+
+p.site-slogan {
+  margin: 10px 0;
+}
+
+p.site-name a {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}

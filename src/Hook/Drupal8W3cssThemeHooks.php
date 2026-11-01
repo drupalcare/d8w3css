@@ -1,20 +1,45 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\drupal8_w3css_theme\Hook;
 
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
-use Drupal\Core\Extension\ThemeSettingsProvider;
-use Drupal\Component\Utility\DeprecationHelper;
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Controller\TitleResolverInterface;
+use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ThemeExtensionList;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Path\CurrentPathStack;
+use Drupal\Core\Path\PathMatcherInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\AdminContext;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Hook implementations for drupal8_w3css_theme.
  */
-class Drupal8W3cssThemeHooks {
+final class Drupal8W3cssThemeHooks {
   use StringTranslationTrait;
+
+  public function __construct(
+    private readonly ThemeSettingsProvider $themeSettings,
+    private readonly RouteMatchInterface $routeMatch,
+    private readonly CurrentPathStack $currentPath,
+    private readonly AdminContext $adminContext,
+    private readonly PathMatcherInterface $pathMatcher,
+    private readonly RequestStack $requestStack,
+    private readonly TitleResolverInterface $titleResolver,
+    private readonly DateFormatterInterface $dateFormatter,
+    private readonly TimeInterface $time,
+    private readonly EntityTypeManagerInterface $entityTypeManager,
+    private readonly ThemeExtensionList $themeList,
+  ) {}
 
   /**
    * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -23,7 +48,7 @@ class Drupal8W3cssThemeHooks {
   public function preprocessHtml(array &$variables): void {
     // Add node id to the body class.
     $variables['path_info']['args'] = FALSE;
-    $routeMatch = \Drupal::routeMatch();
+    $routeMatch = $this->routeMatch;
     // Test route name.
     switch ($routeMatch->getRouteName()) {
       // Add node id to the body class.
@@ -51,7 +76,7 @@ class Drupal8W3cssThemeHooks {
         break;
     }
     // If the user is logged in use ID if not use second word after user/login.
-    $curr_path = \Drupal::service('path.current')->getPath();
+    $curr_path = $this->currentPath->getPath();
     $curr_path = ltrim($curr_path, '/');
     $user_url = explode('/', $curr_path);
     if (isset($user_url[0], $user_url[1]) && $user_url[0] == 'user') {
@@ -60,11 +85,9 @@ class Drupal8W3cssThemeHooks {
     // Add view id name to the body class.
     $view_id = $routeMatch->getParameter('view_id');
     if ($view_id) {
-      $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier($view_id);
+      $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier((string) $view_id);
     }
-    /** @var \Drupal\Core\Routing\AdminContext $admin_context */
-    $admin_context = \Drupal::service('router.admin_context');
-    if ($admin_context->isAdminRoute()) {
+    if ($this->adminContext->isAdminRoute()) {
       $variables['attributes']['class'][] = 'admin-context';
     }
   }
@@ -118,7 +141,7 @@ class Drupal8W3cssThemeHooks {
       $variables['content_w3css'] = 'w3-col';
     }
     // Add 3col stacked equal width.
-    $variables['equal_width'] = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('equal_width'), fn() => theme_get_setting('equal_width'));
+    $variables['equal_width'] = $this->themeSettings->getSetting('equal_width');
     if ($variables['equal_width'] != NULL) {
       if ($has_sidebar_first && $has_sidebar_second) {
         $variables['content_w3css'] = 'w3-third';
@@ -180,7 +203,7 @@ class Drupal8W3cssThemeHooks {
       'website_width',
     ];
     foreach ($mvar as $value) {
-      $variables[$value] = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting($value), fn() => theme_get_setting($value));
+      $variables[$value] = $this->themeSettings->getSetting($value);
     }
     // Social Media's $variables.
     $svar = [
@@ -199,7 +222,7 @@ class Drupal8W3cssThemeHooks {
       'show_credit_link',
     ];
     foreach ($svar as $value) {
-      $variables[$value] = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting($value), fn() => theme_get_setting($value));
+      $variables[$value] = $this->themeSettings->getSetting($value);
     }
     // Color's variables.
     $cvar = [
@@ -231,16 +254,29 @@ class Drupal8W3cssThemeHooks {
       'color_copyright',
     ];
     foreach ($cvar as $value) {
-      $variables[$value] = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting($value), fn() => theme_get_setting($value));
+      $variables[$value] = $this->themeSettings->getSetting($value);
     }
     // Check if the current user on login/register or reset.
-    if (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('layout_user_login_custom'), fn() => theme_get_setting('layout_user_login_custom'))) {
-      $curr_path = \Drupal::service('path.current')->getPath();
+    if ($this->themeSettings->getSetting('layout_user_login_custom')) {
+      $curr_path = $this->currentPath->getPath();
       $curr_path = ltrim($curr_path, '/');
       if ($curr_path == 'user/login' || $curr_path == 'user/register' || $curr_path == 'user/password') {
         unset($variables['page']['sidebar_first'], $variables['page']['sidebar_second']);
         $variables['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
       }
+    }
+  }
+
+  /**
+   * Implements hook_preprocess_HOOK() for block templates.
+   */
+  #[Hook('preprocess_block')]
+  public function preprocessBlock(array &$variables): void {
+    // The branding template prints the site name as h1 on the front page only.
+    // Core gives is_front to the page template, not to blocks.
+    if (($variables['plugin_id'] ?? '') === 'system_branding_block') {
+      $variables['is_front'] = $this->pathMatcher->isFrontPage();
+      $variables['#cache']['contexts'][] = 'url.path.is_front';
     }
   }
 
@@ -269,10 +305,8 @@ class Drupal8W3cssThemeHooks {
    */
   #[Hook('preprocess_breadcrumb')]
   public function preprocessBreadcrumb(array &$variables): void {
-    if ($variables['breadcrumb'] && !DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('breadcrumb_page_title'), fn() => theme_get_setting('breadcrumb_page_title'))) {
-      $request = \Drupal::request();
-      $route_match = \Drupal::routeMatch();
-      $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    if ($variables['breadcrumb'] && !$this->themeSettings->getSetting('breadcrumb_page_title')) {
+      $page_title = $this->titleResolver->getTitle($this->requestStack->getCurrentRequest(), $this->routeMatch->getRouteObject());
       if (!empty($page_title)) {
         $variables['breadcrumb'][] = [
           'text' => $page_title,
@@ -310,8 +344,21 @@ class Drupal8W3cssThemeHooks {
     $date = $variables['comment']->getCreatedTime();
     // Formatting "created" as "X days ago".
     $variables['created'] = $this->t('@time ago', [
-      '@time' => \Drupal::service('date.formatter')->formatInterval(\Drupal::time()->getRequestTime() - $date),
+      '@time' => $this->dateFormatter->formatInterval($this->time->getRequestTime() - (int) $date),
     ]);
+  }
+
+  /**
+   * Implements hook_preprocess_HOOK() for search-result.html.twig.
+   */
+  #[Hook('preprocess_search_result')]
+  public function preprocessSearchResult(array &$variables): void {
+    // Removes the bullets from the results list where the library exists. It is
+    // Claro's, and Drupal 12 core has no Claro: attaching it there only logs a
+    // missing theme warning.
+    if ($this->themeList->exists('claro')) {
+      $variables['#attached']['library'][] = 'claro/classy.search-results';
+    }
   }
 
   /**
@@ -336,46 +383,46 @@ class Drupal8W3cssThemeHooks {
   #[Hook('page_attachments_alter')]
   public function pageAttachmentsAlter(array &$attachments): void {
     // Load google fonts locally - Global.
-    if (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_google_font_local'), fn() => theme_get_setting('d8w3css_google_font_local')) && DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gf'), fn() => theme_get_setting('d8w3css_site_gf'))) {
-      $in_font = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gf'), fn() => theme_get_setting('d8w3css_site_gf'));
-      $current_ingf = 'drupal8_w3css_theme/d8w3css-gfin' . substr($in_font, 7);
+    if ($this->themeSettings->getSetting('d8w3css_google_font_local') && $this->themeSettings->getSetting('d8w3css_site_gf')) {
+      $in_font = $this->themeSettings->getSetting('d8w3css_site_gf');
+      $current_ingf = 'drupal8_w3css_theme/d8w3css-gfin' . substr((string) $in_font, 7);
       $attachments['#attached']['library'][] = $current_ingf;
     }
     // Load fonts external - Global.
-    if (!DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_google_font_local'), fn() => theme_get_setting('d8w3css_google_font_local')) && DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gf'), fn() => theme_get_setting('d8w3css_site_gf'))) {
-      $ex_font = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gf'), fn() => theme_get_setting('d8w3css_site_gf'));
-      $current_exgf = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font, 7);
+    if (!$this->themeSettings->getSetting('d8w3css_google_font_local') && $this->themeSettings->getSetting('d8w3css_site_gf')) {
+      $ex_font = $this->themeSettings->getSetting('d8w3css_site_gf');
+      $current_exgf = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font, 7);
       $attachments['#attached']['library'][] = $current_exgf;
     }
     // Load google fonts locally - Heading.
-    if (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_google_font_local'), fn() => theme_get_setting('d8w3css_google_font_local')) && DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfh'), fn() => theme_get_setting('d8w3css_site_gfh'))) {
-      $in_font_h = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfh'), fn() => theme_get_setting('d8w3css_site_gfh'));
-      $current_ingfh = 'drupal8_w3css_theme/d8w3css-gfin' . substr($in_font_h, 7);
+    if ($this->themeSettings->getSetting('d8w3css_google_font_local') && $this->themeSettings->getSetting('d8w3css_site_gfh')) {
+      $in_font_h = $this->themeSettings->getSetting('d8w3css_site_gfh');
+      $current_ingfh = 'drupal8_w3css_theme/d8w3css-gfin' . substr((string) $in_font_h, 7);
       $attachments['#attached']['library'][] = $current_ingfh;
     }
     // Load fonts external - Heading.
-    if (!DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_google_font_local'), fn() => theme_get_setting('d8w3css_google_font_local')) && DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfh'), fn() => theme_get_setting('d8w3css_site_gfh'))) {
-      $ex_font_h = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfh'), fn() => theme_get_setting('d8w3css_site_gfh'));
-      $current_exgfh = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_h, 7);
+    if (!$this->themeSettings->getSetting('d8w3css_google_font_local') && $this->themeSettings->getSetting('d8w3css_site_gfh')) {
+      $ex_font_h = $this->themeSettings->getSetting('d8w3css_site_gfh');
+      $current_exgfh = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font_h, 7);
       $attachments['#attached']['library'][] = $current_exgfh;
     }
     // Load special fonts' library.
-    if (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfs'), fn() => theme_get_setting('d8w3css_site_gfs'))) {
-      $ex_font_s = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_site_gfs'), fn() => theme_get_setting('d8w3css_site_gfs'));
-      $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr($ex_font_s, 7);
+    if ($this->themeSettings->getSetting('d8w3css_site_gfs')) {
+      $ex_font_s = $this->themeSettings->getSetting('d8w3css_site_gfs');
+      $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font_s, 7);
       $attachments['#attached']['library'][] = $current_exgfs;
     }
     // Load default color theme if not.
-    if (!DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('current_theme'), fn() => theme_get_setting('current_theme')) || DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('current_theme'), fn() => theme_get_setting('current_theme')) == 'none') {
+    if (!$this->themeSettings->getSetting('current_theme') || $this->themeSettings->getSetting('current_theme') == 'none') {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
     }
     else {
-      $my_current_theme = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('current_theme'), fn() => theme_get_setting('current_theme'));
-      $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', $my_current_theme);
+      $my_current_theme = $this->themeSettings->getSetting('current_theme');
+      $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', (string) $my_current_theme);
       $attachments['#attached']['library'][] = $predefined_theme_filename;
     }
     // Load font awesome.
-    switch (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('d8w3css_font_awesome'), fn() => theme_get_setting('d8w3css_font_awesome'))) {
+    switch ($this->themeSettings->getSetting('d8w3css_font_awesome')) {
       case 1:
         $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-in';
         break;
@@ -392,7 +439,7 @@ class Drupal8W3cssThemeHooks {
         $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-6-ex';
         break;
     }
-    switch (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('social_media_size'), fn() => theme_get_setting('social_media_size'))) {
+    switch ($this->themeSettings->getSetting('social_media_size')) {
       case 1:
         $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-m';
         break;
@@ -402,9 +449,7 @@ class Drupal8W3cssThemeHooks {
         break;
     }
     // Load full opacity if enabled but not on admin pages.
-    /** @var \Drupal\Core\Routing\AdminContext $admin_context */
-    $admin_context = \Drupal::service('router.admin_context');
-    if (DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.3.0', fn() => \Drupal::service(ThemeSettingsProvider::class)->getSetting('full_opacity_onscroll'), fn() => theme_get_setting('full_opacity_onscroll')) && !$admin_context->isAdminRoute()) {
+    if ($this->themeSettings->getSetting('full_opacity_onscroll') && !$this->adminContext->isAdminRoute()) {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-full-opacity';
     }
   }
@@ -468,7 +513,7 @@ class Drupal8W3cssThemeHooks {
   public function themeSuggestionsBlockAlter(array &$suggestions, array $variables): void {
     if (!empty($variables['elements']['#id'])) {
       /** @var \Drupal\block\BlockInterface $block */
-      $block = \Drupal::entityTypeManager()->getStorage('block')->load($variables['elements']['#id']);
+      $block = $this->entityTypeManager->getStorage('block')->load($variables['elements']['#id']);
       if ($block) {
         // Add region-specific block theme suggestions.
         $region = $block->getRegion();
@@ -505,7 +550,7 @@ class Drupal8W3cssThemeHooks {
    */
   #[Hook('theme_suggestions_page_alter')]
   public function themeSuggestionsPageAlter(array &$suggestions, array $variables): void {
-    $routeMatch = \Drupal::routeMatch();
+    $routeMatch = $this->routeMatch;
     // Test route name.
     switch ($routeMatch->getRouteName()) {
       // Suggest the node page according to the content type name.

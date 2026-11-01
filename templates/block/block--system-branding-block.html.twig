@@ -21,12 +21,14 @@
   {% endif %}
 <div class="site-name-slogan">
   {% if site_name %}
-    <h1 class="site-name w3-show-block">
+    {# The page title is the h1 on every page but the front page. #}
+    {% set site_name_tag = is_front ? 'h1' : 'p' %}
+    <{{ site_name_tag }} class="site-name w3-show-block">
       <a class="site-name-link" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
-    </h1>
+    </{{ site_name_tag }}>
   {% endif %}
   {% if site_slogan %}
-    <h3 class="site-slogan w3-show-block">{{ site_slogan }}</h3>
+    <p class="site-slogan w3-show-block">{{ site_slogan }}</p>
   {% endif %}
 </div>
 {% endblock %}

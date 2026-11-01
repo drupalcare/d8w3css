@@ -10,7 +10,10 @@
 
 .main-navigation-wrapper,
 .close-nav,
-.mobile-nav {
+.mobile-nav,
+.d8w3css-main-nav,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle {
   background-color: #222;
   color: #efefef;
 }
@@ -54,7 +57,8 @@
   color: #3a3a3a;
 }
 
-#main-container .main-box > div {
+#main-container .main-box > div,
+#main-container .d8w3css-main-box > div {
   background-color: #ffffff;
 }
 

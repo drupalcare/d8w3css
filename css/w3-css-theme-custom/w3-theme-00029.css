@@ -90,7 +90,10 @@ textarea:focus {
 .mobile-nav,
 #page-title,
 .search-slide-wrapper,
-.main-navigation-wrapper {
+.main-navigation-wrapper,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   background-color: white;
   color: #637381;
 }
@@ -99,7 +102,8 @@ textarea:focus {
 #footer-container .footer-box>div,
 #footer-menu-inner > div,
 #main-container-inner .main-box>div,
-#bottom-container-inner .bottom-box>div {
+#bottom-container-inner .bottom-box>div,
+#main-container-inner .d8w3css-main-box>div {
   background-color: white;
   color: #637381;
 }

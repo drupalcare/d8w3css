@@ -17,7 +17,21 @@
   .footer-container-inner .first-footer > div,
   .footer-container-inner .second-footer > div,
   .footer-container-inner .third-footer > div,
-  .footer-menu-inner > div {
+  .footer-menu-inner > div,
+  .d8w3css-top-region__inner .first-top > div,
+  .d8w3css-top-region__inner .second-top > div,
+  .d8w3css-top-region__inner .third-top > div,
+  .d8w3css-main-region__inner .first-sidebar > div,
+  .d8w3css-main-region__inner .w3css-content > div,
+  .d8w3css-main-region__inner .second-sidebar > div,
+  .d8w3css-bottom-region__inner .first-bottom > div,
+  .d8w3css-bottom-region__inner .second-bottom > div,
+  .d8w3css-bottom-region__inner .third-bottom > div,
+  .d8w3css-bottom-region__inner .forth-bottom > div,
+  .d8w3css-footer-region__inner .first-footer > div,
+  .d8w3css-footer-region__inner .second-footer > div,
+  .d8w3css-footer-region__inner .third-footer > div,
+  .d8w3css-footer-menu__inner > div {
     padding: 8px !important;
   }
 
@@ -144,7 +158,10 @@
 
   .path-user-register .main-container-inner nav.tabs > ul.tabs,
   .path-user-password .main-container-inner nav.tabs > ul.tabs,
-  .path-user-login .main-container-inner nav.tabs > ul.tabs {
+  .path-user-login .main-container-inner nav.tabs > ul.tabs,
+  .path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs {
     justify-content: start;
     flex-direction: column;
     align-items: start;

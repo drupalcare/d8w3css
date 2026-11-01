@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W3.CSS modern: old classes in use</title>
+<link rel="stylesheet" href="../../css/w3-css/w3-modern.css">
+<style>
+  .cell { background: #eef; border: 1px solid #99c; padding: 4px; overflow-wrap: anywhere; }
+  .mode { font-size: 0.8rem; color: #555; }
+</style>
+</head>
+<body>
+<main class="w3-content w3-padding">
+  <h1>W3.CSS modern: old classes in use</h1>
+  <p>Resize the window across 600px and 992px. Press Tab to see the focus ring. The gray
+    note above each row reports how the browser laid it out.</p>
+
+  <h2>Named columns</h2>
+  <div class="w3-row"><div class="w3-half"><div class="cell">w3-half</div></div><div class="w3-half"><div class="cell">w3-half</div></div></div>
+  <div class="w3-row"><div class="w3-third"><div class="cell">w3-third</div></div><div class="w3-third"><div class="cell">w3-third</div></div><div class="w3-third"><div class="cell">w3-third</div></div></div>
+  <div class="w3-row"><div class="w3-twothird"><div class="cell">w3-twothird</div></div><div class="w3-third"><div class="cell">w3-third</div></div></div>
+  <div class="w3-row"><div class="w3-quarter"><div class="cell">w3-quarter</div></div><div class="w3-threequarter"><div class="cell">w3-threequarter</div></div></div>
+  <div class="w3-row-padding"><div class="w3-half"><div class="cell">w3-row-padding, half</div></div><div class="w3-half"><div class="cell">w3-row-padding, half</div></div></div>
+
+  <h2>Columns at all sizes</h2>
+  <div class="w3-row">
+    <div class="w3-col s12 m6 l3"><div class="cell">s12 m6 l3</div></div>
+    <div class="w3-col s12 m6 l3"><div class="cell">s12 m6 l3</div></div>
+    <div class="w3-col s6 m6 l3"><div class="cell">s6 m6 l3</div></div>
+    <div class="w3-col s6 m6 l3"><div class="cell">s6 m6 l3</div></div>
+  </div>
+  <div class="w3-row">
+    <div class="w3-col s1"><div class="cell">s1</div></div><div class="w3-col s2"><div class="cell">s2</div></div><div class="w3-col s3"><div class="cell">s3</div></div><div class="w3-col s6"><div class="cell">s6</div></div>
+  </div>
+  <div class="w3-row">
+    <div class="w3-col m1"><div class="cell">m1</div></div><div class="w3-col m5"><div class="cell">m5</div></div><div class="w3-col m6"><div class="cell">m6</div></div>
+  </div>
+  <div class="w3-row">
+    <div class="w3-col l2"><div class="cell">l2</div></div><div class="w3-col l4"><div class="cell">l4</div></div><div class="w3-col l6"><div class="cell">l6</div></div>
+  </div>
+
+  <h2>w3-rest and fixed-width columns</h2>
+  <div class="w3-row"><div class="w3-col" style="width:150px"><div class="cell">150px</div></div><div class="w3-rest"><div class="cell">w3-rest fills what is left</div></div></div>
+  <div class="w3-row"><div class="w3-half"><div class="cell">w3-half, full width on phones</div></div><div class="w3-rest"><div class="cell">w3-rest drops below on phones</div></div></div>
+
+  <h2>Rows that must stay on floats</h2>
+  <div class="w3-row">
+    <h3>A heading inside a row, then columns</h3>
+    <div class="w3-half"><div class="cell">w3-half</div></div><div class="w3-half"><div class="cell">w3-half</div></div>
+  </div>
+  <div class="w3-row"><a class="w3-button w3-black" href="#top">Inline child</a> and bare text beside it</div>
+  <div class="w3-row"><div class="w3-col s4 w3-right"><div class="cell">first in the source, w3-right</div></div><div class="w3-col s4"><div class="cell">second in the source</div></div></div>
+  <div class="w3-row"><div class="w3-col" style="width:100px"><div class="cell">left</div></div><div class="w3-col" style="width:100px;float:right"><div class="cell">float:right</div></div><div class="w3-rest"><div class="cell">w3-rest in the middle</div></div></div>
+
+  <h2>A wide table in a column</h2>
+  <div class="w3-row">
+    <div class="w3-half"><div class="w3-responsive"><table class="w3-table-all"><tr><th>Very_long_heading_one</th><th>Very_long_heading_two</th><th>Very_long_heading_three</th><th>Very_long_heading_four</th></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table></div></div>
+    <div class="w3-half"><div class="cell">Stays beside the table on wide screens.</div></div>
+  </div>
+
+  <h2>Nav bar with dropdown</h2>
+  <div class="w3-bar w3-black">
+    <a href="#top" class="w3-bar-item w3-button">Home</a>
+    <div class="w3-dropdown-hover">
+      <button class="w3-button">Dropdown</button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#top" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#top" class="w3-bar-item w3-button">Link 2</a>
+      </div>
+    </div>
+    <a href="#top" class="w3-bar-item w3-button w3-right">Right</a>
+  </div>
+
+  <h2>Buttons</h2>
+  <p>
+    <button class="w3-btn w3-blue">w3-btn</button>
+    <button class="w3-button w3-green">w3-button</button>
+    <button class="w3-button w3-red w3-round-large">Round</button>
+    <button class="w3-button w3-amber" disabled>Disabled</button>
+    <span class="w3-badge w3-teal">7</span> <span class="w3-tag w3-indigo">Tag</span>
+  </p>
+
+  <h2>Cards</h2>
+  <div class="w3-row-padding">
+    <div class="w3-third w3-margin-bottom"><div class="w3-card w3-container"><h3>w3-card</h3><p>Text.</p></div></div>
+    <div class="w3-third w3-margin-bottom"><div class="w3-card-4"><header class="w3-container w3-blue-grey"><h3>w3-card-4</h3></header><div class="w3-container"><p>Text.</p></div></div></div>
+    <div class="w3-third w3-margin-bottom"><div class="w3-panel w3-pale-yellow w3-leftbar w3-border-amber"><p>w3-panel</p></div></div>
+  </div>
+
+  <h2>Modal</h2>
+  <button class="w3-button w3-black" type="button" onclick="document.getElementById('demo-modal').style.display='block'">Open modal</button>
+  <div id="demo-modal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal"><h3>w3-modal</h3></header>
+      <div class="w3-container"><p>Modal text.</p><p><button class="w3-button w3-black" type="button" onclick="document.getElementById('demo-modal').style.display='none'">Close</button></p></div>
+    </div>
+  </div>
+
+  <h2>Tooltip and display-hover</h2>
+  <p class="w3-tooltip" tabindex="0">Hover or Tab to me <span class="w3-text w3-tag w3-black">the tooltip</span></p>
+  <div class="w3-display-container w3-light-grey" style="height:120px" tabindex="0">
+    <div class="w3-display-topleft w3-padding">topleft</div>
+    <div class="w3-display-middle w3-display-hover w3-black w3-padding">shown on hover or Tab</div>
+    <div class="w3-display-bottomright w3-padding">bottomright</div>
+  </div>
+
+  <h2>Form fields</h2>
+  <p><input class="w3-input" type="text" aria-label="w3-input" placeholder="w3-input"></p>
+  <p><select class="w3-select" aria-label="w3-select"><option>w3-select, 12px padding</option></select></p>
+
+  <h2>Colors</h2>
+  <p>The seven marked with a star changed from white to black text, because white was below 4.5:1. Backgrounds are unchanged.</p>
+  <div class="w3-row-padding">
+    <div class="w3-col s6 m3 w3-amber w3-padding">amber</div>
+    <div class="w3-col s6 m3 w3-aqua w3-padding">aqua</div>
+    <div class="w3-col s6 m3 w3-blue w3-padding">blue *</div>
+    <div class="w3-col s6 m3 w3-green w3-padding">green *</div>
+    <div class="w3-col s6 m3 w3-deep-orange w3-padding">deep-orange *</div>
+    <div class="w3-col s6 m3 w3-teal w3-padding">teal *</div>
+    <div class="w3-col s6 m3 w3-red w3-padding">red *</div>
+    <div class="w3-col s6 m3 w3-pink w3-padding">pink *</div>
+    <div class="w3-col s6 m3 w3-blue-grey w3-padding">blue-grey *</div>
+    <div class="w3-col s6 m3 w3-indigo w3-padding">indigo</div>
+    <div class="w3-col s6 m3 w3-black w3-padding">black</div>
+    <div class="w3-col s6 m3 w3-light-grey w3-padding">light-grey</div>
+  </div>
+  <p class="w3-text-teal">w3-text-teal, <span class="w3-text-red">w3-text-red</span>, <span class="w3-border w3-border-blue w3-padding-small">w3-border-blue</span></p>
+
+  <h2>New: flex and grid</h2>
+  <div class="w3-grid-3 w3-gap"><div class="cell">w3-grid-3</div><div class="cell">w3-gap</div><div class="cell">cell</div></div>
+  <div class="w3-row w3-row-equal"><div class="w3-half"><div class="cell" style="height:100%">w3-row-equal</div></div><div class="w3-half w3-pale-blue"><p>Taller</p><p>column</p></div></div>
+</main>
+<script>
+  document.querySelectorAll('.w3-row, .w3-row-padding').forEach(function (row) {
+    var note = document.createElement('div');
+    note.className = 'mode';
+    note.textContent = 'This row: ' + (getComputedStyle(row).display === 'flex' ? 'flex' : 'floats');
+    row.parentNode.insertBefore(note, row);
+  });
+</script>
+</body>
+</html>

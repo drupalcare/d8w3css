@@ -21,13 +21,13 @@
 #}
 {% set classes = [
     'admin-list',
-    compact ? 'compact',
+    compact|default(false) ? 'compact',
   ]
 %}
 {% if content %}
   <ul{{ attributes.addClass(classes) }}>
     {% for item in content %}
-      <li><a href="{{ item.url }}"><span class="label">{{ item.title }}</span><div class="description">{{ item.description }}</div></a></li>
+      <li><a href="{{ item.url }}"><span class="label">{{ item.title }}</span><div class="description" data-admin-compact-collapsible>{{ item.description }}</div></a></li>
     {% endfor %}
   </ul>
 {% endif %}

@@ -4,7 +4,8 @@
   display: inline-block;
 }
 
-.ul-parent-account li a {
+.ul-parent-account li a,
+.ul-parent-account li button {
   padding: 7px 14px;
 }
 

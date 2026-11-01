@@ -66,14 +66,18 @@ a,
 #top-container .top-box > div,
 #main-container .main-box > div,
 #footer-container .footer-box>div,
-#bottom-container .bottom-box>div {
+#bottom-container .bottom-box>div,
+#main-container .d8w3css-main-box > div {
   background-color: white;
   color: #19391a;
 }
 
 .main-navigation-wrapper,
 .close-nav,
-.mobile-nav {
+.mobile-nav,
+.d8w3css-main-nav,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle {
   background-color: #4caf50;
   color: white;
 }

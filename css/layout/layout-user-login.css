@@ -1,6 +1,9 @@
 .path-user-register .main-container-inner .w3css-content,
 .path-user-password .main-container-inner .w3css-content,
-.path-user-login .main-container-inner .w3css-content {
+.path-user-login .main-container-inner .w3css-content,
+.path-user-register .d8w3css-main-region__inner .w3css-content,
+.path-user-password .d8w3css-main-region__inner .w3css-content,
+.path-user-login .d8w3css-main-region__inner .w3css-content {
   width: 100% !important;
   max-width: 900px;
   margin: 16px auto !important;
@@ -10,7 +13,10 @@
 
 .path-user-register .main-container-inner nav.tabs > ul.tabs,
 .path-user-password .main-container-inner nav.tabs > ul.tabs,
-.path-user-login .main-container-inner nav.tabs > ul.tabs {
+.path-user-login .main-container-inner nav.tabs > ul.tabs,
+.path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -19,6 +25,9 @@
 
 .path-user-register .main-container-inner nav.tabs > ul.tabs > li,
 .path-user-password .main-container-inner nav.tabs > ul.tabs > li,
-.path-user-login .main-container-inner nav.tabs > ul.tabs > li {
+.path-user-login .main-container-inner nav.tabs > ul.tabs > li,
+.path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs > li {
   flex: 1;
 }

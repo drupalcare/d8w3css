@@ -122,14 +122,14 @@ class HookClassResolutionTest extends TestCase {
     }
 
     $this->assertSame([], $offenders, sprintf(
-      "Theme classes are not container services below Drupal 11.3; use \\Drupal::classResolver() instead. %d offending call(s):\n%s",
+      "Procedural files must not look up the theme's own classes. %d offending call(s):\n%s",
       count($offenders),
       implode("\n", $offenders)
     ));
-    // A scan that matches nothing proves nothing: the theme has 18 wrappers
-    // that resolve its Hook class. A moved file or a broken pattern must go
-    // red.
-    $this->assertGreaterThanOrEqual(18, $resolved, sprintf('Found %d classResolver() wrappers; expected at least 18.', $resolved));
+    // The theme ships no .theme file, so no wrappers may remain. A scan of no
+    // files proves nothing: theme-settings.php and the includes must be seen.
+    $this->assertSame(0, $resolved, 'A procedural wrapper is back; hooks belong in src/Hook.');
+    $this->assertGreaterThanOrEqual(14, count($this->proceduralFiles()));
   }
 
   /**

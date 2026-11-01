@@ -1,4 +1,6 @@
-.ul-parent-footer li a {
+.ul-parent-footer li a,
+.ul-parent-footer li button,
+ul-parent-footer li button {
   padding: 7px 14px;
 }
 
@@ -19,16 +21,19 @@
 }
 
 /* label form in the footer */
-.footer-menu-inner form label {
+.footer-menu-inner form label,
+.d8w3css-footer-menu__inner form label {
   text-align: left;
   float: left;
 }
 
-.social-media a > i:before {
+.social-media a > i:before,
+.d8w3css-social-media a > i:before {
   content: "" !important;
 }
 
-.social-media a > i {
+.social-media a > i,
+.d8w3css-social-media a > i {
   font-family: inherit !important;
   transition: transform .2s;
   width: 30px;
@@ -41,66 +46,96 @@
   filter: grayscale(0.8);
 }
 
-.social-media a > i:hover {
+.social-media a > i:hover,
+.d8w3css-social-media a > i:hover {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
   transform: scale(1.3);
 }
 
-.social-media a > i.fa-facebook {
+.social-media a > i.fa-facebook,
+.d8w3css-social-media a > i.fa-facebook {
   background-image: url(../../images/icons/facebook-circle.svg);
 }
 
-.social-media a > i.fa-twitter {
+.social-media a > i.fa-twitter,
+.d8w3css-social-media a > i.fa-twitter {
   background-image: url(../../images/icons/twitter-circle.svg);
 }
 
-.social-media a > i.fa-pinterest {
+.social-media a > i.fa-pinterest,
+.d8w3css-social-media a > i.fa-pinterest {
   background-image: url(../../images/icons/pinterest-circle.svg);
 }
 
-.social-media a > i.fa-google-plus {
+.social-media a > i.fa-google-plus,
+.d8w3css-social-media a > i.fa-google-plus {
   background-image: url(../../images/icons/google-plus-circle.svg);
 }
 
-.social-media a > i.fa-linkedin {
+.social-media a > i.fa-linkedin,
+.d8w3css-social-media a > i.fa-linkedin {
   background-image: url(../../images/icons/linkedin-circle.svg);
 }
 
-.social-media a > i.fa-instagram {
+.social-media a > i.fa-instagram,
+.d8w3css-social-media a > i.fa-instagram {
   background-image: url(../../images/icons/instagram-circle.svg);
 }
 
-.social-media a > i.fa-youtube {
+.social-media a > i.fa-youtube,
+.d8w3css-social-media a > i.fa-youtube {
   background-image: url(../../images/icons/youtube-circle.svg);
 }
 
-.social-media a > i.fa-drupal {
+.social-media a > i.fa-drupal,
+.d8w3css-social-media a > i.fa-drupal {
   background-image: url(../../images/icons/drupal-circle.svg);
 }
 
-.social-media a > i.fa-mastodon {
+.social-media a > i.fa-mastodon,
+.d8w3css-social-media a > i.fa-mastodon {
   background-image: url(../../images/icons/mastodon-circle.svg);
 }
 
-.social-media a > i.fa-rss {
+.social-media a > i.fa-rss,
+.d8w3css-social-media a > i.fa-rss {
   background-image: url(../../images/icons/rss.svg);
 }
 
-.social-media {
+.social-media,
+.d8w3css-social-media {
   display: flex !important;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.social-media a {
+.social-media a,
+.d8w3css-social-media a {
   display: flex !important;
   align-items: center;
   justify-content: center;
 }
 
-.social-media a > .fa-ext {
+.social-media a > .fa-ext,
+.d8w3css-social-media a > .fa-ext {
   font-weight: normal;
   font-size: 16px;
+}
+
+/* The list lays the links out the way the flex container above used to. */
+.d8w3css-social-media__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.d8w3css-social-media__item {
+  display: flex;
 }

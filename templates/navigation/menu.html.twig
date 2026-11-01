@@ -34,25 +34,25 @@
   {% import _self as menus %}
   {%
     set menu_classes = [
-    'ul-parent ul-parent-' ~ menu_name|clean_class,
+    'ul-parent d8w3css-menu__list ul-parent-' ~ menu_name|clean_class,
   ]
   %}
   {%
     set submenu_classes = [
-    'ul-child ul-child-' ~ menu_name|clean_class,
+    'ul-child d8w3css-menu__submenu ul-child-' ~ menu_name|clean_class,
   ]
   %}
   {% if items %}
   {% if menu_level == 0 %}
-  <ul {{ attributes.addClass(menu_classes).setAttribute("role", "menubar" ).removeAttribute('region') }}>
+  <ul {{ attributes.addClass(menu_classes).removeAttribute('region') }}>
     {% else %}
-  <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes).setAttribute("role", "menu") }}>
+  <ul {{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
   {% endif %}
 
     {% for item in items %}
       {%
         set item_classes = [
-        'li-item li-item-' ~ menu_name|clean_class,
+        'li-item d8w3css-menu__item li-item-' ~ menu_name|clean_class,
         item.is_expanded? 'li-expanded',
         item.is_expanded and menu_level == 0 ? 'li-parent',
         item.in_active_trail ? 'active',
@@ -64,84 +64,81 @@
       {% set class_list = additional_classes is iterable ? additional_classes|join(' ') : additional_classes %}
 
       {% if menu_level == 0 and item.is_expanded %}
-      <li{{ item.attributes.addClass(item_classes) }} role="none">
+      <li{{ item.attributes.addClass(item_classes) }}>
       {% import _self as macros %}
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
 
-        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-parent'] %}
+        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-parent d8w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" role="menuitem" aria-haspopup="true" class="{{ clickable_classes|join(' ') }}"
+          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
             {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
             {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
           </a>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
+          <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over clickable-dropdown-menu-fa-down d8w3css-menu__arrow-toggle">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
           </span>
         {% else %}
-        {% set non_clickable_classes = ['w3-button link-disabled tMenu toggle-parent'] %}
+        {% set non_clickable_classes = ['w3-button link-disabled tMenu d8w3css-menu__link-toggle toggle-parent d8w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="#" role="menuitem" aria-haspopup="true" class="{{ non_clickable_classes|join(' ') }}"
-            {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
-            {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
-            <span class="dropdown-arrow">
+          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
+            {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
+            <span class="dropdown-arrow d8w3css-menu__arrow">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
             </span>
-          </a>
+          </button>
         {% endif %}
       {% elseif menu_level != 0 and item.is_expanded %}
-      <li{{ item.attributes.addClass(item_classes) }} role="none">
+      <li{{ item.attributes.addClass(item_classes) }}>
       {% import _self as macros %}
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
-        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-child'] %}
+        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-child d8w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" role="menuitem" aria-haspopup="true" class="{{ clickable_classes|join(' ') }}"
+          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
             {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
             {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
           </a>
-          <span class="right-arrow w3-hover-over clickable-dropdown-menu-fa-right">
+          <span class="right-arrow d8w3css-menu__right-arrow w3-hover-over clickable-dropdown-menu-fa-right">
             {{ macros.svg_icon('M9 18l6-6-6-6') }}{# right arrow #}
           </span>
-          <span class="dropdown-arrow w3-hover-over clickable-dropdown-menu-fa-down">
+          <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over clickable-dropdown-menu-fa-down d8w3css-menu__arrow-toggle">
             {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
           </span>
         {% else %}
-        {% set non_clickable_classes = ['w3-button link-disabled tMenu toggle-child'] %}
+        {% set non_clickable_classes = ['w3-button link-disabled tMenu d8w3css-menu__link-toggle toggle-child d8w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="#" role="menuitem" aria-haspopup="true" class="{{ non_clickable_classes|join(' ') }}"
-            {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
-            {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
-            <span class="right-arrow w3-hover-over">
+          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
+            {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
+            <span class="right-arrow d8w3css-menu__right-arrow w3-hover-over">
               {{ macros.svg_icon('M9 18l6-6-6-6') }}{# right arrow #}
             </span>
-            <span class="dropdown-arrow w3-hover-over">
+            <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over">
               {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
             </span>
-          </a>
+          </button>
         {% endif %}
 
       {% else %}{# if it is not expanded #}
         {%
           set link_classes = [
-          'w3-button li-link li-link-' ~ menu_name|clean_class,
+          'w3-button li-link d8w3css-menu__link li-link-' ~ menu_name|clean_class,
         ]
         %}
-        <li{{ item.attributes.addClass(item_classes) }} role="none">
+        <li{{ item.attributes.addClass(item_classes) }}>
         {{
         link(
           item.title,
           item.url,
-          item.attributes.removeClass(item_classes).addClass(link_classes),
-          item.attributes.setAttribute("role", "menuitem")
+          item.attributes.removeClass(item_classes).addClass(link_classes)
         )
         }}
       {% endif %}

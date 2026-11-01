@@ -28,11 +28,11 @@
  *   See http://juicystudio.com/article/screen-readers-display-none.php and
  *   http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
  *
- * @see template_preprocess_links()
+ * @see \Drupal\Core\Theme\ThemePreprocess::preprocessLinks()
  *
  * @ingroup themeable
  */
 #}
 {% if links %}
-    {% include "links.html.twig" %}
+    {{ include('links.html.twig') }}
 {% endif %}

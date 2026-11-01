@@ -5,3 +5,7 @@ d8w3css-subtheme-global:
 
   js:
     js/d8w3css-subtheme-script.js: {}
+
+  dependencies:
+    - core/drupal
+    - core/once

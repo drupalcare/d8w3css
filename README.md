@@ -89,7 +89,7 @@ filled.)
 ) W3CSS Theme comes with Font Awesome 4.7.0, 5.15.4 or 6.1.1 optional you can
 enable them in theme settings.
 
-) W3CSS Theme comes with jQuery match height. Example: If you have three blocks
+) W3CSS Theme comes with match height. Example: If you have three blocks
  in the top area, they will always have matching height on the large screen
  size. The script was removed and it uses CSS Flexbox.
 
@@ -314,9 +314,12 @@ sub-theme is w3css_subtheme.  I will rename the folder from
 
 3) Open the new named sub-theme folder "w3css_subtheme" and change the following
  files' names from:
-drupal8_w3css_subtheme.theme >> To >> w3css_subtheme.theme
 drupal8_w3css_subtheme.info.yml >> To >> w3css_subtheme.info.yml
 drupal8_w3css_subtheme.libraries.yml >> To >> w3css_subtheme.libraries.yml
+
+A sub-theme has no .theme file. Put hooks in a class at
+src/Hook/W3cssSubthemeHooks.php, namespace Drupal\w3css_subtheme\Hook, with a
+#[Hook('preprocess_page')] attribute on each method.
 
 4) Open the file w3css_subtheme.info.yml in your text editor and edit the
 following:

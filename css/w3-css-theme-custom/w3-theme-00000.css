@@ -39,7 +39,10 @@ textarea {
 .main-navigation-wrapper,
 #top-container .top-box > div,
 #footer-container .footer-box>div,
-#bottom-container-inner .bottom-box>div {
+#bottom-container-inner .bottom-box>div,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   background-color: white;
   color: #637381;
 }

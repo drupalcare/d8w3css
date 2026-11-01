@@ -1,4 +1,5 @@
-.main-container-inner {
+.main-container-inner,
+.d8w3css-main-region__inner {
   color: #131937;
 }
 
@@ -7,7 +8,8 @@
   color: #eaecf8;
 }
 
-#main-container .main-box > div {
+#main-container .main-box > div,
+#main-container .d8w3css-main-box > div {
   background-color: #eaecf8;
 }
 
@@ -78,7 +80,9 @@
 
 .w3-theme,
 .close-nav,
-.mobile-nav {
+.mobile-nav,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle {
   color: #f7f7fc !important;
   background-color: #3f51b5 !important;
 }

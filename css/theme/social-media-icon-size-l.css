@@ -1,4 +1,5 @@
-.social-media a > i {
+.social-media a > i,
+.d8w3css-social-media a > i {
   background-size: 65px;
   width: 65px;
   height: 65px;

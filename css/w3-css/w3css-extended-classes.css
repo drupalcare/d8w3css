@@ -351,21 +351,21 @@ ol {
 .w3-button-red button,
 .w3-link-hover-red a:hover,
 .w3-button-hover-red button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #f44336 !important;
 }
 
 .w3-button-green button,
 .w3-link-hover-green a:hover,
 .w3-button-hover-green button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #4caf50 !important;
 }
 
 .w3-button-blue button,
 .w3-link-hover-blue a:hover,
 .w3-button-hover-blue button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #2196f3 !important;
 }
 
@@ -463,14 +463,14 @@ ol {
 .w3-button-deep-orange button,
 .w3-link-hover-deep-orange a:hover,
 .w3-button-hover-deep-orange button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #ff5722 !important;
 }
 
 .w3-button-pink button,
 .w3-link-hover-pink a:hover,
 .w3-button-hover-pink button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #e91e63 !important;
 }
 
@@ -498,7 +498,7 @@ ol {
 .w3-button-teal button,
 .w3-link-hover-teal a:hover,
 .w3-button-hover-teal button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #009688 !important;
 }
 
@@ -517,7 +517,7 @@ ol {
 .w3-link-hover-blue-grey a:hover,
 .w3-button-hover-blue-gray button:hover,
 .w3-button-hover-blue-grey button:hover {
-  color: #fff !important;
+  color: #000!important;
   background-color: #607d8b !important;
 }
 

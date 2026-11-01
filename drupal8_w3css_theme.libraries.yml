@@ -1,13 +1,13 @@
 w3-css:
   remote: https://www.w3schools.com/w3css/
-  version: 4.13
+  version: 4.15-modern
   license:
     name: MIT
     url: https://www.w3schools.com/w3css/w3css_downloads.asp
     gpl-compatible: true
   css:
     base:
-      css/w3-css/w3.css: { weight: -11 }
+      css/w3-css/w3-modern.css: { weight: -11 }
       css/w3-css/w3css-extended-classes.css: { weight: -10 }
       css/w3-css/w3css-color-libraries-camouflage.css: { }
       css/w3-css/w3css-color-libraries-european-signal.css: { }
@@ -71,10 +71,7 @@ d8w3css-global-styling:
   js:
     js/custom.js: { }
   dependencies:
-    - core/jquery
-    - core/drupal.ajax
     - core/drupal
-    - core/drupalSettings
     - core/once
 
 # Full Opacity on Scroll.
@@ -84,7 +81,6 @@ d8w3css-full-opacity:
   js:
     js/full.opacity.on.scroll.js: { }
   dependencies:
-    - core/jquery
     - core/drupal
     - core/once
 
@@ -127,7 +123,7 @@ font-awesome-4-ex:
     base:
       https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css: { type: external, minified: true }
 font-awesome-4-in:
-  Version: 4.7.0
+  version: 4.7.0
   css:
     base:
       fonts/font-awesome.4.7.0.css: { }

@@ -70,7 +70,10 @@ h6 a {
 #copyright,
 .close-nav,
 .mobile-nav,
-.main-navigation-wrapper {
+.main-navigation-wrapper,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   color: white !important;
 }
 
@@ -95,7 +98,8 @@ h6 a {
 #top-container .top-box>div,
 #footer-container .footer-box>div,
 #main-container .main-box > div,
-#bottom-container .bottom-box>div {
+#bottom-container .bottom-box>div,
+#main-container .d8w3css-main-box > div {
   background-color: #fff;
 }
 
@@ -116,7 +120,10 @@ h6 a {
 
 .close-nav,
 .mobile-nav,
-.main-navigation-wrapper {
+.main-navigation-wrapper,
+.d8w3css-main-nav__close,
+.d8w3css-mobile-nav__toggle,
+.d8w3css-main-nav {
   background-color: #00cbf6;
 }
 

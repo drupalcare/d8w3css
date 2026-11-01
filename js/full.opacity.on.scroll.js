@@ -1,63 +1,71 @@
 /**
  * @file
- * Defines Javascript behaviors for the W3CSS Theme.
+ * Fades content in as it scrolls into view.
  */
 
-(function (Drupal, $, once) {
+(function (Drupal, once) {
   'use strict';
-
-  let scrollOn = false;
 
   /**
    * Fade animation on scroll.
    */
   const fadeBox = function () {
-    scrollOn = true;
-    const animationHeight = $(window).innerHeight() * 0.25;
-    const ratio = Math.round((1 / animationHeight) * 10000) / 10000;
+    const elements = document.querySelectorAll('.d8w3css-fade');
 
-    $('.d8-fade').each(function () {
-      const objectTop = $(this).offset().top;
-      const windowBottom = $(window).scrollTop() + $(window).innerHeight();
+    // Reduced motion: the content is simply visible, with no fading.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach(function (element) {
+        element.style.transition = 'none';
+        element.style.opacity = 1;
+      });
+      return;
+    }
+
+    const windowHeight = document.documentElement.clientHeight;
+    const animationHeight = windowHeight * 0.25;
+    const ratio = Math.round((1 / animationHeight) * 10000) / 10000;
+    const windowBottom = window.scrollY + windowHeight;
+
+    elements.forEach(function (element) {
+      // An element with no box counts as being at the top of the page.
+      const objectTop = element.getClientRects().length ? element.getBoundingClientRect().top + window.scrollY : 0;
 
       if (objectTop < windowBottom) {
         if (objectTop < windowBottom - animationHeight) {
-          $(this).css({
-            transition: 'opacity 1s linear',
-            opacity: 1
-          });
+          element.style.transition = 'opacity 1s linear';
+          element.style.opacity = 1;
         }
         else {
-          $(this).css({
-            transition: 'opacity 0.5s linear',
-            opacity: (windowBottom - objectTop) * ratio
-          });
+          element.style.transition = 'opacity 0.5s linear';
+          element.style.opacity = (windowBottom - objectTop) * ratio;
         }
       }
       else {
-        $(this).css('opacity', 0);
+        element.style.opacity = 0;
       }
     });
   };
-
-  setInterval(function () {
-    if (scrollOn) {
-      scrollOn = false;
-    }
-  }, 100);
 
   /**
    * Full opacity on scroll behavior.
    */
   Drupal.behaviors.d8w3cssFullOpacity = {
-    attach: function (context, settings) {
+    attach: function (context) {
       // Disable show on scroll if layout builder is active.
-      if (!document.getElementById("layout-builder")) {
-        $(once('body', '.d8-fade', context)).css('opacity', 0);
+      if (!document.getElementById('layout-builder')) {
+        // Templates copied into a sub-theme or site still print only d8-fade.
+        context.querySelectorAll('.d8-fade').forEach(function (element) {
+          element.classList.add('d8w3css-fade');
+        });
+        once('d8w3css-fade', '.d8w3css-fade', context).forEach(function (element) {
+          element.style.opacity = 0;
+        });
         fadeBox();
-        window.addEventListener('scroll', fadeBox);
+        once('d8w3css-fade-scroll', 'html').forEach(function () {
+          window.addEventListener('scroll', fadeBox);
+        });
       }
     }
   };
 
-})(Drupal, jQuery, once);
+})(Drupal, once);
