@@ -31,12 +31,12 @@ GETTING STARTED:
    Development > Performance.
 
 2. Set it as the default theme.
-   Go to /admin/appearance and scroll to "W3CSS Theme V2". Click "Install and
+   Go to /admin/appearance and scroll to "W3CSS Theme". Click "Install and
    set as default". Open the front page and check that the site now uses the
    theme.
 
 3. Place your blocks.
-   Go to /admin/structure/block and open the "W3CSS Theme V2" tab. The theme
+   Go to /admin/structure/block and open the "W3CSS Theme" tab. The theme
    prints a region only when it holds a block, so an empty region leaves no
    gap. A good first set:
    - "Site branding" in "Header".
@@ -173,18 +173,18 @@ w3-width-1360, w3-width-1280, w3-width-1024 and w3-width-800).
 ) W3CSS Theme comes with horizontal main menu or vertical side nav. Simply add
  the main menu to the horizontal region or the vertical region.
 
-) W3CSS Theme V2 comes with 101 fonts. 50 fonts can be applied to the global
+) W3CSS Theme comes with 101 fonts. 50 fonts can be applied to the global
 site, 26 fonts for heading (H1, H2 and H3 and 25 special fonts can be applied
 to any html tag. Any uploaded font has a CSS class can be applied to any html
 tag.
 
-) W3CSS Theme V2 comes with 24 CSS text animation effects. can be applied to
+) W3CSS Theme comes with 24 CSS text animation effects. can be applied to
 site name, page title or use the css class to apply it to any html tag.
 
-) W3CSS Theme V2 comes with a custom page layout for user login/register/reset
+) W3CSS Theme comes with a custom page layout for user login/register/reset
 password.
 
-) W3CSS Theme V2 comes with a custom border animation for top regions, bottom
+) W3CSS Theme comes with a custom border animation for top regions, bottom
 regions and footer regions..
 
 ) W3CSS Theme comes with over 50 predefined color themes. Simply insert the
@@ -196,7 +196,7 @@ and apply it to your site.
 ) W3CSS Theme V1 comes with 6 color libraries. (US Highway, US Safety,
 Camouflage, Vivid, European Signal and Food).
 
-) W3CSS Theme V2 comes with 11 color libraries. (Camouflage, European Signal,
+) W3CSS Theme comes with 11 color libraries. (Camouflage, European Signal,
 Fashion, Flat UI, Food, IOS, Metro UI, US highway, US Safety, Vivid and Win8).
 You can create unlimited color themes.
 
@@ -299,7 +299,7 @@ should see two blocks User account menu and Site branding. Click on configure
 for Site branding and check the check box for Site Slogan.
 
 
-  * CSS Text Animation Effects Classes | W3CSS Theme V2
+  * CSS Text Animation Effects Classes | W3CSS Theme
   ...........................
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
 open "Animation and Effects", then the "Text Animation" tab. You can choose the
@@ -308,14 +308,14 @@ animation effect classes that you can use with any html tag.
 
 
 
-  * How to enable/disable region border animation? | W3CSS Theme V2
+  * How to enable/disable region border animation? | W3CSS Theme
   ...........................
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
 open "Animation and Effects", then the "Border Animation" tab. There is a
 checkbox to enable/disable the border animation for top regions, bottom
 regions and footer regions.
 
-  * How to expand multi items field to 100%? | W3CSS Theme V2
+  * How to expand multi items field to 100%? | W3CSS Theme
   ...........................
 By default, any drupal field with multiple items (like taxonomy, file, user
 etc. ) will display those items in one line. If you want to change that, go to
@@ -338,7 +338,7 @@ open "Global Site Settings", then the "Website's Width" tab. Choose the width
 from the list ("Choose the desired website's width") and click save.
 
 
-  * How to change website font or heading font? | W3CSS Theme V2
+  * How to change website font or heading font? | W3CSS Theme
   .............................
 
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
