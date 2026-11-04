@@ -11,14 +11,25 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  * One section of the theme settings form.
  *
  * Built and thrown away inside the form alter, so nothing here is serialized
- * with the form.
+ * with the form. Each field sets #parents to its nested settings key, and its
+ * form key is that key with the dots replaced. Nothing on the form sets #tree.
  */
 abstract class SettingsSection {
   use StringTranslationTrait;
 
-  public function __construct(
-    protected readonly ThemeSettingsProvider $themeSettings,
-  ) {}
+  /**
+   * The property of a section that holds its short hint, for the navigation.
+   */
+  public const HINT = '#d8w3css_hint';
+
+  /**
+   * Reads the settings by their new names; a plain class, not a service.
+   */
+  protected readonly SettingsReader $settings;
+
+  public function __construct(ThemeSettingsProvider $themeSettings) {
+    $this->settings = new SettingsReader($themeSettings);
+  }
 
   /**
    * Adds this section's elements to the theme settings form.

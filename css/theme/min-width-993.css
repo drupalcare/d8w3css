@@ -1,90 +1,125 @@
 @media (min-width:993px) {
 
   /* node edit */
-  .path-node .layout-node-form {
+  .path-node .layout-node-form , .path-node .w3css-layout-node-form{
     display: flex;
     flex-wrap: wrap;
   }
 
-  .layout-region-node-secondary {
+  .layout-region-node-secondary , .w3css-layout-region-node-secondary{
     -webkit-box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.1);
     box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.2);
     width: 29%;
     margin: 20px 0 20px 1%;
   }
 
-  .layout-region-node-main {
+  .layout-region-node-main , .w3css-layout-region-node-main{
     -webkit-box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.1);
     box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.2);
     width: 69%;
     margin: 20px 1% 20px 0;
   }
 
-  .layout-region-node-footer {
+  .layout-region-node-footer , .w3css-layout-region-node-footer{
     margin-top: 0;
     flex: 0 0 100%;
   }
 
-  #main-container-inner .breadcrumb-found,
-  #main-container-inner .d8w3css-main-box--breadcrumb-found {
+  #w3css-main-region-inner .w3css-main-box--breadcrumb-found {
     margin-top: 0 !important;
   }
 
-  .highlighted-inner {
+  .w3css-highlighted__inner{
     padding: 0 20px;
   }
 
-  li.li-expanded > span {
-    pointer-events: none;
+  /* With a mouse the row is the link, so hovering the arrow hovers the link. */
+  @media (hover: hover) {
+    li.w3css-menu__item--expanded > span{
+      pointer-events: none;
+    }
   }
 
   /* Main Menu */
-  .ul-parent li > a,
-  .d8w3css-menu__list li > a,
-  .ul-parent li > button,
-  .d8w3css-menu__list li > button {
+  .w3css-menu__list li > a,
+  .w3css-menu__list li > button {
     padding: 12px 16px;
   }
 
-  .d8w3css-menu__list li li > a,
-  .d8w3css-menu__list li li > button {
+  .w3css-menu__list li li > a,
+  .w3css-menu__list li li > button {
     padding: 10px 14px;
   }
 
   /* Global Menus */
-  .ul-parent .ul-child,
-  .d8w3css-menu__list .d8w3css-menu__submenu {
+  .w3css-menu__list .w3css-menu__submenu {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 
-  .d8w3css-menu__list li .li-expanded:hover ul {
-    left: 100%;
-    top: 0;
+  /* Not only on hover: a submenu opened from the keyboard sits here too. */
+  .w3css-menu__list li li > ul {
+    inset-inline-start: 100%;
+    inset-block-start: var(--w3css-submenu-shift, 0px);
   }
 
-  .d8w3css-menu__list li ul {
+  /* custom.js sets this when the submenu would leave the screen. */
+  .w3css-menu__list > li.w3css-is-flipped > ul {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+  }
+
+  .w3css-menu__list li li.w3css-is-flipped > ul {
+    inset-inline-start: auto;
+    inset-inline-end: 100%;
+  }
+
+  .w3css-menu__list li ul {
     position: absolute;
   }
 
-  .d8w3css-menu__list .li-expanded:hover > ul,
-  .d8w3css-menu__list .li-expanded .li-expanded:hover > ul {
+  /* custom.js sets these when a flyout is too long for the room below it. */
+  .w3css-menu__list .w3css-is-scrollable {
+    max-block-size: var(--w3css-submenu-max, 100vh);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* Inside a scrolling list only this keeps a nested flyout from being clipped. */
+  .w3css-menu__list .w3css-is-detached {
+    position: fixed;
+  }
+
+  .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+  .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul{
     z-index: 1;
     display: block;
     animation: comeout 0.3s;
   }
 
-  .li-1 .d8w3css-menu__arrow {
-    display: none;
+  /* A nested arrow turns toward the side its submenu opens on. */
+  .w3css-menu__list li li.w3css-menu__item--expanded {
+    --w3css-arrow-open: rotate(-90deg);
   }
 
-  .li-1 .right-arrow,
-  .li-1 .d8w3css-menu__right-arrow {
-    display: flex;
+  .w3css-menu__list li li.w3css-is-flipped,
+  [dir="rtl"] .w3css-menu__list li li.w3css-menu__item--expanded {
+    --w3css-arrow-open: rotate(90deg);
   }
 
-  li.li-expanded > span,
-  li.li-expanded > a > span,
-  li.li-expanded > button > span {
+  [dir="rtl"] .w3css-menu__list li li.w3css-is-flipped {
+    --w3css-arrow-open: rotate(-90deg);
+  }
+
+  /* The vertical menus open in the flow at every depth. */
+  #w3css-main-nav-vertical .w3css-menu__list li li.w3css-menu__item--expanded,
+  .w3css-vertical-nav .w3css-menu__list li li.w3css-menu__item--expanded {
+    --w3css-arrow-open: rotate(180deg);
+  }
+
+  li.w3css-menu__item--expanded > span,
+  li.w3css-menu__item--expanded > a > span,
+  li.w3css-menu__item--expanded > button > span{
     align-items: center;
     height: 100%;
   }

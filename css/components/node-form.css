@@ -1,17 +1,17 @@
-details.form-wrapper::after {
+details.form-wrapper::after , details.w3css-form-wrapper::after{
   content: "";
   clear: both;
   display: table;
 }
 
-details.form-wrapper {
+details.form-wrapper , details.w3css-form-wrapper{
   padding: 0 !important;
   margin-bottom: 8px !important;
   line-height: inherit;
   color: inherit;
 }
 
-details.form-wrapper > summary {
+details.form-wrapper > summary , details.w3css-form-wrapper > summary{
   cursor: pointer;
   padding: 8px 16px;
 }
@@ -68,7 +68,7 @@ form .field-multiple-drag {
   width: 50px;
 }
 
-form div.form-type-datelist.w3-section.form-item {
+form div.form-type-datelist.w3-section.form-item , form div.form-type-datelist.w3-section.w3css-form-item{
   width: auto;
   clear: none;
 }
@@ -117,6 +117,7 @@ form .form-type-webform-time input {
 }
 
 form .form-item-range > span.field-suffix,
+form .form-item-range > span.w3css-field-suffix,
 form .form-item-range .form-item-range__output {
   display: block;
   float: left;
@@ -142,7 +143,7 @@ form select {
   min-width: 75px;
 }
 
-.messages.messages--info {
+.messages.messages--info , .w3css-messages.messages--info{
   background-position: 2px  17px;
 }
 
@@ -154,11 +155,11 @@ form select {
   padding-bottom: 0;
 }
 
-form .form-item {
+form .form-item , form .w3css-form-item{
   text-align: left;
 }
 
-fieldset.form-item > .fieldset-wrapper {
+fieldset.form-item > .fieldset-wrapper , fieldset.w3css-form-item > .w3css-fieldset-wrapper{
   padding: 0;
 }
 
@@ -167,7 +168,7 @@ fieldset.form-item > .fieldset-wrapper {
   max-width: 40px;
 }
 
-form .form-item label {
+form .form-item label , form .w3css-form-item label{
   padding-right: 10px;
 }
 
@@ -259,7 +260,7 @@ div.node-preview-container .form-item-view-mode select {
   min-width: 130px;
 }
 
-.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button {
+.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button , .ui-dialog .ui-widget-content.ui-dialog-buttonpane .w3css-button{
   margin: 10px auto;
 }
 

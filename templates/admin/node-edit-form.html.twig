@@ -16,15 +16,15 @@
  */
 #}
 {{ attach_library('drupal8_w3css_theme/d8w3css-node-edit-form') }}
-<div class="layout-node-form w3-row">
-  <div class="layout-region layout-region-node-main w3-row w3-padding">
+<div class="layout-node-form w3css-layout-node-form w3-row">
+  <div class="layout-region layout-region-node-main w3css-layout-region-node-main w3-row w3-padding">
     {{ form|without('advanced', 'footer', 'actions') }}
   </div>
-  <div class="layout-region layout-region-node-secondary w3-row w3-padding">
+  <div class="layout-region layout-region-node-secondary w3css-layout-region-node-secondary w3-row w3-padding">
     {{ form.advanced }}
   </div>
-  <div class="layout-region layout-region-node-footer w3-row w3-padding">
-    <div class="layout-region-node-footer__content">
+  <div class="layout-region layout-region-node-footer w3css-layout-region-node-footer w3-row w3-padding">
+    <div class="w3css-layout-region-node-footer__content">
       {{ form.footer }}
       {{ form.actions }}
     </div>

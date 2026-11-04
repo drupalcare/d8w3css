@@ -8,7 +8,7 @@ you have the power to create unlimited UI design by using the W3CSS Paragraphs.
 - Uses standard CSS only (No jQuery or JavaScript library).
 - Speeds up and simplifies web development.
 - Supports modern responsive design (mobile first) by default.
-- Provides CSS equality for all browsers. Chrome, Firefox, IE, Safari, and more.
+- Provides CSS equality for all modern browsers. Chrome, Firefox, Safari, and more.
 - Provides CSS equality for all devices. PC, laptop, tablet, and mobile.
 - Learn more about W3.CSS https://www.w3schools.com/w3css/
 
@@ -16,37 +16,122 @@ you have the power to create unlimited UI design by using the W3CSS Paragraphs.
 REQUIREMENTS:
 --------------------------------------------------------------------------------
 
-This theme does not require any moduels to be installed.
+- Drupal 11.3 or later, or Drupal 12.
+- No modules are required, and no base theme.
 
 
-INSTALLATION:
+GETTING STARTED:
 --------------------------------------------------------------------------------
 
-Download the theme to your-drupal-site-name/themes/ and go to
-your-site-domain/admin/appearance and scroll to the bottom until you see W3CSS
-Theme and click on Install and set as default and click save.
+1. Install the theme.
+   With Composer, from your project folder: composer require drupal/d8w3css
+   Without Composer, download the theme and unpack it into
+   your-drupal-site-name/themes/contrib/ (or themes/). The folder name is
+   drupal8_w3css_theme. Run drush cr, or clear caches at Configuration >
+   Development > Performance.
+
+2. Set it as the default theme.
+   Go to /admin/appearance and scroll to "W3CSS Theme V2". Click "Install and
+   set as default". Open the front page and check that the site now uses the
+   theme.
+
+3. Place your blocks.
+   Go to /admin/structure/block and open the "W3CSS Theme V2" tab. The theme
+   prints a region only when it holds a block, so an empty region leaves no
+   gap. A good first set:
+   - "Site branding" in "Header".
+   - "Main navigation" in "Primary Menu" for a horizontal menu, or in "Primary
+     Menu Vertical" for a side menu that slides in. You can use both.
+   - "Page title" in "Page Title". The block is disabled by default: click
+     "Enable".
+   - Your own blocks in "Left Sidebar", "Content" and "Right Sidebar".
+   The Top, Bottom and Welcome Text regions show on the front page only. Page
+   Title does not show on the front page.
+
+4. Open the theme settings.
+   Go to /admin/appearance/settings/drupal8_w3css_theme. Settings has a
+   navigation list with three groups: Site-wide, Colors, and Footer and social.
+   Choose a name to jump to its section.
+
+5. Set these first.
+   - Colors > "Predefined Color Themes": choose a color theme by its picture.
+   - Site-wide > "Global Site Settings": website width, main columns, login
+     page layout, breadcrumb.
+   - Site-wide > "Libraries and Fonts": site font, heading font, Font Awesome.
+   - Footer and social > "Copyright and Credit": replace the sample copyright
+     text ("Company Name") or the credit link if you do not want them.
+   - Footer and social > "Social Media Links": the links that ship in the theme
+     point to the maintainer's accounts. Replace them with yours, or turn off
+     "Show Social Icons".
+   Click "Save configuration" at the bottom of the page.
+
+6. Check that it works.
+   - The front page shows your header, menu and blocks, and the colors you
+     chose.
+   - Make the browser window narrower than 993 pixels. The horizontal menu
+     collapses into a button. Click it to open the menu. A vertical menu shows
+     a button in the header that opens the side menu, and a close button inside
+     it.
+   - Open the login page (/user/login) and the settings page again. Both should
+     show without errors.
+   - If a change does not show, clear caches and reload.
+
+
+WHAT CHANGED IN 3.0:
+--------------------------------------------------------------------------------
+
+- Needs Drupal 11.3 or later, or Drupal 12.
+- No jQuery. The theme's script is plain JavaScript.
+- No .theme file and no theme-settings.php. The theme's hooks and the settings
+  form sections are classes in src/.
+- Semantic markup: landmarks, labeled regions, buttons for the menu toggles,
+  and one heading structure.
+- The theme's own classes and ids now use BEM names that start with w3css-
+  (w3css-main-nav__close, for example). W3.CSS library classes (w3-*) are
+  unchanged. The old class names stay on the markup, so existing sub-theme CSS
+  keeps working for now.
+- The settings page has a new layout: a navigation list, one section at a time,
+  and color themes shown as pictures.
+- The settings keys were renamed. Run drush updb after updating.
+- Moving your own CSS, templates and stored configuration to the new class
+  names: see docs/CLASS-MIGRATION.md. It has the old and new names side by side
+  and a Drush script that does the renaming for you.
+
+The details for an existing site are in the next section.
 
 
 UPGRADING FROM 2.0.x TO 3.0:
 --------------------------------------------------------------------------------
 
-Back up the site, update the theme, then rebuild caches (drush cr or
-Configuration > Development > Performance). The theme has new hook classes, and
-Drupal finds them only after a cache rebuild.
+Back up the site, update the theme, then run the database updates and rebuild
+caches: drush updb, then drush cr (or /update.php, then Configuration >
+Development > Performance). The theme has new hook classes, and Drupal finds
+them only after a cache rebuild. The update renames the stored settings (see
+the second bullet); afterward export the configuration (drush cex) and commit
+it, so other environments get the new names instead of the old ones.
 
 - Needs Drupal 11.3 or later, or Drupal 12. Drupal 9, 10 and 11.0 to 11.2 stay
   on 2.0.x.
-- The machine name, setting keys, regions and library names are unchanged, so
-  saved settings and block placement need no migration.
+- The machine name, regions and library names are unchanged, so block placement
+  needs no change. The setting keys are renamed: a flat key such as
+  color_page_wrapper is now region_colors.page_wrapper, and current_theme is
+  color_scheme.predefined. The post-update (drupal8_w3css_theme_post_update_
+  rename_settings, run by drush updb) moves every stored value to its new name
+  in this theme and in each installed sub-theme, and keeps a backup of the old
+  configuration. The full list of old and new names is the MAP constant in
+  src/Upgrade/SettingsMap.php. Saving the settings form also moves any key the
+  update left behind. Overrides of old keys in settings.php or a module, and
+  code that reads an old key (theme_get_setting('color_header'), for example),
+  are reported by the update but not changed: edit them by hand.
 - The theme ships no .theme file, no theme-settings.php and no includes/
-  folder. Its hooks and the 13 settings sections are classes in src/. A
+  folder. Its hooks and the 12 settings sections are classes in src/. A
   sub-theme or site code that called a drupal8_w3css_theme_* function must move
   to a hook class (see the sub-theme steps below).
 - jQuery is gone from the theme. A script of yours that uses jQuery must declare
   core/jquery in its own library. The one exception is the status report page,
   which still loads it through core/drupal.collapse when this is the admin theme.
 - Menus, regions and several components gained BEM class names that start with
-  d8w3css- . The old class names stay on the markup, so sub-theme CSS written
+  w3css- . The old class names stay on the markup, so sub-theme CSS written
   against them keeps working. A copied page or menu template that prints only
   the old names still works: the theme's script adds the new name to those
   elements when the page loads.
@@ -68,12 +153,17 @@ FEATURES:
 --------------------------------------------------------------------------------
 ) W3CSS Theme is using the modern W3.CSS framework with built-in responsiveness
 
-) W3CSS Theme has 22 regions. Check README.txt for more details.
+) W3CSS Theme has 22 regions. See the list in drupal8_w3css_theme.info.yml.
 
-) W3CSS Theme has 26 sections. In the theme settings under Advanced Site Colors
- you have 26 fields for CSS customization.(Background Colors - Background Hover
- Colors - Text Colors - Text Hover Colors - Link Text Colors - Link Text Hover
- Colors - Link Background Colors - Button Colors - Button Hover Colors).
+) W3CSS Theme has 12 settings sections, listed in the navigation on the left of
+ the theme settings: Global Site Settings, Animation and Effects, Libraries and
+ Fonts, Logo, Favicon, Theme settings (Logo, Favicon and Theme settings are
+ Drupal's own), Predefined Color Themes, Region fields, Blueprint, CSS classes,
+ Social Media Links, and Copyright and Credit. Under Colors, Region fields has
+ 26 fields, in 5 groups, for your CSS classes. CSS classes lists the W3.CSS color
+ classes you can type into them, in 9 kinds (Background, Background hover, Text,
+ Text hover, Link text, Link background, Link background hover, Button, Button
+ hover).
 
 ) W3CSS Theme comes with ability to change the website width. Just insert any
 of the predefined classes into website width in theme settings.
@@ -123,8 +213,8 @@ filled.)
 total space in the footer region will be divided by the number of regions you
 filled.)
 
-) W3CSS Theme comes with Font Awesome 4.7.0, 5.15.4 or 6.1.1 optional you can
-enable them in theme settings.
+) W3CSS Theme comes with Font Awesome 4.7.0, 5.15.4 or 6.1.1. It is off by
+default; you can enable it in theme settings, under Libraries and Fonts.
 
 ) W3CSS Theme comes with match height. Example: If you have three blocks
  in the top area, they will always have matching height on the large screen
@@ -212,8 +302,8 @@ for Site branding and check the check box for Site Slogan.
   * CSS Text Animation Effects Classes | W3CSS Theme V2
   ...........................
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on CSS TEXT ANIMATION EFFECTS - W3CSS THEME to expand it. You can choose
-the animation for the site name or page title. Also you will see the css text
+open "Animation and Effects", then the "Text Animation" tab. You can choose the
+animation for the site name or page title. The tab also lists the CSS text
 animation effect classes that you can use with any html tag.
 
 
@@ -221,7 +311,7 @@ animation effect classes that you can use with any html tag.
   * How to enable/disable region border animation? | W3CSS Theme V2
   ...........................
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on ENABLE BORDER ANIMATION - W3CSS THEME to expand it. There is a
+open "Animation and Effects", then the "Border Animation" tab. There is a
 checkbox to enable/disable the border animation for top regions, bottom
 regions and footer regions.
 
@@ -229,9 +319,9 @@ regions and footer regions.
   ...........................
 By default, any drupal field with multiple items (like taxonomy, file, user
 etc. ) will display those items in one line. If you want to change that, go to
-your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and click
-on ADVANCED SITE COLORS - W3CSS THEME to expand it then add w3-expand-fields
-to Page Wrapper field.
+your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme, open
+"Region fields" under Colors, then add w3-expand-fields to the "Page Wrapper"
+field.
 
   * How to change the favicon
   ...........................
@@ -243,18 +333,16 @@ and click save.
   * How to change website width
   .............................
 
-In W3CSS Theme V2 was changed to a dropdown select list.
-
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on Website Width to expand it. Copy and paste your desired website width
-and click save.
+open "Global Site Settings", then the "Website's Width" tab. Choose the width
+from the list ("Choose the desired website's width") and click save.
 
 
   * How to change website font or heading font? | W3CSS Theme V2
   .............................
 
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on GOOGLE FONTS - W3CSS THEME to expand it. You can
+open "Libraries and Fonts", then the "Google Fonts" tab. You can
 choose the site font or heading font.
 
 Special font are not applied to any html tage by default. You just choose the
@@ -269,19 +357,17 @@ this font to a paragraph, here is how it's done;
   * How to use the w3css predefined themes
   ........................................
 
-In W3CSS Theme V2 was changed to a dropdown select list.
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on  w3css predefined color themes to expand it.  Copy and paste any of
-your desired w3css color theme and click save.  FYI: if you have any w3
-classes in Advanced Site Color Section they will not override the uploaded
-color theme because of the CSS order.  Any predefined theme file it will be
-loaded after w3.css.
+open "Predefined Color Themes" under Colors. Each color theme is shown as a
+picture with its name. Select one and click save.  FYI: classes you type into
+the "Region fields" section do not override the color theme because of the CSS
+order.  Any predefined theme file is loaded after w3.css.
 
   * How to change website colors
   ..............................
 
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on Advanced Site Colors to expand it.  Each section in the website can
+open "Region fields" under Colors in the navigation list.  Each section in the website can
 be modified and click save. You can change the text color, background color,
 padding, margin or borders. You can use any of W3 CSS Classes
 https://www.w3schools.com/w3css/w3css_references.asp
@@ -290,35 +376,36 @@ https://www.w3schools.com/w3css/w3css_references.asp
   ..................................
 
 Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Social Media Link to expand it.  Change any of the links and click
-save.
+and open "Social Media Links" under Footer and social.  Change any of the links
+and click save.
 
   * How to change copyright
   .........................
 
 Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Copyright to expand it, then change the text there and click save.
+and open "Copyright and Credit", then the "Copyright" tab. Change the text there
+and click save.
 
   * How to disable the credit at the bottom
   .........................................
 
 Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Credit to expand it.  Uncheck the Show/Hide Credit Text and click
-save.
+and open "Copyright and Credit", then the "Credit" tab.  Uncheck the
+Show/Hide Credit Text and click save.
 
   * How to disable the whole page opacity animation.
   .........................................
 
-Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on ADVANCED SITE COLORS then insert into the text field Page Wrapper
-w3-animate-opacity-disabled
+Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme, open
+"Region fields" under Colors, then insert w3-animate-opacity-disabled into the
+"Page Wrapper" field.
 
   * How to disable animate opacity on scroll down.
   .........................................
 
 Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
-click on ENABLE FULL OPACITY ON SCROLL then uncheck the checkbox next to Check
-this box to animate the opacity on scroll down.
+open "Animation and Effects", then the "Full Opacity On Scroll" tab, and uncheck
+"Check this box to animate the opacity on scroll down.".
 
   * How to create a new custom predefined color theme
   ...................................................
@@ -328,8 +415,8 @@ You must have a sub-theme to store the generated css.
 Go to https://www.w3schools.com/w3css/w3css_color_generator.asp and create your
 custom private theme.  Follow the steps to generate a private theme.
 
-Go to your-drupal-site-directory/themes/custom/your-sub-theme/css/styles.css
-open and paste the generated css inside styles.css.
+Go to your-drupal-site-directory/themes/custom/your-sub-theme/css/d8w3css-subtheme-style.css
+open and paste the generated css inside d8w3css-subtheme-style.css.
 
 Clear caches and it is done.
 
@@ -360,7 +447,7 @@ src/Hook/W3cssSubthemeHooks.php, namespace Drupal\w3css_subtheme\Hook, with a
 
 4) Open the file w3css_subtheme.info.yml in your text editor and edit the
 following:
-line 1 from "Drupal8 W3CSS Subtheme" >> To "W3css Subtheme", This is human
+line 1 from "Drupal8 W3CSS Sub-theme" >> To "W3css Subtheme", This is human
 readable name.
 line 8 from "drupal8_w3css_subtheme/d8w3css-subtheme-global" >> To >>
 "w3css_subtheme/d8w3css-subtheme-global".
@@ -406,8 +493,9 @@ ready to be enabled.
   ...........................................................
 
 Go to www.your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme
-and click on Change The Main Container's Columns to Equal Width and insert
-33-33-33 in the text box then click save.
+and open "Global Site Settings", then the "Main Container Columns' Width" tab.
+Check "Change the columns in the main container to (33% 33% 33%)" and click
+save.
 
   * How to Create The Main Menu
   .............................
@@ -419,7 +507,7 @@ be the main menu.
 
 2) If you want a horizontal menu just drop ANY menu in the  Primary Menu region.
 
-3) If you want a horizontal menu just drop ANY menu in the  Primary Menu
+3) If you want a vertical menu just drop ANY menu in the  Primary Menu
 Vertical region.
 
 4) You don't have to create any a special template for the vertical or
@@ -478,7 +566,7 @@ Create a sub-theme.
 Go to d8w3css/css/w3-css-theme-custom and copy w3-theme-00029.css
 file inside your-sub-theme/css folder.
 Open your-sub-theme.libraries.yml and  paste css/w3-theme-00029.css: {}
-under css/styles.css: {}.
+under css/d8w3css-subtheme-style.css: {}.
 Note: Spacing must be aligned exactly underneath.
 Create a folder inside the sub-theme and name it images. Add the image you
 want to use as a background inside images folder.

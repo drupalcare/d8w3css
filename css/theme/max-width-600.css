@@ -4,34 +4,20 @@
     font-size: 100%;
   }
 
-  .top-container-inner .first-top > div,
-  .top-container-inner .second-top > div,
-  .top-container-inner .third-top > div,
-  .main-container-inner .first-sidebar > div,
-  .main-container-inner .w3css-content > div,
-  .main-container-inner .second-sidebar > div,
-  .bottom-container-inner .first-bottom > div,
-  .bottom-container-inner .second-bottom > div,
-  .bottom-container-inner .third-bottom > div,
-  .bottom-container-inner .forth-bottom > div,
-  .footer-container-inner .first-footer > div,
-  .footer-container-inner .second-footer > div,
-  .footer-container-inner .third-footer > div,
-  .footer-menu-inner > div,
-  .d8w3css-top-region__inner .first-top > div,
-  .d8w3css-top-region__inner .second-top > div,
-  .d8w3css-top-region__inner .third-top > div,
-  .d8w3css-main-region__inner .first-sidebar > div,
-  .d8w3css-main-region__inner .w3css-content > div,
-  .d8w3css-main-region__inner .second-sidebar > div,
-  .d8w3css-bottom-region__inner .first-bottom > div,
-  .d8w3css-bottom-region__inner .second-bottom > div,
-  .d8w3css-bottom-region__inner .third-bottom > div,
-  .d8w3css-bottom-region__inner .forth-bottom > div,
-  .d8w3css-footer-region__inner .first-footer > div,
-  .d8w3css-footer-region__inner .second-footer > div,
-  .d8w3css-footer-region__inner .third-footer > div,
-  .d8w3css-footer-menu__inner > div {
+  .w3css-top-region__inner .w3css-first-top > div,
+  .w3css-top-region__inner .w3css-second-top > div,
+  .w3css-top-region__inner .w3css-third-top > div,
+  .w3css-main-region__inner .w3css-first-sidebar > div,
+  .w3css-main-region__inner .w3css-content-region > div,
+  .w3css-main-region__inner .w3css-second-sidebar > div,
+  .w3css-bottom-region__inner .w3css-first-bottom > div,
+  .w3css-bottom-region__inner .w3css-second-bottom > div,
+  .w3css-bottom-region__inner .w3css-third-bottom > div,
+  .w3css-bottom-region__inner .w3css-forth-bottom > div,
+  .w3css-footer-region__inner .w3css-first-footer > div,
+  .w3css-footer-region__inner .w3css-second-footer > div,
+  .w3css-footer-region__inner .w3css-third-footer > div,
+  .w3css-footer-menu__inner > div {
     padding: 8px !important;
   }
 
@@ -45,7 +31,7 @@
     padding: 3px 6px !important;
   }
 
-  h1.page-title {
+  h1.page-title , h1.w3css-page-title{
     font-size: 22px;
     padding: 12px 8px;
   }
@@ -72,21 +58,21 @@
     margin: 0;
   }
 
-  #header-inner {
+  #w3css-header-inner {
     padding: 0 !important;
   }
 
-  #header-inner > nav,
-  #header-inner > nav > ul {
+  #w3css-header-inner > nav,
+  #w3css-header-inner > nav > ul {
     width: 100% !important;
     clear: both !important;
   }
 
-  #header-inner > nav > ul li {
+  #w3css-header-inner > nav > ul li {
     float: left !important;
   }
 
-  .site-logo {
+  .site-logo , .w3css-site-logo{
     margin: 10px auto 0 auto !important;
     padding: 0 !important;
     width: 100%;
@@ -99,36 +85,39 @@
   }
 
   .site-name,
+  .w3css-site-name,
   .site-slogan,
-  .site-name a {
+  .w3css-site-slogan,
+  .site-name a ,
+  .w3css-site-name a{
     display: block;
     text-align: center;
   }
 
-  .site-name-slogan {
+  .w3css-site-name-slogan{
     display: inline-block;
     margin: 16px auto;
     width: 100%;
   }
 
-  .site-name {
+  .site-name , .w3css-site-name{
     font-size: 22px;
   }
 
-  .site-slogan {
+  .site-slogan , .w3css-site-slogan{
     font-size: 16px !important;
   }
 
-  .node__meta .node__submitted {
+  .node__meta .node__submitted , .w3css-node__meta .node__submitted{
     margin: -2px 10px 0 0 !important;
   }
 
-  .highlighted-inner,
-  .welcome-text-inner {
+  .w3css-highlighted__inner,
+  .w3css-welcome-text__inner{
     padding: 0 5px !important;
   }
 
-  #copyright-inner .w3-container {
+  #w3css-copyright-inner .w3-container {
     padding: 0 5px !important;
   }
 
@@ -136,32 +125,32 @@
     margin: 5px 0 !important;
   }
 
-  .copyright-inner .w3-half p {
+  .w3css-copyright__inner .w3-half p{
     text-align: center !important;
   }
 
   /* Search Page*/
-  .path-search form.search-form>.form-wrapper {
+  .path-search form.search-form>.form-wrapper , .path-search form.search-form>.w3css-form-wrapper{
     margin-bottom: 10px;
   }
 
-  .path-search form.search-form>.form-wrapper>.form-type-search {
+  .path-search form.search-form>.form-wrapper>.form-type-search , .path-search form.search-form>.w3css-form-wrapper>.form-type-search{
     width: 100%;
   }
 
-  .path-search form.search-form>.form-wrapper>.form-submit {
+  .path-search form.search-form>.form-wrapper>.form-submit , .path-search form.search-form>.w3css-form-wrapper>.form-submit{
     position: inherit;
     margin: 0;
     width: 100%;
     bottom: 0;
   }
 
-  .path-user-register .main-container-inner nav.tabs > ul.tabs,
-  .path-user-password .main-container-inner nav.tabs > ul.tabs,
-  .path-user-login .main-container-inner nav.tabs > ul.tabs,
-  .path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs {
+  .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks{
     justify-content: start;
     flex-direction: column;
     align-items: start;

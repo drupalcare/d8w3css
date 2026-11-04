@@ -28,9 +28,9 @@
 {% set classes = [
     'w3-container',
     'js-form-item',
-    'form-item',
+    'form-item', 'w3css-form-item',
     'js-form-wrapper',
-    'form-wrapper',
+    'form-wrapper', 'w3css-form-wrapper',
   ]
 %}
 <fieldset{{ attributes.addClass(classes) }}>
@@ -38,31 +38,31 @@
       'w3-bar',
       'fieldset-legend',
       required ? 'js-form-required',
-      required ? 'form-required',
+      required ? 'form-required w3css-form-required',
   ]
 %}
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
   <legend{{ legend.attributes }}>
     <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
   </legend>
-  <div class="fieldset-wrapper w3-panel">
+  <div class="fieldset-wrapper w3css-fieldset-wrapper w3-panel">
     {% if description_display == 'before' and description.content %}
-      <div{{ description.attributes.addClass('w3-panel w3-small description') }}>{{ description.content }}</div>
+      <div{{ description.attributes.addClass('w3-panel w3-small description w3css-description') }}>{{ description.content }}</div>
     {% endif %}
     {% if errors %}
-      <div class="w3-section w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message">
+      <div class="w3-section w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message w3css-form-item--error-message">
         <strong>{{ errors }}</strong>
       </div>
     {% endif %}
     {% if prefix %}
-      <span class="field-prefix">{{ prefix }}</span>
+      <span class="field-prefix w3css-field-prefix">{{ prefix }}</span>
     {% endif %}
     {{ children }}
     {% if suffix %}
-      <span class="field-suffix">{{ suffix }}</span>
+      <span class="field-suffix w3css-field-suffix">{{ suffix }}</span>
     {% endif %}
     {% if description_display in ['after', 'invisible'] and description.content %}
-      <div{{ description.attributes.addClass('w3-panel w3-small description') }}>{{ description.content }}</div>
+      <div{{ description.attributes.addClass('w3-panel w3-small description w3css-description') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>

@@ -1,11 +1,14 @@
 /* Form API. */
 .form-radios .form-item,
-.form-checkboxes .form-item {
+.w3css-form-radios .w3css-form-item,
+.form-checkboxes .form-item ,
+.w3css-form-checkboxes .w3css-form-item{
   margin-top: 0.4em !important;
   margin-bottom: 0.4em !important;
 }
 
 .form-radios .form-type-radio,
+.w3css-form-radios .form-type-radio,
 .form-type-checkbox {
   max-width: 100%;
   text-align: left;
@@ -24,17 +27,21 @@
 }
 
 .form-type-radio .description,
-.form-type-checkbox .description {
+.form-type-radio .w3css-description,
+.form-type-checkbox .description ,
+.form-type-checkbox .w3css-description{
   margin-left: 2px !important; /* LTR */
 }
 
 [dir="rtl"] .form-type-radio .description,
-[dir="rtl"] .form-type-checkbox .description {
+[dir="rtl"] .form-type-radio .w3css-description,
+[dir="rtl"] .form-type-checkbox .description ,
+[dir="rtl"] .form-type-checkbox .w3css-description{
   margin-right: 2px !important;
   margin-left: 0 !important;
 }
 
-.marker {
+.marker , .w3css-marker{
   color: #e00;
 }
 
@@ -54,11 +61,11 @@ abbr.ajax-changed {
   border: 2px solid red;
 }
 
-.form-wrapper .field-multiple-table .label {
+.form-wrapper .field-multiple-table .label , .w3css-form-wrapper .field-multiple-table .w3css-label{
   font-size: inherit;
 }
 
-.form-required:after {
+.form-required:after , .w3css-form-required:after{
 /*  content: "\f069" !important;
   font-family: FontAwesome;
   color: red;
@@ -86,7 +93,7 @@ abbr.ajax-changed {
 
 
 /* Inline Error Message. */
-.form-item--error-message:before {
+.form-item--error-message:before , .w3css-form-item--error-message:before{
 /*  font-family: FontAwesome;
   content: "\f00d";
   display: inline-block;
@@ -107,9 +114,11 @@ abbr.ajax-changed {
 input,
 textarea,
 .region-title__action a,
-.admin-context  form .form-actions > a,
-.admin-context  .action-links li > a,
-.view-filters details.form-wrapper {
+.w3css-admin-context  form .form-actions > a,
+.w3css-admin-context  .action-links li > a,
+.w3css-admin-context  .w3css-action-links li > a,
+.view-filters details.form-wrapper ,
+.w3css-view-filters details.w3css-form-wrapper{
   -webkit-box-shadow: inset 0 0 5px rgba(51, 44, 51, 0.1);
   -moz-box-shadow: inset 0 0 5px rgba(51, 44, 51, 0.1);
   box-shadow: inset 0 0 5px rgba(51, 44, 51, 0.1);

@@ -4,10 +4,25 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Settings;
 
+use Drupal\Component\Render\MarkupInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Extension\ThemeExtensionList;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element\Radios;
+use Drupal\Core\Render\Markup;
+
 /**
  * W3.CSS predefined color themes settings.
  */
 final class PredefinedThemes extends SettingsSection {
+
+  public function __construct(
+    ThemeSettingsProvider $themeSettings,
+    private readonly ThemeExtensionList $themeList,
+  ) {
+    parent::__construct($themeSettings);
+  }
 
   /**
    * {@inheritdoc}
@@ -20,8 +35,12 @@ final class PredefinedThemes extends SettingsSection {
       '#collapsed' => FALSE,
       '#description'   => $this->t('<p>w3-theme-amber, w3-theme-black, w3-theme-blue-grey, w3-theme-blue, w3-theme-brown, w3-theme-cyan, w3-theme-dark-grey, w3-theme-deep-orange, w3-theme-deep-purple, w3-theme-green, w3-theme-grey, w3-theme-indigo, w3-theme-khaki, w3-theme-light-blue, w3-theme-light-green, w3-theme-lime, w3-theme-orange, w3-theme-pink, w3-theme-purple, w3-theme-red, w3-theme-teal, w3-theme-yellow, w3-theme-00000, w3-theme-00001, w3-theme-00002, w3-theme-00003, w3-theme-00004, w3-theme-00005, w3-theme-00006, w3-theme-00007, w3-theme-00008, w3-theme-00009, w3-theme-00010, w3-theme-00011, w3-theme-00012, w3-theme-00013, w3-theme-00014, w3-theme-00015, w3-theme-00016, w3-theme-00017, w3-theme-00018, w3-theme-00019, w3-theme-00020, w3-theme-00021, w3-theme-00022, w3-theme-00023, w3-theme-00024, w3-theme-00025, w3-theme-00026, w3-theme-00027, w3-theme-00028 and w3-theme-00029. <strong><a target="_blank" href="https://w3css.flashwebcenter.com/w3css-predefined-color-themes">Demo Site has an example for all color themes</a>.</strong></p>'),
     ];
-    $form['drupal8_w3css_theme_settings']['w3_theme_current']['current_theme'] = [
-      '#type' => 'select',
+    // Server-rendered radios: selection needs no script, and arrow keys, screen
+    // readers and forced colors come with the native input. The script only adds
+    // the selected name.
+    $picker = [
+      '#parents' => ['color_scheme', 'predefined'],
+      '#type' => 'radios',
       '#title' => $this->t("Choose the desired predefined theme"),
       '#options' => [
         'none' => $this->t('Default - Black Gray White'),
@@ -78,8 +97,57 @@ final class PredefinedThemes extends SettingsSection {
         'w3-theme-00028' => $this->t('00028 - DarkRed LightBlue'),
         'w3-theme-00029' => $this->t('00029 - Colorfull Image Background'),
       ],
-      '#default_value' => $this->themeSettings->getSetting('current_theme'),
+      '#default_value' => $this->settings->get('color_scheme.predefined') ?: 'none',
+      '#process' => [[Radios::class, 'processRadios'], [self::class, 'arrangeThumbnails']],
+      '#prefix' => '<div class="w3css-schemes">',
+      '#suffix' => '</div>',
     ];
+    foreach ($picker['#options'] as $value => $label) {
+      $picker[$value]['#title'] = $this->thumbnail((string) $value, (string) $label);
+    }
+    $form['drupal8_w3css_theme_settings']['w3_theme_current']['color_scheme_predefined'] = $picker;
+  }
+
+  /**
+   * The label of one scheme: its image, and its name for the tag and for a11y.
+   *
+   * @param string $value
+   *   The option value.
+   * @param string $label
+   *   The translated name.
+   *
+   * @return \Drupal\Component\Render\MarkupInterface
+   *   The markup of the label. The image is decorative: the name labels the input.
+   */
+  private function thumbnail(string $value, string $label): MarkupInterface {
+    $src = base_path() . $this->themeList->getPath('drupal8_w3css_theme') . '/images/schemes/' . $value . '.webp';
+    return Markup::create('<img class="w3css-schemes__image" src="' . Html::escape($src) . '" alt="" width="120" height="160" loading="lazy" decoding="async"><span class="w3css-schemes__name">' . Html::escape($label) . '</span>');
+  }
+
+  /**
+   * Places the radios in one grid.
+   *
+   * @param array<string, mixed> $element
+   *   The radios element, after core made one radio per option.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   * @param array<string, mixed> $complete_form
+   *   The form.
+   *
+   * @return array<string, mixed>
+   *   The element.
+   */
+  public static function arrangeThumbnails(array $element, FormStateInterface $form_state, array &$complete_form): array {
+    $grid = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['w3css-schemes__grid']],
+    ];
+    foreach (array_keys($element['#options']) as $value) {
+      $grid[$value] = $element[$value];
+      unset($element[$value]);
+    }
+    $element['grid'] = $grid;
+    return $element;
   }
 
 }

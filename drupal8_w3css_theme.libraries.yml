@@ -1153,116 +1153,184 @@ w3css-default-theme:
   css:
     theme:
       css/theme/default-color-theme.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
 
 w3-css-theme-amber:
   css:
     theme:
       css/w3-css-theme/w3-theme-amber.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-blue:
   css:
     theme:
       css/w3-css-theme/w3-theme-blue.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-blue-grey:
   css:
     theme:
       css/w3-css-theme/w3-theme-blue-grey.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-brown:
   css:
     theme:
       css/w3-css-theme/w3-theme-brown.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-cyan:
   css:
     theme:
       css/w3-css-theme/w3-theme-cyan.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-deep-orange:
   css:
     theme:
       css/w3-css-theme/w3-theme-deep-orange.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-deep-purple:
   css:
     theme:
       css/w3-css-theme/w3-theme-deep-purple.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-green:
   css:
     theme:
       css/w3-css-theme/w3-theme-green.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-indigo:
   css:
     theme:
       css/w3-css-theme/w3-theme-indigo.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-khaki:
   css:
     theme:
       css/w3-css-theme/w3-theme-khaki.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-light-blue:
   css:
     theme:
       css/w3-css-theme/w3-theme-light-blue.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-light-green:
   css:
     theme:
       css/w3-css-theme/w3-theme-light-green.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-lime:
   css:
     theme:
       css/w3-css-theme/w3-theme-lime.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-orange:
   css:
     theme:
       css/w3-css-theme/w3-theme-orange.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-pink:
   css:
     theme:
       css/w3-css-theme/w3-theme-pink.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-purple:
   css:
     theme:
       css/w3-css-theme/w3-theme-purple.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-red:
   css:
     theme:
       css/w3-css-theme/w3-theme-red.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-teal:
   css:
     theme:
       css/w3-css-theme/w3-theme-teal.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-yellow:
   css:
     theme:
       css/w3-css-theme/w3-theme-yellow.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-black:
   css:
     theme:
       css/w3-css-theme/w3-theme-black.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-dark-grey:
   css:
     theme:
       css/w3-css-theme/w3-theme-dark-grey.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 w3-css-theme-grey:
   css:
     theme:
       css/w3-css-theme/w3-theme-grey.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-palette
 
 # Custom predefined color themes.
 
@@ -1280,143 +1348,274 @@ w3-css-theme-00001:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00001.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00002:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00002.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00003:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00003.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00004:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00004.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00005:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00005.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00006:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00006.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00007:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00007.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00008:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00008.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00009:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00009.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00010:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00010.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00011:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00011.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00012:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00012.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00013:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00013.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00014:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00014.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00015:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00015.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00016:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00016.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00017:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00017.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
 
 w3-css-theme-00018:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00018.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00019:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00019.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00020:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00020.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00021:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00021.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00022:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00022.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00023:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00023.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00024:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00024.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00025:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00025.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00026:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00026.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00027:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00027.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00028:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00028.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+    - drupal8_w3css_theme/w3-css-theme-shared-custom
+    - drupal8_w3css_theme/w3-css-theme-shared-custom-b
 
 w3-css-theme-00029:
   css:
     theme:
       css/w3-css-theme-custom/w3-theme-00029.css: { weight: -9 }
+  dependencies:
+    - drupal8_w3css_theme/w3-css-theme-shared-keyframes
+
+d8w3css-settings-form:
+  css:
+    theme:
+      css/theme/d8w3css-settings-form.css: { weight: 200 }
+      css/theme/d8w3css-settings-swatches.css: { weight: 201 }
+      css/theme/d8w3css-settings-schemes.css: { weight: 202 }
+  js:
+    js/d8w3css-settings-form.js: { }
+    js/d8w3css-settings-schemes.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupal.announce
+    - core/once
+
+# Rules the color schemes share: a scheme file sets the tokens (--w-*), these use them.
+w3-css-theme-shared-keyframes:
+  css:
+    theme:
+      css/theme/w3-css-theme-shared-keyframes.css: { weight: -10 }
+
+w3-css-theme-shared-palette:
+  css:
+    theme:
+      css/theme/w3-css-theme-shared-palette.css: { weight: -10 }
+
+w3-css-theme-shared-custom:
+  css:
+    theme:
+      css/theme/w3-css-theme-shared-custom.css: { weight: -10 }
+
+w3-css-theme-shared-custom-b:
+  css:
+    theme:
+      css/theme/w3-css-theme-shared-custom-b.css: { weight: -10 }

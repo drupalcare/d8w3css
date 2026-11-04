@@ -70,7 +70,7 @@
 {% endif %}
 {% set classes = [
     'w3-row',
-    'comment',
+    'comment', 'w3css-comment',
     'js-comment',
     status != 'published' ? status,
     comment.owner.anonymous ? 'by-anonymous',
@@ -85,11 +85,11 @@
   #}
   <span class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></span>
 
-  <footer class="comment__meta">
+  <footer class="comment__meta w3css-comment__meta">
     {{ user_picture }}
-    <p class="comment__author">{{ author }}</p>
-    <p class="comment__time">{{ created }}</p>
-    <p class="comment__permalink">{{ permalink }}</p>
+    <p class="comment__author w3css-comment__author">{{ author }}</p>
+    <p class="comment__time w3css-comment__time">{{ created }}</p>
+    <p class="w3css-comment__permalink">{{ permalink }}</p>
 
     {#
       Indicate the semantic relationship between parent and child comments for
@@ -101,7 +101,7 @@
     {% endif %}
   </footer>
 
-  <div{{ content_attributes.addClass('comment__content') }}>
+  <div{{ content_attributes.addClass('comment__content', 'w3css-comment__content') }}>
     {% if title %}
       {{ title_prefix }}
       <h3{{ title_attributes }}>{{ title }}</h3>

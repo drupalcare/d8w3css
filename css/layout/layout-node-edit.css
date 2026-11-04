@@ -1,14 +1,17 @@
-.layout-region-node-footer__content .description {
+.w3css-layout-region-node-footer__content .description , .w3css-layout-region-node-footer__content .w3css-description{
   margin: 0;
 }
 
-.node-from .layout-node-form {
+.node-form .layout-node-form , .node-form .w3css-layout-node-form{
   height: 100%;
 }
 
 .layout-region-node-secondary,
+.w3css-layout-region-node-secondary,
 .layout-region-node-footer,
-.layout-region-node-main {
+.w3css-layout-region-node-footer,
+.layout-region-node-main ,
+.w3css-layout-region-node-main{
   border: 1px solid #eaeaea;
   border-radius: 10px;
   background-color: #fff;
@@ -19,13 +22,13 @@
   box-shadow: 0px 0px 19px 19px rgba(180, 180, 180, 0.1);
 }
 
-.layout-region-node-footer {
+.layout-region-node-footer , .w3css-layout-region-node-footer{
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #fff;
 }
 
-.layout-region-node-footer__content {
+.w3css-layout-region-node-footer__content{
   padding: 15px;
   margin: 15px 0;
   background-color: #f8f9fa;
@@ -45,7 +48,9 @@
 }
 
 .layout-node-form .w3-row > fieldset > div,
-.layout-node-form .w3-row > fieldset > div > div {
+.w3css-layout-node-form .w3-row > fieldset > div,
+.layout-node-form .w3-row > fieldset > div > div ,
+.w3css-layout-node-form .w3-row > fieldset > div > div{
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -55,105 +60,124 @@
   padding-bottom: 16px !important;
 }
 
-.admin-context .block-local-tasks-block,
-.admin-context #drupal-off-canvas:not(.drupal-off-canvas-reset),
-.admin-context #drupal-off-canvas-wrapper,
-.admin-context .block-system-main-block {
+.w3css-admin-context .block-local-tasks-block,
+.w3css-admin-context #drupal-off-canvas:not(.drupal-off-canvas-reset),
+.w3css-admin-context #drupal-off-canvas-wrapper,
+.w3css-admin-context .block-system-main-block{
   font-family: "Helvetica", sans-serif;
 }
 
-.layout-node-form .w3-responsive {
+.layout-node-form .w3-responsive , .w3css-layout-node-form .w3-responsive{
   overflow-x: unset;
 }
 
 .layout-node-form .paragraph-type-label,
+.w3css-layout-node-form .paragraph-type-label,
 .layout-node-form .form-item label,
-.layout-node-form .form-item .label {
+.w3css-layout-node-form .w3css-form-item label,
+.layout-node-form .form-item .label ,
+.w3css-layout-node-form .w3css-form-item .w3css-label{
   display: inline-block;
   padding-bottom: 8px;
   font-weight: normal;
 }
 
-.layout-node-form .paragraph-type-label {
+.layout-node-form .paragraph-type-label , .w3css-layout-node-form .paragraph-type-label{
   padding-bottom: 0;
 }
 
 .layout-node-form  .form-type-radio label,
-.layout-node-form  .form-type-checkbox label {
+.w3css-layout-node-form  .form-type-radio label,
+.layout-node-form  .form-type-checkbox label ,
+.w3css-layout-node-form  .form-type-checkbox label{
   padding-bottom: 0;
   display: inline;
 }
 
-.layout-region-node-footer__content {
+.w3css-layout-region-node-footer__content{
   border-top: none;
 }
 
 .layout-node-form [type=checkbox],
-.layout-node-form [type=radio] {
+.w3css-layout-node-form [type=checkbox],
+.layout-node-form [type=radio] ,
+.w3css-layout-node-form [type=radio]{
   float: left;
   top: 0;
 }
 
-.layout-node-form th .paragraphs-actions {
+.layout-node-form th .paragraphs-actions , .w3css-layout-node-form th .paragraphs-actions{
   margin-right: 0 !important;
 }
 
-.layout-node-form .paragraph-top {
+.layout-node-form .paragraph-top , .w3css-layout-node-form .paragraph-top{
   align-items: center !important;
 }
 
-.layout-node-form .field-multiple-drag {
+.layout-node-form .field-multiple-drag , .w3css-layout-node-form .field-multiple-drag{
   vertical-align: middle !important;
 }
 
-.layout-node-form .paragraphs-actions > .button + .paragraphs-dropdown {
+.layout-node-form .paragraphs-actions > .button + .paragraphs-dropdown , .w3css-layout-node-form .paragraphs-actions > .w3css-button + .paragraphs-dropdown{
   margin: 0 8px !important;
 }
 
 .layout-node-form .form-wrapper .paragraphs-dropdown-action.button,
-.layout-node-form .paragraphs-dropdown-actions input {
+.w3css-layout-node-form .w3css-form-wrapper .paragraphs-dropdown-action.w3css-button,
+.layout-node-form .paragraphs-dropdown-actions input ,
+.w3css-layout-node-form .paragraphs-dropdown-actions input{
   margin: 0 !important;
 }
 
-.layout-region-node-footer__content .form-actions {
+.w3css-layout-region-node-footer__content .form-actions{
   display: flex;
 }
 
-.layout-node-form .form-actions>input:last-of-type {
+.layout-node-form .form-actions>input:last-of-type , .w3css-layout-node-form .form-actions>input:last-of-type{
   margin-right: 0;
 }
 
 .layout-node-form div.description,
+.w3css-layout-node-form div.w3css-description,
 .layout-node-form .form-item .w3-small,
-.layout-node-form .form-item .description {
+.w3css-layout-node-form .w3css-form-item .w3-small,
+.layout-node-form .form-item .description ,
+.w3css-layout-node-form .w3css-form-item .w3css-description{
   padding: 5px !important;
   margin: 5px 0 !important;
   display: block;
 }
 
 .layout-node-form .description ul,
-.layout-node-form .description ul li {
+.w3css-layout-node-form .w3css-description ul,
+.layout-node-form .description ul li ,
+.w3css-layout-node-form .w3css-description ul li{
   list-style: none;
   margin: 0;
 }
 
-.layout-node-form .description .des-spacer {
+.layout-node-form .description .w3css-des-spacer , .w3css-layout-node-form .w3css-description .w3css-des-spacer{
   font-weight: bold;
 }
 
 .layout-region-node-secondary .entity-meta div,
+.w3css-layout-region-node-secondary .entity-meta div,
 .layout-region-node-secondary .entity-meta table,
-.layout-region-node-secondary .entity-meta details {
+.w3css-layout-region-node-secondary .entity-meta table,
+.layout-region-node-secondary .entity-meta details ,
+.w3css-layout-region-node-secondary .entity-meta details{
   background-color: transparent !important;
   border-color: transparent !important;
 }
 
-.layout-region-node-secondary .entity-meta summary {
+.layout-region-node-secondary .entity-meta summary , .w3css-layout-region-node-secondary .entity-meta summary{
   padding: 0 !important;
 }
 
 .layout-region-node-secondary .entity-meta > div > div,
-.layout-region-node-secondary .entity-meta > details > div {
+.w3css-layout-region-node-secondary .entity-meta > div > div,
+.layout-region-node-secondary .entity-meta > details > div ,
+.w3css-layout-region-node-secondary .entity-meta > details > div{
   margin: 0 !important;
 }
 
@@ -166,20 +190,23 @@
 .vertical-tabs .w3-panel,
 .vertical-tabs .w3-container,
 .layout-region-node-secondary .entity-meta details .w3-panel,
+.w3css-layout-region-node-secondary .entity-meta details .w3-panel,
 .layout-region-node-secondary .entity-meta .fieldset-wrapper,
-.layout-region-node-secondary .entity-meta fieldset {
+.w3css-layout-region-node-secondary .entity-meta .w3css-fieldset-wrapper,
+.layout-region-node-secondary .entity-meta fieldset ,
+.w3css-layout-region-node-secondary .entity-meta fieldset{
   padding-left: 0;
   padding-right: 0;
   margin-left: 0;
   margin-right: 0;
 }
 
-.layout-region-node-secondary .entity-meta > details[open] {
+.layout-region-node-secondary .entity-meta > details[open] , .w3css-layout-region-node-secondary .entity-meta > details[open]{
   padding: 8px !important;
   background-color: #f8f8f8 !important;
 }
 
-.layout-region-node-secondary .entity-meta > details[open] summary ~ * {
+.layout-region-node-secondary .entity-meta > details[open] summary ~ * , .w3css-layout-region-node-secondary .entity-meta > details[open] summary ~ *{
   animation: sweep .5s ease-in-out;
 }
 

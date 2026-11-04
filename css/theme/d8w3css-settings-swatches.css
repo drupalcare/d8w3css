@@ -1,0 +1,402 @@
+/**
+ * @file
+ * The color of each class in the CSS classes section of the settings form.
+ *
+ * Generated from d8w3css/css/w3-css/w3-modern.css, d8w3css/css/w3-css/w3css-extended-classes.css by
+ * planning/spike-tools/class-swatches-gen.py. Do not edit by hand.
+ */
+
+.w3css-settings__swatch--w3-black,
+.w3css-settings__swatch--w3-button-black,
+.w3css-settings__swatch--w3-button-hover-black,
+.w3css-settings__swatch--w3-hover-black,
+.w3css-settings__swatch--w3-hover-text-black,
+.w3css-settings__swatch--w3-link-bg-black,
+.w3css-settings__swatch--w3-link-black,
+.w3css-settings__swatch--w3-link-hover-black,
+.w3css-settings__swatch--w3-text-black {
+  --swatch: #000;
+}
+
+.w3css-settings__swatch--w3-button-hover-teal,
+.w3css-settings__swatch--w3-button-teal,
+.w3css-settings__swatch--w3-hover-teal,
+.w3css-settings__swatch--w3-hover-text-teal,
+.w3css-settings__swatch--w3-link-bg-teal,
+.w3css-settings__swatch--w3-link-hover-teal,
+.w3css-settings__swatch--w3-link-teal,
+.w3css-settings__swatch--w3-teal,
+.w3css-settings__swatch--w3-text-teal {
+  --swatch: #009688;
+}
+
+.w3css-settings__swatch--w3-button-cyan,
+.w3css-settings__swatch--w3-button-hover-cyan,
+.w3css-settings__swatch--w3-cyan,
+.w3css-settings__swatch--w3-hover-cyan,
+.w3css-settings__swatch--w3-hover-text-cyan,
+.w3css-settings__swatch--w3-link-bg-cyan,
+.w3css-settings__swatch--w3-link-cyan,
+.w3css-settings__swatch--w3-link-hover-cyan,
+.w3css-settings__swatch--w3-text-cyan {
+  --swatch: #00bcd4;
+}
+
+.w3css-settings__swatch--w3-aqua,
+.w3css-settings__swatch--w3-button-aqua,
+.w3css-settings__swatch--w3-button-hover-aqua,
+.w3css-settings__swatch--w3-hover-aqua,
+.w3css-settings__swatch--w3-hover-text-aqua,
+.w3css-settings__swatch--w3-link-aqua,
+.w3css-settings__swatch--w3-link-bg-aqua,
+.w3css-settings__swatch--w3-link-hover-aqua,
+.w3css-settings__swatch--w3-text-aqua {
+  --swatch: #00ffff;
+}
+
+.w3css-settings__swatch--w3-blue,
+.w3css-settings__swatch--w3-button-blue,
+.w3css-settings__swatch--w3-button-hover-blue,
+.w3css-settings__swatch--w3-hover-blue,
+.w3css-settings__swatch--w3-hover-text-blue,
+.w3css-settings__swatch--w3-link-bg-blue,
+.w3css-settings__swatch--w3-link-blue,
+.w3css-settings__swatch--w3-link-hover-blue,
+.w3css-settings__swatch--w3-text-blue {
+  --swatch: #2196f3;
+}
+
+.w3css-settings__swatch--w3-button-dark-gray,
+.w3css-settings__swatch--w3-button-dark-grey,
+.w3css-settings__swatch--w3-button-hover-dark-gray,
+.w3css-settings__swatch--w3-button-hover-dark-grey,
+.w3css-settings__swatch--w3-hover-text-dark-grey,
+.w3css-settings__swatch--w3-link-bg-dark-gray,
+.w3css-settings__swatch--w3-link-bg-dark-grey,
+.w3css-settings__swatch--w3-link-dark-grey,
+.w3css-settings__swatch--w3-link-hover-dark-gray,
+.w3css-settings__swatch--w3-link-hover-dark-grey,
+.w3css-settings__swatch--w3-text-dark-grey {
+  --swatch: #3a3a3a;
+}
+
+.w3css-settings__swatch--w3-button-hover-indigo,
+.w3css-settings__swatch--w3-button-indigo,
+.w3css-settings__swatch--w3-hover-indigo,
+.w3css-settings__swatch--w3-hover-text-indigo,
+.w3css-settings__swatch--w3-indigo,
+.w3css-settings__swatch--w3-link-bg-indigo,
+.w3css-settings__swatch--w3-link-hover-indigo,
+.w3css-settings__swatch--w3-link-indigo,
+.w3css-settings__swatch--w3-text-indigo {
+  --swatch: #3f51b5;
+}
+
+.w3css-settings__swatch--w3-button-green,
+.w3css-settings__swatch--w3-button-hover-green,
+.w3css-settings__swatch--w3-green,
+.w3css-settings__swatch--w3-hover-green,
+.w3css-settings__swatch--w3-hover-text-green,
+.w3css-settings__swatch--w3-link-bg-green,
+.w3css-settings__swatch--w3-link-green,
+.w3css-settings__swatch--w3-link-hover-green,
+.w3css-settings__swatch--w3-text-green {
+  --swatch: #4caf50;
+}
+
+.w3css-settings__swatch--w3-blue-grey,
+.w3css-settings__swatch--w3-button-blue-gray,
+.w3css-settings__swatch--w3-button-blue-grey,
+.w3css-settings__swatch--w3-button-hover-blue-gray,
+.w3css-settings__swatch--w3-button-hover-blue-grey,
+.w3css-settings__swatch--w3-hover-blue-grey,
+.w3css-settings__swatch--w3-hover-text-blue-grey,
+.w3css-settings__swatch--w3-link-bg-blue-gray,
+.w3css-settings__swatch--w3-link-bg-blue-grey,
+.w3css-settings__swatch--w3-link-blue-grey,
+.w3css-settings__swatch--w3-link-hover-blue-gray,
+.w3css-settings__swatch--w3-link-hover-blue-grey,
+.w3css-settings__swatch--w3-text-blue-grey {
+  --swatch: #607d8b;
+}
+
+.w3css-settings__swatch--w3-dark-grey,
+.w3css-settings__swatch--w3-hover-dark-grey {
+  --swatch: #616161;
+}
+
+.w3css-settings__swatch--w3-button-deep-purple,
+.w3css-settings__swatch--w3-button-hover-deep-purple,
+.w3css-settings__swatch--w3-deep-purple,
+.w3css-settings__swatch--w3-hover-deep-purple,
+.w3css-settings__swatch--w3-hover-text-deep-purple,
+.w3css-settings__swatch--w3-link-bg-deep-purple,
+.w3css-settings__swatch--w3-link-deep-purple,
+.w3css-settings__swatch--w3-link-hover-deep-purple,
+.w3css-settings__swatch--w3-text-deep-purple {
+  --swatch: #673ab7;
+}
+
+.w3css-settings__swatch--w3-button-gray,
+.w3css-settings__swatch--w3-button-grey,
+.w3css-settings__swatch--w3-button-hover-gray,
+.w3css-settings__swatch--w3-button-hover-grey,
+.w3css-settings__swatch--w3-hover-text-grey,
+.w3css-settings__swatch--w3-link-bg-grey,
+.w3css-settings__swatch--w3-link-grey,
+.w3css-settings__swatch--w3-link-hover-grey,
+.w3css-settings__swatch--w3-text-grey {
+  --swatch: #757575;
+}
+
+.w3css-settings__swatch--w3-brown,
+.w3css-settings__swatch--w3-button-brown,
+.w3css-settings__swatch--w3-button-hover-brown,
+.w3css-settings__swatch--w3-hover-brown,
+.w3css-settings__swatch--w3-hover-text-brown,
+.w3css-settings__swatch--w3-link-bg-brown,
+.w3css-settings__swatch--w3-link-brown,
+.w3css-settings__swatch--w3-link-hover-brown,
+.w3css-settings__swatch--w3-text-brown {
+  --swatch: #795548;
+}
+
+.w3css-settings__swatch--w3-button-hover-light-blue,
+.w3css-settings__swatch--w3-button-light-blue,
+.w3css-settings__swatch--w3-hover-light-blue,
+.w3css-settings__swatch--w3-hover-text-light-blue,
+.w3css-settings__swatch--w3-light-blue,
+.w3css-settings__swatch--w3-link-bg-light-blue,
+.w3css-settings__swatch--w3-link-hover-light-blue,
+.w3css-settings__swatch--w3-link-light-blue,
+.w3css-settings__swatch--w3-text-light-blue {
+  --swatch: #87ceeb;
+}
+
+.w3css-settings__swatch--w3-button-hover-light-green,
+.w3css-settings__swatch--w3-button-light-green,
+.w3css-settings__swatch--w3-hover-light-green,
+.w3css-settings__swatch--w3-hover-text-light-green,
+.w3css-settings__swatch--w3-light-green,
+.w3css-settings__swatch--w3-link-bg-light-green,
+.w3css-settings__swatch--w3-link-hover-light-green,
+.w3css-settings__swatch--w3-link-light-green,
+.w3css-settings__swatch--w3-text-light-green {
+  --swatch: #8bc34a;
+}
+
+.w3css-settings__swatch--w3-button-hover-purple,
+.w3css-settings__swatch--w3-button-purple,
+.w3css-settings__swatch--w3-hover-purple,
+.w3css-settings__swatch--w3-hover-text-purple,
+.w3css-settings__swatch--w3-link-bg-purple,
+.w3css-settings__swatch--w3-link-hover-purple,
+.w3css-settings__swatch--w3-link-purple,
+.w3css-settings__swatch--w3-purple,
+.w3css-settings__swatch--w3-text-purple {
+  --swatch: #9c27b0;
+}
+
+.w3css-settings__swatch--w3-grey,
+.w3css-settings__swatch--w3-hover-grey {
+  --swatch: #9e9e9e;
+}
+
+.w3css-settings__swatch--w3-button-hover-khaki,
+.w3css-settings__swatch--w3-button-khaki,
+.w3css-settings__swatch--w3-hover-text-khaki,
+.w3css-settings__swatch--w3-link-bg-khaki,
+.w3css-settings__swatch--w3-link-hover-khaki,
+.w3css-settings__swatch--w3-link-khaki,
+.w3css-settings__swatch--w3-text-khaki {
+  --swatch: #b4aa50;
+}
+
+.w3css-settings__swatch--w3-button-hover-lime,
+.w3css-settings__swatch--w3-button-lime,
+.w3css-settings__swatch--w3-hover-lime,
+.w3css-settings__swatch--w3-hover-text-lime,
+.w3css-settings__swatch--w3-lime,
+.w3css-settings__swatch--w3-link-bg-lime,
+.w3css-settings__swatch--w3-link-hover-lime,
+.w3css-settings__swatch--w3-link-lime,
+.w3css-settings__swatch--w3-text-lime {
+  --swatch: #cddc39;
+}
+
+.w3css-settings__swatch--w3-hover-text-yellow,
+.w3css-settings__swatch--w3-text-yellow {
+  --swatch: #d2be0e;
+}
+
+.w3css-settings__swatch--w3-hover-pale-green,
+.w3css-settings__swatch--w3-pale-green {
+  --swatch: #ddffdd;
+}
+
+.w3css-settings__swatch--w3-hover-pale-blue,
+.w3css-settings__swatch--w3-pale-blue {
+  --swatch: #ddffff;
+}
+
+.w3css-settings__swatch--w3-button-hover-pale-green,
+.w3css-settings__swatch--w3-button-pale-green,
+.w3css-settings__swatch--w3-hover-text-pale-green,
+.w3css-settings__swatch--w3-link-bg-pale-green,
+.w3css-settings__swatch--w3-link-hover-pale-green,
+.w3css-settings__swatch--w3-link-pale-green,
+.w3css-settings__swatch--w3-text-pale-green {
+  --swatch: #e7ffe7;
+}
+
+.w3css-settings__swatch--w3-button-hover-pale-blue,
+.w3css-settings__swatch--w3-button-pale-blue,
+.w3css-settings__swatch--w3-hover-text-pale-blue,
+.w3css-settings__swatch--w3-link-bg-pale-blue,
+.w3css-settings__swatch--w3-link-hover-pale-blue,
+.w3css-settings__swatch--w3-link-pale-blue,
+.w3css-settings__swatch--w3-text-pale-blue {
+  --swatch: #e7ffff;
+}
+
+.w3css-settings__swatch--w3-button-hover-pink,
+.w3css-settings__swatch--w3-button-pink,
+.w3css-settings__swatch--w3-hover-pink,
+.w3css-settings__swatch--w3-hover-text-pink,
+.w3css-settings__swatch--w3-link-bg-pink,
+.w3css-settings__swatch--w3-link-hover-pink,
+.w3css-settings__swatch--w3-link-pink,
+.w3css-settings__swatch--w3-pink,
+.w3css-settings__swatch--w3-text-pink {
+  --swatch: #e91e63;
+}
+
+.w3css-settings__swatch--w3-hover-khaki,
+.w3css-settings__swatch--w3-khaki {
+  --swatch: #f0e68c;
+}
+
+.w3css-settings__swatch--w3-button-hover-light-gray,
+.w3css-settings__swatch--w3-button-hover-light-grey,
+.w3css-settings__swatch--w3-button-light-gray,
+.w3css-settings__swatch--w3-button-light-grey,
+.w3css-settings__swatch--w3-hover-light-grey,
+.w3css-settings__swatch--w3-hover-text-light-grey,
+.w3css-settings__swatch--w3-light-grey,
+.w3css-settings__swatch--w3-link-bg-light-gray,
+.w3css-settings__swatch--w3-link-bg-light-grey,
+.w3css-settings__swatch--w3-link-hover-light-gray,
+.w3css-settings__swatch--w3-link-hover-light-grey,
+.w3css-settings__swatch--w3-link-light-grey,
+.w3css-settings__swatch--w3-text-light-grey {
+  --swatch: #f1f1f1;
+}
+
+.w3css-settings__swatch--w3-button-hover-red,
+.w3css-settings__swatch--w3-button-red,
+.w3css-settings__swatch--w3-hover-red,
+.w3css-settings__swatch--w3-hover-text-red,
+.w3css-settings__swatch--w3-link-bg-red,
+.w3css-settings__swatch--w3-link-hover-red,
+.w3css-settings__swatch--w3-link-red,
+.w3css-settings__swatch--w3-red,
+.w3css-settings__swatch--w3-text-red {
+  --swatch: #f44336;
+}
+
+.w3css-settings__swatch--w3-button-hover-sand,
+.w3css-settings__swatch--w3-button-sand,
+.w3css-settings__swatch--w3-hover-sand,
+.w3css-settings__swatch--w3-hover-text-sand,
+.w3css-settings__swatch--w3-link-bg-sand,
+.w3css-settings__swatch--w3-link-hover-sand,
+.w3css-settings__swatch--w3-link-sand,
+.w3css-settings__swatch--w3-sand,
+.w3css-settings__swatch--w3-text-sand {
+  --swatch: #fdf5e6;
+}
+
+.w3css-settings__swatch--w3-button-deep-orange,
+.w3css-settings__swatch--w3-button-hover-deep-orange,
+.w3css-settings__swatch--w3-deep-orange,
+.w3css-settings__swatch--w3-hover-deep-orange,
+.w3css-settings__swatch--w3-hover-text-deep-orange,
+.w3css-settings__swatch--w3-link-bg-deep-orange,
+.w3css-settings__swatch--w3-link-deep-orange,
+.w3css-settings__swatch--w3-link-hover-deep-orange,
+.w3css-settings__swatch--w3-text-deep-orange {
+  --swatch: #ff5722;
+}
+
+.w3css-settings__swatch--w3-button-hover-orange,
+.w3css-settings__swatch--w3-button-orange,
+.w3css-settings__swatch--w3-hover-orange,
+.w3css-settings__swatch--w3-hover-text-orange,
+.w3css-settings__swatch--w3-link-bg-orange,
+.w3css-settings__swatch--w3-link-hover-orange,
+.w3css-settings__swatch--w3-link-orange,
+.w3css-settings__swatch--w3-orange,
+.w3css-settings__swatch--w3-text-orange {
+  --swatch: #ff9800;
+}
+
+.w3css-settings__swatch--w3-amber,
+.w3css-settings__swatch--w3-button-amber,
+.w3css-settings__swatch--w3-button-hover-amber,
+.w3css-settings__swatch--w3-hover-amber,
+.w3css-settings__swatch--w3-hover-text-amber,
+.w3css-settings__swatch--w3-link-amber,
+.w3css-settings__swatch--w3-link-bg-amber,
+.w3css-settings__swatch--w3-link-hover-amber,
+.w3css-settings__swatch--w3-text-amber {
+  --swatch: #ffc107;
+}
+
+.w3css-settings__swatch--w3-hover-pale-red,
+.w3css-settings__swatch--w3-pale-red {
+  --swatch: #ffdddd;
+}
+
+.w3css-settings__swatch--w3-button-hover-pale-red,
+.w3css-settings__swatch--w3-button-pale-red,
+.w3css-settings__swatch--w3-hover-text-pale-red,
+.w3css-settings__swatch--w3-link-bg-pale-red,
+.w3css-settings__swatch--w3-link-hover-pale-red,
+.w3css-settings__swatch--w3-link-pale-red,
+.w3css-settings__swatch--w3-text-pale-red {
+  --swatch: #ffe7e7;
+}
+
+.w3css-settings__swatch--w3-button-hover-yellow,
+.w3css-settings__swatch--w3-button-yellow,
+.w3css-settings__swatch--w3-hover-yellow,
+.w3css-settings__swatch--w3-link-bg-yellow,
+.w3css-settings__swatch--w3-link-hover-yellow,
+.w3css-settings__swatch--w3-link-yellow,
+.w3css-settings__swatch--w3-yellow {
+  --swatch: #ffeb3b;
+}
+
+.w3css-settings__swatch--w3-button-hover-white,
+.w3css-settings__swatch--w3-button-white,
+.w3css-settings__swatch--w3-hover-text-white,
+.w3css-settings__swatch--w3-hover-white,
+.w3css-settings__swatch--w3-link-bg-white,
+.w3css-settings__swatch--w3-link-hover-white,
+.w3css-settings__swatch--w3-link-white,
+.w3css-settings__swatch--w3-text-white,
+.w3css-settings__swatch--w3-white {
+  --swatch: #fff;
+}
+
+.w3css-settings__swatch--w3-button-hover-pale-yellow,
+.w3css-settings__swatch--w3-button-pale-yellow,
+.w3css-settings__swatch--w3-hover-pale-yellow,
+.w3css-settings__swatch--w3-hover-text-pale-yellow,
+.w3css-settings__swatch--w3-link-bg-pale-yellow,
+.w3css-settings__swatch--w3-link-hover-pale-yellow,
+.w3css-settings__swatch--w3-link-pale-yellow,
+.w3css-settings__swatch--w3-pale-yellow,
+.w3css-settings__swatch--w3-text-pale-yellow {
+  --swatch: #ffffcc;
+}

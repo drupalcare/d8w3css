@@ -1,52 +1,57 @@
-.header-inner > div {
+.w3css-header__inner > div{
   float: left;
   width: auto;
 }
 
-.site-name-slogan {
+.w3css-site-name-slogan{
   display: inline-block;
   margin: 16px 0 0 16px;
 }
 
 .site-name,
+.w3css-site-name,
 .site-name a,
-.site-slogan {
+.w3css-site-name a,
+.site-slogan ,
+.w3css-site-slogan{
   text-transform: uppercase;
   line-height: 140%;
 }
 
-.site-name {
+.site-name , .w3css-site-name{
   margin: 0;
   font-size: 36px;
 }
 
-.site-slogan {
+.site-slogan , .w3css-site-slogan{
   font-size: 24px;
 }
 
-.site-logo {
+.site-logo , .w3css-site-logo{
   margin-top: 4px;
 }
 
-.site-name-link {
+.w3css-site-name__link{
   display: block;
   width: 100%;
 }
 
 /* The site name and slogan keep the heading look when printed as paragraphs. */
 p.site-name,
-p.site-slogan {
+p.w3css-site-name,
+p.site-slogan ,
+p.w3css-site-slogan{
   font-family: "Segoe UI", Arial, sans-serif;
   /* Beats the !important padding on every p in max-width-600.css. */
   padding: 0 !important;
   font-weight: 600;
 }
 
-p.site-slogan {
+p.site-slogan , p.w3css-site-slogan{
   margin: 10px 0;
 }
 
-p.site-name a {
+p.site-name a , p.w3css-site-name a{
   font-size: inherit;
   line-height: inherit;
   font-weight: inherit;

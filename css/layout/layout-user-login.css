@@ -1,9 +1,6 @@
-.path-user-register .main-container-inner .w3css-content,
-.path-user-password .main-container-inner .w3css-content,
-.path-user-login .main-container-inner .w3css-content,
-.path-user-register .d8w3css-main-region__inner .w3css-content,
-.path-user-password .d8w3css-main-region__inner .w3css-content,
-.path-user-login .d8w3css-main-region__inner .w3css-content {
+.path-user-register .w3css-main-region__inner .w3css-content-region,
+.path-user-password .w3css-main-region__inner .w3css-content-region,
+.path-user-login .w3css-main-region__inner .w3css-content-region{
   width: 100% !important;
   max-width: 900px;
   margin: 16px auto !important;
@@ -11,23 +8,23 @@
   display: table;
 }
 
-.path-user-register .main-container-inner nav.tabs > ul.tabs,
-.path-user-password .main-container-inner nav.tabs > ul.tabs,
-.path-user-login .main-container-inner nav.tabs > ul.tabs,
-.path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs,
-.path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs,
-.path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs {
+.path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+.path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+.path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks{
   display: flex;
   flex-direction: row;
   align-items: stretch;
   width: 100%;
 }
 
-.path-user-register .main-container-inner nav.tabs > ul.tabs > li,
-.path-user-password .main-container-inner nav.tabs > ul.tabs > li,
-.path-user-login .main-container-inner nav.tabs > ul.tabs > li,
-.path-user-register .d8w3css-main-region__inner nav.tabs > ul.tabs > li,
-.path-user-password .d8w3css-main-region__inner nav.tabs > ul.tabs > li,
-.path-user-login .d8w3css-main-region__inner nav.tabs > ul.tabs > li {
+.path-user-register .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li,
+.path-user-password .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li,
+.path-user-login .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li{
   flex: 1;
 }

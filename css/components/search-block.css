@@ -4,15 +4,11 @@
   display: inline-block;
 }
 
-.search-slide-wrapper {
-  background-color: white;
-}
-
 .w3-search-block-form input {
   width: 100%;
 }
 
-.w3-search-block-form .form-item {
+.w3-search-block-form .form-item , .w3-search-block-form .w3css-form-item{
   width: 70%;
   float: left;
 }
@@ -51,12 +47,13 @@
 }
 
 .w3-search-block-form .form-item,
+.w3-search-block-form .w3css-form-item,
 .w3-search-block-form .form-actions {
   margin: 5px auto !important;
   display: inline-block;
 }
 
-input.search-button-block {
+input.w3css-search-button-block{
   margin: 0 !important;
   content: "";
   vertical-align: middle;

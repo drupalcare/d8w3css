@@ -4,434 +4,589 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Settings;
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
 /**
  * Advanced color settings for theme regions.
+ *
+ * Three sections of the form: a Blueprint of the page, a reference of the CSS
+ * classes, and the region fields. Each field sets #parents to its settings key,
+ * and core builds the field's id from #parents, however deep it sits. The
+ * Blueprint's anchors are built the same way.
  */
 final class AdvancedSiteColors extends SettingsSection {
+
+  /**
+   * The vertical tabs holding the panes of the CSS class reference.
+   */
+  private const CLASSES_TABS = 'w3_colors_classes_tabs';
+
+  /**
+   * The vertical tabs holding the panes of the region fields.
+   */
+  private const REGIONS_TABS = 'w3_colors_regions_tabs';
+
+  /**
+   * The region fields: group, then rows as they sit on the page, then keys.
+   *
+   * Every region_colors key in the schema is in exactly one group.
+   */
+  private const REGION_GROUPS = [
+    'page' => [
+      ['region_colors.page_wrapper'],
+      ['region_colors.header'],
+      ['region_colors.primary_menu'],
+      ['region_colors.welcome_text', 'region_colors.highlighted'],
+    ],
+    'top' => [
+      ['region_colors.top_container'],
+      ['region_colors.top_first', 'region_colors.top_second', 'region_colors.top_third'],
+    ],
+    'main' => [
+      ['region_colors.page_title'],
+      ['region_colors.main'],
+      ['region_colors.breadcrumb'],
+      ['region_colors.sidebar_first', 'region_colors.content', 'region_colors.sidebar_second'],
+    ],
+    'bottom' => [
+      ['region_colors.bottom_container'],
+      [
+        'region_colors.bottom_first',
+        'region_colors.bottom_second',
+        'region_colors.bottom_third',
+        'region_colors.bottom_fourth',
+      ],
+    ],
+    'footer' => [
+      ['region_colors.footer_container'],
+      ['region_colors.footer_first', 'region_colors.footer_second', 'region_colors.footer_third'],
+      ['region_colors.footer_menu'],
+      ['region_colors.copyright'],
+    ],
+  ];
+
+  /**
+   * The color names each family of W3.CSS classes comes in.
+   */
+  private const COLORS = [
+    'base' => [
+      'red',
+      'pink',
+      'purple',
+      'deep-purple',
+      'indigo',
+      'blue',
+      'light-blue',
+      'cyan',
+      'aqua',
+      'teal',
+      'green',
+      'light-green',
+      'lime',
+      'sand',
+      'khaki',
+      'yellow',
+      'amber',
+      'orange',
+      'deep-orange',
+      'blue-grey',
+      'brown',
+      'light-grey',
+      'grey',
+      'dark-grey',
+      'black',
+      'white',
+      'pale-red',
+      'pale-yellow',
+      'pale-green',
+      'pale-blue',
+    ],
+    'link' => [
+      'red',
+      'green',
+      'blue',
+      'yellow',
+      'white',
+      'black',
+      'grey',
+      'amber',
+      'aqua',
+      'light-blue',
+      'brown',
+      'cyan',
+      'blue-grey',
+      'blue-gray',
+      'light-green',
+      'indigo',
+      'khaki',
+      'lime',
+      'orange',
+      'deep-orange',
+      'pink',
+      'purple',
+      'deep-purple',
+      'sand',
+      'teal',
+      'light-gray',
+      'light-grey',
+      'dark-gray',
+      'dark-grey',
+      'pale-red',
+      'pale-yellow',
+      'pale-green',
+      'pale-blue',
+    ],
+    'button' => [
+      'red',
+      'green',
+      'blue',
+      'yellow',
+      'white',
+      'black',
+      'gray',
+      'grey',
+      'amber',
+      'aqua',
+      'light-blue',
+      'brown',
+      'cyan',
+      'blue-grey',
+      'blue-gray',
+      'light-green',
+      'indigo',
+      'khaki',
+      'lime',
+      'orange',
+      'deep-orange',
+      'pink',
+      'purple',
+      'deep-purple',
+      'sand',
+      'teal',
+      'light-gray',
+      'light-grey',
+      'dark-gray',
+      'dark-grey',
+      'pale-red',
+      'pale-yellow',
+      'pale-green',
+      'pale-blue',
+    ],
+  ];
+
+  /**
+   * The kinds of class in the reference.
+   */
+  private const CLASS_KINDS = [
+    'background' => [
+      'prefix' => 'w3-',
+      'colors' => 'base',
+      'demo' => 'https://w3css.flashwebcenter.com/node/169',
+    ],
+    'background_hover' => [
+      'prefix' => 'w3-hover-',
+      'colors' => 'base',
+      'demo' => 'https://w3css.flashwebcenter.com/node/168',
+    ],
+    'text' => [
+      'prefix' => 'w3-text-',
+      'colors' => 'base',
+      'demo' => 'https://w3css.flashwebcenter.com/node/124',
+    ],
+    'text_hover' => [
+      'prefix' => 'w3-hover-text-',
+      'colors' => 'base',
+      'demo' => 'https://w3css.flashwebcenter.com/node/143',
+    ],
+    'link_text' => [
+      'prefix' => 'w3-link-',
+      'colors' => 'base',
+      'demo' => 'https://w3css.flashwebcenter.com/node/135',
+    ],
+    'link_background' => [
+      'prefix' => 'w3-link-bg-',
+      'colors' => 'link',
+      'demo' => 'https://w3css.flashwebcenter.com/node/137',
+    ],
+    'link_background_hover' => [
+      'prefix' => 'w3-link-hover-',
+      'colors' => 'link',
+      'demo' => 'https://w3css.flashwebcenter.com/node/136',
+    ],
+    'button' => [
+      'prefix' => 'w3-button-',
+      'colors' => 'button',
+      'demo' => 'https://w3css.flashwebcenter.com/node/162',
+    ],
+    'button_hover' => [
+      'prefix' => 'w3-button-hover-',
+      'colors' => 'button',
+      'demo' => 'https://w3css.flashwebcenter.com/node/161',
+    ],
+  ];
+
+  /**
+   * The Blueprint: the page's regions, in the order and nesting they render.
+   *
+   * Each row names its field. 'class' is the default class. 'label' and 'note'
+   * are keys of the translated text in blueprintText(). 'rows' stack inside the
+   * box and 'cells' sit side by side.
+   */
+  private const BLUEPRINT = [
+    ['field' => 'region_colors.primary_menu', 'label' => 'menu_vertical', 'class' => 'w3-theme'],
+    [
+      'field' => 'region_colors.page_wrapper',
+      'rows' => [
+        ['field' => 'region_colors.header', 'class' => 'w3-theme-l4'],
+        ['field' => 'region_colors.primary_menu', 'label' => 'menu_horizontal', 'class' => 'w3-theme'],
+        ['field' => 'region_colors.welcome_text', 'class' => 'w3-theme-l5', 'note' => 'front_only'],
+        ['field' => 'region_colors.highlighted', 'class' => 'w3-theme-l2'],
+        [
+          'field' => 'region_colors.top_container',
+          'class' => 'w3-theme-l4',
+          'note' => 'front_only',
+          'cells' => [
+            ['field' => 'region_colors.top_first', 'class' => 'l5'],
+            ['field' => 'region_colors.top_second', 'class' => 'l5'],
+            ['field' => 'region_colors.top_third', 'class' => 'l5'],
+          ],
+        ],
+        ['field' => 'region_colors.page_title', 'class' => 'w3-theme-d5', 'note' => 'not_front'],
+        [
+          'field' => 'region_colors.main',
+          'class' => 'w3-theme-l5',
+          'note' => 'columns',
+          'rows' => [
+            ['field' => 'region_colors.breadcrumb'],
+          ],
+          'cells' => [
+            ['field' => 'region_colors.sidebar_first'],
+            ['field' => 'region_colors.content'],
+            ['field' => 'region_colors.sidebar_second'],
+          ],
+        ],
+        [
+          'field' => 'region_colors.bottom_container',
+          'class' => 'w3-theme-l2',
+          'note' => 'front_only',
+          'cells' => [
+            ['field' => 'region_colors.bottom_first', 'class' => 'l4'],
+            ['field' => 'region_colors.bottom_second', 'class' => 'l4'],
+            ['field' => 'region_colors.bottom_third', 'class' => 'l4'],
+            ['field' => 'region_colors.bottom_fourth', 'class' => 'l4'],
+          ],
+        ],
+        [
+          'field' => 'region_colors.footer_container',
+          'class' => 'w3-theme-d3',
+          'cells' => [
+            ['field' => 'region_colors.footer_first', 'class' => 'l4'],
+            ['field' => 'region_colors.footer_second', 'class' => 'l5'],
+            ['field' => 'region_colors.footer_third', 'class' => 'l4'],
+          ],
+        ],
+        ['field' => 'region_colors.footer_menu', 'class' => 'w3-theme-d4'],
+        ['field' => 'region_colors.copyright', 'class' => 'w3-theme-d5'],
+      ],
+    ],
+  ];
+
+  /**
+   * One box of the Blueprint.
+   */
+  private const BLUEPRINT_BOX_TEMPLATE = '<div class="{{ classes }}"><a href="#{{ anchor }}">{{ label }}</a>{% if theme_class or note %}<small>{{ theme_class }}{% if theme_class and note %} · {% endif %}{{ note }}</small>{% endif %}{{ rows }}{% if cells %}<div class="w3css-settings__bp-cells">{{ cells }}</div>{% endif %}</div>';
+
+  /**
+   * One pane of the CSS class reference.
+   */
+  private const CLASS_PANE_TEMPLATE = '<div class="w3css-settings__kind"><strong>{{ name }}</strong> <code>{{ pattern }}</code> <span class="w3css-settings__kind-count">{{ count }}</span> <a class="w3css-settings__kind-demo" href="{{ demo }}" target="_blank" rel="noopener">{{ demo_label }}</a></div><div class="w3css-settings__chips">{% for chip in chips %}<code class="w3css-settings__swatch w3css-settings__swatch--{{ chip }}">{{ chip }}</code>{% endfor %}</div>';
 
   /**
    * {@inheritdoc}
    */
   public function build(array &$form): void {
-    $form['drupal8_w3css_theme_settings']['w3_colors'] = [
+    $form['drupal8_w3css_theme_settings']['w3_colors_blueprint'] = $this->blueprint();
+    $form['drupal8_w3css_theme_settings']['w3_colors_classes'] = $this->classReference();
+    $form['drupal8_w3css_theme_settings']['w3_colors_regions'] = $this->regionFields();
+  }
+
+  /**
+   * Builds the Blueprint of the page.
+   *
+   * @return array<string, mixed>
+   *   The section.
+   */
+  private function blueprint(): array {
+    $labels = $this->fieldLabels() + $this->blueprintText();
+    $group = $this->section(
+      $this->t('Blueprint'),
+      $this->t('Where each region sits on the page'),
+      $this->t('Select a name to go to its field. Cell labels give the default W3.CSS theme class. Regions are visible on all pages unless marked.'),
+    );
+    $group['w3_colors_blueprint_map'] = [
+      '#type' => 'inline_template',
+      '#template' => '<div class="w3css-settings__blueprint">{{ rows }}</div>',
+      '#context' => ['rows' => $this->blueprintBoxes(self::BLUEPRINT, $labels)],
+    ];
+    return $group;
+  }
+
+  /**
+   * Builds the boxes of one level of the Blueprint.
+   *
+   * The boxes sit in an inline template's context, so the form builder does
+   * not walk them as form elements. Twig escapes every value.
+   *
+   * @param array<int, array<string, mixed>> $boxes
+   *   The boxes, in the shape of self::BLUEPRINT.
+   * @param array<string, \Drupal\Core\StringTranslation\TranslatableMarkup> $text
+   *   The translated labels and notes.
+   *
+   * @return array<int, array<string, mixed>>
+   *   One render array per box.
+   */
+  private function blueprintBoxes(array $boxes, array $text): array {
+    $build = [];
+    foreach ($boxes as $box) {
+      $rows = $this->blueprintBoxes($box['rows'] ?? [], $text);
+      $cells = $this->blueprintBoxes($box['cells'] ?? [], $text);
+      $build[] = [
+        '#type' => 'inline_template',
+        '#template' => self::BLUEPRINT_BOX_TEMPLATE,
+        '#context' => [
+          'classes' => $rows || $cells ? 'w3css-settings__bp w3css-settings__bp--box' : 'w3css-settings__bp',
+          'anchor' => 'edit-' . strtr($box['field'], ['_' => '-', '.' => '-']),
+          'label' => $text[$box['label'] ?? $box['field']],
+          'theme_class' => $box['class'] ?? '',
+          'note' => isset($box['note']) ? $text[$box['note']] : '',
+          'rows' => $rows,
+          'cells' => $cells,
+        ],
+      ];
+    }
+    return $build;
+  }
+
+  /**
+   * Builds the reference of CSS classes, one tab per kind of class.
+   *
+   * @return array<string, mixed>
+   *   The section.
+   */
+  private function classReference(): array {
+    $group = $this->section(
+      $this->t('CSS classes'),
+      $this->t('@count kinds of class', ['@count' => count(self::CLASS_KINDS)]),
+      $this->t('To use these classes, the w3.css library must be active. Copy any class into a region field. Separate multiple classes with a space.'),
+    );
+    $group[self::CLASSES_TABS] = ['#type' => 'vertical_tabs'];
+    $labels = $this->classKindLabels();
+    foreach (self::CLASS_KINDS as $kind => $definition) {
+      $colors = self::COLORS[$definition['colors']];
+      $group['w3_colors_class_' . $kind] = [
+        '#type' => 'details',
+        '#title' => $labels[$kind]['tab'],
+        '#group' => self::CLASSES_TABS,
+        'w3_colors_class_' . $kind . '_list' => [
+          '#type' => 'inline_template',
+          '#template' => self::CLASS_PANE_TEMPLATE,
+          '#context' => [
+            'name' => $labels[$kind]['name'],
+            'pattern' => $definition['prefix'] . '<color>',
+            'count' => $this->formatPlural(count($colors), '1 class', '@count classes'),
+            'demo' => $definition['demo'],
+            'demo_label' => $this->t('Live demo'),
+            'chips' => array_map(static fn (string $color): string => $definition['prefix'] . $color, $colors),
+          ],
+        ],
+      ];
+    }
+    return $group;
+  }
+
+  /**
+   * Builds the region fields, one tab per group of regions.
+   *
+   * @return array<string, mixed>
+   *   The section.
+   */
+  private function regionFields(): array {
+    $fields = array_merge(...array_merge(...array_values(self::REGION_GROUPS)));
+    $group = $this->section(
+      $this->t('Region fields'),
+      $this->t('@fields fields in @groups groups', [
+        '@fields' => count($fields),
+        '@groups' => count(self::REGION_GROUPS),
+      ]),
+      $this->t('Each field adds its classes to that part of the page.'),
+    );
+    $group[self::REGIONS_TABS] = ['#type' => 'vertical_tabs'];
+    $titles = $this->regionGroupLabels();
+    $labels = $this->fieldLabels();
+    foreach (self::REGION_GROUPS as $name => $rows) {
+      $pane = [
+        '#type' => 'details',
+        '#title' => $titles[$name],
+        '#group' => self::REGIONS_TABS,
+      ];
+      foreach ($rows as $index => $keys) {
+        $row = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['w3css-settings__row']],
+        ];
+        foreach ($keys as $key) {
+          $row[str_replace('.', '_', $key)] = [
+            '#parents' => explode('.', $key),
+            '#type' => 'textfield',
+            '#title' => $labels[$key],
+            '#default_value' => $this->settings->get($key),
+            '#attributes' => ['spellcheck' => 'false'],
+          ];
+        }
+        $pane['w3_colors_region_' . $name . '_row_' . $index] = $row;
+      }
+      $group['w3_colors_region_' . $name] = $pane;
+    }
+    return $group;
+  }
+
+  /**
+   * Starts one of the three sections.
+   *
+   * @param \Drupal\Core\StringTranslation\TranslatableMarkup $title
+   *   The title.
+   * @param \Drupal\Core\StringTranslation\TranslatableMarkup $hint
+   *   The short hint shown in the navigation.
+   * @param \Drupal\Core\StringTranslation\TranslatableMarkup $description
+   *   The description.
+   *
+   * @return array<string, mixed>
+   *   The details element.
+   */
+  private function section(TranslatableMarkup $title, TranslatableMarkup $hint, TranslatableMarkup $description): array {
+    return [
       '#type' => 'details',
-      '#title' => $this->t('Advanced Site Colors - W3CSS Theme'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
-      '#description'   => $this->t("
+      '#title' => $title,
+      '#description' => $description,
+      self::HINT => $hint,
+    ];
+  }
 
-<h2>This is a visual guide to show each region's placement on the page. Click on the name to go to the field.</h2>
+  /**
+   * Returns the label of each region field.
+   *
+   * The Blueprint shows these same labels, so the two cannot disagree.
+   *
+   * @return array<string, \Drupal\Core\StringTranslation\TranslatableMarkup>
+   *   The labels, keyed by setting.
+   */
+  private function fieldLabels(): array {
+    return [
+      'region_colors.page_wrapper' => $this->t('Page Wrapper'),
+      'region_colors.header' => $this->t('Header'),
+      'region_colors.primary_menu' => $this->t('Main Menu'),
+      'region_colors.welcome_text' => $this->t('Welcome Text'),
+      'region_colors.highlighted' => $this->t('Highlighted'),
+      'region_colors.top_container' => $this->t('Top Container Wrapper'),
+      'region_colors.top_first' => $this->t('Top First'),
+      'region_colors.top_second' => $this->t('Top Second'),
+      'region_colors.top_third' => $this->t('Top Third'),
+      'region_colors.page_title' => $this->t('Page Title'),
+      'region_colors.main' => $this->t('Main Container Wrapper'),
+      'region_colors.breadcrumb' => $this->t('Breadcrumb'),
+      'region_colors.sidebar_first' => $this->t('Sidebar First'),
+      'region_colors.content' => $this->t('W3CSS Content'),
+      'region_colors.sidebar_second' => $this->t('Sidebar Second'),
+      'region_colors.bottom_container' => $this->t('Bottom Container Wrapper'),
+      'region_colors.bottom_first' => $this->t('Bottom First'),
+      'region_colors.bottom_second' => $this->t('Bottom Second'),
+      'region_colors.bottom_third' => $this->t('Bottom Third'),
+      'region_colors.bottom_fourth' => $this->t('Bottom Fourth'),
+      'region_colors.footer_container' => $this->t('Footer Container Wrapper'),
+      'region_colors.footer_first' => $this->t('Footer First'),
+      'region_colors.footer_second' => $this->t('Footer Second'),
+      'region_colors.footer_third' => $this->t('Footer Third'),
+      'region_colors.footer_menu' => $this->t('Footer Menu'),
+      'region_colors.copyright' => $this->t('Copyright'),
+    ];
+  }
 
+  /**
+   * Returns the Blueprint's own labels and notes.
+   *
+   * @return array<string, \Drupal\Core\StringTranslation\TranslatableMarkup>
+   *   The text, keyed as self::BLUEPRINT refers to it.
+   */
+  private function blueprintText(): array {
+    return [
+      'menu_vertical' => $this->t('Main Menu, vertical'),
+      'menu_horizontal' => $this->t('Main Menu, horizontal'),
+      'front_only' => $this->t('Front page only'),
+      'not_front' => $this->t('All pages except front page'),
+      'columns' => $this->t('Columns 25-50-25 or 33-33-33'),
+    ];
+  }
 
-<table border='1' cellpadding='8' style='width: 100%;  color:LightSlateGray; font-size: 16px; font-family: Helvetica; text-align: center;border-collapse: collapse; border:3px solid LightBlue'>
-  <tbody>
-    <tr>
-      <td style='text-align: center;'>
-      <h1><a href='#edit-color-primary-menu'>Main Navigation - Vertical</a></h1>
-      <p>Visible on all pages - W3.CSS Color Theme Class w3-theme</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table cellpadding='8' style='width: 100%;  color: LightSlateGray; font-size: 16px; font-family: Helvetica; border-collapse: collapse; border:3px solid LightBlue'>
-  <tbody>
-    <tr>
-      <td style='text-align: center;'>
-      <h1><a href='#edit-color-page-wrapper'>Page Wrapper</a></h1>
-      <table cellpadding='6' style='width: 100%;'>
-        <tbody>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%; border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-header'>Header</a></h1>
-                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l4</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-primary-menu'>Main Navigation - Horizontal</a></h1>
-                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-welcome-text'>Welcome Text</a></h1>
-                  <p>Visible on front page only - W3.CSS Color Theme Class w3-theme-l5</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-highlighted'>Highlighted</a></h1>
-                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l2</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td style='text-align: center;'>
-            <h1><a href='#edit-color-top-container'>Top Container Wrapper</a></h1>
-            <p>Visible on front page only - W3.CSS Color Theme Class w3-theme-l4</p>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-top-first'>Top First</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-top-second'>Top Second</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-top-third'>Top Third</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-page-title'>Page Title</a></h1>
-                  <p>Visible on all pages except front page - W3.CSS Color Theme Class w3-theme-d5</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td style='text-align: center;'>
-            <h1><a href='#edit-color-main'>Main Container Wrapper</a></h1>
-            <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-l5</p>
-            <p>Main Container (Left SideBar - W3CSS Content - Right SideBar) can be (25% - 50% - 25%) or (33% - 33% - 33%).</p>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h2><a href='#edit-color-breadcrumb'>Breadcrumb</a></h2>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-sidebar-first'>Left SideBar</a></h2>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-content'>W3CSS Content</a></h2>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-sidebar-second'>Right SideBar</a></h2>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td style='text-align: center;'>
-            <h1><a href='#edit-color-bottom-container'>Bottom Container Wrapper</a></h1>
-            Visible on front page only - W3.CSS Color Theme Class w3-theme-l2
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-bottom-first'>Bottom First</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-bottom-second'>Bottom Second</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-bottom-third'>Bottom Third</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-bottom-forth'>Bottom Forth</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td style='text-align: center;'>
-            <h1><a href='#edit-color-footer-container'>Footer Container Wrapper</a></h1>
-            Visible on all pages - W3.CSS Color Theme Class w3-theme-d3
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-footer-first'>Footer First</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-footer-second'>Footer Second</a></h2>
-                  <p>w3-theme-l5</p>
-                  </td>
-                  <td style='text-align: center; border:1px solid LightBlue;'>
-                  <h2><a href='#edit-color-footer-third'>Footer Third</a></h2>
-                  <p>w3-theme-l4</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-footer-menu'>Footer Menu</a></h1>
-                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-d4</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <table cellpadding='5' style='width: 100%;border-collapse: collapse; border:3px solid LightBlue'>
-              <tbody>
-                <tr>
-                  <td style='text-align: center;'>
-                  <h1><a href='#edit-color-copyright'>Copyright</a></h1>
-                  <p>Visible on all pages - W3.CSS Color Theme Class w3-theme-d5</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  /**
+   * Returns the tab label and pane heading of each kind of class.
+   *
+   * @return array<string, array<string, \Drupal\Core\StringTranslation\TranslatableMarkup>>
+   *   The labels, keyed by kind.
+   */
+  private function classKindLabels(): array {
+    return [
+      'background' => [
+        'tab' => $this->t('Background'),
+        'name' => $this->t('Background colors'),
+      ],
+      'background_hover' => [
+        'tab' => $this->t('Background hover'),
+        'name' => $this->t('Background hover colors'),
+      ],
+      'text' => [
+        'tab' => $this->t('Text'),
+        'name' => $this->t('Text colors'),
+      ],
+      'text_hover' => [
+        'tab' => $this->t('Text hover'),
+        'name' => $this->t('Text hover colors'),
+      ],
+      'link_text' => [
+        'tab' => $this->t('Link text'),
+        'name' => $this->t('Link text colors'),
+      ],
+      'link_background' => [
+        'tab' => $this->t('Link background'),
+        'name' => $this->t('Link background colors'),
+      ],
+      'link_background_hover' => [
+        'tab' => $this->t('Link background hover'),
+        'name' => $this->t('Link background hover colors'),
+      ],
+      'button' => [
+        'tab' => $this->t('Button'),
+        'name' => $this->t('Button colors'),
+      ],
+      'button_hover' => [
+        'tab' => $this->t('Button hover'),
+        'name' => $this->t('Button hover colors'),
+      ],
+    ];
+  }
 
-<table style='width: 100%; line-height:1.6;  color: LightSlateGray; font-size: 16px; font-family: Helvetica;'>
-<tr>
-  <td> </td>
-  <th><strong>To utilize the following classes, the w3.css library needs to be activated. Any of the CSS classes can be copied and pasted into the text field. It's possible to paste multiple classes, just ensure there is a space separating each one.</strong></th>
- </tr>
-
-  <tr>
-    <th>Background Colors w3-<em>color</em>:</th>
-    <td>w3-red, w3-pink, w3-purple, w3-deep-purple, w3-indigo, w3-blue, w3-light-blue, w3-cyan, w3-aqua, w3-teal, w3-green, w3-light-green, w3-lime, w3-sand, w3-khaki, w3-yellow, w3-amber, w3-orange, w3-deep-orange, w3-blue-grey, w3-brown, w3-light-grey, w3-grey, w3-dark-grey, w3-black, w3-white, w3-pale-red, w3-pale-yellow, w3-pale-green and w3-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/169'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-  <tr>
-    <th>Background Hover Colors w3-hover-<em>color</em>:</th>
-    <td>w3-hover-red, w3-hover-pink, w3-hover-purple, w3-hover-deep-purple, w3-hover-indigo, w3-hover-blue, w3-hover-light-blue, w3-hover-cyan, w3-hover-aqua, w3-hover-teal, w3-hover-green, w3-hover-light-green, w3-hover-lime, w3-hover-sand, w3-hover-khaki, w3-hover-yellow, w3-hover-amber, w3-hover-orange, w3-hover-deep-orange, w3-hover-blue-grey, w3-hover-brown, w3-hover-light-grey, w3-hover-grey, w3-hover-dark-grey, w3-hover-black, w3-hover-white, w3-hover-pale-red, w3-hover-pale-yellow, w3-hover-pale-green and w3-hover-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/168'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Text Colors w3-text-<em>color</em>:</th>
-    <td>w3-text-red, w3-text-pink, w3-text-purple, w3-text-deep-purple, w3-text-indigo, w3-text-blue, w3-text-light-blue, w3-text-cyan, w3-text-aqua, w3-text-teal, w3-text-green, w3-text-light-green, w3-text-lime, w3-text-sand, w3-text-khaki, w3-text-yellow, w3-text-amber, w3-text-orange, w3-text-deep-orange, w3-text-blue-grey, w3-text-brown, w3-text-light-grey, w3-text-grey, w3-text-dark-grey, w3-text-black, w3-text-white , w3-text-pale-red, w3-text-pale-yellow, w3-text-pale-green and w3-text-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/124'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-  <tr>
-    <th>Text Hover Colors w3-hover-text-<em>color</em>:</th>
-    <td>w3-hover-text-red, w3-hover-text-pink, w3-hover-text-purple, w3-hover-text-deep-purple, w3-hover-text-indigo, w3-hover-text-blue, w3-hover-text-light-blue, w3-hover-text-cyan, w3-hover-text-aqua, w3-hover-text-teal, w3-hover-text-green, w3-hover-text-light-green, w3-hover-text-lime, w3-hover-text-sand, w3-hover-text-khaki, w3-hover-text-yellow, w3-hover-text-amber, w3-hover-text-orange, w3-hover-text-deep-orange, w3-hover-text-blue-grey, w3-hover-text-brown, w3-hover-text-light-grey, w3-hover-text-grey, w3-hover-text-dark-grey, w3-hover-text-black and w3-hover-text-white, w3-hover-text-pale-red, w3-hover-text-pale-yellow, w3-hover-text-pale-green and w3-hover-text-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/143'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Link Text Colors w3-link-<em>color</em>:</th>
-    <td>w3-link-red, w3-link-pink, w3-link-purple, w3-link-deep-purple, w3-link-indigo, w3-link-blue, w3-link-light-blue, w3-link-cyan, w3-link-aqua, w3-link-teal, w3-link-green, w3-link-light-green, w3-link-lime, w3-link-sand, w3-link-khaki, w3-link-yellow, w3-link-amber, w3-link-orange, w3-link-deep-orange, w3-link-blue-grey, w3-link-brown, w3-link-light-grey, w3-link-grey, w3-link-dark-grey, w3-link-black and w3-link-white, w3-link-pale-red, w3-link-pale-yellow, w3-link-pale-green and w3-link-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/135'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Link Background Colors w3-link-bg-<em>color</em>:</th>
-    <td>w3-link-bg-red, w3-link-bg-green, w3-link-bg-blue, w3-link-bg-yellow, w3-link-bg-white, w3-link-bg-black, w3-link-bg-grey, w3-link-bg-amber, w3-link-bg-aqua, w3-link-bg-light-blue, w3-link-bg-brown, w3-link-bg-cyan, w3-link-bg-blue-grey, w3-link-bg-blue-gray, w3-link-bg-light-green, w3-link-bg-indigo, w3-link-bg-khaki, w3-link-bg-lime, w3-link-bg-orange, w3-link-bg-deep-orange, w3-link-bg-pink, w3-link-bg-purple, w3-link-bg-deep-purple, w3-link-bg-sand, w3-link-bg-teal, w3-link-bg-light-gray, w3-link-bg-light-grey, w3-link-bg-dark-gray, w3-link-bg-dark-grey, w3-link-bg-pale-red, w3-link-bg-pale-yellow, w3-ling-bg-pale-green and w3-link-bg-pale-blue. <a target='_blank' https://w3css.flashwebcenter.com/node/137'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Link Background Hover Colors w3-link-hover-<em>color</em>:</th>
-    <td>w3-link-hover-red, w3-link-hover-green, w3-link-hover-blue, w3-link-hover-yellow, w3-link-hover-white, w3-link-hover-black, w3-link-hover-grey, w3-link-hover-amber, w3-link-hover-aqua, w3-link-hover-light-blue, w3-link-hover-brown, w3-link-hover-cyan, w3-link-hover-blue-grey, w3-link-hover-blue-gray, w3-link-hover-light-green, w3-link-hover-indigo, w3-link-hover-khaki, w3-link-hover-lime, w3-link-hover-orange, w3-link-hover-deep-orange, w3-link-hover-pink, w3-link-hover-purple, w3-link-hover-deep-purple, w3-link-hover-sand, w3-link-hover-teal, w3-link-hover-light-gray, w3-link-hover-light-grey, w3-link-hover-dark-gray, w3-link-hover-dark-grey, w3-link-hover-pale-red, w3-link-hover-pale-yellow, w3-link-hover-pale-green and w3-link-hover-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/136'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Button Colors w3-button-<em>color</em>:</th>
-    <td>w3-button-red, w3-button-green, w3-button-blue, w3-button-yellow, w3-button-white, w3-button-black, w3-button-gray, w3-button-grey, w3-button-amber, w3-button-aqua, w3-button-light-blue, w3-button-brown, w3-button-cyan, w3-button-blue-grey, w3-button-blue-gray, w3-button-light-green, w3-button-indigo, w3-button-khaki, w3-button-lime, w3-button-orange, w3-button-deep-orange, w3-button-pink, w3-button-purple, w3-button-deep-purple, w3-button-sand, w3-button-teal, w3-button-light-gray, w3-button-light-grey, w3-button-dark-gray, w3-button-dark-grey, w3-button-pale-red, w3-button-pale-yellow, w3-button-pale-green and w3-button-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/162'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-
-  <tr>
-    <th>Button Hover Colors w3-button-hover-<em>color</em>:</th>
-    <td>w3-button-hover-red, w3-button-hover-green, w3-button-hover-blue, w3-button-hover-yellow, w3-button-hover-white, w3-button-hover-black, w3-button-hover-gray, w3-button-hover-grey, w3-button-hover-amber, w3-button-hover-aqua, w3-button-hover-light-blue, w3-button-hover-brown, w3-button-hover-cyan, w3-button-hover-blue-grey, w3-button-hover-blue-gray, w3-button-hover-light-green, w3-button-hover-indigo, w3-button-hover-khaki, w3-button-hover-lime, w3-button-hover-orange, w3-button-hover-deep-orange, w3-button-hover-pink, w3-button-hover-purple, w3-button-hover-deep-purple, w3-button-hover-sand, w3-button-hover-teal, w3-button-hover-light-gray, w3-button-hover-light-grey, w3-button-hover-dark-gray, w3-button-hover-dark-grey, w3-button-hover-pale-red, w3-button-hover-pale-yellow, w3-button-hover-pale-green and w3-button-hover-pale-blue. <a target='_blank' href='https://w3css.flashwebcenter.com/node/161'>Click here to view a live demo for the CSS classes</a></td>
-  </tr>
-</table>"),
-    ];
-
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_page_wrapper'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Page Wrapper'),
-      '#default_value' => $this->themeSettings->getSetting('color_page_wrapper'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_header'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Header'),
-      '#default_value' => $this->themeSettings->getSetting('color_header'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_primary_menu'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Main Menu'),
-      '#default_value' => $this->themeSettings->getSetting('color_primary_menu'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_welcome_text'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Welcome Text'),
-      '#default_value' => $this->themeSettings->getSetting('color_welcome_text'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_highlighted'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Highlighted'),
-      '#default_value' => $this->themeSettings->getSetting('color_highlighted'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_container'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Top Container Wrapper'),
-      '#default_value' => $this->themeSettings->getSetting('color_top_container'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_first'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Top First'),
-      '#default_value' => $this->themeSettings->getSetting('color_top_first'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_second'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Top Second'),
-      '#default_value' => $this->themeSettings->getSetting('color_top_second'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_top_third'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Top Third'),
-      '#default_value' => $this->themeSettings->getSetting('color_top_third'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_page_title'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Page Title'),
-      '#default_value' => $this->themeSettings->getSetting('color_page_title'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_main'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Main Container Wrapper'),
-      '#default_value' => $this->themeSettings->getSetting('color_main'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_breadcrumb'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Breadcrumb'),
-      '#default_value' => $this->themeSettings->getSetting('color_breadcrumb'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_sidebar_first'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Sidebar First'),
-      '#default_value' => $this->themeSettings->getSetting('color_sidebar_first'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_content'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('W3CSS Content'),
-      '#default_value' => $this->themeSettings->getSetting('color_content'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_sidebar_second'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Sidebar Second'),
-      '#default_value' => $this->themeSettings->getSetting('color_sidebar_second'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_container'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Bottom Container Wrapper'),
-      '#default_value' => $this->themeSettings->getSetting('color_bottom_container'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_first'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Bottom First'),
-      '#default_value' => $this->themeSettings->getSetting('color_bottom_first'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_second'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Bottom Second'),
-      '#default_value' => $this->themeSettings->getSetting('color_bottom_second'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_third'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Bottom Third'),
-      '#default_value' => $this->themeSettings->getSetting('color_bottom_third'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_bottom_forth'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Bottom Forth'),
-      '#default_value' => $this->themeSettings->getSetting('color_bottom_forth'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_container'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Footer Container Wrapper'),
-      '#default_value' => $this->themeSettings->getSetting('color_footer_container'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_first'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Footer First'),
-      '#default_value' => $this->themeSettings->getSetting('color_footer_first'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_second'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Footer Second'),
-      '#default_value' => $this->themeSettings->getSetting('color_footer_second'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_third'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Footer Third'),
-      '#default_value' => $this->themeSettings->getSetting('color_footer_third'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_footer_menu'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Footer Menu'),
-      '#default_value' => $this->themeSettings->getSetting('color_footer_menu'),
-    ];
-    $form['drupal8_w3css_theme_settings']['w3_colors']['color_copyright'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Copyright'),
-      '#default_value' => $this->themeSettings->getSetting('color_copyright'),
+  /**
+   * Returns the tab label of each group of regions.
+   *
+   * @return array<string, \Drupal\Core\StringTranslation\TranslatableMarkup>
+   *   The labels, keyed by group.
+   */
+  private function regionGroupLabels(): array {
+    return [
+      'page' => $this->t('Page and Header'),
+      'top' => $this->t('Top'),
+      'main' => $this->t('Main'),
+      'bottom' => $this->t('Bottom'),
+      'footer' => $this->t('Footer'),
     ];
   }
 

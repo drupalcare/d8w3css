@@ -13,10 +13,10 @@
  * @see template_preprocess_text_format_wrapper()
  */
 #}
-<div class="js-text-format-wrapper text-format-wrapper js-form-item form-item">
+<div class="js-text-format-wrapper text-format-wrapper w3css-text-format-wrapper js-form-item form-item w3css-form-item">
   {{ children }}
   {% if description %}
-    {% set classes = [aria_description ? 'description'] %}
+    {% set classes = [aria_description ? 'description w3css-description'] %}
     <div{{ attributes.addClass(classes) }}>{{ description }}</div>
   {% endif %}
 </div>

@@ -1,6 +1,8 @@
 /* To roll the text around the image */
 .node__content > .field--name-field-image,
-.node__content > .field--name-field-media-image {
+.w3css-node__content > .field--name-field-image,
+.node__content > .field--name-field-media-image ,
+.w3css-node__content > .field--name-field-media-image{
   float: left;
 }
 
@@ -9,35 +11,39 @@
 .field--type-text-with-summary::after,
 .field--type-text-with-summary::before,
 div.item-list > ol.item-list > li article::after,
-div.item-list > ol.item-list > li article::before {
+div.w3css-item-list > ol.w3css-item-list > li article::after,
+div.item-list > ol.item-list > li article::before ,
+div.w3css-item-list > ol.w3css-item-list > li article::before{
   display: inline !important;
 }
 
 /* User picture on the node */
 .node__header,
-.node__content {
+.w3css-node__header,
+.node__content ,
+.w3css-node__content{
   margin-bottom: 12px;
 }
 
-.node__meta {
+.node__meta , .w3css-node__meta{
   display: flex;
   align-items: center;
 }
 
-.node__meta .node__author-image {
+.node__meta .node__author-image , .w3css-node__meta .w3css-node__author-image{
   margin-right: 12px;
   overflow: hidden;
 }
 
-.node__meta .node__author-info {
+.node__meta .w3css-node__author-info , .w3css-node__meta .w3css-node__author-info{
   font-size: 90%;
 }
 
-.node__meta .node__author-image img {
+.node__meta .node__author-image img , .w3css-node__meta .w3css-node__author-image img{
   border-radius: 50%;
 }
 
-.node--view-mode-full .field--type-entity-reference .field__item:first-child a {
+.node--view-mode-full .field--type-entity-reference .field__item:first-child a , .w3css-node--view-mode-full .field--type-entity-reference .w3css-field__item:first-child a{
   padding-left: 0 !important;
 }
 
@@ -50,86 +56,107 @@ div.item-list > ol.item-list > li article::before {
 
 /* Multi items field */
 .field.field__items > .field__item,
-.field > .field__items > .field__item {
+.w3css-field.w3css-field__items > .w3css-field__item,
+.field > .field__items > .field__item ,
+.w3css-field > .w3css-field__items > .w3css-field__item{
   display: inline-block;
 }
 
 .w3-expand-fields .field.field__items > .field__item,
-.w3-expand-fields .field > .field__items > .field__item {
+.w3-expand-fields .w3css-field.w3css-field__items > .w3css-field__item,
+.w3-expand-fields .field > .field__items > .field__item ,
+.w3-expand-fields .w3css-field > .w3css-field__items > .w3css-field__item{
   display: block;
 }
 
 /* The wrapper for multi items field always block */
-.field > .field__items {
+.field > .field__items , .w3css-field > .w3css-field__items{
   display: block;
 }
 
 /* The wrapper for multi items field if the label is inline */
 .field--label-inline > .field__label,
+.field--label-inline > .w3css-field__label,
 .field--label-inline > .field__item,
-.field--label-inline > .field__items {
+.field--label-inline > .w3css-field__item,
+.field--label-inline > .field__items ,
+.field--label-inline > .w3css-field__items{
   display: inline-block;
   vertical-align: top;
 }
 
 .field--label-above > .field__label,
+.field--label-above > .w3css-field__label,
 .field--label-above > .field__item,
-.field--label-above > .field__items {
+.field--label-above > .w3css-field__item,
+.field--label-above > .field__items ,
+.field--label-above > .w3css-field__items{
   display: block;
 }
 
 .field--type-h5p .field__label,
+.field--type-h5p .w3css-field__label,
 .field--type-h5p .field__item,
-.field--type-h5p .field__items {
+.field--type-h5p .w3css-field__item,
+.field--type-h5p .field__items ,
+.field--type-h5p .w3css-field__items{
   width: 100%;
 }
 
 .field--label-above > .field__item,
+.field--label-above > .w3css-field__item,
 .field--label-above > .field__items > .field__item:first-child,
-.field--label-above > .field__items > .field__item:first-child a {
+.field--label-above > .w3css-field__items > .w3css-field__item:first-child,
+.field--label-above > .field__items > .field__item:first-child a ,
+.field--label-above > .w3css-field__items > .w3css-field__item:first-child a{
   margin-left: 0 !important;
   padding-left: 0 !important;
 }
 
 .field__items > .field__item,
-.field--label-inline > .field__label {
+.w3css-field__items > .w3css-field__item,
+.field--label-inline > .field__label ,
+.field--label-inline > .w3css-field__label{
   margin-right: 10px;
 }
 
-.field--label-inline .field__label::after {
+.field--label-inline .field__label::after , .field--label-inline .w3css-field__label::after{
   content: ':';
 }
 
 .field--name-field-tags .field__item,
-ul.links li {
+.field--name-field-tags .w3css-field__item,
+ul.links li ,
+ul.w3css-links li{
   border: none !important;
 }
 
-ul.links li a {
+ul.links li a , ul.w3css-links li a{
   border: none;
   padding: 0 !important;
   display: inline-block;
 }
 
-.field--name-field-tags .field__item a {
+.field--name-field-tags .field__item a , .field--name-field-tags .w3css-field__item a{
   border: none;
   padding: 3px;
 }
 
-.node__content ul.links {
+.node__content ul.links , .w3css-node__content ul.w3css-links{
   float: right;
 }
 
-.node__content ul.links li:last-child {
+.node__content ul.links li:last-child , .w3css-node__content ul.w3css-links li:last-child{
   margin-right: 0 !important;
   padding-right: 0 !important;
 }
 
-.node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child {
+.node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child , .w3css-node--view-mode-full > .w3css-node__content > .field--type-image + .field--type-text-with-summary > p:first-child{
   margin-top: 0!important;
 }
 
 label,
-.field__label {
+.field__label ,
+.w3css-field__label{
   font-weight: bold;
 }

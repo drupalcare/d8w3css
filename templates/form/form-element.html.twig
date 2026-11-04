@@ -47,7 +47,7 @@
 {% set classes = [
     'w3-section',
     'js-form-item',
-    'form-item',
+    'form-item', 'w3css-form-item',
     'js-form-type-' ~ type|clean_class,
     'form-type-' ~ type|clean_class,
     'js-form-item-' ~ name|clean_class,
@@ -60,7 +60,7 @@
 {% set description_classes = [
     'w3-small',
     'w3-row',
-    'description',
+    'description', 'w3css-description',
     description_display == 'invisible' ? 'visually-hidden',
   ]
 %}
@@ -69,7 +69,7 @@
     {{ label }}
   {% endif %}
   {% if prefix is not empty %}
-    <span class="field-prefix">{{ prefix }}</span>
+    <span class="field-prefix w3css-field-prefix">{{ prefix }}</span>
   {% endif %}
   {% if description_display == 'before' and description.content %}
     <div{{ description.attributes }}>
@@ -78,13 +78,13 @@
   {% endif %}
   {{ children }}
   {% if suffix is not empty %}
-    <span class="field-suffix">{{ suffix }}</span>
+    <span class="field-suffix w3css-field-suffix">{{ suffix }}</span>
   {% endif %}
   {% if label_display == 'after' %}
     {{ label }}
   {% endif %}
   {% if errors %}
-    <div class="w3-panel w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message">
+    <div class="w3-panel w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message w3css-form-item--error-message">
       <strong>{{ errors }}</strong>
     </div>
   {% endif %}

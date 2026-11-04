@@ -66,8 +66,8 @@ class ThemeSettingsSchemaTest extends KernelTestBase {
     $this->container->get('theme_installer')->install(['drupal8_w3css_theme']);
     $settings = $this->config('drupal8_w3css_theme.settings');
     $this->assertFalse($settings->isNew());
-    $this->assertSame(1, $settings->get('top_region'));
-    $this->assertSame('none', $settings->get('current_theme'));
+    $this->assertTrue($settings->get('region_groups.top.marker_class'));
+    $this->assertSame('none', $settings->get('color_scheme.predefined'));
     // Throws if any shipped key or type is not described.
     $this->assertSame([], $this->validationErrors('drupal8_w3css_theme.settings'));
   }
@@ -81,38 +81,58 @@ class ThemeSettingsSchemaTest extends KernelTestBase {
   public function testFormStyleValuesAreCast(): void {
     $this->container->get('theme_installer')->install(['drupal8_w3css_theme']);
     $this->config('drupal8_w3css_theme.settings')
-      ->set('d8w3css_font_awesome', '3')
-      ->set('social_media_size', '2')
-      ->set('d8w3css_site_gf', 'd8w3css-abel')
-      ->set('d8w3css_google_font_local', 0)
-      ->set('color_header', 'w3-red')
+      ->set('libraries.font_awesome', '3')
+      ->set('social_icons.size', '2')
+      ->set('typography.site_font', 'd8w3css-abel')
+      ->set('typography.load_fonts_locally', 0)
+      ->set('region_colors.header', 'w3-red')
       ->save();
     $settings = $this->config('drupal8_w3css_theme.settings');
-    $this->assertSame(3, $settings->get('d8w3css_font_awesome'));
-    $this->assertSame(2, $settings->get('social_media_size'));
-    $this->assertSame(0, $settings->get('d8w3css_google_font_local'));
+    $this->assertSame(3, $settings->get('libraries.font_awesome'));
+    $this->assertSame(2, $settings->get('social_icons.size'));
+    $this->assertFalse($settings->get('typography.load_fonts_locally'));
+    $this->assertSame('w3-red', $settings->get('region_colors.header'));
   }
 
   /**
-   * Every key the settings form reads is described by the schema.
+   * Every setting path the settings form reads is described by the schema.
    */
   public function testEveryFormKeyHasSchema(): void {
-    $schema_keys = $this->customSchemaKeys();
     $form_keys = $this->formKeys();
     $this->assertNotEmpty($form_keys, 'The scan found form keys (instrument control).');
-    $this->assertContains('color_header', $form_keys, 'Control: a known form key was found.');
-    $this->assertSame([], array_values(array_diff($form_keys, $schema_keys)), 'Form keys with no schema entry.');
+    $this->assertContains('region_colors.header', $form_keys, 'Control: a known form key was found.');
+    $this->assertContains('typography.site_font', $form_keys, 'Control: a known form key was found.');
+    $missing = array_values(array_filter($form_keys, fn (string $path): bool => !$this->schemaHasPath($path)));
+    $this->assertSame([], $missing, 'Form keys with no schema entry.');
+    // Control: the path check rejects a path the schema does not describe.
+    $this->assertFalse($this->schemaHasPath('typography.no_such_font'));
   }
 
   /**
-   * Every schema entry is shipped by install config or used by the form.
+   * Every top-level schema group is shipped by install config or read by the form.
    *
-   * Stops the schema accumulating keys nothing writes or reads.
+   * Stops the schema accumulating groups nothing writes or reads.
    */
   public function testNoOrphanSchemaKeys(): void {
     $install = Yaml::decode((string) file_get_contents($this->themeDir() . '/config/install/drupal8_w3css_theme.settings.yml'));
-    $used = array_merge(array_keys($install), $this->formKeys());
+    $form_groups = array_map(fn (string $path): string => explode('.', $path)[0], $this->formKeys());
+    $used = array_merge(array_keys($install), $form_groups);
     $this->assertSame([], array_values(array_diff($this->customSchemaKeys(), $used)), 'Schema keys nothing ships or reads.');
+  }
+
+  /**
+   * Whether a dotted setting path is described by the theme's schema.
+   */
+  private function schemaHasPath(string $path): bool {
+    $this->container->get('theme_installer')->install(['drupal8_w3css_theme']);
+    $node = $this->container->get('config.typed')->getDefinition('drupal8_w3css_theme.settings');
+    foreach (explode('.', $path) as $segment) {
+      if (!isset($node['mapping'][$segment])) {
+        return FALSE;
+      }
+      $node = $node['mapping'][$segment];
+    }
+    return TRUE;
   }
 
   /**
@@ -131,16 +151,24 @@ class ThemeSettingsSchemaTest extends KernelTestBase {
   }
 
   /**
-   * Setting names the form files read, parsed from src/Settings.
+   * Dotted setting paths the form files name, parsed from src/Settings.
+   *
+   * Only strings whose first segment is one of the theme's schema groups count,
+   * so route names such as 'user.login' are not mistaken for settings.
    *
    * @return string[]
-   *   Key names.
+   *   Setting paths, for example 'typography.site_font'.
    */
   private function formKeys(): array {
+    $groups = $this->customSchemaKeys();
     $keys = [];
     foreach (glob($this->themeDir() . '/src/Settings/*.php') ?: [] as $file) {
-      preg_match_all("/getSetting\('([a-z0-9_]+)'\)/", (string) file_get_contents($file), $m);
-      $keys = array_merge($keys, $m[1]);
+      preg_match_all("/'([a-z][a-z0-9_]*(?:\.[a-z0-9_]+)+)'/", (string) file_get_contents($file), $m);
+      foreach ($m[1] as $path) {
+        if (in_array(explode('.', $path)[0], $groups, TRUE)) {
+          $keys[] = $path;
+        }
+      }
     }
     return array_values(array_unique($keys));
   }

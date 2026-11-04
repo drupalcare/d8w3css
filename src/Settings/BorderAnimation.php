@@ -21,10 +21,11 @@ final class BorderAnimation extends SettingsSection {
       '#description'   => $this->t("<p><strong>You can enable/disable the border animation for the top regions, bottom regions and footer regions.</strong></p>"),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_border_animation']['border_animation'] = [
+    $form['drupal8_w3css_theme_settings']['w3_border_animation']['effects_animated_borders'] = [
+      '#parents' => ['effects', 'animated_borders'],
       '#type' => 'checkbox',
       '#title' => $this->t("Check this box to animate the region's border."),
-      '#default_value' => $this->themeSettings->getSetting('border_animation'),
+      '#default_value' => $this->settings->get('effects.animated_borders'),
     ];
   }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Hook;
 
+use Drupal\block\BlockInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -12,6 +13,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
  * Template suggestions for blocks, menus, forms, pages and users.
  */
 final class ThemeSuggestionHooks {
+
   public function __construct(
     private readonly RouteMatchInterface $routeMatch,
     private readonly EntityTypeManagerInterface $entityTypeManager,
@@ -19,13 +21,17 @@ final class ThemeSuggestionHooks {
 
   /**
    * Implements hook_theme_suggestions_block_alter().
+   *
+   * @param list<string> $suggestions
+   *   The theme suggestions.
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('theme_suggestions_block_alter')]
   public function themeSuggestionsBlockAlter(array &$suggestions, array $variables): void {
     if (!empty($variables['elements']['#id'])) {
-      /** @var \Drupal\block\BlockInterface $block */
       $block = $this->entityTypeManager->getStorage('block')->load($variables['elements']['#id']);
-      if ($block) {
+      if ($block instanceof BlockInterface) {
         // Add region-specific block theme suggestions.
         $region = $block->getRegion();
         $suggestions[] = 'block__' . $region;
@@ -37,6 +43,11 @@ final class ThemeSuggestionHooks {
 
   /**
    * Implements hook_theme_suggestions_HOOK_alter() for menu.
+   *
+   * @param list<string> $suggestions
+   *   The theme suggestions.
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('theme_suggestions_menu_alter')]
   public function themeSuggestionsMenuAlter(array &$suggestions, array $variables): void {
@@ -47,6 +58,11 @@ final class ThemeSuggestionHooks {
 
   /**
    * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+   *
+   * @param list<string> $suggestions
+   *   The theme suggestions.
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('theme_suggestions_form_alter')]
   public function themeSuggestionsFormAlter(array &$suggestions, array $variables): void {
@@ -58,6 +74,11 @@ final class ThemeSuggestionHooks {
 
   /**
    * Implements hook_theme_suggestions_page_alter().
+   *
+   * @param list<string> $suggestions
+   *   The theme suggestions.
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('theme_suggestions_page_alter')]
   public function themeSuggestionsPageAlter(array &$suggestions, array $variables): void {
@@ -89,6 +110,11 @@ final class ThemeSuggestionHooks {
 
   /**
    * Implements hook_theme_suggestions_HOOK_alter().
+   *
+   * @param list<string> $suggestions
+   *   The theme suggestions.
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('theme_suggestions_user_alter')]
   public function themeSuggestionsUserAlter(array &$suggestions, array $variables): void {

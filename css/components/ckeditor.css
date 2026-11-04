@@ -30,7 +30,7 @@
   border-top: none !important;
 }
 
-.text-format-wrapper > .element-container-wrapper {
+.text-format-wrapper > .w3css-element-container-wrapper , .w3css-text-format-wrapper > .w3css-element-container-wrapper{
   margin: 8px auto !important;
   border-radius: 6px;
   border: 1px solid #eaeaea !important;
@@ -41,22 +41,22 @@
 
 .ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar,
 .ck.ck-editor__top .ck-sticky-panel .ck-toolbar.ck-rounded-corners,
-.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners,
-.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+.ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
   border: 0;
 }
 
-.filter-guidelines-item {
+.filter-guidelines-item , .w3css-filter-guidelines-item{
   font-size: 13px;
 }
 
-.filter-guidelines-item li {
+.filter-guidelines-item li , .w3css-filter-guidelines-item li{
   padding-left: 0;
 }
 
 .cke_top,
 .cke_bottom,
 .cke_contents,
-.text-format-wrapper > .element-container-wrapper {
+.text-format-wrapper > .w3css-element-container-wrapper ,
+.w3css-text-format-wrapper > .w3css-element-container-wrapper{
   border-color: #eaeaea !important;
 }

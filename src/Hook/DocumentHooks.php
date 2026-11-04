@@ -10,20 +10,32 @@ use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Routing\AdminContext;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\drupal8_w3css_theme\Settings\SettingsReader;
 
 /**
  * Page, document and maintenance-page preprocess hooks.
  */
 final class DocumentHooks {
+
+  /**
+   * Reads the settings by their new names; a plain class, not a service.
+   */
+  private readonly SettingsReader $settings;
+
   public function __construct(
-    private readonly ThemeSettingsProvider $themeSettings,
+    ThemeSettingsProvider $themeSettings,
     private readonly RouteMatchInterface $routeMatch,
     private readonly CurrentPathStack $currentPath,
     private readonly AdminContext $adminContext,
-  ) {}
+  ) {
+    $this->settings = new SettingsReader($themeSettings);
+  }
 
   /**
    * Implements hook_preprocess_HOOK() for HTML document templates.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_html')]
   public function preprocessHtml(array &$variables): void {
@@ -60,7 +72,7 @@ final class DocumentHooks {
     $curr_path = $this->currentPath->getPath();
     $curr_path = ltrim($curr_path, '/');
     $user_url = explode('/', $curr_path);
-    if (isset($user_url[0], $user_url[1]) && $user_url[0] == 'user') {
+    if (isset($user_url[1]) && $user_url[0] == 'user') {
       $variables['attributes']['class'][] = 'path-user-' . $user_url[1];
     }
     // Add view id name to the body class.
@@ -69,12 +81,21 @@ final class DocumentHooks {
       $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier((string) $view_id);
     }
     if ($this->adminContext->isAdminRoute()) {
-      $variables['attributes']['class'][] = 'admin-context';
+      $variables['attributes']['class'][] = 'w3css-admin-context';
+    }
+    // Name the active predefined colour scheme on the body, so a sub-theme
+    // can tie colour fixes to the scheme they were made for.
+    $scheme = (string) $this->settings->get('color_scheme.predefined');
+    if ($scheme !== '' && $scheme !== 'none') {
+      $variables['attributes']['class'][] = Html::getClass('w3css-scheme-' . $scheme);
     }
   }
 
   /**
    * Implements hook_preprocess_page() for page templates.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_page')]
   public function preprocessPage(array &$variables): void {
@@ -122,7 +143,7 @@ final class DocumentHooks {
       $variables['content_w3css'] = 'w3-col';
     }
     // Add 3col stacked equal width.
-    $variables['equal_width'] = $this->themeSettings->getSetting('equal_width');
+    $variables['equal_width'] = $this->settings->forTwigVariable('equal_width');
     if ($variables['equal_width'] != NULL) {
       if ($has_sidebar_first && $has_sidebar_second) {
         $variables['content_w3css'] = 'w3-third';
@@ -164,6 +185,8 @@ final class DocumentHooks {
     else {
       $variables['footer_w3css'] = 'w3-col';
     }
+    // The lists below are Twig variable names, kept for this theme's and the
+    // sub-themes' templates. The reader turns each into its new settings key.
     // Mix variables.
     $mvar = [
       'd8w3css_site_gfs',
@@ -184,7 +207,7 @@ final class DocumentHooks {
       'website_width',
     ];
     foreach ($mvar as $value) {
-      $variables[$value] = $this->themeSettings->getSetting($value);
+      $variables[$value] = $this->settings->forTwigVariable($value);
     }
     // Social Media's $variables.
     $svar = [
@@ -203,7 +226,7 @@ final class DocumentHooks {
       'show_credit_link',
     ];
     foreach ($svar as $value) {
-      $variables[$value] = $this->themeSettings->getSetting($value);
+      $variables[$value] = $this->settings->forTwigVariable($value);
     }
     // Color's variables.
     $cvar = [
@@ -235,10 +258,10 @@ final class DocumentHooks {
       'color_copyright',
     ];
     foreach ($cvar as $value) {
-      $variables[$value] = $this->themeSettings->getSetting($value);
+      $variables[$value] = $this->settings->forTwigVariable($value);
     }
     // Check if the current user on login/register or reset.
-    if ($this->themeSettings->getSetting('layout_user_login_custom')) {
+    if ($this->settings->get('layout.centered_login_pages')) {
       $curr_path = $this->currentPath->getPath();
       $curr_path = ltrim($curr_path, '/');
       if ($curr_path == 'user/login' || $curr_path == 'user/register' || $curr_path == 'user/password') {
@@ -250,6 +273,9 @@ final class DocumentHooks {
 
   /**
    * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_maintenance_page')]
   public function preprocessMaintenancePage(array &$variables): void {

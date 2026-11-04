@@ -1,114 +1,43 @@
-.main-container-inner,
-.d8w3css-main-region__inner {
-  color: #2c3008;
+:root {
+  --w-main-inner: #2c3008;
+  --w-main-main-b: #fcfdf5;
+  --w-l5: #2c3008;
+  --w-l5-b: #fcfdf3;
+  --w-l4: #2c3008;
+  --w-l4-b: #f5f8d7;
+  --w-l3: #2c3008;
+  --w-l3-b: #eaf1af;
+  --w-l2: #2c3008;
+  --w-l2-b: #e0ea87;
+  --w-l1: #2c3008;
+  --w-l1-b: #d6e35f;
+  --w-d1: #2c3008;
+  --w-d1-b: #c1d325;
+  --w-d2: #42490f;
+  --w-d2-b: #acbb21;
+  --w-d3: #32370b;
+  --w-d3-b: #96a41d;
+  --w-d4: #1d2006;
+  --w-d4-b: #818c19;
+  --w-d5: #fcfdf5;
+  --w-d5-b: #6b7515;
+  --w-light-b: #fcfdf3;
+  --w-dark-b: #6b7515;
+  --w-theme: #2c3008;
+  --w-theme-b: #cddc39;
+  --w-text-theme: #717b16;
+  --w-border-the-r: #cddc39;
+  --w-hover-them: #2c3008;
+  --w-hover-them-b: #cddc39;
+  --w-kbtn: #cddc39;
+  --w-kbd: #cddc39;
 }
 
-#copyright p,
-#copyright a {
-  color: #fcfdf5;
+#w3css-copyright p,
+#w3css-copyright a {
+  color: #f1f6d0;
 }
 
-#main-container .main-box > div,
-#main-container .d8w3css-main-box > div {
-  background-color: #fcfdf5;
-}
-
-.w3-theme-l5 {
-  color: #2c3008 !important;
-  background-color: #fcfdf3 !important;
-}
-
-.w3-theme-l4 {
-  color: #2c3008 !important;
-  background-color: #f5f8d7 !important;
-}
-
-.w3-theme-l3 {
-  color: #2c3008 !important;
-  background-color: #eaf1af !important;
-}
-
-.w3-theme-l2 {
-  color: #2c3008 !important;
-  background-color: #e0ea87 !important;
-}
-
-.w3-theme-l1 {
-  color: #2c3008 !important;
-  background-color: #d6e35f !important;
-}
-
-.w3-theme-d1 {
-  color: #2c3008 !important;
-  background-color: #c1d325 !important;
-}
-
-.w3-theme-d2 {
-  color: #fcfdf5 !important;
-  background-color: #acbb21 !important;
-}
-
-.w3-theme-d3 {
-  color: #fcfdf5 !important;
-  background-color: #96a41d !important;
-}
-
-.w3-theme-d4 {
-  color: #fcfdf5 !important;
-  background-color: #818c19 !important;
-}
-
-.w3-theme-d5 {
-  color: #fcfdf5 !important;
-  background-color: #6b7515 !important;
-}
-
-.w3-theme-light {
-  color: #2c3008 !important;
-  background-color: #fcfdf3 !important;
-}
-
-.w3-theme-dark {
-  color: #fcfdf5 !important;
-  background-color: #6b7515 !important;
-}
-
-.w3-theme-action {
-  color: #fcfdf5 !important;
-  background-color: #6b7515 !important;
-}
-
-.w3-theme,
-.close-nav,
-.mobile-nav,
-.d8w3css-main-nav__close,
-.d8w3css-mobile-nav__toggle {
-  color: #2c3008 !important;
-  background-color: #cddc39 !important;
-}
-
-.w3-text-theme {
-  color: #cddc39 !important;
-}
-
-.w3-border-theme {
-  border-color: #cddc39 !important;
-}
-
-.w3-hover-theme:hover {
-  color: #2c3008 !important;
-  background-color: #cddc39 !important;
-}
-
-.w3-hover-text-theme:hover {
-  color: #cddc39 !important;
-}
-
-.w3-hover-border-theme:hover {
-  border-color: #cddc39 !important;
-}
-
-/* custom work */
 .w3-active-pager {
   background-color: #fcfdf3 !important;
 }
@@ -117,105 +46,4 @@
 .w3-button:hover {
   background-color: #f5f8d7 !important;
   color: #6b7515 !important;
-}
-
-/* button animation  */
-@keyframes btnBorderAnimation {
-  0% {
-    width: 0;
-    height: 0;
-    border-bottom-color: #cddc39;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-bottom-color: #cddc39;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-bottom-color: transparent;
-  }
-
-}
-
-/* Border animation  */
-@keyframes borderLeftColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: #cddc39;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: #cddc39;
-    border-right-color: #cddc39;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: #cddc39;
-    border-right-color: #cddc39;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-}
-
-@keyframes borderRightColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #cddc39;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #cddc39;
-    border-left-color: #cddc39;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #cddc39;
-    border-left-color: #cddc39;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
 }

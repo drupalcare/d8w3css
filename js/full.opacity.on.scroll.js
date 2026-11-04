@@ -10,7 +10,7 @@
    * Fade animation on scroll.
    */
   const fadeBox = function () {
-    const elements = document.querySelectorAll('.d8w3css-fade');
+    const elements = document.querySelectorAll('.w3css-fade');
 
     // Reduced motion: the content is simply visible, with no fading.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -49,19 +49,15 @@
   /**
    * Full opacity on scroll behavior.
    */
-  Drupal.behaviors.d8w3cssFullOpacity = {
+  Drupal.behaviors.w3cssFullOpacity = {
     attach: function (context) {
       // Disable show on scroll if layout builder is active.
       if (!document.getElementById('layout-builder')) {
-        // Templates copied into a sub-theme or site still print only d8-fade.
-        context.querySelectorAll('.d8-fade').forEach(function (element) {
-          element.classList.add('d8w3css-fade');
-        });
-        once('d8w3css-fade', '.d8w3css-fade', context).forEach(function (element) {
+        once('w3css-fade', '.w3css-fade', context).forEach(function (element) {
           element.style.opacity = 0;
         });
         fadeBox();
-        once('d8w3css-fade-scroll', 'html').forEach(function () {
+        once('w3css-fade-scroll', 'html').forEach(function () {
           window.addEventListener('scroll', fadeBox);
         });
       }

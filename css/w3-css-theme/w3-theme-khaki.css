@@ -1,109 +1,38 @@
-.main-container-inner,
-.d8w3css-main-region__inner {
-  color: #242105;
+:root {
+  --w-main-inner: #242105;
+  --w-main-main-b: #fff;
+  --w-l5: #242105;
+  --w-l5-b: #fefef8;
+  --w-l4: #242105;
+  --w-l4-b: #fcfae8;
+  --w-l3: #242105;
+  --w-l3-b: #f9f5d2;
+  --w-l2: #242105;
+  --w-l2-b: #f6f0bb;
+  --w-l1: #242105;
+  --w-l1-b: #f3eba5;
+  --w-d1: #242105;
+  --w-d1-b: #ecdf6c;
+  --w-d2: #242105;
+  --w-d2-b: #e8d84a;
+  --w-d3: #242105;
+  --w-d3-b: #e3d029;
+  --w-d4: #242105;
+  --w-d4-b: #cbb91a;
+  --w-d5: #373307;
+  --w-d5-b: #a99b16;
+  --w-light-b: #fefef8;
+  --w-dark-b: #a99b16;
+  --w-theme: #242105;
+  --w-theme-b: #f0e68c;
+  --w-text-theme: #837811;
+  --w-border-the-r: #f0e68c;
+  --w-hover-them: #242105;
+  --w-hover-them-b: #f0e68c;
+  --w-kbtn: #f0e68c;
+  --w-kbd: #f0e68c;
 }
 
-#main-container .main-box > div,
-#main-container .d8w3css-main-box > div {
-  background-color: #fff;
-}
-
-.w3-theme-l5 {
-  color: #242105 !important;
-  background-color: #fefef8 !important;
-}
-
-.w3-theme-l4 {
-  color: #242105 !important;
-  background-color: #fcfae8 !important;
-}
-
-.w3-theme-l3 {
-  color: #242105 !important;
-  background-color: #f9f5d2 !important;
-}
-
-.w3-theme-l2 {
-  color: #242105 !important;
-  background-color: #f6f0bb !important;
-}
-
-.w3-theme-l1 {
-  color: #242105 !important;
-  background-color: #f3eba5 !important;
-}
-
-.w3-theme-d1 {
-  color: #242105 !important;
-  background-color: #ecdf6c !important;
-}
-
-.w3-theme-d2 {
-  color: #242105 !important;
-  background-color: #e8d84a !important;
-}
-
-.w3-theme-d3 {
-  color: #242105 !important;
-  background-color: #e3d029 !important;
-}
-
-.w3-theme-d4 {
-  color: #242105 !important;
-  background-color: #cbb91a !important;
-}
-
-.w3-theme-d5 {
-  color: #fcfae6 !important;
-  background-color: #a99b16 !important;
-}
-
-.w3-theme-light {
-  color: #242105 !important;
-  background-color: #fefef8 !important;
-}
-
-.w3-theme-dark {
-  color: #fcfae6 !important;
-  background-color: #a99b16 !important;
-}
-
-.w3-theme-action {
-  color: #fcfae6 !important;
-  background-color: #a99b16 !important;
-}
-
-.w3-theme,
-.close-nav,
-.mobile-nav,
-.d8w3css-main-nav__close,
-.d8w3css-mobile-nav__toggle {
-  color: #242105 !important;
-  background-color: #f0e68c !important;
-}
-
-.w3-text-theme {
-  color: #f0e68c !important;
-}
-
-.w3-border-theme {
-  border-color: #f0e68c !important;
-}
-
-.w3-hover-theme:hover {
-  color: #242105 !important;
-  background-color: #f0e68c !important;
-}
-
-.w3-hover-text-theme:hover {
-  color: #f0e68c !important;
-}
-
-.w3-hover-border-theme:hover {
-  border-color: #f0e68c !important;
-}
-
-/* custom work */
 .w3-active-pager {
   background-color: #fefef8 !important;
 }
@@ -111,106 +40,5 @@
 .w3-hover-over:hover,
 .w3-button:hover {
   background-color: #fcfae8 !important;
-  color: #a99b16 !important;
-}
-
-/* button animation  */
-@keyframes btnBorderAnimation {
-  0% {
-    width: 0;
-    height: 0;
-    border-bottom-color: #f0e68c;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-bottom-color: #f0e68c;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-bottom-color: transparent;
-  }
-
-}
-
-/* Border animation  */
-@keyframes borderLeftColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: #f0e68c;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: #f0e68c;
-    border-right-color: #f0e68c;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: #f0e68c;
-    border-right-color: #f0e68c;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-}
-
-@keyframes borderRightColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #f0e68c;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #f0e68c;
-    border-left-color: #f0e68c;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #f0e68c;
-    border-left-color: #f0e68c;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
+  color: #7f7410 !important;
 }

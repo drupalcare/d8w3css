@@ -1,6 +1,7 @@
 /* CSS Webform */
 .webform-submission-form fieldset,
-.webform-submission-form fieldset .fieldset-wrapper.w3-panel {
+.webform-submission-form fieldset .fieldset-wrapper.w3-panel ,
+.webform-submission-form fieldset .w3css-fieldset-wrapper.w3-panel{
   border: none;
   background: transparent !important;
   margin: 0 auto;
@@ -34,7 +35,7 @@
   width: 4em;
 }
 
-.webform-multiple-add div.w3-section.form-item {
+.webform-multiple-add div.w3-section.form-item , .webform-multiple-add div.w3-section.w3css-form-item{
   width: auto;
   clear: none;
 }
@@ -45,7 +46,7 @@
   margin-right: 10px;
 }
 
-.webform-multiple-add .field-suffix {
+.webform-multiple-add .field-suffix , .webform-multiple-add .w3css-field-suffix{
   font-size: 90%;
 }
 
@@ -54,7 +55,9 @@
 }
 
 .webform-has-field-prefix span.field-prefix + div,
-.webform-has-field-suffix > div + span.field-suffix {
+.webform-has-field-prefix span.w3css-field-prefix + div,
+.webform-has-field-suffix > div + span.field-suffix ,
+.webform-has-field-suffix > div + span.w3css-field-suffix{
   display: inline-block;
   clear: none;
 }

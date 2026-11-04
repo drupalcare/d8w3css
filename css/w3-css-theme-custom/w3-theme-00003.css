@@ -1,247 +1,124 @@
-html,
-body,
-button,
-input,
-select,
-optgroup,
-textarea,
-.ul-parent-account,
-.ul-parent-footer {
+:root {
+  --w-html: #19391a;
+  --w-h1: #37803a;
+  --w-pt: #19391a;
+  --w-fm-p: white;
+  --w-fm-a: white;
+  --w-cke-top-r: #cde9ce;
+  --w-hd-a: white;
+  --w-pt-b: white;
+  --w-hd-b: #47a34b;
+  --w-hd-p: #2a2a2a;
+  --w-open-searc: #cde9ce;
+  --w-open-searc-b: #2d6830;
+  --w-bt-b: #e4f3e5;
+  --w-fm-inner-f-v: 1px solid #4caf50;
+  --w-cr-b: #09150a;
+  --w-input-focu-s: 0 25px 57px 0 rgb(0 0 0 / 25%);
+  --w-kbtn: #fff;
+  --w-kbd: #86ca89;
+}
+
+.w3css-menu__list--menu-footer {
   color: #19391a;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  color: #37803a;
-}
-
-.cke_top,
-.w3-border,
-ul.primary,
-.cke_bottom,
-.cke_chrome,
-ul.secondary,
-ul.primary > li {
-  border-color: #cde9ce !important;
-}
-
-a,
-.w3-button {
-  transition: 0.4s !important;
-}
-
 .w3-hover-over:hover,
-#open-nav-inner:hover,
-#open-search:hover,
 .w3-button:hover {
   color: #cde9ce !important;
   background-color: #2d6830 !important;
 }
 
-.ul-parent-account {
+.w3css-menu__list--menu-account,
+:where(#w3css-footer-menu) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
   color: inherit;
 }
 
-#header .fa,
-#header .svg-inline--fa {
-  color: inherit;
-}
-
-#page-title,
-#highlighted,
-.page-wrapper,
-#top-container,
-#footer-container,
+.w3css-page-wrapper,
 .search-slide-wrapper,
-#top-container .top-box > div,
-#main-container .main-box > div,
-#footer-container .footer-box>div,
-#bottom-container .bottom-box>div,
-#main-container .d8w3css-main-box > div {
+#w3css-top-region .w3css-top-box > div,
+#w3css-main-region .w3css-main-box > div {
   background-color: white;
+}
+
+.w3css-page-wrapper,
+.search-slide-wrapper,
+#w3css-top-region .w3css-top-box > div,
+#w3css-main-region .w3css-main-box > div,
+#w3css-footer-region .w3css-footer-box>div,
+.pager__item.is-active,
+.w3css-pager__item.is-active {
   color: #19391a;
 }
 
-.main-navigation-wrapper,
+.w3css-main-nav,
 .close-nav,
-.mobile-nav,
-.d8w3css-main-nav,
-.d8w3css-main-nav__close,
-.d8w3css-mobile-nav__toggle {
+.w3css-mobile-nav__toggle,
+.w3css-main-nav__close {
   background-color: #4caf50;
-  color: white;
+  color: #333333;
 }
 
-#header {
-  background-color: #47a34b;
+#w3css-header,
+#w3css-footer-menu h1,
+#w3css-footer-menu h2,
+#w3css-footer-menu h3,
+#w3css-footer-menu h4,
+#w3css-footer-menu h5 {
   color: white !important;
 }
 
-#footer-menu h1,
-#footer-menu h2,
-#footer-menu h3,
-#footer-menu h4,
-#footer-menu h5,
-#footer-menu a,
-#footer-menu p,
-#header h1,
-#header h2,
-#header h3,
-#header h4,
-#header h5,
-#header a,
-#header p {
-  color: white !important;
-}
-
-#main-container {
+#w3css-main-region {
   background-color: #f0f9f1;
-  color: #19391a;
 }
 
-#top-container .top-box>div,
-#bottom-container .bottom-box>div,
-#footer-container .footer-box>div {
+#w3css-top-region .w3css-top-box>div,
+#w3css-bottom-region .w3css-bottom-box>div,
+#w3css-footer-region .w3css-footer-box>div {
   border: 1px solid #cde9ce;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
   border-color: #c1e4c2;
 }
 
-.pager__item.is-active {
-  background-color: #e4f3e5;
-  color: #19391a;
-}
-
-#bottom-container {
+.pager__item.is-active,
+.w3css-pager__item.is-active {
   background-color: #e4f3e5;
 }
 
-#footer-menu {
+#w3css-footer-menu {
   background-color: #0e210f;
+}
+
+#w3css-footer-menu,
+#w3css-copyright {
   color: white;
 }
 
-#footer-menu-inner form.w3-content {
-  border: 1px solid #4caf50;
+:where(#w3css-header) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  color: #2a2a2a;
 }
 
-#copyright {
-  background-color: #09150a;
-  color: white;
+:where(#w3css-copyright) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  color: #3d8d40;
 }
 
-/* button animation  */
-@keyframes btnBorderAnimation {
-  0% {
-    width: 0;
-    height: 0;
-    border-bottom-color: #fff;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-bottom-color: #fff;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-bottom-color: transparent;
-  }
-
+#w3css-header h1,
+#w3css-header h2,
+#w3css-header h3,
+#w3css-header h4,
+#w3css-header h5 {
+  color: #2a2a2a !important;
 }
 
-/* Border animation  */
-@keyframes borderLeftColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: #86ca89;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: #86ca89;
-    border-right-color: #86ca89;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: #86ca89;
-    border-right-color: #86ca89;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
+#w3css-header a,
+#w3css-header a:hover {
+  color: #000000 !important;
 }
 
-@keyframes borderRightColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #86ca89;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #86ca89;
-    border-left-color: #86ca89;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #86ca89;
-    border-left-color: #86ca89;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
+#w3css-header a.w3-button:hover {
+  color: #ffffff !important;
 }

@@ -19,11 +19,12 @@ final class Copyright extends SettingsSection {
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
     ];
-    $form['drupal8_w3css_theme_settings']['copyright']['copyright_text'] = [
+    $form['drupal8_w3css_theme_settings']['copyright']['footer_copyright_text'] = [
+      '#parents' => ['footer', 'copyright_text'],
       '#type' => 'textfield',
       '#title' => $this->t('Enter Copyright Text'),
       '#description' => $this->t("Type %year% instead of an actual year number for dynamic copyright. (Copyright © %year% Company Name - All rights reserved)."),
-      '#default_value' => $this->themeSettings->getSetting('copyright_text'),
+      '#default_value' => $this->settings->get('footer.copyright_text'),
     ];
   }
 

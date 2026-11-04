@@ -1,169 +1,225 @@
-.li-item,
-.d8w3css-menu__list,
-.d8w3css-menu__submenu,
-.d8w3css-menu__item {
+.w3css-menu__item,
+.w3css-menu__list,
+.w3css-menu__submenu {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.d8w3css-menu__list:before,
-.d8w3css-menu__list:after {
+.w3css-menu__list:before,
+.w3css-menu__list:after {
   content: " ";
   display: table;
 }
 
-.d8w3css-menu__list:after {
+.w3css-menu__list:after {
   clear: both;
 }
 
-.d8w3css-menu__list {
+.w3css-menu__list {
   z-index: 2000 !important;
 }
 
-.ul-parent li ul.ul-child,
-.d8w3css-menu__list li ul.d8w3css-menu__submenu {
+.w3css-menu__list li ul.w3css-menu__submenu {
   z-index: 3000 !important;
 }
 
-.ul-parent li ul.ul-child li .ul-child,
-.d8w3css-menu__list li ul.d8w3css-menu__submenu li .d8w3css-menu__submenu {
+.w3css-menu__list li ul.w3css-menu__submenu li .w3css-menu__submenu {
   z-index: 4000 !important;
 }
 
-ul .ul-child.show,
-ul .d8w3css-menu__submenu.d8w3css-menu__submenu--open {
+ul .w3css-menu__submenu.w3css-is-open {
   /* display: block; */
   background-color: inherit;
 }
 
-.d8w3css-menu__list a,
-.d8w3css-menu__list button {
+.w3css-menu__list a,
+.w3css-menu__list button {
   font-size: 16px !important;
+  line-height: 1.5;
 }
 
-.d8w3css-menu__list a:hover,
-.d8w3css-menu__list button:hover {
+.w3css-menu__list a:hover,
+.w3css-menu__list button:hover {
   opacity: 1;
 }
 
-.d8w3css-menu__list li {
+.w3css-menu__list li {
   position: relative;
-  text-align: left;
+  text-align: start;
 }
 
-.d8w3css-menu__list > li {
+.w3css-menu__list > li {
   display: inline-block;
   float: left;
 }
 
-.ul-parent li a.tMenu,
-.d8w3css-menu__list li a.d8w3css-menu__link-toggle,
-.ul-parent li button.tMenu,
-.d8w3css-menu__list li button.d8w3css-menu__link-toggle {
+.w3css-menu__list li a.w3css-menu__link-toggle,
+.w3css-menu__list li button.w3css-menu__link-toggle {
   -webkit-transition: background .4s ease;
   -o-transition: background .4s ease;
   transition: background .4s ease;
 }
 
-.d8w3css-menu__list li  ul {
+.w3css-menu__list li  ul {
   min-width: 160px;
   display: none;
 }
 
-.d8w3css-menu__list li li a,
-.d8w3css-menu__list li li button {
+.w3css-menu__list li li a,
+.w3css-menu__list li li button {
   display: block;
   position: relative;
 }
 
-.toggle-parent,
-.toggle-child,
-.d8w3css-menu__toggle-parent,
-.d8w3css-menu__toggle-child {
+.w3css-menu__toggle-parent,
+.w3css-menu__toggle-child {
   cursor: pointer !important;
 }
 
-.d8w3css-menu__list li a,
-.d8w3css-menu__list li button {
+.w3css-menu__list li a,
+.w3css-menu__list li button {
   display: block;
-  text-align: left;
+  text-align: start;
 }
 
 /* Vertical/Horizontal Main Menu */
-#main-navigation-h {
+#w3css-main-nav-horizontal {
   z-index: 1000;
 }
 
-.main-navigation-wrapper .ul-parent a,
-.d8w3css-main-nav .d8w3css-menu__list a,
-.main-navigation-wrapper .ul-parent button,
-.d8w3css-main-nav .d8w3css-menu__list button {
+.w3css-main-nav .w3css-menu__list a,
+.w3css-main-nav .w3css-menu__list button {
   width: 100%;
 }
 
 /* span arrow right or down */
-li.li-expanded i.fa {
+li.w3css-menu__item--expanded i.fa{
   font-weight: normal;
   float: right;
   display: block;
   font-size: 16px;
 }
 
-li.li-expanded .right-arrow svg,
-li.li-expanded .d8w3css-menu__arrow svg,
-li.li-expanded .d8w3css-menu__right-arrow svg {
+li.w3css-menu__item--expanded .w3css-menu__right-arrow svg,
+li.w3css-menu__item--expanded .w3css-menu__arrow svg{
   float: right;
 }
 
-.right-arrow,
-.d8w3css-menu__right-arrow,
-.d8w3css-menu__arrow {
+.w3css-menu__right-arrow,
+.w3css-menu__arrow {
   font-family: inherit;
-  text-align: right;
+  text-align: end;
   display: inline-block;
 }
 
-.d8w3css-menu__list .li-expanded {
+.w3css-menu__list .w3css-menu__item--expanded{
   position: relative;
 }
 
-li.li-expanded > a.link-enabled:hover {
+li.w3css-menu__item--expanded > a.w3css-menu__link--enabled:hover{
   cursor: pointer !important;
 }
 
-li.li-expanded > span,
-li.li-expanded > a > span,
-li.li-expanded > button > span {
+li.w3css-menu__item--expanded > span,
+li.w3css-menu__item--expanded > a > span,
+li.w3css-menu__item--expanded > button > span{
   position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0 12px 0 6px;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  padding-block: 0;
+  padding-inline: 6px 12px;
   display: flex;
   justify-content: center;
 }
 
-ul li.li-expanded > span:hover,
-ul li.li-expanded > a:hover,
-ul li.li-expanded > button:hover {
+ul li.w3css-menu__item--expanded > span:hover,
+ul li.w3css-menu__item--expanded > a:hover,
+ul li.w3css-menu__item--expanded > button:hover{
   cursor: context-menu !important;
 }
 
-.mobile-nav svg,
-.d8w3css-responsive-nav__toggle svg,
-.d8w3css-mobile-nav__toggle svg {
+.w3css-mobile-nav__toggle svg,
+.w3css-responsive-nav__toggle svg {
   float: right;
 }
 
-.d8w3css-menu__list li.li-expanded > a,
-.d8w3css-menu__list li.li-expanded > button {
-  padding-right: 42px;
+.w3css-menu__list li.w3css-menu__item--expanded > a,
+.w3css-menu__list li.w3css-menu__item--expanded > button{
+  padding-inline-end: 42px;
 }
 
 /* Submenu toggles without a link are buttons; they keep the look of the links. */
-button.d8w3css-menu__toggle-parent,
-button.d8w3css-menu__toggle-child {
+button.w3css-menu__toggle-parent,
+button.w3css-menu__toggle-child {
   appearance: none;
   font: inherit;
   line-height: inherit;
+}
+
+[dir="rtl"] .w3css-menu__list > li {
+  float: right;
+}
+
+/* The arrow turns when its submenu opens. The turn itself is set per depth. */
+li.w3css-menu__item--expanded {
+  --w3css-arrow-open: rotate(180deg);
+}
+
+.w3css-menu__arrow svg {
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+li.w3css-is-open > .w3css-menu__arrow svg,
+li.w3css-is-open > button > .w3css-menu__arrow svg,
+li.w3css-is-hovered > .w3css-menu__arrow svg,
+li.w3css-is-hovered > button > .w3css-menu__arrow svg {
+  transform: var(--w3css-arrow-open);
+}
+
+/* One arrow at every depth. This hides the second one in copied templates. */
+li.w3css-menu__item--expanded > .w3css-menu__right-arrow,
+li.w3css-menu__item--expanded > button > .w3css-menu__right-arrow {
+  display: none;
+}
+
+ul li.w3css-menu__item--expanded > .w3css-menu__arrow-toggle:hover {
+  cursor: pointer !important;
+}
+
+/* Escape closes a submenu held open by hover, until the pointer leaves. */
+.w3css-is-dismissed > .w3css-menu__submenu {
+  display: none !important;
+}
+
+.w3css-menu__list a:focus-visible,
+.w3css-menu__list button:focus-visible,
+.w3css-menu__arrow-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+/* The theme's hover sweep (border-animation.css), for keyboard and open states. */
+.w3css-menu__list .w3-button:focus-visible:before,
+.w3css-menu__list .w3-button:focus-visible:after,
+li.w3css-is-open > .w3-button:before,
+li.w3css-is-open > .w3-button:after,
+li.w3css-is-hovered > .w3-button:before,
+li.w3css-is-hovered > .w3-button:after {
+  animation: btnBorderAnimation 0.2s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w3css-menu__arrow svg,
+  .w3css-menu__list a,
+  .w3css-menu__list button {
+    transition: none;
+  }
+
+  .w3css-menu__list .w3-button:before,
+  .w3css-menu__list .w3-button:after,
+  .w3css-menu__list li ul {
+    animation: none !important;
+  }
 }

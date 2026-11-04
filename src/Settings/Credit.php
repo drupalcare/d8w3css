@@ -19,10 +19,11 @@ final class Credit extends SettingsSection {
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
     ];
-    $form['drupal8_w3css_theme_settings']['credit_link']['show_credit_link'] = [
+    $form['drupal8_w3css_theme_settings']['credit_link']['footer_show_credit_link'] = [
+      '#parents' => ['footer', 'show_credit_link'],
       '#type' => 'checkbox',
       '#title' => $this->t('Show/Hide Credit Text'),
-      '#default_value' => $this->themeSettings->getSetting('show_credit_link'),
+      '#default_value' => $this->settings->get('footer.show_credit_link'),
       '#description'   => $this->t('Please display credit in footer'),
     ];
   }

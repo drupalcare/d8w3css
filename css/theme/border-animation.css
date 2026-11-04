@@ -31,15 +31,15 @@
 }
 
 /* Border animation  */
-#top-container .top-box>.animate-border,
-#bottom-container .bottom-box>.animate-border,
-#footer-container .footer-box>.animate-border {
+#w3css-top-region .w3css-top-box>.w3css-animate-border,
+#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border,
+#w3css-footer-region .w3css-footer-box>.w3css-animate-border{
   position: relative;
 }
 
-#top-container .top-box>.animate-border:before,
-#bottom-container .bottom-box>.animate-border:before,
-#footer-container .footer-box>.animate-border:before {
+#w3css-top-region .w3css-top-box>.w3css-animate-border:before,
+#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:before,
+#w3css-footer-region .w3css-footer-box>.w3css-animate-border:before{
   content: '';
   position: absolute;
   top: 0;
@@ -50,15 +50,15 @@
   border: 3px solid transparent;
 }
 
-#top-container .top-box>.animate-border:hover:before,
-#bottom-container .bottom-box>.animate-border:hover:before,
-#footer-container .footer-box>.animate-border:hover:before {
+#w3css-top-region .w3css-top-box>.w3css-animate-border:hover:before,
+#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:hover:before,
+#w3css-footer-region .w3css-footer-box>.w3css-animate-border:hover:before{
   animation: borderLeftColors 1s linear forwards;
 }
 
-#top-container .top-box>.animate-border:after,
-#bottom-container .bottom-box>.animate-border:after,
-#footer-container .footer-box>.animate-border:after {
+#w3css-top-region .w3css-top-box>.w3css-animate-border:after,
+#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:after,
+#w3css-footer-region .w3css-footer-box>.w3css-animate-border:after{
   content: '';
   position: absolute;
   bottom: 0;
@@ -69,21 +69,21 @@
   border: 3px solid transparent;
 }
 
-#top-container .top-box>.animate-border:hover:after,
-#bottom-container .bottom-box>.animate-border:hover:after,
-#footer-container .footer-box>.animate-border:hover:after {
+#w3css-top-region .w3css-top-box>.w3css-animate-border:hover:after,
+#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:hover:after,
+#w3css-footer-region .w3css-footer-box>.w3css-animate-border:hover:after{
   animation: borderRightColors 1s linear forwards;
 }
 /* Shadows */
 
-#top-container .top-box>div.animate-border,
-#bottom-container .bottom-box>div.animate-border,
-#footer-container .footer-box>div.animate-border {
+#w3css-top-region .w3css-top-box>div.w3css-animate-border,
+#w3css-bottom-region .w3css-bottom-box>div.w3css-animate-border,
+#w3css-footer-region .w3css-footer-box>div.w3css-animate-border{
   transition: 0.4s !important;
 }
 
-#top-container .top-box>div.animate-border:hover,
-#bottom-container .bottom-box>div.animate-border:hover,
-#footer-container .footer-box>div.animate-border:hover {
+#w3css-top-region .w3css-top-box>div.w3css-animate-border:hover,
+#w3css-bottom-region .w3css-bottom-box>div.w3css-animate-border:hover,
+#w3css-footer-region .w3css-footer-box>div.w3css-animate-border:hover{
   box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
 }

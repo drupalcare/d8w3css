@@ -20,10 +20,11 @@ final class SocialLinks extends SettingsSection {
       '#collapsed' => FALSE,
     ];
 
-    $form['drupal8_w3css_theme_settings']['social_icon']['social_media_size'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_size'] = [
+      '#parents' => ['social_icons', 'size'],
       '#type' => 'radios',
       '#title' => $this->t('Select The Social Media Icon Size'),
-      '#default_value' => $this->themeSettings->getSetting('social_media_size'),
+      '#default_value' => $this->settings->get('social_icons.size'),
       '#options' => [
         0 => $this->t('Small - Default'),
         1 => $this->t('Medium'),
@@ -31,56 +32,66 @@ final class SocialLinks extends SettingsSection {
       ],
     ];
 
-    $form['drupal8_w3css_theme_settings']['social_icon']['show_social_icon'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_enabled'] = [
+      '#parents' => ['social_icons', 'enabled'],
       '#type' => 'checkbox',
       '#title' => $this->t('Show Social Icons'),
-      '#default_value' => $this->themeSettings->getSetting('show_social_icon'),
+      '#default_value' => $this->settings->get('social_icons.enabled'),
       '#description' => $this->t("Check this option to show Social Icon. Uncheck to hide."),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['facebook_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_facebook'] = [
+      '#parents' => ['social_icons', 'links', 'facebook'],
       '#type' => 'textfield',
       '#title' => $this->t('Facebook Page'),
-      '#default_value' => $this->themeSettings->getSetting('facebook_url'),
+      '#default_value' => $this->settings->get('social_icons.links.facebook'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['twitter_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_twitter'] = [
+      '#parents' => ['social_icons', 'links', 'twitter'],
       '#type' => 'textfield',
       '#title' => $this->t('X Profile'),
-      '#default_value' => $this->themeSettings->getSetting('twitter_url'),
+      '#default_value' => $this->settings->get('social_icons.links.twitter'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['pinterest_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_pinterest'] = [
+      '#parents' => ['social_icons', 'links', 'pinterest'],
       '#type' => 'textfield',
       '#title' => $this->t('Pinterest Profile'),
-      '#default_value' => $this->themeSettings->getSetting('pinterest_url'),
+      '#default_value' => $this->settings->get('social_icons.links.pinterest'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['linkedin_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_linkedin'] = [
+      '#parents' => ['social_icons', 'links', 'linkedin'],
       '#type' => 'textfield',
       '#title' => $this->t('Linkedin Profile'),
-      '#default_value' => $this->themeSettings->getSetting('linkedin_url'),
+      '#default_value' => $this->settings->get('social_icons.links.linkedin'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['instagram_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_instagram'] = [
+      '#parents' => ['social_icons', 'links', 'instagram'],
       '#type' => 'textfield',
       '#title' => $this->t('Instagram Profile'),
-      '#default_value' => $this->themeSettings->getSetting('instagram_url'),
+      '#default_value' => $this->settings->get('social_icons.links.instagram'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['youtube_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_youtube'] = [
+      '#parents' => ['social_icons', 'links', 'youtube'],
       '#type' => 'textfield',
       '#title' => $this->t('Youtube Profile'),
-      '#default_value' => $this->themeSettings->getSetting('youtube_url'),
+      '#default_value' => $this->settings->get('social_icons.links.youtube'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['drupal_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_drupal'] = [
+      '#parents' => ['social_icons', 'links', 'drupal'],
       '#type' => 'textfield',
       '#title' => $this->t('Drupal Profile'),
-      '#default_value' => $this->themeSettings->getSetting('drupal_url'),
+      '#default_value' => $this->settings->get('social_icons.links.drupal'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['rss_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_rss'] = [
+      '#parents' => ['social_icons', 'links', 'rss'],
       '#type' => 'textfield',
       '#title' => $this->t('RSS Link'),
-      '#default_value' => $this->themeSettings->getSetting('rss_url'),
+      '#default_value' => $this->settings->get('social_icons.links.rss'),
     ];
-    $form['drupal8_w3css_theme_settings']['social_icon']['mastodon_url'] = [
+    $form['drupal8_w3css_theme_settings']['social_icon']['social_icons_links_mastodon'] = [
+      '#parents' => ['social_icons', 'links', 'mastodon'],
       '#type' => 'textfield',
       '#title' => $this->t('Mastodon Profile'),
-      '#default_value' => $this->themeSettings->getSetting('mastodon_url'),
+      '#default_value' => $this->settings->get('social_icons.links.mastodon'),
     ];
   }
 

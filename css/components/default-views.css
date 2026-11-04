@@ -2,22 +2,22 @@
   padding: 0.01em 16px;
 }
 
-.views-ui-view-displays ul li {
+.views-ui-view-displays ul li , .w3css-views-ui-view-displays ul li{
   display: inline-block;
   margin-right: 16px;
 }
 
-.view-filters details.form-wrapper {
+.view-filters details.form-wrapper , .w3css-view-filters details.w3css-form-wrapper{
   margin: 16px 0;
   padding: 8px;
   border: 1px solid #ccc;
 }
 
-.view-filters details.form-wrapper:hover {
+.view-filters details.form-wrapper:hover , .w3css-view-filters details.w3css-form-wrapper:hover{
   cursor: pointer;
 }
 
-.view-header {
+.view-header , .w3css-view-header{
   padding: 0 16px;
 }
 
@@ -33,6 +33,7 @@
 .views-display-setting,
 .views-display-setting input,
 .views-display-setting .label,
+.views-display-setting .w3css-label,
 .views-display-extra-actions a {
   font-size: 14px !important;
 }
@@ -59,7 +60,7 @@
   position: static;
 }
 
-.views-filterable-options-controls .form-item {
+.views-filterable-options-controls .form-item , .views-filterable-options-controls .w3css-form-item{
   float: left;
 }
 
@@ -84,7 +85,7 @@
   text-align: center !important;
 }
 
-.views-exposed-form > div.w3-block > .form-item {
+.views-exposed-form > div.w3-block > .form-item , .views-exposed-form > div.w3-block > .w3css-form-item{
   flex-grow: 1;
 }
 

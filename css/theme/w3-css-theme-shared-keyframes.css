@@ -1,0 +1,63 @@
+@keyframes btnBorderAnimation {
+  0% {
+    width: 0;
+    height: 0;
+    border-bottom-color: var(--w-kbtn);
+  }
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: var(--w-kbtn);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    border-bottom-color: transparent;
+  }
+}
+
+@keyframes borderLeftColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: var(--w-kbd) transparent transparent transparent;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+    border-color: var(--w-kbd) var(--w-kbd) transparent transparent;
+  }
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-color: var(--w-kbd) var(--w-kbd) transparent transparent;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    border-color: transparent;
+  }
+}
+
+@keyframes borderRightColors {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: transparent transparent var(--w-kbd) transparent;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+    border-color: transparent transparent var(--w-kbd) var(--w-kbd);
+  }
+  99.9999% {
+    width: 100%;
+    height: 100%;
+    border-color: transparent transparent var(--w-kbd) var(--w-kbd);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    border-color: transparent;
+  }
+}

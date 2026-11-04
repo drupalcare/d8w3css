@@ -542,6 +542,7 @@ ol {
 }
 
 .w3-button-pale-red,
+.w3-button-pale-red button,
 .w3-link-hover-pale-red a:hover,
 .w3-button-hover-pale-red button:hover {
   color: #000 !important;
@@ -549,6 +550,7 @@ ol {
 }
 
 .w3-button-pale-green,
+.w3-button-pale-green button,
 .w3-link-hover-pale-green a:hover,
 .w3-button-hover-pale-green button:hover {
   color: #000 !important;
@@ -556,6 +558,7 @@ ol {
 }
 
 .w3-button-pale-yellow,
+.w3-button-pale-yellow button,
 .w3-link-hover-pale-yellow a:hover,
 .w3-button-hover-pale-yellow button:hover {
   color: #000 !important;
@@ -563,6 +566,7 @@ ol {
 }
 
 .w3-button-pale-blue,
+.w3-button-pale-blue button,
 .w3-link-hover-pale-blue a:hover,
 .w3-button-hover-pale-blue button:hover {
   color: #000 !important;

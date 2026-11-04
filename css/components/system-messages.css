@@ -1,5 +1,5 @@
 /* System Messages. */
-.messages {
+.messages , .w3css-messages{
   background: no-repeat 10px 17px;  /* LTR */
   border: 1px solid;
   border-width: 1px 1px 1px 0;  /* LTR */
@@ -9,7 +9,7 @@
   overflow-wrap: break-word;
 }
 
-[dir="rtl"] .messages {
+[dir="rtl"] .messages , [dir="rtl"] .w3css-messages{
   border-width: 1px 0 1px 1px;
   background-position: right 10px top 17px;
   padding-left: 20px;
@@ -17,17 +17,17 @@
   text-align: right;
 }
 
-.messages + .messages {
+.messages + .messages , .w3css-messages + .w3css-messages{
   margin-top: 1.538em;
 }
 
-.messages__list {
+.messages__list , .w3css-messages__list{
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.messages__item + .messages__item {
+.messages__item + .messages__item , .w3css-messages__item + .w3css-messages__item{
   margin-top: 0.769em;
 }
 

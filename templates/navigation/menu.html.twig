@@ -20,7 +20,7 @@
 #}
 
 {% macro svg_icon(icon_value) %}
-  <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="{{ icon_value }}"/></svg>
+  <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="{{ icon_value }}"/></svg>
 {% endmacro %}
 
 {% import _self as menus %}
@@ -34,12 +34,12 @@
   {% import _self as menus %}
   {%
     set menu_classes = [
-    'ul-parent d8w3css-menu__list ul-parent-' ~ menu_name|clean_class,
+    'w3css-menu__list w3css-menu__list--menu-' ~ menu_name|clean_class,
   ]
   %}
   {%
     set submenu_classes = [
-    'ul-child d8w3css-menu__submenu ul-child-' ~ menu_name|clean_class,
+    'w3css-menu__submenu w3css-menu__submenu--menu-' ~ menu_name|clean_class,
   ]
   %}
   {% if items %}
@@ -52,9 +52,9 @@
     {% for item in items %}
       {%
         set item_classes = [
-        'li-item d8w3css-menu__item li-item-' ~ menu_name|clean_class,
-        item.is_expanded? 'li-expanded',
-        item.is_expanded and menu_level == 0 ? 'li-parent',
+        'w3css-menu__item w3css-menu__item--menu-' ~ menu_name|clean_class,
+        item.is_expanded? 'w3css-menu__item--expanded',
+        item.is_expanded and menu_level == 0 ? 'w3css-menu__item--parent',
         item.in_active_trail ? 'active',
       ]
       %}
@@ -68,26 +68,26 @@
       {% import _self as macros %}
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
 
-        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-parent d8w3css-menu__toggle-parent'] %}
+        {% set clickable_classes = ['w3-button w3css-menu__link--enabled w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
+          <a href="{{ item.url }}" class="{{ clickable_classes|join('') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
             {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
             {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
           </a>
-          <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over clickable-dropdown-menu-fa-down d8w3css-menu__arrow-toggle">
+          <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
           </span>
         {% else %}
-        {% set non_clickable_classes = ['w3-button link-disabled tMenu d8w3css-menu__link-toggle toggle-parent d8w3css-menu__toggle-parent'] %}
+        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
+          <button type="button" class="{{ non_clickable_classes|join('') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
-            <span class="dropdown-arrow d8w3css-menu__arrow">
+            <span class="w3css-menu__arrow">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
             </span>
           </button>
@@ -96,32 +96,26 @@
       <li{{ item.attributes.addClass(item_classes) }}>
       {% import _self as macros %}
         {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
-        {% set clickable_classes = ['w3-button link-enabled clickable-dropdown-menu-link toggle-child d8w3css-menu__toggle-child'] %}
+        {% set clickable_classes = ['w3-button w3css-menu__link--enabled w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
+          <a href="{{ item.url }}" class="{{ clickable_classes|join('') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
             {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
             {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
           </a>
-          <span class="right-arrow d8w3css-menu__right-arrow w3-hover-over clickable-dropdown-menu-fa-right">
-            {{ macros.svg_icon('M9 18l6-6-6-6') }}{# right arrow #}
-          </span>
-          <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over clickable-dropdown-menu-fa-down d8w3css-menu__arrow-toggle">
+          <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
             {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
           </span>
         {% else %}
-        {% set non_clickable_classes = ['w3-button link-disabled tMenu d8w3css-menu__link-toggle toggle-child d8w3css-menu__toggle-child'] %}
+        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
+          <button type="button" class="{{ non_clickable_classes|join('') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
-            <span class="right-arrow d8w3css-menu__right-arrow w3-hover-over">
-              {{ macros.svg_icon('M9 18l6-6-6-6') }}{# right arrow #}
-            </span>
-            <span class="dropdown-arrow d8w3css-menu__arrow w3-hover-over">
+            <span class="w3css-menu__arrow w3-hover-over">
               {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
             </span>
           </button>
@@ -130,7 +124,7 @@
       {% else %}{# if it is not expanded #}
         {%
           set link_classes = [
-          'w3-button li-link d8w3css-menu__link li-link-' ~ menu_name|clean_class,
+          'w3-button w3css-menu__link w3css-menu__link--menu-' ~ menu_name|clean_class,
         ]
         %}
         <li{{ item.attributes.addClass(item_classes) }}>

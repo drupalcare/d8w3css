@@ -24,7 +24,7 @@
 {% for type, messages in message_list %}
   {% set classes = [
       'w3-row',
-      'messages',
+      'messages', 'w3css-messages',
       'messages--' ~ type,
   ]
 %}
@@ -34,9 +34,9 @@
         <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
       {% endif %}
       {% if messages|length > 1 %}
-        <ul class="w3-ul messages__list">
+        <ul class="w3-ul messages__list w3css-messages__list">
           {% for message in messages %}
-            <li class="messages__item">{{ message }}</li>
+            <li class="messages__item w3css-messages__item">{{ message }}</li>
           {% endfor %}
         </ul>
       {% else %}

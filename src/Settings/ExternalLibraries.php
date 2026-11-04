@@ -21,10 +21,11 @@ final class ExternalLibraries extends SettingsSection {
       '#description'   => $this->t("<p>Font awesome is now not enabled by default. All the default theme's icons were replaced by svg images. You can enable this library if you are using any font awesome icons in your site.</p>"),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries']['d8w3css_font_awesome'] = [
+    $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries']['libraries_font_awesome'] = [
+      '#parents' => ['libraries', 'font_awesome'],
       '#type' => 'radios',
       '#title' => $this->t('Select Font Awesome Library'),
-      '#default_value' => $this->themeSettings->getSetting('d8w3css_font_awesome'),
+      '#default_value' => $this->settings->get('libraries.font_awesome') ?? 0,
       '#options' => [
         0 => $this->t('None'),
         1 => $this->t('Load Font Awesome 4.7 locally.'),
@@ -39,18 +40,20 @@ final class ExternalLibraries extends SettingsSection {
       '#title' => $this->t('Google Fonts - W3CSS Theme'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
-      '#description'   => $this->t('<p>Any font you choose for the site, heading or special will have a CSS class that you can apply to any html tag. <a target="_blank" href="https://www.drupal.org/node/2866181#change-font">click here to view the documentaion on drupal.org</a></p>'),
+      '#description'   => $this->t('<p>Any font you choose for the site, heading or special will have a CSS class that you can apply to any html tag. <a target="_blank" href="https://www.drupal.org/node/2866181#change-font">click here to view the documentation on drupal.org</a></p>'),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_google_font_local'] = [
+    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_load_fonts_locally'] = [
+      '#parents' => ['typography', 'load_fonts_locally'],
       '#type' => 'checkbox',
       '#title' => $this->t('Check this box if you would like to load Google fonts (Global Site Fonts and Heading Fonts only) locally. This is for use with the W3CSS Theme.'),
-      '#default_value' => $this->themeSettings->getSetting('d8w3css_google_font_local'),
+      '#default_value' => $this->settings->get('typography.load_fonts_locally'),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gf'] = [
+    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_site_font'] = [
+      '#parents' => ['typography', 'site_font'],
       '#type' => 'select',
-      '#title' => $this->t('50 Global Site Fonts: Choose the site font - The font will be applied to the whole website.<a target="_blank" href="w3css.flashwebcenter.com/node/105"> Click here to view a live demo for all available fonts.</a>'),
+      '#title' => $this->t('50 Global Site Fonts: Choose the site font - The font will be applied to the whole website.<a target="_blank" href="https://w3css.flashwebcenter.com/node/105"> Click here to view a live demo for all available fonts.</a>'),
       '#description'   => $this->t('<p>Global Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
 , bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-3, titillium-web, ubuntu, work-sans. </p>'),
       '#options' => [
@@ -107,13 +110,14 @@ final class ExternalLibraries extends SettingsSection {
         'd8w3css-work-sans' => $this->t('Work Sans - sans-serif'),
 
       ],
-      '#default_value' => $this->themeSettings->getSetting('d8w3css_site_gf'),
+      '#default_value' => $this->settings->get('typography.site_font'),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfh'] = [
+    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_heading_font'] = [
+      '#parents' => ['typography', 'heading_font'],
       '#type' => 'select',
-      '#title' => $this->t('26 Heading Fonts: Choose the heading font - The font will be applied to h1, h2 and h3 only.<a target="_blank" href="w3css.flashwebcenter.com/node/104"> Click here to view a live demo for all available fonts.</a>'),
-      '#description'   => $this->t('<p>THeading Font CSS Classes: abril-fatface, aladin, anton, archivo-black, bebas-neue, big-shoulders-stencil-display, big-shoulders-stencil-text, black-ops-one, bree-serif, cinzel, dancing-script, dm-serif-display, doppio-one, fjalla-one, francois-one, fredericka-the-great, fredoka, hammersmith-one, indie-flower, kalam, lobster-two, patrick-hand, prosto-one, righteous, staatliches, yanone-kaffeesatz.</p>'),
+      '#title' => $this->t('26 Heading Fonts: Choose the heading font - The font will be applied to h1, h2 and h3 only.<a target="_blank" href="https://w3css.flashwebcenter.com/node/104"> Click here to view a live demo for all available fonts.</a>'),
+      '#description'   => $this->t('<p>Heading Font CSS Classes: abril-fatface, aladin, anton, archivo-black, bebas-neue, big-shoulders-stencil-display, big-shoulders-stencil-text, black-ops-one, bree-serif, cinzel, dancing-script, dm-serif-display, doppio-one, fjalla-one, francois-one, fredericka-the-great, fredoka, hammersmith-one, indie-flower, kalam, lobster-two, patrick-hand, prosto-one, righteous, staatliches, yanone-kaffeesatz.</p>'),
       '#options' => [
         'none' => $this->t('None'),
         'd8w3css-abril-fatface' => $this->t('Abril Fatface  - cursive'),
@@ -144,13 +148,14 @@ final class ExternalLibraries extends SettingsSection {
         'd8w3css-yanone-kaffeesatz' => $this->t('Yanone Kaffeesatz - sans-serif'),
 
       ],
-      '#default_value' => $this->themeSettings->getSetting('d8w3css_site_gfh'),
+      '#default_value' => $this->settings->get('typography.heading_font'),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['d8w3css_site_gfs'] = [
+    $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_special_font'] = [
+      '#parents' => ['typography', 'special_font'],
       '#type' => 'select',
-      '#title' => $this->t('25 Special Fonts: They are not applied to any html tags by default and they are only imported. Each font library has a CSS class that you can apply to any html tag. <a target="_blank" href="w3css.flashwebcenter.com/node/102">Click here to view a live demo for all available fonts.</a>'),
-      '#description'   => $this->t('<p>Spcial Font CSS Classes: akronim, barriecito, bungee-shade, ceviche-one, creepster, faster-one, finger-paint, frijole, irish-grover, kumar-one, londrina-outline, megrim, metal-mania, monoton, moo-lah-lah, new-rocker, nosifer, pirata-one, ruslan-display, rye, sancreek, slackey, trade-winds, train-one, unifrakturmaguntia.</p>'),
+      '#title' => $this->t('25 Special Fonts: They are not applied to any html tags by default and they are only imported. Each font library has a CSS class that you can apply to any html tag. <a target="_blank" href="https://w3css.flashwebcenter.com/node/102">Click here to view a live demo for all available fonts.</a>'),
+      '#description'   => $this->t('<p>Special Font CSS Classes: akronim, barriecito, bungee-shade, ceviche-one, creepster, faster-one, finger-paint, frijole, irish-grover, kumar-one, londrina-outline, megrim, metal-mania, monoton, moo-lah-lah, new-rocker, nosifer, pirata-one, ruslan-display, rye, sancreek, slackey, trade-winds, train-one, unifrakturmaguntia.</p>'),
       '#options' => [
         'none' => $this->t('None'),
         'd8w3css-akronim' => $this->t('akronim - cursive'),
@@ -180,7 +185,7 @@ final class ExternalLibraries extends SettingsSection {
         'd8w3css-unifrakturmaguntia' => $this->t('unifrakturmaguntia - cursive'),
 
       ],
-      '#default_value' => $this->themeSettings->getSetting('d8w3css_site_gfs'),
+      '#default_value' => $this->settings->get('typography.special_font'),
     ];
   }
 

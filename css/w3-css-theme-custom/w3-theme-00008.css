@@ -1,257 +1,123 @@
-html,
-body,
-button,
-input,
-select,
-optgroup,
-textarea,
-.ul-parent-account,
-.ul-parent-footer {
+:root {
+  --w-html: #1c2450;
+  --w-h1: #3b4ba8;
+  --w-pt: #1c2450;
+  --w-fm-p: white;
+  --w-fm-a: white;
+  --w-cke-top-r: #eaecf8;
+  --w-hd-a: white;
+  --w-pt-b: white;
+  --w-hd-b: #00a1c2;
+  --w-hd-p: #2d2d2d;
+  --w-open-searc: #eaecf8;
+  --w-open-searc-b: #1c2450;
+  --w-bt-b: #eaecf8;
+  --w-fm-inner-f-v: 1px solid #be0032;
+  --w-cr-b: #141414;
+  --w-input-focu-s: 0 25px 57px 0 rgb(0 0 0 / 25%);
+  --w-kbtn: #fff;
+  --w-kbd: #be0032;
+}
+
+.w3css-menu__list--menu-footer {
   color: #1c2450;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  color: #3b4ba8;
-}
-
-.cke_top,
-.w3-border,
-ul.primary,
-.cke_bottom,
-.cke_chrome,
-ul.secondary,
-ul.primary > li {
-  border-color: #eaecf8 !important;
-}
-
-a,
-.w3-button {
-  transition: 0.4s !important;
-}
-
 .w3-hover-over:hover,
-#open-nav-inner:hover,
-#open-search:hover,
 .w3-button:hover {
   color: #eaecf8 !important;
   background-color: #1c2450 !important;
 }
 
-.ul-parent-account {
+.w3css-menu__list--menu-account,
+:where(#w3css-footer-menu) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
   color: inherit;
 }
 
-#header .fa,
-#header .svg-inline--fa {
-  color: inherit;
-}
-
-#footer-menu h1,
-#footer-menu h2,
-#footer-menu h3,
-#footer-menu h4,
-#footer-menu h5,
-#footer-menu a,
-#footer-menu p,
-#header h1,
-#header h2,
-#header h3,
-#header h4,
-#header h5,
-#header a,
-#header p {
+#w3css-footer-menu h1,
+#w3css-footer-menu h2,
+#w3css-footer-menu h3,
+#w3css-footer-menu h4,
+#w3css-footer-menu h5,
+#w3css-header {
   color: white !important;
 }
 
-#header {
-  background-color: #00a1c2;
-  color: white !important;
-}
-
-.main-navigation-wrapper,
+.w3css-main-nav,
 .close-nav,
-.mobile-nav,
-.d8w3css-main-nav,
-.d8w3css-main-nav__close,
-.d8w3css-mobile-nav__toggle {
+.w3css-mobile-nav__toggle,
+.w3css-main-nav__close {
   background-color: #be0032;
   color: white;
 }
 
-#page-title,
-#highlighted,
-.page-wrapper,
-#top-container,
-#footer-container,
+.w3css-page-wrapper,
 .search-slide-wrapper,
-#top-container .top-box>div,
-#main-container .main-box > div,
-#footer-container .footer-box>div,
-#bottom-container .bottom-box>div,
-#main-container .d8w3css-main-box > div {
+#w3css-top-region .w3css-top-box>div,
+#w3css-main-region .w3css-main-box > div {
   background-color: white;
-  color: #1c2450;
 }
 
-#footer-container .footer-box>div {
-  color: #1c2450;
-}
-
-#main-container {
-  background-color: #f7f7fc;
-  color: #1c2450;
-}
-
-/* Four panels - light color */
+.w3css-page-wrapper,
 .search-slide-wrapper,
-.pager__item.is-active {
+#w3css-top-region .w3css-top-box>div,
+#w3css-main-region .w3css-main-box > div,
+#w3css-footer-region .w3css-footer-box>div {
+  color: #1c2450;
+}
+
+#w3css-main-region {
+  background-color: #f7f7fc;
+}
+
+.search-slide-wrapper,
+.pager__item.is-active,
+.w3css-pager__item.is-active {
   background-color: #f7f7fc !important;
 }
 
-#bottom-container {
-  background-color: #eaecf8;
-}
-
-#top-container .top-box>div,
-#bottom-container .bottom-box>div,
-#footer-container .footer-box>div {
+#w3css-top-region .w3css-top-box>div,
+#w3css-bottom-region .w3css-bottom-box>div,
+#w3css-footer-region .w3css-footer-box>div {
   border: 1px solid #eaecf8;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
   border-color: #d1d5ef !important;
 }
 
-#footer-menu-inner form.w3-content {
-  border: 1px solid #be0032;
-}
-
-/* map and contact  */
-#footer-menu {
+#w3css-footer-menu {
   background-color: #1e1e1e;
+}
+
+#w3css-footer-menu,
+#w3css-copyright {
   color: #bebebe;
 }
 
-#footer-menu-inner form.w3-content {
-  border: 1px solid #be0032;
+:where(#w3css-header) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  color: #2d2d2d;
 }
 
-#copyright {
-  background-color: #141414;
-  color: #bebebe;
+:where(#w3css-copyright) :is(h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  color: #6a78cb;
 }
 
-/* button animation  */
-@keyframes btnBorderAnimation {
-  0% {
-    width: 0;
-    height: 0;
-    border-bottom-color: #fff;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-bottom-color: #fff;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-bottom-color: transparent;
-  }
-
+#w3css-header h1,
+#w3css-header h2,
+#w3css-header h3,
+#w3css-header h4,
+#w3css-header h5 {
+  color: #2d2d2d !important;
 }
 
-/* Border animation  */
-@keyframes borderLeftColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: #be0032;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: #be0032;
-    border-right-color: #be0032;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: #be0032;
-    border-right-color: #be0032;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
+#w3css-header a,
+#w3css-header a:hover {
+  color: #1c2450 !important;
 }
 
-@keyframes borderRightColors {
-  0% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #be0032;
-    border-left-color: transparent;
-  }
-
-  50% {
-    width: 100%;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #be0032;
-    border-left-color: #be0032;
-  }
-
-  99.9999% {
-    width: 100%;
-    height: 100%;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: #be0032;
-    border-left-color: #be0032;
-  }
-
-  100% {
-    width: 0;
-    height: 0;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-
+#w3css-header a.w3-button:hover {
+  color: #ffffff !important;
 }

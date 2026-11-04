@@ -16,40 +16,40 @@
   const SLIDE_PROPERTIES = ['height', 'paddingTop', 'paddingBottom', 'marginTop', 'marginBottom'];
 
   // Elements whose next sibling is the submenu they open.
-  const SUBMENU_TRIGGERS = '.d8w3css-menu__link-toggle, .d8w3css-menu__link-toggle-vertical, .d8w3css-menu__arrow-toggle';
+  const SUBMENU_TRIGGERS = '.w3css-menu__link-toggle, .w3css-menu__link-toggle-vertical, .w3css-menu__arrow-toggle';
 
-  // Old selector to BEM class. The JS selects only the BEM classes. Templates
-  // copied into a sub-theme or site still print only the old names, so
-  // adoptLegacyHooks() adds the BEM class to those elements.
-  const LEGACY_HOOKS = {
-    '#main-navigation-h': 'd8w3css-main-nav--horizontal',
-    '#main-navigation-v': 'd8w3css-main-nav--vertical',
-    '.main-navigation-wrapper': 'd8w3css-main-nav',
-    '#close-nav': 'd8w3css-main-nav__close',
-    '#open-nav-inner': 'd8w3css-main-nav__open',
-    '.mobile-nav-responsive': 'd8w3css-responsive-nav__toggle',
-    '.mobile-nav': 'd8w3css-mobile-nav__toggle',
-    '.ul-responsive-h': 'd8w3css-responsive-nav',
-    '.ul-parent': 'd8w3css-menu__list',
-    '.ul-child': 'd8w3css-menu__submenu',
-    '.tMenu-v': 'd8w3css-menu__link-toggle-vertical',
-    '.tMenu': 'd8w3css-menu__link-toggle',
-    '.clickable-dropdown-menu-fa-down-h': 'd8w3css-menu__arrow-toggle',
-    '.clickable-dropdown-menu-fa-down-v': 'd8w3css-menu__arrow-toggle',
-    '.clickable-dropdown-menu-fa-down': 'd8w3css-menu__arrow-toggle',
-    '.dropdown-arrow': 'd8w3css-menu__arrow',
-    '.top-container-inner': 'd8w3css-top-region__inner',
-    '.main-container-inner': 'd8w3css-main-region__inner',
-    '.bottom-container-inner': 'd8w3css-bottom-region__inner',
-    '.footer-container-inner': 'd8w3css-footer-region__inner',
-    '.social-media': 'd8w3css-social-media',
-    '#footer-menu': 'd8w3css-footer-menu',
-    '.main-box': 'd8w3css-main-box',
-    'nav.breadcrumb': 'd8w3css-breadcrumb'
-  };
+  // Marks a submenu opened by a click.
+  const SUBMENU_OPEN = 'w3css-is-open';
 
-  // Marks a submenu opened by a click. The old name 'show' is kept beside it.
-  const SUBMENU_OPEN = 'd8w3css-menu__submenu--open';
+  // The open submenus. The menu item of an open submenu carries the same state
+  // class, so a lookup by state alone would also find the items.
+  const OPEN_SUBMENUS = '.w3css-menu__submenu.' + SUBMENU_OPEN;
+
+  // A menu item that has a submenu.
+  const MENU_ITEM = '.w3css-menu__item--expanded';
+
+  // States of a menu item: its submenu is open by click or keyboard, is open by
+  // hover, was closed with the pointer still on it, opens toward the other side.
+  const ITEM_OPEN = 'w3css-is-open';
+  const ITEM_HOVER = 'w3css-is-hovered';
+  const ITEM_DISMISSED = 'w3css-is-dismissed';
+  const ITEM_FLIPPED = 'w3css-is-flipped';
+
+  // A flyout too long for the room below it scrolls. A scrolling list would clip
+  // the flyouts inside it, so those are positioned against the viewport instead.
+  const SUBMENU_SCROLLS = 'w3css-is-scrollable';
+  const SUBMENU_DETACHED = 'w3css-is-detached';
+
+  // Space kept between a flyout and the edge of the viewport, and the shortest a
+  // scrolling flyout gets when its menu is near the bottom edge, in pixels.
+  const VIEWPORT_GAP = 8;
+  const MIN_FLYOUT_HEIGHT = 160;
+
+  // The mobile buttons, each with the selector of the menu it opens.
+  const MENU_TOGGLES = [
+    ['.w3css-mobile-nav__toggle', '.w3css-main-nav--horizontal .w3css-menu__list'],
+    ['.w3css-responsive-nav__toggle', '.w3css-responsive-nav .w3css-menu__list']
+  ];
 
   // The screen sizes the body is marked with.
   const SCREEN_SIZES = ['small', 'medium', 'large'];
@@ -60,30 +60,14 @@
   // Numbers the ids given to submenus for aria-controls.
   let submenuCount = 0;
 
-  /**
-   * Adds the BEM class to elements that only have the old name.
-   *
-   * @param {Document|Element} context
-   *   Where to look.
-   */
-  function adoptLegacyHooks(context) {
-    Object.keys(LEGACY_HOOKS).forEach(function (selector) {
-      context.querySelectorAll(selector).forEach(function (element) {
-        element.classList.add(LEGACY_HOOKS[selector]);
-      });
-    });
-  }
-
-  adoptLegacyHooks(document);
-
   // Used for fixed menu.
   let origOffsetY;
-  const mainNavigation = document.querySelector('.d8w3css-main-nav--horizontal');
+  const mainNavigation = document.querySelector('.w3css-main-nav--horizontal');
 
   // In case the main menu not printed. Measured here, before any behavior runs
   // and before the toolbar can pad the page, because this offset is the
   // scroll position at which the menu sticks.
-  if (mainNavigation && mainNavigation.querySelector('.d8w3css-menu__list')) {
+  if (mainNavigation && mainNavigation.querySelector('.w3css-menu__list')) {
     origOffsetY = mainNavigation.offsetTop;
   }
 
@@ -203,6 +187,24 @@
   }
 
   /**
+   * Puts an element in its closed state.
+   *
+   * A submenu is closed by the stylesheet, and an inline display would stop
+   * hover opening it again. The top level of a menu has no such default.
+   *
+   * @param {Element} element
+   *   The element.
+   */
+  function hide(element) {
+    if (element.classList.contains('w3css-menu__submenu')) {
+      element.style.removeProperty('display');
+    }
+    else {
+      element.style.display = 'none';
+    }
+  }
+
+  /**
    * Slides an element open or closed. Does nothing if it is already there.
    *
    * An interrupted slide reverses from where it is. With reduced motion, the
@@ -234,7 +236,7 @@
     // There is nothing to animate inside a parent that is not rendered.
     if (prefersReducedMotion() || !element.getClientRects().length) {
       if (!show) {
-        element.style.display = 'none';
+        hide(element);
       }
       return;
     }
@@ -256,7 +258,7 @@
       slides.delete(element);
       element.style.overflow = overflow;
       if (!show) {
-        element.style.display = 'none';
+        hide(element);
       }
     };
   }
@@ -270,16 +272,16 @@
       if (submenu) {
         if (!submenu.id) {
           submenuCount++;
-          submenu.id = 'd8w3css-submenu-' + submenuCount;
+          submenu.id = 'w3css-submenu-' + submenuCount;
         }
+        const open = submenu.classList.contains(SUBMENU_OPEN);
+        const item = submenu.parentElement;
+        item.classList.toggle(ITEM_OPEN, open);
         trigger.setAttribute('aria-controls', submenu.id);
-        trigger.setAttribute('aria-expanded', submenu.classList.contains(SUBMENU_OPEN) ? 'true' : 'false');
+        trigger.setAttribute('aria-expanded', open || item.classList.contains(ITEM_HOVER) ? 'true' : 'false');
       }
     });
-    [
-      ['.d8w3css-mobile-nav__toggle', '.d8w3css-main-nav--horizontal .d8w3css-menu__list'],
-      ['.d8w3css-responsive-nav__toggle', '.d8w3css-responsive-nav .d8w3css-menu__list']
-    ].forEach(function (pair) {
+    MENU_TOGGLES.forEach(function (pair) {
       const open = all(pair[1]).some(isOpen);
       all(pair[0]).forEach(function (trigger) {
         trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -310,6 +312,32 @@
   }
 
   /**
+   * Whether a submenu opens beside its parent, over the page.
+   *
+   * @param {Element} submenu
+   *   The submenu.
+   *
+   * @return {boolean}
+   *   FALSE for the mobile and vertical menus, which open in the flow.
+   */
+  function isFlyout(submenu) {
+    return ['absolute', 'fixed'].includes(window.getComputedStyle(submenu).position);
+  }
+
+  /**
+   * Returns the submenu of a menu item.
+   *
+   * @param {Element} item
+   *   The menu item.
+   *
+   * @return {Element|null}
+   *   The submenu, if there is one.
+   */
+  function childSubmenu(item) {
+    return item.querySelector(':scope > .w3css-menu__submenu');
+  }
+
+  /**
    * Closes submenus.
    *
    * @param {Element[]} submenus
@@ -317,9 +345,224 @@
    */
   function closeSubmenus(submenus) {
     submenus.forEach(function (submenu) {
-      submenu.classList.remove('show', SUBMENU_OPEN);
-      slide(submenu, false);
+      const item = submenu.parentElement;
+      submenu.classList.remove(SUBMENU_OPEN);
+      if (isFlyout(submenu) && item.matches(':hover')) {
+        // Hover would show it again at once, so it stays down until the pointer
+        // leaves.
+        stopSlide(submenu);
+        hide(submenu);
+        item.classList.remove(ITEM_HOVER);
+        item.classList.add(ITEM_DISMISSED);
+      }
+      else {
+        slide(submenu, false);
+      }
     });
+  }
+
+  /**
+   * Closes a submenu and everything open inside it.
+   *
+   * @param {Element} submenu
+   *   The submenu.
+   */
+  function closeBranch(submenu) {
+    closeSubmenus(Array.from(submenu.querySelectorAll('.w3css-menu__submenu')).concat(submenu));
+  }
+
+  /**
+   * Measures the items of a submenu, whatever height it is limited to.
+   *
+   * @param {Element} submenu
+   *   The submenu, already displayed.
+   *
+   * @return {number}
+   *   The height of its items. scrollHeight would also count an open flyout.
+   */
+  function itemsHeight(submenu) {
+    const first = submenu.firstElementChild;
+    return first ? submenu.lastElementChild.getBoundingClientRect().bottom - first.getBoundingClientRect().top : 0;
+  }
+
+  /**
+   * Makes a flyout scroll when its items do not fit the room it has.
+   *
+   * @param {Element} submenu
+   *   The submenu.
+   * @param {number} top
+   *   Where the top of the submenu sits in the viewport.
+   * @param {number} height
+   *   The height of its items.
+   */
+  function fitHeight(submenu, top, height) {
+    const room = Math.max(MIN_FLYOUT_HEIGHT, window.innerHeight - Math.max(0, top) - VIEWPORT_GAP);
+    submenu.classList.toggle(SUBMENU_SCROLLS, height > room);
+    if (height > room) {
+      submenu.style.setProperty('--w3css-submenu-max', room + 'px');
+    }
+    else {
+      submenu.style.removeProperty('--w3css-submenu-max');
+    }
+  }
+
+  /**
+   * Places a flyout that sits inside a scrolling submenu.
+   *
+   * It stays beside its item, on the side its parent went if that side has room,
+   * and moves up from the bottom edge.
+   *
+   * @param {Element} submenu
+   *   The submenu, already displayed.
+   */
+  function placeDetached(submenu) {
+    const item = submenu.parentElement;
+    const parent = item.parentElement.closest(MENU_ITEM);
+    const rtl = window.getComputedStyle(item).direction === 'rtl';
+    const box = item.getBoundingClientRect();
+    const width = submenu.offsetWidth;
+    const fitsRight = box.right + width <= document.documentElement.clientWidth;
+    const fitsLeft = box.left - width >= 0;
+
+    let toRight = rtl === parent.classList.contains(ITEM_FLIPPED);
+    if (toRight ? !fitsRight && fitsLeft : !fitsLeft && fitsRight) {
+      toRight = !toRight;
+    }
+    item.classList.toggle(ITEM_FLIPPED, toRight === rtl);
+
+    const height = itemsHeight(submenu);
+    const top = Math.max(VIEWPORT_GAP, Math.min(box.top, window.innerHeight - height - VIEWPORT_GAP));
+    const left = toRight ? box.right : box.left - width;
+    submenu.style.inset = top + 'px auto auto ' + left + 'px';
+    fitHeight(submenu, top, height);
+  }
+
+  /**
+   * Keeps an open flyout on the screen.
+   *
+   * It opens toward the other side when it would leave the screen, and a nested
+   * one moves up from the bottom edge. A nested one starts on the side its
+   * parent went, so that it does not cover the parent. One still too long for
+   * the screen scrolls.
+   *
+   * @param {Element} submenu
+   *   The submenu, already displayed.
+   */
+  function placeSubmenu(submenu) {
+    const item = submenu.parentElement;
+    const parent = item.parentElement.closest(MENU_ITEM);
+    let shift = 0;
+
+    if (!isFlyout(submenu) || isHidden(submenu)) {
+      item.classList.remove(ITEM_FLIPPED);
+      submenu.classList.remove(SUBMENU_SCROLLS, SUBMENU_DETACHED);
+      submenu.style.removeProperty('inset');
+      submenu.style.removeProperty('--w3css-submenu-max');
+      return;
+    }
+
+    if (item.parentElement.closest('.' + SUBMENU_SCROLLS)) {
+      submenu.classList.add(SUBMENU_DETACHED);
+      placeDetached(submenu);
+      return;
+    }
+    submenu.classList.remove(SUBMENU_DETACHED);
+    submenu.style.removeProperty('inset');
+
+    const outside = function () {
+      const box = submenu.getBoundingClientRect();
+      return Math.max(0, -box.left) + Math.max(0, box.right - document.documentElement.clientWidth);
+    };
+
+    item.classList.toggle(ITEM_FLIPPED, !!parent && parent.classList.contains(ITEM_FLIPPED));
+    const first = outside();
+    if (first > 0) {
+      item.classList.toggle(ITEM_FLIPPED);
+      if (outside() >= first) {
+        item.classList.toggle(ITEM_FLIPPED);
+      }
+    }
+
+    // While sliding open its box is short, but its items have their full height.
+    const height = itemsHeight(submenu);
+    if (parent) {
+      submenu.style.setProperty('--w3css-submenu-shift', '0px');
+      const top = submenu.getBoundingClientRect().top;
+      shift = Math.min(Math.max(0, top + height - window.innerHeight), Math.max(0, top));
+      submenu.style.setProperty('--w3css-submenu-shift', -shift + 'px');
+    }
+    fitHeight(submenu, submenu.getBoundingClientRect().top, height);
+  }
+
+  /**
+   * Places the open flyouts again, outermost first.
+   *
+   * @param {EventTarget} [scrolled]
+   *   What scrolled, if anything. Only the flyouts inside it have moved. A
+   *   scrolling submenu is left alone by its own scroll.
+   */
+  function placeOpenSubmenus(scrolled) {
+    all('.' + ITEM_HOVER + ' > .w3css-menu__submenu, ' + OPEN_SUBMENUS).filter(function (submenu) {
+      return !scrolled || (submenu !== scrolled && scrolled.contains(submenu));
+    }).forEach(function (submenu) {
+      placeSubmenu(submenu);
+    });
+  }
+
+  /**
+   * Closes what Escape should close, and returns focus to what opened it.
+   *
+   * The innermost open submenu goes first, then the mobile or side menu.
+   */
+  function closeOnEscape() {
+    const active = document.activeElement;
+    let item = active ? active.closest(MENU_ITEM) : null;
+    while (item) {
+      const submenu = childSubmenu(item);
+      if (submenu && (submenu.classList.contains(SUBMENU_OPEN) || item.classList.contains(ITEM_HOVER))) {
+        closeBranch(submenu);
+        syncExpanded();
+        if (submenu.previousElementSibling) {
+          submenu.previousElementSibling.focus();
+        }
+        return;
+      }
+      item = item.parentElement.closest(MENU_ITEM);
+    }
+
+    // Focus is elsewhere: a submenu open under the pointer, or left open.
+    const hovered = all('.' + ITEM_HOVER).pop();
+    const pinned = all(OPEN_SUBMENUS).pop();
+    if (hovered || pinned) {
+      closeBranch(hovered ? childSubmenu(hovered) : pinned);
+      syncExpanded();
+      if (!hovered && pinned.previousElementSibling) {
+        pinned.previousElementSibling.focus();
+      }
+      return;
+    }
+
+    const toggled = MENU_TOGGLES.find(function (pair) {
+      const openMenus = all(pair[1]).filter(function (menu) {
+        return !isHidden(menu);
+      });
+      return all(pair[0]).some(function (toggle) {
+        return !isHidden(toggle) && openMenus.length && (toggle === active || openMenus.some(function (menu) {
+          return menu.contains(active);
+        }));
+      });
+    });
+    if (toggled) {
+      toggleMenu(toggled[1]);
+      document.querySelector(toggled[0]).focus();
+      return;
+    }
+
+    const sideMenu = document.querySelector('.w3css-main-nav--vertical');
+    const closer = document.querySelector('.w3css-main-nav__close');
+    if (sideMenu && closer && !isHidden(sideMenu) && sideMenu.contains(active)) {
+      closer.click();
+    }
   }
 
   /**
@@ -339,7 +582,7 @@
       menus.forEach(function (menu) {
         slide(menu, false);
       });
-      closeSubmenus(all(parents + ' li .d8w3css-menu__submenu'));
+      closeSubmenus(all(parents + ' li .w3css-menu__submenu'));
     }
     syncExpanded();
   }
@@ -391,36 +634,39 @@
    */
   function setScreenClass(size) {
     SCREEN_SIZES.forEach(function (name) {
-      document.body.classList.toggle(name + '-screen', name === size);
-      document.body.classList.toggle('d8w3css-page--' + name + '-screen', name === size);
+      document.body.classList.toggle('w3css-is-' + name + '-screen', name === size);
     });
   }
 
   // Add and remove classes on window resize.
   const mediaSize = function () {
     const currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const mainMenuChild = computedStyle('.d8w3css-main-nav--horizontal', 'background-color');
+    const mainMenuChild = computedStyle('.w3css-main-nav--horizontal', 'background-color');
 
     if (currentWidth >= 993) {
       setScreenClass('large');
-      all('.d8w3css-menu__list, .d8w3css-menu__submenu').forEach(function (element) {
+      // The inline display goes below, so the open state has to go with it.
+      all('.w3css-responsive-nav .w3css-menu__submenu, .w3css-main-nav--horizontal .w3css-menu__submenu').forEach(function (element) {
+        element.classList.remove(SUBMENU_OPEN);
+      });
+      all('.w3css-menu__list, .w3css-menu__submenu').forEach(function (element) {
         element.classList.remove('w3-show');
       });
-      clearInlineStyles('.d8w3css-responsive-nav .d8w3css-menu__list');
-      clearInlineStyles('.d8w3css-responsive-nav .d8w3css-menu__submenu');
-      clearInlineStyles('.d8w3css-main-nav--horizontal .d8w3css-menu__list');
-      clearInlineStyles('.d8w3css-main-nav--horizontal .d8w3css-menu__submenu');
-      all('.d8w3css-main-nav--horizontal .d8w3css-menu__submenu').forEach(function (element) {
+      clearInlineStyles('.w3css-responsive-nav .w3css-menu__list');
+      clearInlineStyles('.w3css-responsive-nav .w3css-menu__submenu');
+      clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__list');
+      clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__submenu');
+      all('.w3css-main-nav--horizontal .w3css-menu__submenu').forEach(function (element) {
         setStyle(element, 'background-color', mainMenuChild);
       });
-      addFlexDisplay('.d8w3css-top-region__inner');
-      addFlexDisplay('.d8w3css-main-region__inner > .w3-clear');
-      addFlexDisplay('.d8w3css-bottom-region__inner');
-      addFlexDisplay('.d8w3css-footer-region__inner');
+      addFlexDisplay('.w3css-top-region__inner');
+      addFlexDisplay('.w3css-main-region__inner > .w3-clear');
+      addFlexDisplay('.w3css-bottom-region__inner');
+      addFlexDisplay('.w3css-footer-region__inner');
     }
     else {
       // Remove the match height on medium/small screen.
-      all('.d8w3css-top-region__inner, .d8w3css-main-region__inner > .w3-clear, .d8w3css-bottom-region__inner, .d8w3css-footer-region__inner').forEach(function (element) {
+      all('.w3css-top-region__inner, .w3css-main-region__inner > .w3-clear, .w3css-bottom-region__inner, .w3css-footer-region__inner').forEach(function (element) {
         element.classList.remove('w3-f-display');
       });
     }
@@ -445,19 +691,20 @@
   function showHide(trigger) {
     const submenu = trigger.nextElementSibling;
     if (submenu && submenu.classList.contains(SUBMENU_OPEN)) {
-      submenu.classList.remove('show', SUBMENU_OPEN);
-      slide(submenu, false);
+      closeBranch(submenu);
     }
     else {
       const list = trigger.parentElement && trigger.parentElement.parentElement;
       if (list) {
-        closeSubmenus(Array.from(list.querySelectorAll(':scope li .d8w3css-menu__submenu')).filter(function (element) {
+        closeSubmenus(Array.from(list.querySelectorAll(':scope li .w3css-menu__submenu')).filter(function (element) {
           return element !== submenu;
         }));
       }
       if (submenu) {
-        submenu.classList.add('show', SUBMENU_OPEN);
+        submenu.parentElement.classList.remove(ITEM_DISMISSED);
+        submenu.classList.add(SUBMENU_OPEN);
         slide(submenu, true);
+        placeSubmenu(submenu);
         // A submenu open only because of hover has to stay open afterwards.
         if (!submenu.style.display) {
           submenu.style.display = window.getComputedStyle(submenu).display;
@@ -503,25 +750,16 @@
   }
 
   /**
-   * Gives Ajax content from copied templates its BEM classes.
-   */
-  Drupal.behaviors.d8w3cssLegacyHooks = {
-    attach: function (context) {
-      adoptLegacyHooks(context);
-    }
-  };
-
-  /**
    * Add depth classes to menu items.
    */
-  Drupal.behaviors.d8w3cssMenuDepth = {
+  Drupal.behaviors.w3cssMenuDepth = {
     attach: function (context) {
       // Add class to any UL/LI according to the depth.
-      once('d8w3css-menu-depth-list', 'ul', context).forEach(function (element) {
-        element.classList.add('ul-' + countAncestors(element, 'ul'));
+      once('w3css-menu-depth-list', 'ul', context).forEach(function (element) {
+        element.classList.add('w3css-list-depth-' + countAncestors(element, 'ul'));
       });
-      once('d8w3css-menu-depth-item', 'li', context).forEach(function (element) {
-        element.classList.add('li-' + countAncestors(element, 'li'));
+      once('w3css-menu-depth-item', 'li', context).forEach(function (element) {
+        element.classList.add('w3css-item-depth-' + countAncestors(element, 'li'));
       });
     }
   };
@@ -529,23 +767,23 @@
   /**
    * Responsive menu behavior.
    */
-  Drupal.behaviors.d8w3cssResponsiveMenu = {
+  Drupal.behaviors.w3cssResponsiveMenu = {
     attach: function (context) {
-      once('d8w3css-responsive-nav-toggle', '.d8w3css-responsive-nav__toggle', context).forEach(function (element) {
+      once('w3css-responsive-nav-toggle', '.w3css-responsive-nav__toggle', context).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle menu'));
         element.addEventListener('click', function () {
-          toggleMenu('.d8w3css-responsive-nav .d8w3css-menu__list');
+          toggleMenu('.w3css-responsive-nav .w3css-menu__list');
         });
       });
 
-      once('d8w3css-link-toggle-vertical', '.d8w3css-menu__link-toggle-vertical', context).forEach(function (element) {
+      once('w3css-link-toggle-vertical', '.w3css-menu__link-toggle-vertical', context).forEach(function (element) {
         element.addEventListener('click', function (event) {
           event.preventDefault();
           showHide(element);
         });
       });
 
-      once('d8w3css-arrow-toggle', '.d8w3css-menu__arrow-toggle', context).forEach(function (element) {
+      once('w3css-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle submenu'));
         element.addEventListener('click', function () {
           showHide(element);
@@ -557,18 +795,18 @@
   /**
    * Main navigation behavior.
    */
-  Drupal.behaviors.d8w3cssMainNav = {
+  Drupal.behaviors.w3cssMainNav = {
     attach: function (context) {
       // On click show/hide the vertical main menu.
-      once('d8w3css-main-nav-close', '.d8w3css-main-nav__close', context).forEach(function (element) {
+      once('w3css-main-nav-close', '.w3css-main-nav__close', context).forEach(function (element) {
         // Templates copied into a sub-theme may still print a div here.
         if (element.tagName !== 'BUTTON') {
           makeButton(element, Drupal.t('Close side menu'));
         }
         element.addEventListener('click', function () {
-          const opener = document.querySelector('.d8w3css-main-nav__open');
-          document.querySelector('.d8w3css-main-nav--vertical').style.display = 'none';
-          closeSubmenus(all('.d8w3css-main-nav--vertical .d8w3css-menu__list li .d8w3css-menu__submenu'));
+          const opener = document.querySelector('.w3css-main-nav__open');
+          document.querySelector('.w3css-main-nav--vertical').style.display = 'none';
+          closeSubmenus(all('.w3css-main-nav--vertical .w3css-menu__list li .w3css-menu__submenu'));
           syncExpanded();
           if (opener) {
             opener.setAttribute('aria-expanded', 'false');
@@ -577,13 +815,13 @@
         });
       });
 
-      once('d8w3css-main-nav-open', '.d8w3css-main-nav__open', context).forEach(function (element) {
+      once('w3css-main-nav-open', '.w3css-main-nav__open', context).forEach(function (element) {
         if (element.tagName !== 'BUTTON') {
           makeButton(element, Drupal.t('Open side menu'));
         }
         element.addEventListener('click', function () {
-          const closer = document.querySelector('.d8w3css-main-nav__close');
-          document.querySelector('.d8w3css-main-nav--vertical').style.display = 'block';
+          const closer = document.querySelector('.w3css-main-nav__close');
+          document.querySelector('.w3css-main-nav--vertical').style.display = 'block';
           element.setAttribute('aria-expanded', 'true');
           if (closer) {
             closer.focus();
@@ -592,23 +830,80 @@
       });
 
       // Show the mobile menu on click horizontal.
-      once('d8w3css-mobile-nav-toggle', '.d8w3css-mobile-nav__toggle', context).forEach(function (element) {
+      once('w3css-mobile-nav-toggle', '.w3css-mobile-nav__toggle', context).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle menu'));
         element.addEventListener('click', function () {
-          toggleMenu('.d8w3css-main-nav--horizontal .d8w3css-menu__list');
+          toggleMenu('.w3css-main-nav--horizontal .w3css-menu__list');
         });
       });
 
       // On click expand the dropdown menu for small device.
-      once('d8w3css-link-toggle', '.d8w3css-menu__link-toggle', context).forEach(function (element) {
+      once('w3css-link-toggle', '.w3css-menu__link-toggle', context).forEach(function (element) {
         element.addEventListener('click', function (event) {
           event.preventDefault();
-          const currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-          // A click with no pointer behind it (detail 0) came from the keyboard,
-          // which cannot hover the wide menu open.
-          if ((currentWidth <= 992) || (event.detail === 0) || (computedStyle('.d8w3css-main-nav--vertical', 'display') === 'block')) {
-            showHide(element);
+          showHide(element);
+        });
+      });
+    }
+  };
+
+  /**
+   * Hover state, staying on screen, and closing the open submenus.
+   */
+  Drupal.behaviors.w3cssMenuState = {
+    attach: function (context) {
+      once('w3css-menu-hover', MENU_ITEM, context).forEach(function (item) {
+        item.addEventListener('mouseenter', function () {
+          const submenu = childSubmenu(item);
+          if (submenu && isFlyout(submenu)) {
+            item.classList.add(ITEM_HOVER);
+            // A submenu left open on another item would sit under this one.
+            Array.from(item.parentElement.children).forEach(function (sibling) {
+              const other = sibling !== item && childSubmenu(sibling);
+              if (other && other.classList.contains(SUBMENU_OPEN)) {
+                closeBranch(other);
+              }
+            });
+            placeSubmenu(submenu);
+            syncExpanded();
           }
+        });
+        item.addEventListener('mouseleave', function () {
+          item.classList.remove(ITEM_HOVER, ITEM_DISMISSED);
+          syncExpanded();
+        });
+      });
+
+      // Tabbing out of an open flyout closes it. In the flow, a submenu stays.
+      once('w3css-menu-focusout', '.w3css-menu__list', context).forEach(function (list) {
+        list.addEventListener('focusout', function (event) {
+          if (event.relatedTarget) {
+            closeSubmenus(Array.from(list.querySelectorAll(OPEN_SUBMENUS)).filter(function (submenu) {
+              return isFlyout(submenu) && !submenu.parentElement.contains(event.relatedTarget);
+            }));
+            syncExpanded();
+          }
+        });
+      });
+
+      once('w3css-menu-document', 'html').forEach(function () {
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeOnEscape();
+          }
+        });
+        document.addEventListener('click', function (event) {
+          if (!event.target.closest('.w3css-menu__list')) {
+            closeSubmenus(all(OPEN_SUBMENUS).filter(isFlyout));
+            syncExpanded();
+          }
+        });
+        // Scroll does not bubble, and a flyout can sit in a scrolling submenu.
+        document.addEventListener('scroll', function (event) {
+          placeOpenSubmenus(event.target);
+        }, { capture: true, passive: true });
+        window.addEventListener('resize', function () {
+          placeOpenSubmenus();
         });
       });
     }
@@ -617,52 +912,52 @@
   /**
    * General theme behavior.
    */
-  Drupal.behaviors.d8w3cssTheme = {
+  Drupal.behaviors.w3cssTheme = {
     attach: function (context) {
       // Remove Fa class from social links.
-      once('d8w3css-social-icon', '.d8w3css-social-media a > i', context).forEach(function (element) {
+      once('w3css-social-icon', '.w3css-social-media a > i', context).forEach(function (element) {
         element.classList.remove('fa');
       });
 
       // In case the admin toolbar search installed.
-      once('d8w3css-toolbar-search', '#admin-toolbar-search-tab > div', context).forEach(function (element) {
+      once('w3css-toolbar-search', '#admin-toolbar-search-tab > div', context).forEach(function (element) {
         element.classList.remove('w3-section');
       });
 
       // Change the form color to match the footer color.
-      const footerFormBg = computedStyle('.d8w3css-footer-menu', 'background-color');
-      const footerFormTxt = computedStyle('.d8w3css-footer-menu', 'color');
-      once('d8w3css-footer-form', '.d8w3css-footer-menu form', context).forEach(function (element) {
+      const footerFormBg = computedStyle('.w3css-footer-menu', 'background-color');
+      const footerFormTxt = computedStyle('.w3css-footer-menu', 'color');
+      once('w3css-footer-form', '.w3css-footer-menu form', context).forEach(function (element) {
         setStyle(element, 'background-color', footerFormBg);
         setStyle(element, 'color', footerFormTxt);
       });
 
       // Add classes to search page.
-      addClasses(once('d8w3css-search-advanced', '.search-form .search-advanced', context), 'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom');
-      addClasses(once('d8w3css-search-summary', '.search-form .search-advanced > summary', context), 'w3-button w3-bar w3-left-align');
-      addClasses(once('d8w3css-search-help', '.search-form .search-help-link', context), 'w3-button w3-right w3-border w3-margin-top');
-      addClasses(once('d8w3css-tabledrag-toggle', '.tabledrag-toggle-weight-wrapper button', context), 'w3-button');
+      addClasses(once('w3css-search-advanced', '.search-form .search-advanced', context), 'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom');
+      addClasses(once('w3css-search-summary', '.search-form .search-advanced > summary', context), 'w3-button w3-bar w3-left-align');
+      addClasses(once('w3css-search-help', '.search-form .search-help-link', context), 'w3-button w3-right w3-border w3-margin-top');
+      addClasses(once('w3css-tabledrag-toggle', '.tabledrag-toggle-weight-wrapper button', context), 'w3-button');
 
       // Theme settings.
-      const settingsDetails = once('d8w3css-settings-details', '#system-theme-settings details', context);
+      const settingsDetails = once('w3css-settings-details', '#system-theme-settings details', context);
       settingsDetails.forEach(function (element) {
         element.removeAttribute('open');
       });
       addClasses(settingsDetails, 'w3-border w3-bar w3-left-align w3-margin-bottom');
-      addClasses(once('d8w3css-settings-summary', '#system-theme-settings details > summary', context), 'w3-button w3-bar w3-left-align');
-      addClasses(once('d8w3css-settings-wrapper', '#system-theme-settings details > .details-wrapper', context), 'w3-padding w3-left-align');
+      addClasses(once('w3css-settings-summary', '#system-theme-settings details > summary', context), 'w3-button w3-bar w3-left-align');
+      addClasses(once('w3css-settings-wrapper', '#system-theme-settings details > .details-wrapper', context), 'w3-padding w3-left-align');
 
       // Disable top margin if breadcrumb exist.
-      if (document.querySelector('.d8w3css-breadcrumb')) {
-        addClasses(once('d8w3css-main-box', '.d8w3css-main-box', context), 'breadcrumb-found d8w3css-main-box--breadcrumb-found');
+      if (document.querySelector('.w3css-breadcrumb')) {
+        addClasses(once('w3css-main-box', '.w3css-main-box', context), 'w3css-main-box--breadcrumb-found');
       }
 
-      once('d8w3css-image-link', 'a > .w3-image', context).forEach(function (element) {
-        element.parentElement.classList.add('d8-has-image', 'd8w3css-link--has-image');
+      once('w3css-image-link', 'a > .w3-image', context).forEach(function (element) {
+        element.parentElement.classList.add('w3css-image-link');
       });
 
       mediaSize();
-      once('d8w3css-window-listeners', 'html').forEach(function () {
+      once('w3css-window-listeners', 'html').forEach(function () {
         window.addEventListener('resize', mediaSize);
         window.addEventListener('scroll', scrollWindow);
       });

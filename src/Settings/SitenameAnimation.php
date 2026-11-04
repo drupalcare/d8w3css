@@ -18,11 +18,12 @@ final class SitenameAnimation extends SettingsSection {
       '#title' => $this->t("CSS Text Animation Effects - W3CSS THEME"),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
-      '#description'   => $this->t('<p><strong>Available CSS Text Animation Effects Classes: </strong></p><p>animate-text-00, animate-text-01, animate-text-02, animate-text-03, animate-text-04, animate-text-05, animate-text-06, animate-text-07, animate-text-08, animate-text-09, animate-text-10, animate-text-11, animate-text-12, animate-text-13, animate-text-14, animate-text-14, animate-text-15, animate-text-16, animate-text-17, animate-text-18, animate-text-19, animate-text-20, animate-text-21, animate-text-22, animate-text-23, animate-text-24. Any of the previous CSS classes you can apply to any html tag.<a target="_blank" href="https://www.drupal.org/node/2866181#change-font"> Click here to view the documentaion on drupal.org</a>.<a target="_blank" href="w3css.flashwebcenter.com/node/106"> Click here to view an example for all the CSS Text Animation Effects</a>.</p>
+      '#description'   => $this->t('<p><strong>Available CSS Text Animation Effects Classes: </strong></p><p>animate-text-00, animate-text-01, animate-text-02, animate-text-03, animate-text-04, animate-text-05, animate-text-06, animate-text-07, animate-text-08, animate-text-09, animate-text-10, animate-text-11, animate-text-12, animate-text-13, animate-text-14, animate-text-14, animate-text-15, animate-text-16, animate-text-17, animate-text-18, animate-text-19, animate-text-20, animate-text-21, animate-text-22, animate-text-23, animate-text-24. Any of the previous CSS classes you can apply to any html tag.<a target="_blank" href="https://www.drupal.org/node/2866181#change-font"> Click here to view the documentation on drupal.org</a>.<a target="_blank" href="https://w3css.flashwebcenter.com/node/106"> Click here to view an example for all the CSS Text Animation Effects</a>.</p>
     '),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['sitename_animation'] = [
+    $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['effects_site_name_animation'] = [
+      '#parents' => ['effects', 'site_name_animation'],
       '#type' => 'select',
       '#title' => $this->t("Choose the desired CSS text animation effects for the site name."),
       '#options' => [
@@ -53,10 +54,11 @@ final class SitenameAnimation extends SettingsSection {
         'animate-name-24' => $this->t('Style 24 (animate-text-24)'),
 
       ],
-      '#default_value' => $this->themeSettings->getSetting('sitename_animation'),
+      '#default_value' => $this->settings->get('effects.site_name_animation'),
     ];
 
-    $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['pagetitle_animation'] = [
+    $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['effects_page_title_animation'] = [
+      '#parents' => ['effects', 'page_title_animation'],
       '#type' => 'select',
       '#title' => $this->t("Choose the desired CSS text animation effects for the page title."),
       '#options' => [
@@ -87,7 +89,7 @@ final class SitenameAnimation extends SettingsSection {
         'animate-title-24' => $this->t('Style 24'),
 
       ],
-      '#default_value' => $this->themeSettings->getSetting('pagetitle_animation'),
+      '#default_value' => $this->settings->get('effects.page_title_animation'),
     ];
   }
 

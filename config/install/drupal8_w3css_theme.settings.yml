@@ -7,22 +7,32 @@ features:
   name: true
   node_user_picture: true
   slogan: true
-current_theme: 'none'
-facebook_url: 'https://www.facebook.com/flashwebcenter'
-twitter_url: 'https://x.com/flashwebcenter'
-pinterest_url: 'https://www.pinterest.com/alaahaddad'
-linkedin_url: 'https://www.linkedin.com/company/flash-web-center'
-instagram_url: 'https://www.instagram.com/flashwebcenter'
-youtube_url: 'https://www.youtube.com/user/flashwebcenter'
-drupal_url: 'https://www.drupal.org/u/flashwebcenter'
-rss_url: 'rss.xml'
-mastodon_url: 'https://mastodon.social/deck/@flashwebcenter'
-copyright_text: 'Copyright © %year% Company Name - All rights reserved'
-show_social_icon: 1
-show_credit_link: 1
-top_region: 1
-main_region: 1
-bottom_region: 1
-footer_region: 1
-full_opacity_onscroll: 1
-border_animation: 1
+color_scheme:
+  predefined: 'none'
+social_icons:
+  links:
+    facebook: 'https://www.facebook.com/flashwebcenter'
+    twitter: 'https://x.com/flashwebcenter'
+    pinterest: 'https://www.pinterest.com/alaahaddad'
+    linkedin: 'https://www.linkedin.com/company/flash-web-center'
+    instagram: 'https://www.instagram.com/flashwebcenter'
+    youtube: 'https://www.youtube.com/user/flashwebcenter'
+    drupal: 'https://www.drupal.org/u/flashwebcenter'
+    rss: 'rss.xml'
+    mastodon: 'https://mastodon.social/deck/@flashwebcenter'
+  enabled: true
+footer:
+  copyright_text: 'Copyright © %year% Company Name - All rights reserved'
+  show_credit_link: true
+region_groups:
+  top:
+    marker_class: true
+  main:
+    marker_class: true
+  bottom:
+    marker_class: true
+  footer:
+    marker_class: true
+effects:
+  reveal_on_scroll: true
+  animated_borders: true

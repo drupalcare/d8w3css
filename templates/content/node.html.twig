@@ -69,12 +69,13 @@
 #}
 {% set classes = [
     'w3-row',
-    'node',
+    'node', 'w3css-node',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
+    not node.isPublished() ? 'node--unpublished w3css-node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    view_mode ? 'w3css-node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
 
@@ -82,23 +83,23 @@
 
   {% if (label and not page) or display_submitted %}
 
-  <header class="w3-row node__header">
+  <header class="w3-row node__header w3css-node__header">
     {{ title_prefix }}
     {% if label and not page %}
-      <h3 {{ title_attributes.addClass('node__title') }}>
+      <h3 {{ title_attributes.addClass('node__title', 'w3css-node__title') }}>
         <a href="{{ url }}" rel="bookmark">{{ label }}</a>
       </h3>
     {% endif %}
     {{ title_suffix }}
 
     {% if display_submitted %}
-      <div class="node__meta">
+      <div class="node__meta w3css-node__meta">
       {% if author_picture %}
-        <div class="node__author-image">
+        <div class="node__author-image w3css-node__author-image">
           {{ author_picture }}
         </div>
       {% endif %}
-        <div class="node__author-info" {{ author_attributes }}>
+        <div class="w3css-node__author-info" {{ author_attributes }}>
           <span {{ author_attributes }}>
             {{ 'By'|t }} {% apply spaceless %}{{ author_name }}{% endapply %} | {{ date }}
           </span>
@@ -111,7 +112,7 @@
 
   {% endif %}
 
-  <div{{ content_attributes.addClass('w3-row node__content') }}>
+  <div{{ content_attributes.addClass('w3-row node__content w3css-node__content') }}>
     {{ content }}
   </div>
 

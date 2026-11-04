@@ -1,24 +1,18 @@
-ul.breadcrumb,
-ul.d8w3css-breadcrumb,
-ol.breadcrumb,
-ol.d8w3css-breadcrumb {
+ul.w3css-breadcrumb__list,
+ol.w3css-breadcrumb__list {
   padding: 8px 16px;
   list-style: none;
 }
 
-ul.breadcrumb li,
-ul.d8w3css-breadcrumb li,
-ol.breadcrumb li,
-ol.d8w3css-breadcrumb li {
+ul.w3css-breadcrumb__list li,
+ol.w3css-breadcrumb__list li {
   display: inline;
   border-bottom: none;
   padding: 5px 3px 5px;
 }
 
-ul.breadcrumb li+li:before,
-ul.d8w3css-breadcrumb li+li:before,
-ol.breadcrumb li+li:before,
-ol.d8w3css-breadcrumb li+li:before {
+ul.w3css-breadcrumb__list li+li:before,
+ol.w3css-breadcrumb__list li+li:before {
   padding: 8px 0;
   content: "/\00a0";
 }

@@ -14,6 +14,7 @@ use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\drupal8_w3css_theme\Settings\SettingsReader;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -22,8 +23,13 @@ use Symfony\Component\HttpFoundation\RequestStack;
 final class ContentPreprocessHooks {
   use StringTranslationTrait;
 
+  /**
+   * Reads the settings by their new names; a plain class, not a service.
+   */
+  private readonly SettingsReader $settings;
+
   public function __construct(
-    private readonly ThemeSettingsProvider $themeSettings,
+    ThemeSettingsProvider $themeSettings,
     private readonly RouteMatchInterface $routeMatch,
     private readonly PathMatcherInterface $pathMatcher,
     private readonly RequestStack $requestStack,
@@ -31,10 +37,15 @@ final class ContentPreprocessHooks {
     private readonly DateFormatterInterface $dateFormatter,
     private readonly TimeInterface $time,
     private readonly ThemeExtensionList $themeList,
-  ) {}
+  ) {
+    $this->settings = new SettingsReader($themeSettings);
+  }
 
   /**
    * Implements hook_preprocess_HOOK() for block templates.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_block')]
   public function preprocessBlock(array &$variables): void {
@@ -48,6 +59,9 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_HOOK() for node.html.twig.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_node')]
   public function preprocessNode(array &$variables): void {
@@ -68,10 +82,13 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_breadcrumb().
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_breadcrumb')]
   public function preprocessBreadcrumb(array &$variables): void {
-    if ($variables['breadcrumb'] && !$this->themeSettings->getSetting('breadcrumb_page_title')) {
+    if ($variables['breadcrumb'] && !$this->settings->get('breadcrumb.hide_page_title')) {
       $page_title = $this->titleResolver->getTitle($this->requestStack->getCurrentRequest(), $this->routeMatch->getRouteObject());
       if (!empty($page_title)) {
         $variables['breadcrumb'][] = [
@@ -85,6 +102,9 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_HOOK().
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_field__node__created')]
   public function preprocessFieldNodeCreated(array &$variables): void {
@@ -95,6 +115,9 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_HOOK() for setting classes.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_filter_caption')]
   public function preprocessFilterCaption(array &$variables): void {
@@ -103,6 +126,9 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_HOOK() for comment templates.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_comment')]
   public function preprocessComment(array &$variables): void {
@@ -116,6 +142,9 @@ final class ContentPreprocessHooks {
 
   /**
    * Implements hook_preprocess_HOOK() for search-result.html.twig.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
    */
   #[Hook('preprocess_search_result')]
   public function preprocessSearchResult(array &$variables): void {
