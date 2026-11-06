@@ -15,7 +15,7 @@ final class EqualWidth extends SettingsSection {
   public function build(array &$form): void {
     $form['drupal8_w3css_theme_settings']['w3_equal_width'] = [
       '#type' => 'details',
-      '#title' => $this->t("Main Container Columns' Width - W3CSS Theme"),
+      '#title' => $this->t("Main container columns' width - W3CSS Theme"),
       '#description'   => $this->t('<p>The default settings for the columns in the main containers are <strong>(25% 50% 25%)</strong></p>'),
     ];
     $form['drupal8_w3css_theme_settings']['w3_equal_width']['layout_equal_columns'] = [

@@ -377,7 +377,7 @@ TWIG;
     ];
     $links = [
       '#type' => 'details',
-      '#title' => $this->t('Platform Links'),
+      '#title' => $this->t('Platform links'),
       '#group' => 'social_icon_tabs',
     ];
     foreach (Element::children($social) as $key) {

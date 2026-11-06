@@ -22,7 +22,7 @@ final class ExternalLibraries extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_fontawesome_libraries']['libraries_font_awesome'] = [
       '#parents' => ['libraries', 'font_awesome'],
       '#type' => 'radios',
-      '#title' => $this->t('Select Font Awesome Library'),
+      '#title' => $this->t('Select Font Awesome library'),
       '#default_value' => $this->settings->get('libraries.font_awesome') ?? 0,
       '#options' => [
         0 => $this->t('None'),
@@ -42,14 +42,14 @@ final class ExternalLibraries extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_load_fonts_locally'] = [
       '#parents' => ['typography', 'load_fonts_locally'],
       '#type' => 'checkbox',
-      '#title' => $this->t('Check this box if you would like to load Google fonts (Global Site Fonts and Heading Fonts only) locally. This is for use with the W3CSS Theme.'),
+      '#title' => $this->t('Check this box if you would like to load Google Fonts (global site fonts and heading fonts only) locally. This is for use with the W3CSS Theme'),
       '#default_value' => $this->settings->get('typography.load_fonts_locally'),
     ];
 
     $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_site_font'] = [
       '#parents' => ['typography', 'site_font'],
       '#type' => 'select',
-      '#title' => $this->t('50 Global Site Fonts: Choose the site font - The font will be applied to the whole website.'),
+      '#title' => $this->t('50 global site fonts: choose the site font - the font will be applied to the whole website'),
       '#description'   => $this->t('<p><a href=":demo" target="_blank" rel="noopener noreferrer">View a live demo of all global site fonts (opens in a new tab)</a>.</p><p>Global Site Font CSS Classes: open-sans, abel, alegreya-sans, alegreya-sans-sc, amita, archivo-narrow, arimo, arvo, barlow, barlow-semi-condensed
 , bitter, cairo, comfortaa, courgette, domine, dosis, exo-2, fira-sans, glegoo, hind-siliguri, ibm-plex-sans, inconsolata, josefin-sans, kanit, kavivanar, lato, libre-baskerville, lora, merienda, merriweather, montserrat, mukta, nunito, oranienbaum, oswald, oxygen, playfair-display, poppins, prompt, pt-serif, quicksand, raleway, roboto, roboto-condensed, roboto-mono, spline-sans, source-sans-3, titillium-web, ubuntu, work-sans. </p>', [':demo' => 'https://w3css.flashwebcenter.com/node/105']),
       '#options' => [
@@ -112,7 +112,7 @@ final class ExternalLibraries extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_heading_font'] = [
       '#parents' => ['typography', 'heading_font'],
       '#type' => 'select',
-      '#title' => $this->t('26 Heading Fonts: Choose the heading font - The font will be applied to h1, h2 and h3 only.'),
+      '#title' => $this->t('26 heading fonts: choose the heading font - the font will be applied to h1, h2 and h3 only'),
       '#description'   => $this->t('<p><a href=":demo" target="_blank" rel="noopener noreferrer">View a live demo of all heading fonts (opens in a new tab)</a>.</p><p>Heading Font CSS Classes: abril-fatface, aladin, anton, archivo-black, bebas-neue, big-shoulders-stencil-display, big-shoulders-stencil-text, black-ops-one, bree-serif, cinzel, dancing-script, dm-serif-display, doppio-one, fjalla-one, francois-one, fredericka-the-great, fredoka, hammersmith-one, indie-flower, kalam, lobster-two, patrick-hand, prosto-one, righteous, staatliches, yanone-kaffeesatz.</p>', [':demo' => 'https://w3css.flashwebcenter.com/node/104']),
       '#options' => [
         'none' => $this->t('None'),
@@ -150,7 +150,7 @@ final class ExternalLibraries extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_external_libraries']['typography_special_font'] = [
       '#parents' => ['typography', 'special_font'],
       '#type' => 'select',
-      '#title' => $this->t('25 Special Fonts: They are not applied to any html tags by default and they are only imported. Each font library has a CSS class that you can apply to any html tag.'),
+      '#title' => $this->t('25 special fonts: they are not applied to any HTML tags by default and they are only imported. Each font library has a CSS class that you can apply to any HTML tag'),
       '#description'   => $this->t('<p>Special fonts always load from Google Fonts, even when local loading is checked above.</p><p><a href=":demo" target="_blank" rel="noopener noreferrer">View a live demo of all special fonts (opens in a new tab)</a>.</p><p>Special Font CSS Classes: akronim, barriecito, bungee-shade, ceviche-one, creepster, faster-one, finger-paint, frijole, irish-grover, kumar-one, londrina-outline, megrim, metal-mania, monoton, moo-lah-lah, new-rocker, nosifer, pirata-one, ruslan-display, rye, sancreek, slackey, trade-winds, train-one, unifrakturmaguntia.</p>', [':demo' => 'https://w3css.flashwebcenter.com/node/102']),
       '#options' => [
         'none' => $this->t('None'),

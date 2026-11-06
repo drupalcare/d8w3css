@@ -1,6 +1,6 @@
 /**
  * @file
- * Defines Javascript behaviors for the W3CSS Theme.
+ * Defines JavaScript behaviors for the W3CSS Theme.
  */
 
 (function (Drupal, once) {

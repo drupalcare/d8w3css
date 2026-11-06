@@ -30,7 +30,7 @@ final class PredefinedThemes extends SettingsSection {
   public function build(array &$form): void {
     $form['drupal8_w3css_theme_settings']['w3_theme_current'] = [
       '#type' => 'details',
-      '#title' => $this->t('Predefined Color Themes - W3CSS Theme'),
+      '#title' => $this->t('Predefined color themes - W3CSS Theme'),
       '#description'   => $this->t('<p>Pick a color theme by its picture. <strong><a href=":demo" target="_blank" rel="noopener noreferrer">View an example of every color theme on the demo site (opens in a new tab)</a>.</strong></p>', [':demo' => 'https://w3css.flashwebcenter.com/w3css-predefined-color-themes']),
     ];
     // Server-rendered radios: selection needs no script, and arrow keys, screen

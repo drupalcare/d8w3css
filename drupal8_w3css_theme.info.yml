@@ -1,6 +1,6 @@
 name: W3CSS Theme
 core_version_requirement: ^11.3 || ^12
-description: 'A Drupal base theme built on W3.CSS: 22 regions, horizontal or vertical menus, width presets, color themes and font choices, all set from the theme settings. <a href="https://www.w3css.flashwebcenter.com" target="_blank" rel="noopener">Demo site</a>'
+description: 'Provides a base theme built on W3.CSS: 22 regions, horizontal or vertical menus, width presets, color themes and font choices, all set from the theme settings. <a href="https://www.w3css.flashwebcenter.com">Demo site</a>'
 package: W3CSS
 type: theme
 base theme: false

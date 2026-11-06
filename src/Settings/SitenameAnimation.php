@@ -15,7 +15,7 @@ final class SitenameAnimation extends SettingsSection {
   public function build(array &$form): void {
     $form['drupal8_w3css_theme_settings']['w3_sitename_animation'] = [
       '#type' => 'details',
-      '#title' => $this->t("CSS Text Animation Effects - W3CSS THEME"),
+      '#title' => $this->t("CSS text animation effects - W3CSS Theme"),
       '#description'   => $this->t('<p><strong>Available CSS Text Animation Effects Classes: </strong></p><p>animate-text-01, animate-text-02, animate-text-03, animate-text-04, animate-text-05, animate-text-06, animate-text-07, animate-text-08, animate-text-09, animate-text-10, animate-text-11, animate-text-12, animate-text-13, animate-text-14, animate-text-15, animate-text-16, animate-text-17, animate-text-18, animate-text-19, animate-text-20, animate-text-21, animate-text-22, animate-text-23, animate-text-24. You can apply any of these CSS classes to any HTML tag.</p><p><a href=":docs" target="_blank" rel="noopener noreferrer">Read the text animation documentation on drupal.org (opens in a new tab)</a>. <a href=":demo" target="_blank" rel="noopener noreferrer">View an example of every text animation (opens in a new tab)</a>.</p>', [
         ':docs' => 'https://www.drupal.org/node/2866181#change-font',
         ':demo' => 'https://w3css.flashwebcenter.com/node/106',
@@ -25,7 +25,7 @@ final class SitenameAnimation extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['effects_site_name_animation'] = [
       '#parents' => ['effects', 'site_name_animation'],
       '#type' => 'select',
-      '#title' => $this->t("Choose the desired CSS text animation effects for the site name."),
+      '#title' => $this->t("Choose the desired CSS text animation effects for the site name"),
       '#options' => [
         'none' => $this->t('None'),
         'animate-name-01' => $this->t('Style 01 (animate-text-01)'),
@@ -60,7 +60,7 @@ final class SitenameAnimation extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_sitename_animation']['effects_page_title_animation'] = [
       '#parents' => ['effects', 'page_title_animation'],
       '#type' => 'select',
-      '#title' => $this->t("Choose the desired CSS text animation effects for the page title."),
+      '#title' => $this->t("Choose the desired CSS text animation effects for the page title"),
       '#options' => [
         'none' => $this->t('None'),
         'animate-title-01' => $this->t('Style 01'),

@@ -15,7 +15,7 @@ final class WebsiteWidth extends SettingsSection {
   public function build(array &$form): void {
     $form['drupal8_w3css_theme_settings']['w3_website_width'] = [
       '#type' => 'details',
-      '#title' => $this->t("Website's Width - W3CSS Theme"),
+      '#title' => $this->t("Website's width - W3CSS Theme"),
       '#description' => $this->t("<p><strong>You can change the whole website's width by selecting any of the desired width in pixels.</strong></p><p>w3-width-100-percent, w3-width-2560, w3-width-1920, w3-width-1360, w3-width-1280, w3-width-1024 and w3-width-800. The default width is 1600 pixels.</p>"),
     ];
 

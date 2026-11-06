@@ -15,14 +15,14 @@ final class BorderAnimation extends SettingsSection {
   public function build(array &$form): void {
     $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
       '#type' => 'details',
-      '#title' => $this->t("Enable Border Animation - W3CSS Theme"),
+      '#title' => $this->t("Enable border animation - W3CSS Theme"),
       '#description'   => $this->t("<p><strong>You can enable/disable the border animation for the top regions, bottom regions and footer regions.</strong></p>"),
     ];
 
     $form['drupal8_w3css_theme_settings']['w3_border_animation']['effects_animated_borders'] = [
       '#parents' => ['effects', 'animated_borders'],
       '#type' => 'checkbox',
-      '#title' => $this->t("Check this box to animate the region's border."),
+      '#title' => $this->t("Animate the region's border"),
       '#default_value' => $this->settings->get('effects.animated_borders'),
     ];
   }
