@@ -2,6 +2,8 @@
 
 ## Next release
 
+- Extend and Appearance pages: every module and theme description is a short, professional statement that begins with a verb; credits, links and version notes moved out of the info files.
+
 - Text follows the drupal.org standards: the theme description begins with a verb and its demo link no longer opens a new window, settings titles are in sentence case without "Check this box to", "YouTube" and "LinkedIn" are spelled as the brands spell them, the credit setting no longer says "Please", and the README follows the drupal.org README template (sections, headings, lists, links and code).
 - Every color theme has a new name of two or three words (00008 - Red Turquoise is now Indigo Lagoon, Amber is now Golden Amber). Only the name shown on the settings page changed: the stored value and the w3-theme-* classes are the same, so every site keeps its color theme. The old to new list is in README.md.
 - Accessibility: the animated site name, text and page title gradients sweep once in 5 seconds instead of looping forever; the copyright and credit lines are no longer faded to 60%; the search form is a search landmark and its button shows its text in forced colors; submenu arrows are named after their link; menu links that open a new tab say so to screen readers; the current pager page has aria-current and its active style (a missing space dropped it); the header or sticky menu no longer covers a focused element; focused or #fragment content is never left faded; the linked-image hover zoom honors reduced motion.
