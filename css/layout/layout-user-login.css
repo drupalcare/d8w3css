@@ -1,11 +1,11 @@
 .path-user-register .w3css-main-region__inner .w3css-content-region,
 .path-user-password .w3css-main-region__inner .w3css-content-region,
-.path-user-login .w3css-main-region__inner .w3css-content-region{
+.path-user-login .w3css-main-region__inner .w3css-content-region {
+  display: table;
+  float: none !important;
   width: 100% !important;
   max-width: 900px;
   margin: 16px auto !important;
-  float: none !important;
-  display: table;
 }
 
 .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
@@ -13,7 +13,7 @@
 .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
 .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
 .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
-.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks{
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -25,6 +25,6 @@
 .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs > li,
 .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li,
 .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs > li,
-.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li{
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li {
   flex: 1;
 }

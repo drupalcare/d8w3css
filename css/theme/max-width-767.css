@@ -1,8 +1,8 @@
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .node--view-mode-teaser .field--name-field-image,
   .w3css-node--view-mode-teaser .field--name-field-image,
-  .node--view-mode-teaser .node__content .field--name-field-media-image ,
-  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-media-image{
+  .node--view-mode-teaser .node__content .field--name-field-media-image,
+  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-media-image {
     min-width: 100%;
   }
 
@@ -10,10 +10,9 @@
   .w3css-node--view-mode-teaser .w3css-node__title,
   .node--view-mode-teaser .field--name-field-image,
   .w3css-node--view-mode-teaser .field--name-field-image,
-  .node--view-mode-teaser .node__content .field--name-field-image ,
-  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-image{
-    padding-right: 0 !important;
+  .node--view-mode-teaser .node__content .field--name-field-image,
+  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-image {
     margin-right: 0 !important;
+    padding-right: 0 !important;
   }
-
 }

@@ -34,36 +34,12 @@ final class AttachmentHooks {
    */
   #[Hook('page_attachments_alter')]
   public function pageAttachmentsAlter(array &$attachments): void {
-    // Load google fonts locally - Global.
-    if ($this->settings->get('typography.load_fonts_locally') && $this->settings->get('typography.site_font')) {
-      $in_font = $this->settings->get('typography.site_font');
-      $current_ingf = 'drupal8_w3css_theme/d8w3css-gfin' . substr((string) $in_font, 7);
-      $attachments['#attached']['library'][] = $current_ingf;
-    }
-    // Load fonts external - Global.
-    if (!$this->settings->get('typography.load_fonts_locally') && $this->settings->get('typography.site_font')) {
-      $ex_font = $this->settings->get('typography.site_font');
-      $current_exgf = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font, 7);
-      $attachments['#attached']['library'][] = $current_exgf;
-    }
-    // Load google fonts locally - Heading.
-    if ($this->settings->get('typography.load_fonts_locally') && $this->settings->get('typography.heading_font')) {
-      $in_font_h = $this->settings->get('typography.heading_font');
-      $current_ingfh = 'drupal8_w3css_theme/d8w3css-gfin' . substr((string) $in_font_h, 7);
-      $attachments['#attached']['library'][] = $current_ingfh;
-    }
-    // Load fonts external - Heading.
-    if (!$this->settings->get('typography.load_fonts_locally') && $this->settings->get('typography.heading_font')) {
-      $ex_font_h = $this->settings->get('typography.heading_font');
-      $current_exgfh = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font_h, 7);
-      $attachments['#attached']['library'][] = $current_exgfh;
-    }
-    // Load special fonts' library.
-    if ($this->settings->get('typography.special_font')) {
-      $ex_font_s = $this->settings->get('typography.special_font');
-      $current_exgfs = 'drupal8_w3css_theme/d8w3css-gfex' . substr((string) $ex_font_s, 7);
-      $attachments['#attached']['library'][] = $current_exgfs;
-    }
+    // Global and heading fonts load locally or from Google Fonts; special
+    // fonts are always external.
+    $local = (bool) $this->settings->get('typography.load_fonts_locally');
+    $this->attachFont($attachments, $this->settings->get('typography.site_font'), $local);
+    $this->attachFont($attachments, $this->settings->get('typography.heading_font'), $local);
+    $this->attachFont($attachments, $this->settings->get('typography.special_font'), FALSE);
     // Load default color theme if not.
     if (!$this->settings->get('color_scheme.predefined') || $this->settings->get('color_scheme.predefined') == 'none') {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
@@ -91,19 +67,44 @@ final class AttachmentHooks {
         $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-6-ex';
         break;
     }
-    switch ($this->settings->get('social_icons.size')) {
-      case 1:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-m';
-        break;
+    // The size styles only matter when the social icons are shown.
+    if ($this->settings->get('social_icons.enabled')) {
+      switch ($this->settings->get('social_icons.size')) {
+        case 1:
+          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-m';
+          break;
 
-      case 2:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-l';
-        break;
+        case 2:
+          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-l';
+          break;
+      }
     }
     // Load full opacity if enabled but not on admin pages.
     if ($this->settings->get('effects.reveal_on_scroll') && !$this->adminContext->isAdminRoute()) {
       $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-full-opacity';
     }
+  }
+
+  /**
+   * Attaches the library of one font choice.
+   *
+   * The choice is stored as "d8w3css-<font>" and its libraries are named
+   * "d8w3css-gfin-<font>" (local) and "d8w3css-gfex-<font>" (Google Fonts).
+   * "None", empty and any other value attach nothing, because no library with
+   * that name exists.
+   *
+   * @param array<string, mixed> $attachments
+   *   The page attachments render array.
+   * @param mixed $font
+   *   The stored font choice.
+   * @param bool $local
+   *   TRUE to load the font files shipped with the theme.
+   */
+  private function attachFont(array &$attachments, mixed $font, bool $local): void {
+    if (!is_string($font) || !str_starts_with($font, 'd8w3css-') || $font === 'd8w3css-') {
+      return;
+    }
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-' . ($local ? 'gfin' : 'gfex') . substr($font, 7);
   }
 
 }

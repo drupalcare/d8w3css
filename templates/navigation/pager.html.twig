@@ -58,13 +58,13 @@
       {% endif %}
       {# Now generate the actual pager piece. #}
       {% for key, item in items.pages %}
-        <li class="w3-button pager__item{{ current == key ? 'w3-light-gray w3-active-pager is-active' : '' }}">
+        <li class="w3-button pager__item{{ current == key ? ' w3-light-gray w3-active-pager is-active' : '' }}">
           {% if current == key %}
             {% set title = 'Current page'|t %}
           {% else %}
             {% set title = 'Go to page @key'|t({'@key': key}) %}
           {% endif %}
-          <a href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
+          <a href="{{ item.href }}" title="{{ title }}"{% if current == key %} aria-current="page"{% endif %}{{ item.attributes|without('href', 'title', 'aria-current') }}>
             <span class="visually-hidden">
               {{ current == key ? 'Current page'|t : 'Page'|t }}
             </span>

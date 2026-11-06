@@ -3,87 +3,112 @@
   position: relative;
 }
 
-.w3-button:after,
-.w3-button:before {
-  content: '';
+.w3-button::after,
+.w3-button::before {
   position: absolute;
   bottom: 0;
   width: 0;
   height: 0;
-  background-color: transparent;
+  content: "";
   border-bottom: 1px solid transparent;
+  background-color: transparent;
 }
 
-.w3-button:before {
+.w3-button::before {
   left: 0;
 }
 
-.w3-button:after {
+.w3-button::after {
   right: 0;
 }
 
-.w3-button:hover:before {
+.w3-button:hover::before {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: btnBorderAnimation 0.2s linear forwards;
 }
 
-.w3-button:hover:after {
+.w3-button:hover::after {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: btnBorderAnimation 0.2s linear forwards;
 }
 
 /* Border animation  */
-#w3css-top-region .w3css-top-box>.w3css-animate-border,
-#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border,
-#w3css-footer-region .w3css-footer-box>.w3css-animate-border{
+#w3css-top-region .w3css-top-box > .w3css-animate-border,
+#w3css-bottom-region .w3css-bottom-box > .w3css-animate-border,
+#w3css-footer-region .w3css-footer-box > .w3css-animate-border {
   position: relative;
 }
 
-#w3css-top-region .w3css-top-box>.w3css-animate-border:before,
-#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:before,
-#w3css-footer-region .w3css-footer-box>.w3css-animate-border:before{
-  content: '';
+#w3css-top-region .w3css-top-box > .w3css-animate-border::before,
+#w3css-bottom-region .w3css-bottom-box > .w3css-animate-border::before,
+#w3css-footer-region .w3css-footer-box > .w3css-animate-border::before {
   position: absolute;
   top: 0;
   left: 0;
   width: 0;
   height: 0;
-  background-color: transparent;
+  content: "";
   border: 3px solid transparent;
+  background-color: transparent;
 }
 
-#w3css-top-region .w3css-top-box>.w3css-animate-border:hover:before,
-#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:hover:before,
-#w3css-footer-region .w3css-footer-box>.w3css-animate-border:hover:before{
+#w3css-top-region .w3css-top-box > .w3css-animate-border:hover::before,
+#w3css-bottom-region .w3css-bottom-box > .w3css-animate-border:hover::before,
+#w3css-footer-region .w3css-footer-box > .w3css-animate-border:hover::before {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: borderLeftColors 1s linear forwards;
 }
 
-#w3css-top-region .w3css-top-box>.w3css-animate-border:after,
-#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:after,
-#w3css-footer-region .w3css-footer-box>.w3css-animate-border:after{
-  content: '';
+#w3css-top-region .w3css-top-box > .w3css-animate-border::after,
+#w3css-bottom-region .w3css-bottom-box > .w3css-animate-border::after,
+#w3css-footer-region .w3css-footer-box > .w3css-animate-border::after {
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   width: 0;
   height: 0;
-  background-color: transparent;
+  content: "";
   border: 3px solid transparent;
+  background-color: transparent;
 }
 
-#w3css-top-region .w3css-top-box>.w3css-animate-border:hover:after,
-#w3css-bottom-region .w3css-bottom-box>.w3css-animate-border:hover:after,
-#w3css-footer-region .w3css-footer-box>.w3css-animate-border:hover:after{
+#w3css-top-region .w3css-top-box > .w3css-animate-border:hover::after,
+#w3css-bottom-region .w3css-bottom-box > .w3css-animate-border:hover::after,
+#w3css-footer-region .w3css-footer-box > .w3css-animate-border:hover::after {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: borderRightColors 1s linear forwards;
 }
 /* Shadows */
 
-#w3css-top-region .w3css-top-box>div.w3css-animate-border,
-#w3css-bottom-region .w3css-bottom-box>div.w3css-animate-border,
-#w3css-footer-region .w3css-footer-box>div.w3css-animate-border{
-  transition: 0.4s !important;
+#w3css-top-region .w3css-top-box > div.w3css-animate-border,
+#w3css-bottom-region .w3css-bottom-box > div.w3css-animate-border,
+#w3css-footer-region .w3css-footer-box > div.w3css-animate-border {
+  /* Only the shadow: reveal on scroll fades these boxes with its own opacity transition. */
+  transition: box-shadow 0.4s !important;
 }
 
-#w3css-top-region .w3css-top-box>div.w3css-animate-border:hover,
-#w3css-bottom-region .w3css-bottom-box>div.w3css-animate-border:hover,
-#w3css-footer-region .w3css-footer-box>div.w3css-animate-border:hover{
-  box-shadow: 0 25px 57px 0 rgba(0, 0, 0, .25);
+#w3css-top-region .w3css-top-box > div.w3css-animate-border:hover,
+#w3css-bottom-region .w3css-bottom-box > div.w3css-animate-border:hover,
+#w3css-footer-region .w3css-footer-box > div.w3css-animate-border:hover {
+  box-shadow: 0 25px 57px 0 rgb(0, 0, 0, 0.25);
+}
+
+/* Reduced motion: jump to the final border state, no movement. */
+@media (prefers-reduced-motion: reduce) {
+  .w3-button:hover::before,
+  .w3-button:hover::after,
+  #w3css-top-region .w3css-top-box > .w3css-animate-border:hover::before,
+  #w3css-bottom-region .w3css-bottom-box > .w3css-animate-border:hover::before,
+  #w3css-footer-region .w3css-footer-box > .w3css-animate-border:hover::before,
+  #w3css-top-region .w3css-top-box > .w3css-animate-border:hover::after,
+  #w3css-bottom-region .w3css-bottom-box > .w3css-animate-border:hover::after,
+  #w3css-footer-region .w3css-footer-box > .w3css-animate-border:hover::after {
+    animation-duration: 0.01ms;
+  }
+
+  #w3css-top-region .w3css-top-box > div.w3css-animate-border,
+  #w3css-bottom-region .w3css-bottom-box > div.w3css-animate-border,
+  #w3css-footer-region .w3css-footer-box > div.w3css-animate-border {
+    transition: none !important;
+  }
 }

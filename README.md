@@ -254,7 +254,7 @@ layout/template.
 CONFIGURATION:
 --------------------------------------------------------------------------------
 
-The new version was added with all new featuers. If you are using V1 and you did
+The new version was added with all new features. If you are using V1 and you did
  not override the page.html.twig, then you can update the theme however you
  normally do. If you did override the page.html.twig, then you will need to
  clone the new page.html.twig and update it.
@@ -345,7 +345,7 @@ Go to your-drupal-site-name/admin/appearance/settings/drupal8_w3css_theme and
 open "Libraries and Fonts", then the "Google Fonts" tab. You can
 choose the site font or heading font.
 
-Special font are not applied to any html tage by default. You just choose the
+Special font are not applied to any html tag by default. You just choose the
 font then use the css class with any html tag.
 
 Tip: Any font you choose for the site or heading will have a CSS class that
@@ -353,6 +353,66 @@ you can apply to any html tag.
 
 Example: If I have chosen the font "Anton" for the heading and I want to apply
 this font to a paragraph, here is how it's done;
+
+  * Color theme names (renamed in the next release)
+    Each color theme has a new name. Only the name shown on the settings page
+    changed; the stored value and the w3-theme-* class are the same, so a site
+    keeps the theme it picked.
+
+  Machine name           Old name                               New name
+  none                   Default - Black Gray White             Pure Monochrome
+  w3-theme-amber         Amber                                  Golden Amber
+  w3-theme-black         Black                                  Jet Black
+  w3-theme-blue-grey     Blue Gray                              Misty Blue Gray
+  w3-theme-blue          Blue                                   Royal Blue
+  w3-theme-brown         Brown                                  Walnut Brown
+  w3-theme-cyan          Cyan                                   Bright Cyan
+  w3-theme-dark-grey     Dark Gray                              Charcoal Gray
+  w3-theme-deep-orange   Deep Orange                            Burnt Orange
+  w3-theme-deep-purple   Deep Purple                            Plum Purple
+  w3-theme-green         Green                                  Meadow Green
+  w3-theme-grey          Gray                                   Silver Gray
+  w3-theme-indigo        Indigo                                 Ink Indigo
+  w3-theme-khaki         Khaki                                  Desert Khaki
+  w3-theme-light-blue    Light Blue                             Sky Blue
+  w3-theme-light-green   Light Green                            Spring Green
+  w3-theme-lime          Lime                                   Fresh Lime
+  w3-theme-orange        Orange                                 Tangerine Orange
+  w3-theme-pink          Pink                                   Rose Pink
+  w3-theme-purple        Purple                                 Grape Purple
+  w3-theme-red           Red                                    Cherry Red
+  w3-theme-teal          Teal                                   Lagoon Teal
+  w3-theme-yellow        Yellow                                 Sun Yellow
+  w3-theme-00000         00000 - Plain No Colors                Quiet Slate
+  w3-theme-00001         00001 - Blue Gray                      Harbor Steel
+  w3-theme-00002         00002 - Blue                           Ocean Blue
+  w3-theme-00003         00003 - Green                          Forest Green
+  w3-theme-00004         00004 - Purple                         Orchid Purple
+  w3-theme-00005         00005 - Brown                          Copper Brown
+  w3-theme-00006         00006 - Red                            Crimson Red
+  w3-theme-00007         00007 - Indigo                         Indigo Ink
+  w3-theme-00008         00008 - Red Turquoise                  Indigo Lagoon
+  w3-theme-00009         00009 - DarkCyan                       Deep Cyan
+  w3-theme-00010         00010 - Green Grass                    Lime Grass
+  w3-theme-00011         00011 - Dark Brown                     Espresso Brown
+  w3-theme-00012         00012 - Blue Red                       Navy Ruby
+  w3-theme-00013         00013 - CadetBlue                      Cadet Blue
+  w3-theme-00014         00014 - SlateGray                      Harbor Blue
+  w3-theme-00015         00015 - CadetBlue SteelBlue            Cadet Steel
+  w3-theme-00016         00016 - BlueOrange                     Slate Amber
+  w3-theme-00017         00017 - DarkOrange MidnightBlue        Midnight Ember
+  w3-theme-00018         00018 - Dark Theme - BlackGray         Dark Graphite
+  w3-theme-00019         00019 - Dark Theme - BlackGreen        Dark Moss
+  w3-theme-00020         00020 - Dark Theme - BlackBlue         Dark Ocean
+  w3-theme-00021         00021 - Dark Theme - BlackPurple       Dark Violet
+  w3-theme-00022         00022 - Dark Theme - BlackRed          Dark Ruby
+  w3-theme-00023         00023 - Dark Theme - BlackPink         Dark Rose
+  w3-theme-00024         00024 - Dark Theme - BlackLightGreen   Dark Emerald
+  w3-theme-00025         00025 - Dark Theme - BlackDarkPurple   Dark Lavender
+  w3-theme-00026         00026 - Dark Theme - BlackYellow       Dark Gold
+  w3-theme-00027         00027 - Dark Theme - BlackLightBlue    Dark Sky
+  w3-theme-00028         00028 - DarkRed LightBlue              Teal Coral
+  w3-theme-00029         00029 - Colorful Image Background      Photo Backdrop
 
   * How to use the w3css predefined themes
   ........................................
@@ -539,7 +599,7 @@ you are done.
   ....................................................
 
 Create a menu with any name.  Example the new menu name is 'Titto'.
-Add all the links as usuall in drupal. The maximum number of menu levels to show
+Add all the links as usual in drupal. The maximum number of menu levels to show
 is three. This maximum number includes the initial level. Level one is always
 visible. The two levels are hidden and you show them by clicking.
 Go to d8w3css/templates/navigation and clone menu--responsive-v.html.twig to

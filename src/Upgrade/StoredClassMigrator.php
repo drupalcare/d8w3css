@@ -16,16 +16,18 @@ use Drupal\Core\Entity\RevisionLogInterface;
  *
  * Every method is a dry run unless $apply is TRUE, and returns one row per
  * value it would change or wants checked. Configuration is changed through
- * the config API; content through the entity API, as a new revision.
+ * the config API; content through the entity API, as a new revision, except
+ * for an entity that a parent points at by revision id (a paragraph, a Layout
+ * Builder inline block), which is saved in place; see saveRevision().
  *
  * Content is limited to ids (owner decision D3): a class typed into a body
  * field is the editor's, and the font and animation value classes are
  * frozen (D1), so there is nothing else in content the theme renames.
  *
- * The configuration and content methods are copied from Solo Utilities'
- * StoredClassMigrator; a lane drift check keeps their code (docblocks
- * excluded) byte-identical. Only
- * the theme settings and the revision message are this theme's own.
+ * The configuration methods follow Solo Utilities' StoredClassMigrator. The
+ * content methods do not: Solo Utilities saves paragraphs through the item
+ * that holds them, with a rollback log; this theme rewrites them in place.
+ * ClassMigrator, the engine both use, is kept the same in both projects.
  *
  * @internal
  */
@@ -64,6 +66,18 @@ final class StoredClassMigrator {
   private const string COLOR_GROUP = 'region_colors';
 
   /**
+   * The report path suffix of a value rewritten without a new revision.
+   */
+  private const string IN_PLACE = ' (in place, no new revision)';
+
+  /**
+   * Entity types a parent points at by revision id, keyed by type; built once.
+   *
+   * @var array<string, true>|null
+   */
+  private ?array $revisionChildTypes = NULL;
+
+  /**
    * Builds the migrator.
    *
    * @param \Drupal\drupal8_w3css_theme\Upgrade\ClassMigrator $engine
@@ -89,7 +103,7 @@ final class StoredClassMigrator {
   ) {}
 
   /**
-   * Renames classes in the colour class settings of this theme and sub-themes.
+   * Renames classes in the color class settings of this theme and sub-themes.
    *
    * @return list<array{store: string, name: string, path: string, before: string, after: string, note: string}>
    *   One row per changed value or review note.
@@ -183,10 +197,13 @@ final class StoredClassMigrator {
    * Renames the theme's old ids in formatted text and menu link attributes.
    *
    * Each changed entity is saved once, as a new revision when the entity type
-   * supports revisions, so the earlier text stays in the revision history.
+   * supports revisions, so the earlier text stays in the revision history. An
+   * entity referenced by revision is saved in place instead (saveRevision()),
+   * and its rows say so in the path. A link to an old id on another page or
+   * site is never rewritten; it is listed with its whole href to check.
    *
    * @return list<array{store: string, name: string, path: string, before: string, after: string, note: string}>
-   *   One row per changed field value.
+   *   One row per changed field value or review note.
    */
   public function content(bool $apply): array {
     $rows = [];
@@ -235,6 +252,7 @@ final class StoredClassMigrator {
           continue;
         }
         $changed = FALSE;
+        $suffix = $this->isRevisionChild($entity) ? self::IN_PLACE : '';
         foreach (array_keys($entity->getTranslationLanguages()) as $langcode) {
           $translation = $entity->getTranslation($langcode);
           foreach ($translation->get($field) as $delta => $item) {
@@ -244,11 +262,16 @@ final class StoredClassMigrator {
                 continue;
               }
               $result = $this->engine->migrateHtmlIds($text);
+              $name = $entityType . ':' . $entity->id() . ':' . $langcode;
+              $path = $field . '.' . $delta . '.' . $property;
+              foreach ($result['notes'] as $note) {
+                $rows[] = self::row('content', $name, $path, $note['href'], $note['new'], 'other-page-link');
+              }
               if ($result['renamed'] === []) {
                 continue;
               }
               foreach ($result['renamed'] as $old => $new) {
-                $rows[] = self::row('content', $entityType . ':' . $entity->id() . ':' . $langcode, $field . '.' . $delta . '.' . $property, $old, $new);
+                $rows[] = self::row('content', $name, $path . $suffix, $old, $new);
               }
               $item->set($property, $result['value']);
               $changed = TRUE;
@@ -299,8 +322,23 @@ final class StoredClassMigrator {
 
   /**
    * Saves a content entity as a new revision when its type supports it.
+   *
+   * An entity that a parent points at by revision id is the exception. An
+   * entity_reference_revisions field (Paragraphs) and a Layout Builder inline
+   * block store the child's revision id, so a new child revision is one the
+   * page never shows: the report would say "saved" while the page kept the
+   * old ids. Such an entity is saved in place instead, on the revision its
+   * parent already points at, and its rows say so. Saving through the parent
+   * would also be correct, but needs a walk from every parent down to the
+   * child; the in-place save gives the same rendered result, and the report's
+   * before and after values are the record of what changed.
    */
   private function saveRevision(ContentEntityInterface $entity): void {
+    if ($this->isRevisionChild($entity)) {
+      $entity->setNewRevision(FALSE);
+      $entity->save();
+      return;
+    }
     if ($entity->getEntityType()->isRevisionable()) {
       $entity->setNewRevision(TRUE);
       if ($entity instanceof RevisionLogInterface) {
@@ -309,6 +347,39 @@ final class StoredClassMigrator {
       }
     }
     $entity->save();
+  }
+
+  /**
+   * Whether a parent points at this entity by revision id.
+   *
+   * True for a type that is the target of an entity_reference_revisions field
+   * or whose definition names a parent field (Paragraphs sets the
+   * entity_revision_parent_id_field key), and for a non-reusable custom block
+   * (a Layout Builder inline block, whose layout stores the revision id).
+   */
+  private function isRevisionChild(ContentEntityInterface $entity): bool {
+    $definition = $entity->getEntityType();
+    if (!$definition->isRevisionable()) {
+      return FALSE;
+    }
+    if ($this->revisionChildTypes === NULL) {
+      $this->revisionChildTypes = [];
+      foreach ($this->entityFieldManager->getFieldMapByFieldType('entity_reference_revisions') as $hostType => $fields) {
+        $storage = $this->entityFieldManager->getFieldStorageDefinitions($hostType);
+        foreach (array_keys($fields) as $field) {
+          $target = isset($storage[$field]) ? $storage[$field]->getSetting('target_type') : NULL;
+          if (is_string($target) && $target !== '') {
+            $this->revisionChildTypes[$target] = TRUE;
+          }
+        }
+      }
+    }
+    if (isset($this->revisionChildTypes[$entity->getEntityTypeId()]) || $definition->get('entity_revision_parent_id_field')) {
+      return TRUE;
+    }
+    return $entity->getEntityTypeId() === 'block_content'
+      && $entity->hasField('reusable')
+      && !$entity->get('reusable')->value;
   }
 
   /**

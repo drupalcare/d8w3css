@@ -1,16 +1,40 @@
 #w3css-main-nav-vertical {
   z-index: 1000;
-  display: none;
   width: auto !important;
   min-width: 250px;
 }
 
+/* The side menu starts closed only when JavaScript runs: core's
+   drupal.init.js adds the class js to <html> before any theme script.
+   :where() keeps the specificity of the old rule. */
+:where(.js) #w3css-main-nav-vertical {
+  display: none;
+}
+
+/* Without the script, or when it fails, the side menu and its submenus show
+   in the page flow, and the open and close buttons, which need the script,
+   are hidden. position needs !important to beat w3-sidebar's. */
+:where(html:not(.js)) #w3css-main-nav-vertical {
+  position: static !important;
+  height: auto;
+}
+
+:where(html:not(.js)) #w3css-main-nav-vertical .w3css-menu__list li ul,
+:where(html:not(.js)) .w3css-vertical-nav .w3css-menu__list li ul {
+  display: block;
+}
+
+:where(html:not(.js)) #w3css-main-nav-vertical #w3css-main-nav-close,
+:where(html:not(.js)) #w3css-main-nav-open {
+  display: none;
+}
+
 #w3css-main-nav-vertical #w3css-main-nav-close {
-  width: 100%;
   z-index: 1;
   display: flex;
   justify-content: center;
   justify-items: center;
+  width: 100%;
 }
 
 #w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__arrow,
@@ -18,7 +42,7 @@
   display: flex;
 }
 
-#w3css-main-nav-vertical  .w3css-item-depth-1 .w3css-menu__right-arrow,
+#w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__right-arrow,
 .w3css-vertical-nav .w3css-item-depth-1 .w3css-menu__right-arrow {
   display: none;
 }
@@ -29,15 +53,16 @@
   box-shadow: none !important;
 }
 
-.w3css-vertical-nav .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
-.w3css-vertical-nav .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul,
-#w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
-#w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul{
+/* Hover does not open a vertical submenu; the script does. */
+:where(.js) .w3css-vertical-nav .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+:where(.js) .w3css-vertical-nav .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul,
+:where(.js) #w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+:where(.js) #w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
   display: none;
 }
 
 .w3css-mobile-nav__toggle:hover {
-  cursor: context-menu !important;
+  cursor: pointer;
 }
 
 .w3css-vertical-nav .w3css-menu__list li,
@@ -49,16 +74,16 @@
 .w3css-vertical-nav .w3css-menu__list,
 .w3css-vertical-nav .w3css-menu__submenu,
 .w3css-vertical-nav .w3css-menu__item {
+  float: inline-start !important;
   clear: both !important;
-  float: left !important;
 }
 
 #w3css-main-nav-vertical .w3css-menu__list,
 #w3css-main-nav-vertical .w3css-menu__submenu,
 #w3css-main-nav-vertical .w3css-menu__item {
-  min-width: 100%;
+  float: inline-start !important;
   clear: both !important;
-  float: left !important;
+  min-width: 100%;
 }
 
 .w3css-vertical-nav .w3css-menu__list li ul,
@@ -67,7 +92,7 @@
 }
 
 .w3css-vertical-nav .w3css-menu__list li .w3css-menu__item--expanded:hover ul,
-#w3css-main-nav-vertical .w3css-menu__list li .w3css-menu__item--expanded:hover ul{
+#w3css-main-nav-vertical .w3css-menu__list li .w3css-menu__item--expanded:hover ul {
   left: 0;
 }
 
@@ -87,17 +112,17 @@
 
 .w3css-vertical-nav .w3css-item-depth-1 .w3css-menu__toggle-child,
 #w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__toggle-child {
-  width: auto;
   clear: none;
+  width: auto;
 }
 
 #w3css-main-nav-open {
-  width: 60px;
-  background-color: transparent !important;
-  margin: 10px 20px 0 0;
   z-index: 1;
+  width: 60px;
+  margin: 10px 20px 0 0;
+  text-align: center !important;
+  background-color: transparent !important;
   line-height: 24px;
-  text-align: center!important;
 }
 
 #w3css-main-nav-vertical .w3css-menu__right-arrow {
@@ -105,12 +130,12 @@
 }
 
 #w3css-main-nav-vertical li.w3css-menu__item--expanded > span,
-.w3css-vertical-nav li.w3css-menu__item--expanded > span{
+.w3css-vertical-nav li.w3css-menu__item--expanded > span {
   pointer-events: auto;
 }
 
 .w3css-vertical-nav li.w3css-menu__item--expanded > a,
-.w3css-vertical-nav li.w3css-menu__item--expanded > button{
+.w3css-vertical-nav li.w3css-menu__item--expanded > button {
   margin-inline-end: 5px;
 }
 
@@ -119,7 +144,7 @@
 .w3css-vertical-nav li.w3css-menu__item--expanded > a > span,
 #w3css-main-nav-vertical li.w3css-menu__item--expanded > a > span,
 .w3css-vertical-nav li.w3css-menu__item--expanded > button > span,
-#w3css-main-nav-vertical li.w3css-menu__item--expanded > button > span{
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > button > span {
   padding-block: 0;
   padding-inline: 10px;
   align-items: center;
@@ -129,7 +154,7 @@
 .w3css-vertical-nav li.w3css-menu__item--expanded > a,
 #w3css-main-nav-vertical li.w3css-menu__item--expanded > a,
 .w3css-vertical-nav li.w3css-menu__item--expanded > button,
-#w3css-main-nav-vertical li.w3css-menu__item--expanded > button{
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > button {
   padding-inline-end: 44px !important;
 }
 

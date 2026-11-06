@@ -18,7 +18,7 @@ drupal8_w3css_theme.settings:
       mapping:
         predefined:
           type: string
-          label: 'Predefined colour theme'
+          label: 'Predefined color theme'
     layout:
       type: mapping
       label: 'Layout'
@@ -167,79 +167,79 @@ drupal8_w3css_theme.settings:
       mapping:
         page_wrapper:
           type: string
-          label: 'Page wrapper colour classes'
+          label: 'Page wrapper color classes'
         header:
           type: string
-          label: 'Header colour classes'
+          label: 'Header color classes'
         primary_menu:
           type: string
-          label: 'Primary menu colour classes'
+          label: 'Primary menu color classes'
         welcome_text:
           type: string
-          label: 'Welcome text colour classes'
+          label: 'Welcome text color classes'
         highlighted:
           type: string
-          label: 'Highlighted colour classes'
+          label: 'Highlighted color classes'
         top_container:
           type: string
-          label: 'Top container colour classes'
+          label: 'Top container color classes'
         top_first:
           type: string
-          label: 'Top first colour classes'
+          label: 'Top first color classes'
         top_second:
           type: string
-          label: 'Top second colour classes'
+          label: 'Top second color classes'
         top_third:
           type: string
-          label: 'Top third colour classes'
+          label: 'Top third color classes'
         page_title:
           type: string
-          label: 'Page title colour classes'
+          label: 'Page title color classes'
         main:
           type: string
-          label: 'Main colour classes'
+          label: 'Main color classes'
         breadcrumb:
           type: string
-          label: 'Breadcrumb colour classes'
+          label: 'Breadcrumb color classes'
         sidebar_first:
           type: string
-          label: 'Left sidebar colour classes'
+          label: 'Left sidebar color classes'
         content:
           type: string
-          label: 'Content colour classes'
+          label: 'Content color classes'
         sidebar_second:
           type: string
-          label: 'Right sidebar colour classes'
+          label: 'Right sidebar color classes'
         bottom_container:
           type: string
-          label: 'Bottom container colour classes'
+          label: 'Bottom container color classes'
         bottom_first:
           type: string
-          label: 'Bottom first colour classes'
+          label: 'Bottom first color classes'
         bottom_second:
           type: string
-          label: 'Bottom second colour classes'
+          label: 'Bottom second color classes'
         bottom_third:
           type: string
-          label: 'Bottom third colour classes'
+          label: 'Bottom third color classes'
         bottom_fourth:
           type: string
-          label: 'Bottom fourth colour classes'
+          label: 'Bottom fourth color classes'
         footer_container:
           type: string
-          label: 'Footer container colour classes'
+          label: 'Footer container color classes'
         footer_first:
           type: string
-          label: 'Footer first colour classes'
+          label: 'Footer first color classes'
         footer_second:
           type: string
-          label: 'Footer second colour classes'
+          label: 'Footer second color classes'
         footer_third:
           type: string
-          label: 'Footer third colour classes'
+          label: 'Footer third color classes'
         footer_menu:
           type: string
-          label: 'Footer menu colour classes'
+          label: 'Footer menu color classes'
         copyright:
           type: string
-          label: 'Copyright colour classes'
+          label: 'Copyright color classes'

@@ -16,12 +16,6 @@
         "source": "https://git.drupalcode.org/project/d8w3css",
         "docs": "https://www.drupal.org/node/2866181"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    ],
     "require": {
         "drupal/core": "^11.3 || ^12"
     }

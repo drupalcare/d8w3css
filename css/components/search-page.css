@@ -1,26 +1,30 @@
-.path-search form.search-form>.form-wrapper , .path-search form.search-form>.w3css-form-wrapper{
+.path-search form.search-form > .form-wrapper,
+.path-search form.search-form > .w3css-form-wrapper {
   position: relative;
 }
 
-.path-search form.search-form>.form-wrapper>.form-type-search , .path-search form.search-form>.w3css-form-wrapper>.form-type-search{
+.path-search form.search-form > .form-wrapper > .form-type-search,
+.path-search form.search-form > .w3css-form-wrapper > .form-type-search {
   float: left;
   width: 74%;
   margin: 0 0 10px 0 !important;
 }
 
-.path-search form.search-form>.form-wrapper>.form-submit , .path-search form.search-form>.w3css-form-wrapper>.form-submit{
+.path-search form.search-form > .form-wrapper > .form-submit,
+.path-search form.search-form > .w3css-form-wrapper > .form-submit {
   position: absolute;
   right: 0;
   bottom: 10px;
-  margin: 0 !important;
   width: 25%;
+  margin: 0 !important;
 }
 
 .path-search .search-form .search-advanced summary.w3-button {
   box-sizing: border-box;
 }
 
-.path-search .w3-row.item-list>h3 , .path-search .w3-row.w3css-item-list>h3{
+.path-search .w3-row.item-list > h3,
+.path-search .w3-row.w3css-item-list > h3 {
   padding: 0 20px;
   font-size: 20px;
 }
@@ -29,33 +33,33 @@
   box-sizing: border-box;
 }
 
-.path-search .search-form .search-advanced #edit-type--wrapper>legend,
-.path-search .search-form .search-advanced #edit-language--wrapper>legend {
+.path-search .search-form .search-advanced #edit-type--wrapper > legend,
+.path-search .search-form .search-advanced #edit-language--wrapper > legend {
   display: none;
 }
 
 .path-search .search-form .search-advanced #edit-type--wrapper div.fieldset-wrapper,
 .path-search .search-form .search-advanced #edit-type--wrapper div.w3css-fieldset-wrapper,
-.path-search .search-form .search-advanced #edit-keywords-fieldset>.fieldset-wrapper,
-.path-search .search-form .search-advanced #edit-keywords-fieldset>.w3css-fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-keywords-fieldset > .fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-keywords-fieldset > .w3css-fieldset-wrapper,
 .path-search .search-form .search-advanced #edit-language--wrapper div.fieldset-wrapper,
 .path-search .search-form .search-advanced #edit-language--wrapper div.w3css-fieldset-wrapper,
 .path-search .search-form .search-advanced #edit-type--wrapper div.fieldset-wrapper div.form-checkboxes,
 .path-search .search-form .search-advanced #edit-type--wrapper div.w3css-fieldset-wrapper div.w3css-form-checkboxes,
-.path-search .search-form .search-advanced #edit-language--wrapper div.fieldset-wrapper div.form-checkboxes ,
-.path-search .search-form .search-advanced #edit-language--wrapper div.w3css-fieldset-wrapper div.w3css-form-checkboxes{
+.path-search .search-form .search-advanced #edit-language--wrapper div.fieldset-wrapper div.form-checkboxes,
+.path-search .search-form .search-advanced #edit-language--wrapper div.w3css-fieldset-wrapper div.w3css-form-checkboxes {
   margin: 0 !important;
 }
 
-.path-search .search-form .search-advanced #edit-lang-fieldset>.fieldset-wrapper,
-.path-search .search-form .search-advanced #edit-lang-fieldset>.w3css-fieldset-wrapper,
-.path-search .search-form .search-advanced #edit-types-fieldset>.fieldset-wrapper ,
-.path-search .search-form .search-advanced #edit-types-fieldset>.w3css-fieldset-wrapper{
+.path-search .search-form .search-advanced #edit-lang-fieldset > .fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-lang-fieldset > .w3css-fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-types-fieldset > .fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-types-fieldset > .w3css-fieldset-wrapper {
   margin-top: 0 !important;
 }
 
-.path-search .search-form .search-advanced #edit-lang-fieldset>legend,
-.path-search .search-form .search-advanced #edit-types-fieldset>legend {
+.path-search .search-form .search-advanced #edit-lang-fieldset > legend,
+.path-search .search-form .search-advanced #edit-types-fieldset > legend {
   display: inline-block;
 }
 

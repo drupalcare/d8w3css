@@ -16,12 +16,16 @@ W3CSS Theme 3 renames its own classes and ids to BEM names with the `w3css-` pre
 
    Nothing is written. The target is a theme machine name or a folder inside the Drupal root (`web/themes/custom/mytheme`, `web/modules/custom/my_module`). Drupal core, the W3CSS Theme itself and the public files folder are refused, and symbolic links are never followed.
 4. Read the report. Configuration and content come first, then each file and its changed lines, then the items to check by hand.
-5. Apply: `drush php:script themes/contrib/drupal8_w3css_theme/scripts/migrate-classes.php -- mytheme --apply`. Add `--stored` to save the configuration changes, and `--content` to save id changes in content (each changed item becomes a new revision).
+5. Apply: `drush php:script themes/contrib/drupal8_w3css_theme/scripts/migrate-classes.php -- mytheme --apply`. Add `--stored` to save the configuration changes, and `--content` to save id changes in content (see how `--content` saves, below).
 6. Clear the caches: `drush cr`, then check your pages.
 
 What the script changes: `.css .scss .sass .less .twig .js` files are rewritten; `.theme .php .module .inc` files are only reported (change the PHP by hand). `--ext=css,js` narrows the file types. `.yml` and `*.min.*` files, `node_modules`, `vendor`, `dist` and `.git` are never read.
 
-What `--stored` covers: the region colour class settings of this theme and its sub-themes, Block Class classes, Views CSS, row and field classes, and text format allowed tags with the matching CKEditor 5 settings. `--content` renames only ids, in formatted text fields and menu link attributes.
+What `--stored` covers: the region color class settings of this theme and its sub-themes, Block Class classes, Views CSS, row and field classes, and text format allowed tags with the matching CKEditor 5 settings. `--content` renames only ids, in formatted text fields and menu link attributes.
+
+How `--content` saves: a node, term, reusable block or menu link becomes a new revision, so the old text stays in its history. A paragraph, or a Layout Builder inline block, is saved in place on the revision its page already points at, with no new revision: its page stores that revision number, so a new revision would never be shown. The report marks those rows `(in place, no new revision)`; the report's old and new values are the record of what changed, so take a database backup before `--apply --content`. Only the current (default) revision is rewritten; a pending draft keeps the old ids.
+
+Links: only a link to the same page (`href="#header"`) is renamed. A link that names another page or site before the `#` (`href="/about#header"`, `href="https://example.org/#header"`) is never changed, because that page may not use the theme; the report lists it as `other-page-link` with the whole address, to check by hand.
 
 Report-only rules: a name that is one plain word, or is both a class and an id, is renamed only where the line plainly sets classes (or ids). State classes and generic words (`show`) are renamed only when chained to a `w3css-` selector in a stylesheet; elsewhere they are reported.
 

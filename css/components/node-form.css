@@ -1,19 +1,22 @@
-details.form-wrapper::after , details.w3css-form-wrapper::after{
-  content: "";
-  clear: both;
+details.form-wrapper::after,
+details.w3css-form-wrapper::after {
   display: table;
+  clear: both;
+  content: "";
 }
 
-details.form-wrapper , details.w3css-form-wrapper{
-  padding: 0 !important;
+details.form-wrapper,
+details.w3css-form-wrapper {
   margin-bottom: 8px !important;
-  line-height: inherit;
+  padding: 0 !important;
   color: inherit;
+  line-height: inherit;
 }
 
-details.form-wrapper > summary , details.w3css-form-wrapper > summary{
-  cursor: pointer;
+details.form-wrapper > summary,
+details.w3css-form-wrapper > summary {
   padding: 8px 16px;
+  cursor: pointer;
 }
 
 details[open] {
@@ -42,9 +45,9 @@ form tr.draggable td > a,
 form tr.draggable td > div.form-type-radio,
 form tr.draggable td > div.form-type-checkbox {
   float: left !important;
-  padding: 0 !important;
-  margin: 0 !important;
   clear: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 form a.tabledrag-handle .handle {
@@ -55,8 +58,8 @@ form a.tabledrag-handle .handle {
 }
 
 form .draggable a.tabledrag-handle {
-  margin: -3px 5px 0 0 !important;
   width: 25px;
+  margin: -3px 5px 0 0 !important;
 }
 
 form tr.draggable .w3-check,
@@ -68,9 +71,10 @@ form .field-multiple-drag {
   width: 50px;
 }
 
-form div.form-type-datelist.w3-section.form-item , form div.form-type-datelist.w3-section.w3css-form-item{
-  width: auto;
+form div.form-type-datelist.w3-section.form-item,
+form div.form-type-datelist.w3-section.w3css-form-item {
   clear: none;
+  width: auto;
 }
 
 form .form-type-date label,
@@ -88,26 +92,26 @@ form .form-type-datetime label {
 
 form #edit-datelist,
 form #edit-datetime {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 form #edit-datetime > div {
   float: left;
-  margin: 0 !important;
   width: 50%;
+  margin: 0 !important;
 }
 
-form  #edit-datetime > div input {
+form #edit-datetime > div input {
   min-width: 165px;
 }
 
 form .form-type-date,
 form .form-type-datetime,
 form .form-type-webform-time {
-  width: 50% !important;
   float: left;
   clear: none;
+  width: 50% !important;
 }
 
 form .form-type-date input,
@@ -125,14 +129,14 @@ form .form-item-range .form-item-range__output {
 }
 
 form .form-item-range .form-item-range__output input {
-  width: 4em;
   display: inline-block;
   clear: none;
+  width: 4em;
 }
 
 form .form-item-datelist #edit-datelist > div select {
-  padding-left: 10px;
   padding-right: 10px;
+  padding-left: 10px;
 }
 
 form .table-sort-weight.form-select {
@@ -143,8 +147,9 @@ form select {
   min-width: 75px;
 }
 
-.messages.messages--info , .w3css-messages.messages--info{
-  background-position: 2px  17px;
+.messages.messages--info,
+.w3css-messages.messages--info {
+  background-position: 2px 17px;
 }
 
 .js-filter-guidelines {
@@ -155,11 +160,13 @@ form select {
   padding-bottom: 0;
 }
 
-form .form-item , form .w3css-form-item{
+form .form-item,
+form .w3css-form-item {
   text-align: left;
 }
 
-fieldset.form-item > .fieldset-wrapper , fieldset.w3css-form-item > .w3css-fieldset-wrapper{
+fieldset.form-item > .fieldset-wrapper,
+fieldset.w3css-form-item > .w3css-fieldset-wrapper {
   padding: 0;
 }
 
@@ -168,22 +175,23 @@ fieldset.form-item > .fieldset-wrapper , fieldset.w3css-form-item > .w3css-field
   max-width: 40px;
 }
 
-form .form-item label , form .w3css-form-item label{
+form .form-item label,
+form .w3css-form-item label {
   padding-right: 10px;
 }
 
 table ul.dropbutton li.w3-left.dropbutton-action {
-  float: none !important;
   z-index: 1;
+  float: none !important;
   margin-right: 0 !important;
   line-height: 26px;
 }
 
 table ul.dropbutton,
 .js .dropbutton-widget .dropbutton {
-  background-color: white;
-  border: 1px solid #e8e8e8;
   padding: 0 !important;
+  border: 1px solid #e8e8e8;
+  background-color: white;
 }
 
 .dropbutton li {
@@ -192,8 +200,8 @@ table ul.dropbutton,
 
 .dropbutton li a {
   padding: 6px 12px;
-  line-height: 26px;
   font-size: 14px;
+  line-height: 26px;
 }
 
 .dropbutton button {
@@ -260,7 +268,8 @@ div.node-preview-container .form-item-view-mode select {
   min-width: 130px;
 }
 
-.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button , .ui-dialog .ui-widget-content.ui-dialog-buttonpane .w3css-button{
+.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button,
+.ui-dialog .ui-widget-content.ui-dialog-buttonpane .w3css-button {
   margin: 10px auto;
 }
 

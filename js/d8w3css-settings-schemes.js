@@ -4,8 +4,6 @@
  * itself is native radios and needs no script.
  */
 ((Drupal, once) => {
-  'use strict';
-
   /**
    * The name a radio's label shows.
    *
@@ -16,7 +14,10 @@
    *   The name.
    */
   const schemeName = (radio) => {
-    const name = radio.labels && radio.labels[0] ? radio.labels[0].querySelector('.w3css-schemes__name') : null;
+    const name =
+      radio.labels && radio.labels[0]
+        ? radio.labels[0].querySelector('.w3css-schemes__name')
+        : null;
     return name ? name.textContent.trim() : '';
   };
 
@@ -43,7 +44,9 @@
 
   Drupal.behaviors.w3cssSchemePicker = {
     attach(context) {
-      once('w3css-scheme-picker', '.w3css-schemes', context).forEach(setUpPicker);
+      once('w3css-scheme-picker', '.w3css-schemes', context).forEach(
+        setUpPicker,
+      );
     },
   };
 })(Drupal, once);

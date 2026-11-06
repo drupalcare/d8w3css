@@ -995,7 +995,7 @@ d8w3css-gfin-yanone-kaffeesatz:
       fonts/google-font-yanone-kaffeesatz.css: { }
       fonts/css/d8w3css-yanone-kaffeesatz.css: { }
 
-# Google fonts - Specail Fonts.
+# Google fonts - Special Fonts.
 
 d8w3css-gfex-metal-mania:
   css:
@@ -1172,9 +1172,11 @@ w3-css-theme-blue:
     - drupal8_w3css_theme/w3-css-theme-shared-keyframes
     - drupal8_w3css_theme/w3-css-theme-shared-palette
 
+# cspell:disable-next-line
 w3-css-theme-blue-grey:
   css:
     theme:
+      # cspell:disable-next-line
       css/w3-css-theme/w3-theme-blue-grey.css: { weight: -9 }
   dependencies:
     - drupal8_w3css_theme/w3-css-theme-shared-keyframes
@@ -1316,17 +1318,21 @@ w3-css-theme-black:
     - drupal8_w3css_theme/w3-css-theme-shared-keyframes
     - drupal8_w3css_theme/w3-css-theme-shared-palette
 
+# cspell:disable-next-line
 w3-css-theme-dark-grey:
   css:
     theme:
+      # cspell:disable-next-line
       css/w3-css-theme/w3-theme-dark-grey.css: { weight: -9 }
   dependencies:
     - drupal8_w3css_theme/w3-css-theme-shared-keyframes
     - drupal8_w3css_theme/w3-css-theme-shared-palette
 
+# cspell:disable-next-line
 w3-css-theme-grey:
   css:
     theme:
+      # cspell:disable-next-line
       css/w3-css-theme/w3-theme-grey.css: { weight: -9 }
   dependencies:
     - drupal8_w3css_theme/w3-css-theme-shared-keyframes

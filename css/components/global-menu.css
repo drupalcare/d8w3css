@@ -6,13 +6,13 @@
   list-style: none;
 }
 
-.w3css-menu__list:before,
-.w3css-menu__list:after {
-  content: " ";
+.w3css-menu__list::before,
+.w3css-menu__list::after {
   display: table;
+  content: " ";
 }
 
-.w3css-menu__list:after {
+.w3css-menu__list::after {
   clear: both;
 }
 
@@ -35,7 +35,8 @@ ul .w3css-menu__submenu.w3css-is-open {
 
 .w3css-menu__list a,
 .w3css-menu__list button {
-  font-size: 16px !important;
+  /* 16px at the default 18px root; follows the visitor's text size. */
+  font-size: 0.8889rem !important;
   line-height: 1.5;
 }
 
@@ -51,25 +52,25 @@ ul .w3css-menu__submenu.w3css-is-open {
 
 .w3css-menu__list > li {
   display: inline-block;
-  float: left;
+  float: inline-start;
 }
 
 .w3css-menu__list li a.w3css-menu__link-toggle,
 .w3css-menu__list li button.w3css-menu__link-toggle {
-  -webkit-transition: background .4s ease;
-  -o-transition: background .4s ease;
-  transition: background .4s ease;
+  -webkit-transition: background 0.4s ease;
+  -o-transition: background 0.4s ease;
+  transition: background 0.4s ease;
 }
 
-.w3css-menu__list li  ul {
-  min-width: 160px;
+.w3css-menu__list li ul {
   display: none;
+  min-width: 160px;
 }
 
 .w3css-menu__list li li a,
 .w3css-menu__list li li button {
-  display: block;
   position: relative;
+  display: block;
 }
 
 .w3css-menu__toggle-parent,
@@ -94,36 +95,36 @@ ul .w3css-menu__submenu.w3css-is-open {
 }
 
 /* span arrow right or down */
-li.w3css-menu__item--expanded i.fa{
-  font-weight: normal;
-  float: right;
+li.w3css-menu__item--expanded i.fa {
   display: block;
-  font-size: 16px;
+  float: inline-end;
+  font-size: 0.8889rem;
+  font-weight: normal;
 }
 
 li.w3css-menu__item--expanded .w3css-menu__right-arrow svg,
-li.w3css-menu__item--expanded .w3css-menu__arrow svg{
-  float: right;
+li.w3css-menu__item--expanded .w3css-menu__arrow svg {
+  float: inline-end;
 }
 
 .w3css-menu__right-arrow,
 .w3css-menu__arrow {
-  font-family: inherit;
-  text-align: end;
   display: inline-block;
+  text-align: end;
+  font-family: inherit;
 }
 
-.w3css-menu__list .w3css-menu__item--expanded{
+.w3css-menu__list .w3css-menu__item--expanded {
   position: relative;
 }
 
-li.w3css-menu__item--expanded > a.w3css-menu__link--enabled:hover{
+li.w3css-menu__item--expanded > a.w3css-menu__link--enabled:hover {
   cursor: pointer !important;
 }
 
 li.w3css-menu__item--expanded > span,
 li.w3css-menu__item--expanded > a > span,
-li.w3css-menu__item--expanded > button > span{
+li.w3css-menu__item--expanded > button > span {
   position: absolute;
   inset-inline-end: 0;
   inset-block-start: 0;
@@ -133,19 +134,13 @@ li.w3css-menu__item--expanded > button > span{
   justify-content: center;
 }
 
-ul li.w3css-menu__item--expanded > span:hover,
-ul li.w3css-menu__item--expanded > a:hover,
-ul li.w3css-menu__item--expanded > button:hover{
-  cursor: context-menu !important;
-}
-
 .w3css-mobile-nav__toggle svg,
 .w3css-responsive-nav__toggle svg {
-  float: right;
+  float: inline-end;
 }
 
 .w3css-menu__list li.w3css-menu__item--expanded > a,
-.w3css-menu__list li.w3css-menu__item--expanded > button{
+.w3css-menu__list li.w3css-menu__item--expanded > button {
   padding-inline-end: 42px;
 }
 
@@ -155,10 +150,6 @@ button.w3css-menu__toggle-child {
   appearance: none;
   font: inherit;
   line-height: inherit;
-}
-
-[dir="rtl"] .w3css-menu__list > li {
-  float: right;
 }
 
 /* The arrow turns when its submenu opens. The turn itself is set per depth. */
@@ -201,12 +192,13 @@ ul li.w3css-menu__item--expanded > .w3css-menu__arrow-toggle:hover {
 }
 
 /* The theme's hover sweep (border-animation.css), for keyboard and open states. */
-.w3css-menu__list .w3-button:focus-visible:before,
-.w3css-menu__list .w3-button:focus-visible:after,
-li.w3css-is-open > .w3-button:before,
-li.w3css-is-open > .w3-button:after,
-li.w3css-is-hovered > .w3-button:before,
-li.w3css-is-hovered > .w3-button:after {
+.w3css-menu__list .w3-button:focus-visible::before,
+.w3css-menu__list .w3-button:focus-visible::after,
+li.w3css-is-open > .w3-button::before,
+li.w3css-is-open > .w3-button::after,
+li.w3css-is-hovered > .w3-button::before,
+li.w3css-is-hovered > .w3-button::after {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: btnBorderAnimation 0.2s linear forwards;
 }
 
@@ -217,8 +209,8 @@ li.w3css-is-hovered > .w3-button:after {
     transition: none;
   }
 
-  .w3css-menu__list .w3-button:before,
-  .w3css-menu__list .w3-button:after,
+  .w3css-menu__list .w3-button::before,
+  .w3css-menu__list .w3-button::after,
   .w3css-menu__list li ul {
     animation: none !important;
   }

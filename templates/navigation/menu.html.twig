@@ -66,16 +66,25 @@
       {% if menu_level == 0 and item.is_expanded %}
       <li{{ item.attributes.addClass(item_classes) }}>
       {% import _self as macros %}
-        {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
+        {# Placeholder routes toggle a submenu; every other URL (paths, external,
+           #anchor, mailto:, tel:) is a real link. #}
+        {% if not (item.url.isRouted and item.url.routeName in ['<nolink>', '<button>', '<none>']) %}
 
         {% set clickable_classes = ['w3-button w3css-menu__link--enabled w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" class="{{ clickable_classes|join('') }}"
+          {% set link_target = item.url.getOption('attributes').target|default('') %}
+          {% set link_rel = item.url.getOption('attributes').rel|default('') %}
+          {% set link_rel = link_rel is iterable ? link_rel|join(' ') : link_rel %}
+          {% if link_target == '_blank' and 'noopener' not in link_rel %}
+            {% set link_rel = (link_rel ~ ' noopener')|trim %}
+          {% endif %}
+          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
-            {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
-            {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
+            {%- if link_target %} target="{{ link_target }}" {% endif -%}
+            {%- if link_rel %} rel="{{ link_rel }}" {% endif -%}>{{ item.title }}
+            {%- if link_target == '_blank' %}<span class="visually-hidden"> {{ '(opens in a new tab)'|t }}</span>{% endif %}
           </a>
           <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
@@ -85,7 +94,7 @@
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <button type="button" class="{{ non_clickable_classes|join('') }}"
+          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
             <span class="w3css-menu__arrow">
              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
@@ -95,15 +104,24 @@
       {% elseif menu_level != 0 and item.is_expanded %}
       <li{{ item.attributes.addClass(item_classes) }}>
       {% import _self as macros %}
-        {% if (item.url|render starts with '/') or (item.url|render starts with 'http')  %}
+        {# Placeholder routes toggle a submenu; every other URL (paths, external,
+           #anchor, mailto:, tel:) is a real link. #}
+        {% if not (item.url.isRouted and item.url.routeName in ['<nolink>', '<button>', '<none>']) %}
         {% set clickable_classes = ['w3-button w3css-menu__link--enabled w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set clickable_classes = clickable_classes|merge([class_list]) %}
         {% endif %}
-          <a href="{{ item.url }}" class="{{ clickable_classes|join('') }}"
+          {% set link_target = item.url.getOption('attributes').target|default('') %}
+          {% set link_rel = item.url.getOption('attributes').rel|default('') %}
+          {% set link_rel = link_rel is iterable ? link_rel|join(' ') : link_rel %}
+          {% if link_target == '_blank' and 'noopener' not in link_rel %}
+            {% set link_rel = (link_rel ~ ' noopener')|trim %}
+          {% endif %}
+          <a href="{{ item.url }}" class="{{ clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}
-            {%- if item.url.getOption('attributes').target %} target="{{ item.url.getOption('attributes').target }}" {% endif -%}
-            {%- if item.url.getOption('attributes').rel %} rel="{{ item.url.getOption('attributes').rel }}" {% endif -%}>{{ item.title }}
+            {%- if link_target %} target="{{ link_target }}" {% endif -%}
+            {%- if link_rel %} rel="{{ link_rel }}" {% endif -%}>{{ item.title }}
+            {%- if link_target == '_blank' %}<span class="visually-hidden"> {{ '(opens in a new tab)'|t }}</span>{% endif %}
           </a>
           <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
             {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
@@ -113,7 +131,7 @@
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
-          <button type="button" class="{{ non_clickable_classes|join('') }}"
+          <button type="button" class="{{ non_clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
             <span class="w3css-menu__arrow w3-hover-over">
               {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
@@ -128,9 +146,18 @@
         ]
         %}
         <li{{ item.attributes.addClass(item_classes) }}>
+        {# A new-window link says so to screen readers, like the expanded links above. #}
+        {% set leaf_text = item.title %}
+        {% if item.url.getOption('attributes').target|default('') == '_blank' %}
+          {% set leaf_text = {
+            '#type': 'inline_template',
+            '#template': '{{ title }}<span class="visually-hidden"> {{ "(opens in a new tab)"|t }}</span>',
+            '#context': {'title': item.title},
+          } %}
+        {% endif %}
         {{
         link(
-          item.title,
+          leaf_text,
           item.url,
           item.attributes.removeClass(item_classes).addClass(link_classes)
         )

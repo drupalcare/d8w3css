@@ -1,4 +1,4 @@
-@media (max-width:600px) {
+@media (max-width: 600px) {
   html,
   body {
     font-size: 100%;
@@ -31,9 +31,10 @@
     padding: 3px 6px !important;
   }
 
-  h1.page-title , h1.w3css-page-title{
-    font-size: 22px;
+  h1.page-title,
+  h1.w3css-page-title {
     padding: 12px 8px;
+    font-size: 22px;
   }
 
   h1 {
@@ -53,9 +54,9 @@
   }
 
   p {
+    margin: 0;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
-    margin: 0;
   }
 
   #w3css-header-inner {
@@ -64,18 +65,19 @@
 
   #w3css-header-inner > nav,
   #w3css-header-inner > nav > ul {
-    width: 100% !important;
     clear: both !important;
+    width: 100% !important;
   }
 
   #w3css-header-inner > nav > ul li {
     float: left !important;
   }
 
-  .site-logo , .w3css-site-logo{
+  .site-logo,
+  .w3css-site-logo {
+    width: 100%;
     margin: 10px auto 0 auto !important;
     padding: 0 !important;
-    width: 100%;
     text-align: center;
   }
 
@@ -88,32 +90,35 @@
   .w3css-site-name,
   .site-slogan,
   .w3css-site-slogan,
-  .site-name a ,
-  .w3css-site-name a{
+  .site-name a,
+  .w3css-site-name a {
     display: block;
     text-align: center;
   }
 
-  .w3css-site-name-slogan{
+  .w3css-site-name-slogan {
     display: inline-block;
-    margin: 16px auto;
     width: 100%;
+    margin: 16px auto;
   }
 
-  .site-name , .w3css-site-name{
+  .site-name,
+  .w3css-site-name {
     font-size: 22px;
   }
 
-  .site-slogan , .w3css-site-slogan{
+  .site-slogan,
+  .w3css-site-slogan {
     font-size: 16px !important;
   }
 
-  .node__meta .node__submitted , .w3css-node__meta .node__submitted{
+  .node__meta .node__submitted,
+  .w3css-node__meta .node__submitted {
     margin: -2px 10px 0 0 !important;
   }
 
   .w3css-highlighted__inner,
-  .w3css-welcome-text__inner{
+  .w3css-welcome-text__inner {
     padding: 0 5px !important;
   }
 
@@ -125,24 +130,27 @@
     margin: 5px 0 !important;
   }
 
-  .w3css-copyright__inner .w3-half p{
+  .w3css-copyright__inner .w3-half p {
     text-align: center !important;
   }
 
-  /* Search Page*/
-  .path-search form.search-form>.form-wrapper , .path-search form.search-form>.w3css-form-wrapper{
+  /* Search Page */
+  .path-search form.search-form > .form-wrapper,
+  .path-search form.search-form > .w3css-form-wrapper {
     margin-bottom: 10px;
   }
 
-  .path-search form.search-form>.form-wrapper>.form-type-search , .path-search form.search-form>.w3css-form-wrapper>.form-type-search{
+  .path-search form.search-form > .form-wrapper > .form-type-search,
+  .path-search form.search-form > .w3css-form-wrapper > .form-type-search {
     width: 100%;
   }
 
-  .path-search form.search-form>.form-wrapper>.form-submit , .path-search form.search-form>.w3css-form-wrapper>.form-submit{
+  .path-search form.search-form > .form-wrapper > .form-submit,
+  .path-search form.search-form > .w3css-form-wrapper > .form-submit {
     position: inherit;
-    margin: 0;
-    width: 100%;
     bottom: 0;
+    width: 100%;
+    margin: 0;
   }
 
   .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
@@ -150,10 +158,9 @@
   .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
   .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
   .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks{
-    justify-content: start;
+  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
     flex-direction: column;
     align-items: start;
+    justify-content: start;
   }
-
 }

@@ -25,7 +25,7 @@ form.w3css-settings {
   --d8s-ctl: #7b8794;
   --d8s-line: #d5dbe0;
   --d8s-chip: #f1f4f5;
-  --d8s-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --d8s-mono: ui-monospace, sfmono-regular, menlo, monospace;
 
   display: flow-root;
   box-sizing: border-box;
@@ -87,7 +87,7 @@ form.w3css-settings .w3css-icon {
   flex: none;
   inline-size: 1rem;
   block-size: 1rem;
-  fill: currentcolor;
+  fill: currentColor;
 }
 
 /* Navigation. On top as a compact menu until the form is wide enough. */
@@ -155,25 +155,25 @@ form.w3css-settings .w3css-nav__item {
 .w3css-nav__link {
   display: grid;
   grid-template-columns: 1rem minmax(0, 1fr);
-  column-gap: 0.5rem;
   align-items: start;
-  padding-block: 0.375rem;
-  padding-inline: 0.625rem;
+  column-gap: 0.5rem;
   border-radius: 0.625rem;
   font-size: 0.8125rem;
   line-height: 1.35;
+  padding-block: 0.375rem;
+  padding-inline: 0.625rem;
   overflow-wrap: anywhere;
 }
 
 form.w3css-settings .w3css-nav__link {
+  text-decoration: none;
   color: var(--d8s-accent);
   font-weight: 500;
-  text-decoration: none;
 }
 
 form.w3css-settings .w3css-nav__link:hover {
-  background: var(--d8s-soft);
   text-decoration: underline;
+  background: var(--d8s-soft);
 }
 
 /* The current item: a filled pill, and weight as well as color. */
@@ -345,10 +345,8 @@ form.w3css-settings .vertical-tabs__menu-link::before {
 form.w3css-settings .vertical-tabs__menu-link,
 form.w3css-settings .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link {
   display: block;
-  inline-size: auto;
   margin: 0;
-  padding-block: 0.5rem;
-  padding-inline: 0;
+  text-decoration: none;
   color: var(--d8s-muted);
   border: 0;
   border-block-end: 2px solid transparent;
@@ -356,7 +354,9 @@ form.w3css-settings .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-l
   background: none;
   box-shadow: none;
   font-size: 0.875rem;
-  text-decoration: none;
+  inline-size: auto;
+  padding-block: 0.5rem;
+  padding-inline: 0;
 }
 
 form.w3css-settings .vertical-tabs__menu-link:hover {
@@ -525,12 +525,12 @@ form.w3css-settings .w3css-settings__row input {
 
 .w3css-settings__chips code {
   display: block;
-  padding-block: 0.1875rem;
-  padding-inline: 0.375rem;
+  user-select: all;
   border-radius: 0.25rem;
   background-color: var(--d8s-chip);
+  padding-block: 0.1875rem;
+  padding-inline: 0.375rem;
   overflow-wrap: anywhere;
-  user-select: all;
 }
 
 /* Added by script: the class name and its copy button. */
@@ -594,7 +594,7 @@ code.w3css-settings__swatch::before {
 .w3css-settings__copy svg {
   inline-size: 0.875rem;
   block-size: 0.875rem;
-  fill: currentcolor;
+  fill: currentColor;
 }
 
 form.w3css-settings .w3css-settings__copy:focus-visible {
@@ -627,8 +627,8 @@ form.w3css-settings .w3css-settings__copy:focus-visible {
 }
 
 .w3css-settings__bp a {
-  font-weight: 600;
   text-decoration: none;
+  font-weight: 600;
   overflow-wrap: anywhere;
 }
 

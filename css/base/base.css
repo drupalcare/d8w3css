@@ -5,41 +5,48 @@
 
 /* Reset Links. */
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
-  outline: none;
 }
 
 html,
 body {
   min-height: 100%;
-  overflow-wrap: break-word;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+/* 18px at the browser's default text size, and it follows the visitor's own
+   text-size setting. rem values keep their old size because the root is
+   still 18px by default. */
+html {
+  font-size: 112.5%;
+}
+
+body {
+  font-size: 1rem;
 }
 
 img,
 object,
 embed,
 video {
-  outline: none;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border: none;
-  text-align: center;
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border: 0;
+  border: none;
 }
 
 a img {
   border: none;
-  outline: none;
 }
 
 svg:not(:root) {
@@ -64,12 +71,11 @@ h3 a,
 h4 a,
 h5 a,
 li a {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: inherit;
   text-decoration: none;
   color: inherit;
-  outline: none;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 a,
@@ -79,7 +85,16 @@ a:hover,
 a:active,
 a:focus {
   text-decoration: none;
-  outline: none;
+}
+
+/* Keyboard focus ring for every focusable element. Mouse clicks do not match
+   :focus-visible, so they look as before. Elements focused by script
+   (tabindex="-1", such as the main region after the skip link) stay unringed.
+   :where() keeps the specificity low, so menus and sub-themes can adjust the
+   offset or color with a plain selector. */
+:where(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* Links inside formatted text (body, long text, comments) are underlined on
@@ -121,26 +136,21 @@ input:active,
 button:active,
 textarea:active {
   border-radius: 0;
-  outline: none;
 }
 
-input[type=textarea],
-input[type=button],
-input[type=search],
-input[type=textfield] {
+input[type="button"],
+input[type="search"] {
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
-  outline: none;
 }
 
 .w3-ul li,
-nav.action-links li ,
-nav.w3css-action-links li{
+nav.action-links li,
+nav.w3css-action-links li {
   border: none;
   border-width: 0 !important;
 }
 
-.w3css-main-nav__inner--vertical li .w3-button{
+.w3css-main-nav__inner--vertical li .w3-button {
   white-space: normal;
 }

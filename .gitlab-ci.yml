@@ -29,3 +29,11 @@ variables:
   # job too.
   OPT_IN_TEST_PREVIOUS_MINOR: '1'
   _AUTORUN_PREVIOUS_MINOR: 'all'
+  # Spelling: skip vendored or generated text that is not ours to correct:
+  # fonts/ (Font Awesome and Google font CSS), css/w3-css/ (vendored W3.CSS)
+  # and the two generated color scheme palette folders.
+  _CSPELL_IGNORE_PATHS: 'fonts/**, css/w3-css/**, css/w3-css-theme/**, css/w3-css-theme-custom/**'
+  # fonts/ is in .stylelintignore, so the template's one-level glob alone would
+  # see only ignored files and fail. `_STYLELINT_EXTRA` adds the css/ folder
+  # (expanded recursively by Stylelint itself, minus the ignored palettes).
+  _STYLELINT_EXTRA: 'css'

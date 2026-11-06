@@ -51,7 +51,7 @@
 .w3css-settings__swatch--w3-link-bg-aqua,
 .w3css-settings__swatch--w3-link-hover-aqua,
 .w3css-settings__swatch--w3-text-aqua {
-  --swatch: #00ffff;
+  --swatch: #0ff;
 }
 
 .w3css-settings__swatch--w3-blue,
@@ -67,15 +67,22 @@
 }
 
 .w3css-settings__swatch--w3-button-dark-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-dark-grey,
 .w3css-settings__swatch--w3-button-hover-dark-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-hover-dark-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-text-dark-grey,
 .w3css-settings__swatch--w3-link-bg-dark-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-bg-dark-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-dark-grey,
 .w3css-settings__swatch--w3-link-hover-dark-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-hover-dark-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-text-dark-grey {
   --swatch: #3a3a3a;
 }
@@ -104,23 +111,34 @@
   --swatch: #4caf50;
 }
 
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-blue-grey,
 .w3css-settings__swatch--w3-button-blue-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-blue-grey,
 .w3css-settings__swatch--w3-button-hover-blue-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-hover-blue-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-blue-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-text-blue-grey,
 .w3css-settings__swatch--w3-link-bg-blue-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-bg-blue-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-blue-grey,
 .w3css-settings__swatch--w3-link-hover-blue-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-hover-blue-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-text-blue-grey {
   --swatch: #607d8b;
 }
 
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-dark-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-dark-grey {
   --swatch: #616161;
 }
@@ -138,13 +156,20 @@
 }
 
 .w3css-settings__swatch--w3-button-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-grey,
 .w3css-settings__swatch--w3-button-hover-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-hover-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-text-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-bg-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-hover-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-text-grey {
   --swatch: #757575;
 }
@@ -197,7 +222,9 @@
   --swatch: #9c27b0;
 }
 
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-grey {
   --swatch: #9e9e9e;
 }
@@ -231,12 +258,12 @@
 
 .w3css-settings__swatch--w3-hover-pale-green,
 .w3css-settings__swatch--w3-pale-green {
-  --swatch: #ddffdd;
+  --swatch: #dfd;
 }
 
 .w3css-settings__swatch--w3-hover-pale-blue,
 .w3css-settings__swatch--w3-pale-blue {
-  --swatch: #ddffff;
+  --swatch: #dff;
 }
 
 .w3css-settings__swatch--w3-button-hover-pale-green,
@@ -277,17 +304,26 @@
 }
 
 .w3css-settings__swatch--w3-button-hover-light-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-hover-light-grey,
 .w3css-settings__swatch--w3-button-light-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-button-light-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-light-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-hover-text-light-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-light-grey,
 .w3css-settings__swatch--w3-link-bg-light-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-bg-light-grey,
 .w3css-settings__swatch--w3-link-hover-light-gray,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-hover-light-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-link-light-grey,
+/* cspell:disable-next-line */
 .w3css-settings__swatch--w3-text-light-grey {
   --swatch: #f1f1f1;
 }
@@ -354,7 +390,7 @@
 
 .w3css-settings__swatch--w3-hover-pale-red,
 .w3css-settings__swatch--w3-pale-red {
-  --swatch: #ffdddd;
+  --swatch: #fdd;
 }
 
 .w3css-settings__swatch--w3-button-hover-pale-red,
@@ -398,5 +434,5 @@
 .w3css-settings__swatch--w3-link-pale-yellow,
 .w3css-settings__swatch--w3-pale-yellow,
 .w3css-settings__swatch--w3-text-pale-yellow {
-  --swatch: #ffffcc;
+  --swatch: #ffc;
 }

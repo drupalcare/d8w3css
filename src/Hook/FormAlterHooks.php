@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\drupal8_w3css_theme\Hook;
 
 use Drupal\comment\CommentInterface;
+use Drupal\Core\Access\AccessResultInterface;
 use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
@@ -17,7 +18,7 @@ final class FormAlterHooks {
   use StringTranslationTrait;
 
   /**
-   * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+   * Implements hook_form_BASE_FORM_ID_alter() for node_form.
    *
    * Changes vertical tabs to container.
    *
@@ -33,15 +34,28 @@ final class FormAlterHooks {
     ];
     $form['advanced']['#type'] = 'container';
     $form['meta']['#type'] = 'container';
+    // NodeForm shows "meta" (status, last saved, author) only to users with
+    // "administer nodes". The container is opened so it can hold the revision
+    // log below, which carries its own access, but its own items keep core's
+    // decision: nothing here is shown that NodeForm hid.
+    $meta_access = $this->isAllowed($form['meta']['#access'] ?? TRUE);
     $form['meta']['#access'] = TRUE;
-    $form['meta']['changed']['#wrapper_attributes']['class'][] = 'container-inline';
-    $form['meta']['author']['#wrapper_attributes']['class'][] = 'container-inline';
+    foreach (['published', 'changed', 'author'] as $item) {
+      if (isset($form['meta'][$item])) {
+        $form['meta'][$item]['#access'] = $meta_access && $this->isAllowed($form['meta'][$item]['#access'] ?? TRUE);
+      }
+    }
+    foreach (['changed', 'author'] as $item) {
+      if (isset($form['meta'][$item])) {
+        $form['meta'][$item]['#wrapper_attributes']['class'][] = 'container-inline';
+      }
+    }
     $form['revision_information']['#type'] = 'container';
     $form['revision_information']['#group'] = 'meta';
   }
 
   /**
-   * Implements hook_form_FORM_ID_alter().
+   * Implements hook_form_BASE_FORM_ID_alter() for comment_form.
    *
    * @param array<string, mixed> $form
    *   The form render array.
@@ -71,9 +85,11 @@ final class FormAlterHooks {
    *   The current form state.
    */
   #[Hook('form_search_block_form_alter')]
-  public function formSearchBlockFormAlter(array &$form, FormStateInterface &$form_state): void {
+  public function formSearchBlockFormAlter(array &$form, FormStateInterface $form_state): void {
     $form['keys']['#attributes']['placeholder'] = $this->t('Search');
-    $form['actions']['submit']['#value'] = '.';
+    // The value is the button's accessible name; search-block.css hides the
+    // text (text-indent) and shows an arrow icon instead.
+    $form['actions']['submit']['#value'] = $this->t('Search');
     $form['actions']['submit']['#attributes']['class'][] = 'w3css-search-button-block';
   }
 
@@ -86,8 +102,21 @@ final class FormAlterHooks {
    *   The current form state.
    */
   #[Hook('form_search_form_alter')]
-  public function formSearchFormAlter(array &$form, FormStateInterface &$form_state): void {
+  public function formSearchFormAlter(array &$form, FormStateInterface $form_state): void {
     unset($form['help_link']);
+  }
+
+  /**
+   * Reads an #access value the way the renderer does.
+   *
+   * @param mixed $access
+   *   A boolean or an access result object.
+   *
+   * @return bool
+   *   TRUE only when access is granted; a forbidden or neutral result is FALSE.
+   */
+  private function isAllowed(mixed $access): bool {
+    return $access instanceof AccessResultInterface ? $access->isAllowed() : (bool) $access;
   }
 
 }

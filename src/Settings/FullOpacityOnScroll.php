@@ -16,9 +16,7 @@ final class FullOpacityOnScroll extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_full_opacity'] = [
       '#type' => 'details',
       '#title' => $this->t("Enable Full Opacity On Scroll - W3CSS Theme"),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
-      '#description'   => $this->t('<p>When you visit the page, the hidden blocks are invisible and they will start to show/animate when you scroll down. The default setting is disabled.</p>'),
+      '#description'   => $this->t('<p>When you visit the page, the hidden blocks are invisible and they will start to show/animate when you scroll down. The default setting is enabled. Visitors who ask their system for reduced motion see every block at once.</p>'),
     ];
     $form['drupal8_w3css_theme_settings']['w3_full_opacity']['effects_reveal_on_scroll'] = [
       '#parents' => ['effects', 'reveal_on_scroll'],

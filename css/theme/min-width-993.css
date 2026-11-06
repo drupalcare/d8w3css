@@ -1,43 +1,39 @@
-@media (min-width:993px) {
-
+@media (min-width: 993px) {
   /* node edit */
-  .path-node .layout-node-form , .path-node .w3css-layout-node-form{
+  .path-node .layout-node-form,
+  .path-node .w3css-layout-node-form {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .layout-region-node-secondary , .w3css-layout-region-node-secondary{
-    -webkit-box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.1);
-    box-shadow: 10px 0px 20px 10px rgba(180, 180, 180, 0.2);
+  .layout-region-node-secondary,
+  .w3css-layout-region-node-secondary {
     width: 29%;
     margin: 20px 0 20px 1%;
+    -webkit-box-shadow: 10px 0 20px 10px rgb(180, 180, 180, 0.1);
+    box-shadow: 10px 0 20px 10px rgb(180, 180, 180, 0.2);
   }
 
-  .layout-region-node-main , .w3css-layout-region-node-main{
-    -webkit-box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.1);
-    box-shadow: -10px 0px 20px 10px rgba(180, 180, 180, 0.2);
+  .layout-region-node-main,
+  .w3css-layout-region-node-main {
     width: 69%;
     margin: 20px 1% 20px 0;
+    -webkit-box-shadow: -10px 0 20px 10px rgb(180, 180, 180, 0.1);
+    box-shadow: -10px 0 20px 10px rgb(180, 180, 180, 0.2);
   }
 
-  .layout-region-node-footer , .w3css-layout-region-node-footer{
-    margin-top: 0;
+  .layout-region-node-footer,
+  .w3css-layout-region-node-footer {
     flex: 0 0 100%;
+    margin-top: 0;
   }
 
   #w3css-main-region-inner .w3css-main-box--breadcrumb-found {
     margin-top: 0 !important;
   }
 
-  .w3css-highlighted__inner{
+  .w3css-highlighted__inner {
     padding: 0 20px;
-  }
-
-  /* With a mouse the row is the link, so hovering the arrow hovers the link. */
-  @media (hover: hover) {
-    li.w3css-menu__item--expanded > span{
-      pointer-events: none;
-    }
   }
 
   /* Main Menu */
@@ -53,13 +49,13 @@
 
   /* Global Menus */
   .w3css-menu__list .w3css-menu__submenu {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0, 0.2);
   }
 
   /* Not only on hover: a submenu opened from the keyboard sits here too. */
   .w3css-menu__list li li > ul {
     inset-inline-start: 100%;
-    inset-block-start: var(--w3css-submenu-shift, 0px);
+    inset-block-start: var(--w3css-submenu-shift, 0);
   }
 
   /* custom.js sets this when the submenu would leave the screen. */
@@ -91,9 +87,10 @@
   }
 
   .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
-  .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul{
+  .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
     z-index: 1;
     display: block;
+    /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
     animation: comeout 0.3s;
   }
 
@@ -119,9 +116,15 @@
 
   li.w3css-menu__item--expanded > span,
   li.w3css-menu__item--expanded > a > span,
-  li.w3css-menu__item--expanded > button > span{
+  li.w3css-menu__item--expanded > button > span {
     align-items: center;
     height: 100%;
   }
 
+  /* With a mouse the row is the link, so hovering the arrow hovers the link. */
+  @media (hover: hover) {
+    li.w3css-menu__item--expanded > span {
+      pointer-events: none;
+    }
+  }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Hook;
 
-use Drupal\Component\Datetime\TimeInterface;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Controller\TitleResolverInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Extension\ThemeExtensionList;
@@ -35,7 +35,6 @@ final class ContentPreprocessHooks {
     private readonly RequestStack $requestStack,
     private readonly TitleResolverInterface $titleResolver,
     private readonly DateFormatterInterface $dateFormatter,
-    private readonly TimeInterface $time,
     private readonly ThemeExtensionList $themeList,
   ) {
     $this->settings = new SettingsReader($themeSettings);
@@ -134,10 +133,19 @@ final class ContentPreprocessHooks {
   public function preprocessComment(array &$variables): void {
     // Getting the node creation time stamp from the comment object.
     $date = $variables['comment']->getCreatedTime();
-    // Formatting "created" as "X days ago".
-    $variables['created'] = $this->t('@time ago', [
-      '@time' => $this->dateFormatter->formatInterval($this->time->getRequestTime() - (int) $date),
+    // Formatting "created" as "X days ago". The comment is render cached, so
+    // the text carries the max-age after which it would change ("3 min" turns
+    // into "4 min"); the renderer bubbles #cache set here to the comment.
+    $diff = $this->dateFormatter->formatTimeDiffSince((int) $date, [
+      'return_as_object' => TRUE,
     ]);
+    $variables['created'] = $this->t('@time ago', [
+      '@time' => $diff->getString(),
+    ]);
+    $variables['#cache']['max-age'] = Cache::mergeMaxAges(
+      $variables['#cache']['max-age'] ?? Cache::PERMANENT,
+      $diff->getCacheMaxAge(),
+    );
   }
 
   /**

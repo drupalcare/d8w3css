@@ -7,12 +7,12 @@ ol.w3css-breadcrumb__list {
 ul.w3css-breadcrumb__list li,
 ol.w3css-breadcrumb__list li {
   display: inline;
-  border-bottom: none;
   padding: 5px 3px 5px;
+  border-bottom: none;
 }
 
-ul.w3css-breadcrumb__list li+li:before,
-ol.w3css-breadcrumb__list li+li:before {
+ul.w3css-breadcrumb__list li + li::before,
+ol.w3css-breadcrumb__list li + li::before {
   padding: 8px 0;
   content: "/\00a0";
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Settings;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
@@ -89,10 +90,14 @@ final class AdvancedSiteColors extends SettingsSection {
       'amber',
       'orange',
       'deep-orange',
+      // cspell:disable-next-line
       'blue-grey',
       'brown',
+      // cspell:disable-next-line
       'light-grey',
+      // cspell:disable-next-line
       'grey',
+      // cspell:disable-next-line
       'dark-grey',
       'black',
       'white',
@@ -108,12 +113,14 @@ final class AdvancedSiteColors extends SettingsSection {
       'yellow',
       'white',
       'black',
+      // cspell:disable-next-line
       'grey',
       'amber',
       'aqua',
       'light-blue',
       'brown',
       'cyan',
+      // cspell:disable-next-line
       'blue-grey',
       'blue-gray',
       'light-green',
@@ -128,8 +135,10 @@ final class AdvancedSiteColors extends SettingsSection {
       'sand',
       'teal',
       'light-gray',
+      // cspell:disable-next-line
       'light-grey',
       'dark-gray',
+      // cspell:disable-next-line
       'dark-grey',
       'pale-red',
       'pale-yellow',
@@ -144,12 +153,14 @@ final class AdvancedSiteColors extends SettingsSection {
       'white',
       'black',
       'gray',
+      // cspell:disable-next-line
       'grey',
       'amber',
       'aqua',
       'light-blue',
       'brown',
       'cyan',
+      // cspell:disable-next-line
       'blue-grey',
       'blue-gray',
       'light-green',
@@ -164,8 +175,10 @@ final class AdvancedSiteColors extends SettingsSection {
       'sand',
       'teal',
       'light-gray',
+      // cspell:disable-next-line
       'light-grey',
       'dark-gray',
+      // cspell:disable-next-line
       'dark-grey',
       'pale-red',
       'pale-yellow',
@@ -441,6 +454,7 @@ final class AdvancedSiteColors extends SettingsSection {
             '#title' => $labels[$key],
             '#default_value' => $this->settings->get($key),
             '#attributes' => ['spellcheck' => 'false'],
+            '#element_validate' => [[self::class, 'validateClassList']],
           ];
         }
         $pane['w3_colors_region_' . $name . '_row_' . $index] = $row;
@@ -448,6 +462,33 @@ final class AdvancedSiteColors extends SettingsSection {
       $group['w3_colors_region_' . $name] = $pane;
     }
     return $group;
+  }
+
+  /**
+   * Accepts only CSS class names, separated by spaces.
+   *
+   * The value is printed into a class attribute, so anything else would only
+   * produce broken or unexpected class tokens. Extra spaces are removed.
+   *
+   * @param array<string, mixed> $element
+   *   The region field.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   */
+  public static function validateClassList(array &$element, FormStateInterface $form_state): void {
+    $value = trim((string) ($element['#value'] ?? ''));
+    $tokens = $value === '' ? [] : preg_split('/\s+/', $value);
+    foreach ($tokens as $token) {
+      if (!preg_match('/^-?[A-Za-z_][A-Za-z0-9_:\/.-]*$/', $token)) {
+        $form_state->setError($element, new TranslatableMarkup('%field accepts only CSS class names separated by spaces, for example %example. %token is not a class name.', [
+          '%field' => $element['#title'],
+          '%example' => 'w3-theme-d2 w3-text-white',
+          '%token' => $token,
+        ]));
+        return;
+      }
+    }
+    $form_state->setValueForElement($element, implode(' ', $tokens));
   }
 
   /**

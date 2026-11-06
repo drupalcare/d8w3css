@@ -1,7 +1,7 @@
 .w3css-menu__list--menu-account li {
+  display: inline-block;
   float: none;
   width: auto;
-  display: inline-block;
 }
 
 .w3css-menu__list--menu-account li a,
@@ -10,17 +10,17 @@
 }
 
 .w3css-menu__list--menu-account {
+  position: relative;
+  z-index: 1 !important;
   float: right;
   width: auto;
-  position: relative;
-  z-index: 1!important;
 }
 
-.w3css-header__inner .contextual-region.block-system-branding-block .contextual{
-  top: auto!important;
-  bottom: 0!important;
+.w3css-header__inner .contextual-region.block-system-branding-block .contextual {
+  top: auto !important;
+  bottom: 0 !important;
 }
 
-.w3css-header__inner nav.contextual-region .contextual{
-  top: 50px!important;
+.w3css-header__inner nav.contextual-region .contextual {
+  top: 50px !important;
 }

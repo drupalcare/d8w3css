@@ -16,8 +16,6 @@ final class Credit extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['credit_link'] = [
       '#type' => 'details',
       '#title' => $this->t('Credit - W3CSS Theme'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
     ];
     $form['drupal8_w3css_theme_settings']['credit_link']['footer_show_credit_link'] = [
       '#parents' => ['footer', 'show_credit_link'],

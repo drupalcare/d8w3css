@@ -16,8 +16,6 @@ final class BorderAnimation extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_border_animation'] = [
       '#type' => 'details',
       '#title' => $this->t("Enable Border Animation - W3CSS Theme"),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
       '#description'   => $this->t("<p><strong>You can enable/disable the border animation for the top regions, bottom regions and footer regions.</strong></p>"),
     ];
 

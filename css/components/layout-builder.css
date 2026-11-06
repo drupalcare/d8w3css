@@ -11,7 +11,8 @@
   width: auto !important;
 }
 
-#drupal-off-canvas .item-list li , #drupal-off-canvas .w3css-item-list li{
+#drupal-off-canvas .item-list li,
+#drupal-off-canvas .w3css-item-list li {
   padding: 0;
 }
 
@@ -21,35 +22,38 @@
 
 #drupal-off-canvas details,
 #drupal-off-canvas summary,
-#drupal-off-canvas .details-wrapper ,
-#drupal-off-canvas .w3css-details-wrapper{
+#drupal-off-canvas .details-wrapper,
+#drupal-off-canvas .w3css-details-wrapper {
   display: inline-block;
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
 }
 
 #drupal-off-canvas .details-wrapper ul,
 #drupal-off-canvas .w3css-details-wrapper ul,
 #drupal-off-canvas .details-wrapper ul li,
 #drupal-off-canvas .w3css-details-wrapper ul li,
-#drupal-off-canvas .details-wrapper ul li a ,
-#drupal-off-canvas .w3css-details-wrapper ul li a{
-  width: 100%;
+#drupal-off-canvas .details-wrapper ul li a,
+#drupal-off-canvas .w3css-details-wrapper ul li a {
   display: block;
   box-sizing: border-box;
+  width: 100%;
 }
 
-#drupal-off-canvas .details-wrapper ul li a , #drupal-off-canvas .w3css-details-wrapper ul li a{
-  line-height: 24px;
+#drupal-off-canvas .details-wrapper ul li a,
+#drupal-off-canvas .w3css-details-wrapper ul li a {
   font-size: 14px;
+  line-height: 24px;
 }
 
-.layout-builder-block .w3-left.field__item , .layout-builder-block .w3-left.w3css-field__item{
+.layout-builder-block .w3-left.field__item,
+.layout-builder-block .w3-left.w3css-field__item {
   float: none !important;
   padding: 0 !important;
 }
 
-#drupal-off-canvas .form-item , #drupal-off-canvas .w3css-form-item{
+#drupal-off-canvas .form-item,
+#drupal-off-canvas .w3css-form-item {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -61,8 +65,8 @@
 
 #drupal-off-canvas .form-type-radio label,
 #drupal-off-canvas .form-type-checkbox label {
-  height: 24px;
   display: inline-block;
+  height: 24px;
 }
 
 #drupal-off-canvas .inline-block-create-button,
@@ -81,12 +85,12 @@
 .layout-builder-revert-overrides .form-actions a.button,
 .layout-builder-revert-overrides .form-actions a.w3css-button,
 .layout-builder-revert-overrides .form-actions input,
-.node-layout-builder-form  .form-actions input.form-submit {
-  clear: none;
+.node-layout-builder-form .form-actions input.form-submit {
   display: inline-block;
-  text-align: center;
-  padding: 10px 15px;
+  clear: none;
   margin: 0 20px 0 0;
+  padding: 10px 15px;
+  text-align: center;
   border-radius: 20px 0 20px 0;
 }
 
@@ -96,9 +100,10 @@
   font-size: 90%;
 }
 
-.node-layout-builder-form .messages , .node-layout-builder-form .w3css-messages{
-  padding-left: 30px !important;
+.node-layout-builder-form .messages,
+.node-layout-builder-form .w3css-messages {
   margin-left: 10px;
+  padding-left: 30px !important;
 }
 
 .node-layout-builder-form .vertical-tabs__panes {
@@ -110,12 +115,12 @@
 }
 
 .layout-builder-block {
+  clear: both;
   padding: 5px 15px;
   background-color: transparent;
-  clear: both;
 }
 
-.node-layout-builder-form  .vertical-tabs {
+.node-layout-builder-form .vertical-tabs {
   background-color: transparent;
 }
 
@@ -126,8 +131,8 @@
 .w3css-node__content .layout--twocol-section,
 .node__content .layout--threecol-section,
 .w3css-node__content .layout--threecol-section,
-.node__content .layout--fourcol-section ,
-.w3css-node__content .layout--fourcol-section{
+.node__content .layout--fourcol-section,
+.w3css-node__content .layout--fourcol-section {
   clear: both;
   content: "";
 }
@@ -144,15 +149,15 @@
 
 .layout-builder__link--configure,
 .layout-builder__link--remove {
-  font-size: 13px;
-  clear: none;
   display: inline-block;
-  text-align: center;
-  padding: 7px 15px;
-  margin: 0 10px 0 0;
-  text-indent: unset;
+  clear: none;
   width: auto;
   height: auto;
+  margin: 0 10px 0 0;
+  padding: 7px 15px;
+  text-align: center;
+  text-indent: unset;
+  font-size: 13px;
 }
 
 .layout-builder__link--remove,
@@ -166,22 +171,22 @@
   border-radius: 20px 0 20px 0;
 }
 
-.layout-builder__link--add:before {
-/*  content: "\f196";
+.layout-builder__link--add::before {
+  /*  content: "\f196";
   font-family: FontAwesome;
   font-size: 16px;
   margin-right: 10px;
-  background-color: transparent;*/
+  background-color: transparent; */
   display: inline-block;
   width: 16px;
   height: 16px;
   margin: 0 10px 0 0;
   content: "";
   vertical-align: middle;
+  background-color: transparent;
   background-image: url(../../images/icons/plus-circle.svg);
   background-repeat: no-repeat;
   background-size: 16px 16px;
-  background-color: transparent;
 }
 
 .layout-builder__add-section {
@@ -192,19 +197,19 @@
 }
 
 .layout-builder__add-block {
-  padding: 0;
-  margin: 10px !important;
   display: inline-block;
+  margin: 10px !important;
+  padding: 0;
 }
 
 .layout-builder__link--add {
-  padding: 10px 20px;
-  width: 100%;
   display: block;
+  width: 100%;
+  padding: 10px 20px;
   text-align: left;
 }
 
-.layout-builder__add-block>a {
+.layout-builder__add-block > a {
   padding: 7px 22px !important;
   font-size: 14px;
 }
@@ -226,22 +231,23 @@
   margin: 0 !important;
 }
 
-.layout-builder .field>img , .layout-builder .w3css-field>img{
+.layout-builder .field > img,
+.layout-builder .w3css-field > img {
   width: 100%;
   margin-top: 10px;
 }
 
 .layout-builder__add-block.is-layout-builder-highlighted,
 .layout-builder__add-section.is-layout-builder-highlighted,
-.layout-builder__layout.is-layout-builder-highlighted:before,
+.layout-builder__layout.is-layout-builder-highlighted::before,
 .layout-builder__layout.is-layout-builder-highlighted,
 .layout-builder-block.is-layout-builder-highlighted {
   border: 2px solid #a2ceef;
 }
 
 .ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar {
-  background: #040f17;
   color: #eaf4fb;
+  background: #040f17;
 }
 
 /* Button Colors */
@@ -256,7 +262,7 @@
 .layout-builder__link--remove:hover,
 .layout-builder__link--remove,
 .layout-builder-revert-overrides .form-actions input,
-.node-layout-builder-form  .form-actions input:nth-child(2) {
+.node-layout-builder-form .form-actions input:nth-child(2) {
   color: white;
   background: rgb(213, 71, 43);
   background: -moz-linear-gradient(top, rgb(213, 71, 43) 0%, rgb(158, 46, 37) 100%);
@@ -267,7 +273,7 @@
 .layout-builder__link--configure,
 .layout-builder-revert-overrides .form-actions a.button,
 .layout-builder-revert-overrides .form-actions a.w3css-button,
-.node-layout-builder-form  .form-actions input:nth-child(1) {
+.node-layout-builder-form .form-actions input:nth-child(1) {
   color: white;
   background: rgb(75, 187, 34);
   background: -moz-linear-gradient(top, rgb(75, 187, 34) 0%, rgb(52, 130, 24) 100%);
@@ -275,7 +281,7 @@
   background: linear-gradient(to bottom, rgb(75, 187, 34) 0%, rgb(52, 130, 24) 100%);
 }
 
-.node-layout-builder-form  .form-actions input:nth-child(3) {
+.node-layout-builder-form .form-actions input:nth-child(3) {
   color: white;
   background: rgb(107, 129, 205);
   background: -moz-linear-gradient(top, rgb(107, 129, 205) 0%, rgb(64, 84, 160) 100%);
@@ -290,10 +296,10 @@
 .layout-builder-revert-overrides .form-actions a.button:hover,
 .layout-builder-revert-overrides .form-actions a.w3css-button:hover,
 .layout-builder-revert-overrides .form-actions input:hover {
-  border-radius: 0;
   color: white !important;
+  border-radius: 0;
   background: #45484d;
-  background: -moz-linear-gradient(-45deg, #45484d 0%, #000000 100%);
-  background: -webkit-linear-gradient(-45deg, #45484d 0%, #000000 100%);
-  background: linear-gradient(135deg, #45484d 0%, #000000 100%);
+  background: -moz-linear-gradient(-45deg, #45484d 0%, #000 100%);
+  background: -webkit-linear-gradient(-45deg, #45484d 0%, #000 100%);
+  background: linear-gradient(135deg, #45484d 0%, #000 100%);
 }

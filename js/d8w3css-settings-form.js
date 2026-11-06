@@ -5,11 +5,10 @@
  * in source order and the navigation's links jump.
  */
 ((Drupal, once) => {
-  'use strict';
-
   // What core marks as a field that failed validation, in any admin theme.
   // Not ".error" alone: some field labels still carry that class.
-  const ERROR_SELECTOR = '.form-item--error, .form-item__error-message, [aria-invalid="true"]';
+  const ERROR_SELECTOR =
+    '.form-item--error, .form-item__error-message, [aria-invalid="true"]';
 
   /**
    * The element the URL's fragment names, if any.
@@ -64,7 +63,11 @@
       return '';
     }
     const copy = summary.cloneNode(true);
-    copy.querySelectorAll('.summary, .claro-details__summary-summary, .visually-hidden').forEach((extra) => extra.remove());
+    copy
+      .querySelectorAll(
+        '.summary, .claro-details__summary-summary, .visually-hidden',
+      )
+      .forEach((extra) => extra.remove());
     return copy.textContent.trim();
   };
 
@@ -77,7 +80,11 @@
    *   The element of the navigation that holds the groups.
    */
   const addOtherGroup = (form, menu) => {
-    const others = Array.from(form.querySelectorAll(':scope > details:not([data-w3css-section]), :scope > .w3css-sections > details:not([data-w3css-section])'));
+    const others = Array.from(
+      form.querySelectorAll(
+        ':scope > details:not([data-w3css-section]), :scope > .w3css-sections > details:not([data-w3css-section])',
+      ),
+    );
     if (!others.length) {
       return;
     }
@@ -132,14 +139,18 @@
     // summary is hidden in this mode, so the heading carries the title.
     const entries = [];
     nav.querySelectorAll('.w3css-nav__link').forEach((link) => {
-      const section = document.getElementById(link.getAttribute('href').slice(1));
+      const section = document.getElementById(
+        link.getAttribute('href').slice(1),
+      );
       if (!section || !form.contains(section)) {
         return;
       }
       const heading = document.createElement('h2');
       heading.className = 'w3css-section-title';
       heading.tabIndex = -1;
-      heading.textContent = link.querySelector('.w3css-nav__name').textContent.trim();
+      heading.textContent = link
+        .querySelector('.w3css-nav__name')
+        .textContent.trim();
       const summary = section.querySelector(':scope > summary');
       if (summary) {
         summary.after(heading);
@@ -152,8 +163,11 @@
       return;
     }
 
-    const entryHolding = (element) => entries.find((entry) => element && entry.section.contains(element)) || null;
-    const entryWithId = (id) => entries.find((entry) => entry.section.id === id) || null;
+    const entryHolding = (element) =>
+      entries.find((entry) => element && entry.section.contains(element)) ||
+      null;
+    const entryWithId = (id) =>
+      entries.find((entry) => entry.section.id === id) || null;
 
     const storageKey = `w3css.settings.section:${window.location.pathname}`;
     const readStored = () => {
@@ -201,7 +215,9 @@
     };
 
     // A nav item says so, in words, when its section holds a validation error.
-    const withErrors = entries.filter((entry) => entry.section.querySelector(ERROR_SELECTOR));
+    const withErrors = entries.filter((entry) =>
+      entry.section.querySelector(ERROR_SELECTOR),
+    );
     withErrors.forEach((entry) => {
       const mark = document.createElement('small');
       mark.className = 'w3css-nav__error';
@@ -228,7 +244,13 @@
     // heading. A modified click keeps its native meaning, such as a new tab.
     nav.addEventListener('click', (event) => {
       const link = event.target.closest('.w3css-nav__link');
-      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+      if (
+        !link ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
         return;
       }
       const entry = entries.find((candidate) => candidate.link === link);
@@ -242,8 +264,14 @@
       }
       // Moving to another section starts on its first tab, unless core chose a
       // tab for an error. The click goes through core's own handler.
-      if (entry !== current && !coreNeedsSection(entry.section) && !entry.section.querySelector(':is(input, select, textarea):invalid')) {
-        const firstLink = entry.section.querySelector('.vertical-tabs .vertical-tabs__menu-link');
+      if (
+        entry !== current &&
+        !coreNeedsSection(entry.section) &&
+        !entry.section.querySelector(':is(input, select, textarea):invalid')
+      ) {
+        const firstLink = entry.section.querySelector(
+          '.vertical-tabs .vertical-tabs__menu-link',
+        );
         if (firstLink && !firstLink.closest('.is-selected')) {
           firstLink.click();
         }
@@ -272,29 +300,35 @@
     // The browser cannot report an invalid field in a hidden section or tab, and
     // would block the submit in silence. It reports the first, so show that one.
     let reporting = false;
-    form.addEventListener('invalid', (event) => {
-      if (reporting) {
-        return;
-      }
-      reporting = true;
-      window.setTimeout(() => {
-        reporting = false;
-      }, 0);
-      const entry = entryHolding(event.target);
-      if (!entry) {
-        return;
-      }
-      if (entry !== current) {
-        select(entry, false);
-      }
-      const pane = event.target.closest('.vertical-tabs__pane');
-      if (pane && pane.style.display === 'none') {
-        const tabLink = entry.section.querySelector(`.vertical-tabs__menu-link[href="#${CSS.escape(pane.id)}"]`);
-        if (tabLink) {
-          tabLink.click();
+    form.addEventListener(
+      'invalid',
+      (event) => {
+        if (reporting) {
+          return;
         }
-      }
-    }, true);
+        reporting = true;
+        window.setTimeout(() => {
+          reporting = false;
+        }, 0);
+        const entry = entryHolding(event.target);
+        if (!entry) {
+          return;
+        }
+        if (entry !== current) {
+          select(entry, false);
+        }
+        const pane = event.target.closest('.vertical-tabs__pane');
+        if (pane && pane.style.display === 'none') {
+          const tabLink = entry.section.querySelector(
+            `.vertical-tabs__menu-link[href="#${CSS.escape(pane.id)}"]`,
+          );
+          if (tabLink) {
+            tabLink.click();
+          }
+        }
+      },
+      true,
+    );
   };
 
   // Google Material Icons "content_copy" and "check", trimmed to their edges.
@@ -401,7 +435,10 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'w3css-settings__copy';
-    button.setAttribute('aria-label', Drupal.t('Copy class @name', { '@name': name }));
+    button.setAttribute(
+      'aria-label',
+      Drupal.t('Copy class @name', { '@name': name }),
+    );
     button.append(icon('copy'));
     chip.append(code, button);
 
@@ -412,7 +449,9 @@
       clearTimeout(timer);
       button.classList.toggle('w3css-is-done', copied);
       button.replaceChildren(...(copied ? [icon('check')] : []), message);
-      Drupal.announce(copied ? Drupal.t('@name copied', { '@name': name }) : message);
+      Drupal.announce(
+        copied ? Drupal.t('@name copied', { '@name': name }) : message,
+      );
       timer = setTimeout(() => {
         button.classList.remove('w3css-is-done');
         button.replaceChildren(icon('copy'));
@@ -422,8 +461,14 @@
 
   Drupal.behaviors.w3cssSettingsForm = {
     attach(context) {
-      once('w3css-settings-form', 'form.w3css-settings', context).forEach(setUpNavigation);
-      once('w3css-settings-copy', '.w3css-settings__chips > code', context).forEach(addCopyButton);
+      once('w3css-settings-form', 'form.w3css-settings', context).forEach(
+        setUpNavigation,
+      );
+      once(
+        'w3css-settings-copy',
+        '.w3css-settings__chips > code',
+        context,
+      ).forEach(addCopyButton);
     },
   };
 })(Drupal, once);

@@ -4,8 +4,6 @@
  */
 
 (function (Drupal, once) {
-  'use strict';
-
   // Duration of the menu slide, in milliseconds.
   const SLIDE_DURATION = 350;
 
@@ -13,17 +11,24 @@
   const SLIDE_EASING = 'cubic-bezier(0.37, 0, 0.63, 1)';
 
   // The box properties a slide animates.
-  const SLIDE_PROPERTIES = ['height', 'paddingTop', 'paddingBottom', 'marginTop', 'marginBottom'];
+  const SLIDE_PROPERTIES = [
+    'height',
+    'paddingTop',
+    'paddingBottom',
+    'marginTop',
+    'marginBottom',
+  ];
 
   // Elements whose next sibling is the submenu they open.
-  const SUBMENU_TRIGGERS = '.w3css-menu__link-toggle, .w3css-menu__link-toggle-vertical, .w3css-menu__arrow-toggle';
+  const SUBMENU_TRIGGERS =
+    '.w3css-menu__link-toggle, .w3css-menu__link-toggle-vertical, .w3css-menu__arrow-toggle';
 
   // Marks a submenu opened by a click.
   const SUBMENU_OPEN = 'w3css-is-open';
 
   // The open submenus. The menu item of an open submenu carries the same state
   // class, so a lookup by state alone would also find the items.
-  const OPEN_SUBMENUS = '.w3css-menu__submenu.' + SUBMENU_OPEN;
+  const OPEN_SUBMENUS = `.w3css-menu__submenu.${SUBMENU_OPEN}`;
 
   // A menu item that has a submenu.
   const MENU_ITEM = '.w3css-menu__item--expanded';
@@ -47,8 +52,14 @@
 
   // The mobile buttons, each with the selector of the menu it opens.
   const MENU_TOGGLES = [
-    ['.w3css-mobile-nav__toggle', '.w3css-main-nav--horizontal .w3css-menu__list'],
-    ['.w3css-responsive-nav__toggle', '.w3css-responsive-nav .w3css-menu__list']
+    [
+      '.w3css-mobile-nav__toggle',
+      '.w3css-main-nav--horizontal .w3css-menu__list',
+    ],
+    [
+      '.w3css-responsive-nav__toggle',
+      '.w3css-responsive-nav .w3css-menu__list',
+    ],
   ];
 
   // The screen sizes the body is marked with.
@@ -97,7 +108,9 @@
    */
   function computedStyle(selector, property) {
     const element = document.querySelector(selector);
-    return element ? window.getComputedStyle(element).getPropertyValue(property) : undefined;
+    return element
+      ? window.getComputedStyle(element).getPropertyValue(property)
+      : undefined;
   }
 
   /**
@@ -136,7 +149,11 @@
    *   TRUE when the element is not rendered.
    */
   function isHidden(element) {
-    return !(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+    return !(
+      element.offsetWidth ||
+      element.offsetHeight ||
+      element.getClientRects().length
+    );
   }
 
   /**
@@ -198,8 +215,7 @@
   function hide(element) {
     if (element.classList.contains('w3css-menu__submenu')) {
       element.style.removeProperty('display');
-    }
-    else {
+    } else {
       element.style.display = 'none';
     }
   }
@@ -219,7 +235,11 @@
     const running = slides.get(element);
     // Only the element's own display counts here. A submenu inside a closed
     // parent still has to end up closed, for when that parent opens again.
-    if (running ? running.show === show : (window.getComputedStyle(element).display === 'none') !== show) {
+    if (
+      running
+        ? running.show === show
+        : (window.getComputedStyle(element).display === 'none') !== show
+    ) {
       return;
     }
 
@@ -251,7 +271,7 @@
     element.style.overflow = 'hidden';
     const animation = element.animate(
       [interruptedAt || (show ? closed : natural), show ? natural : closed],
-      { duration: SLIDE_DURATION, easing: SLIDE_EASING }
+      { duration: SLIDE_DURATION, easing: SLIDE_EASING },
     );
     slides.set(element, { animation, overflow, show });
     animation.onfinish = function () {
@@ -272,13 +292,16 @@
       if (submenu) {
         if (!submenu.id) {
           submenuCount++;
-          submenu.id = 'w3css-submenu-' + submenuCount;
+          submenu.id = `w3css-submenu-${submenuCount}`;
         }
         const open = submenu.classList.contains(SUBMENU_OPEN);
         const item = submenu.parentElement;
         item.classList.toggle(ITEM_OPEN, open);
         trigger.setAttribute('aria-controls', submenu.id);
-        trigger.setAttribute('aria-expanded', open || item.classList.contains(ITEM_HOVER) ? 'true' : 'false');
+        trigger.setAttribute(
+          'aria-expanded',
+          open || item.classList.contains(ITEM_HOVER) ? 'true' : 'false',
+        );
       }
     });
     MENU_TOGGLES.forEach(function (pair) {
@@ -312,6 +335,40 @@
   }
 
   /**
+   * Names a submenu arrow after the link it sits beside.
+   *
+   * Every arrow would otherwise be called "Toggle submenu", so a screen
+   * reader user could not tell them apart (WCAG 4.1.2).
+   *
+   * @param {Element} element
+   *   The arrow toggle.
+   *
+   * @return {string}
+   *   The translated accessible name.
+   */
+  function submenuToggleLabel(element) {
+    const link = element.previousElementSibling;
+    let title = '';
+    if (link && link.tagName === 'A') {
+      // Leave out visually hidden notes such as "(opens in a new tab)".
+      const copy = link.cloneNode(true);
+      copy.querySelectorAll('.visually-hidden').forEach(function (note) {
+        note.remove();
+      });
+      title = copy.textContent.replace(/\s+/g, ' ').trim();
+    }
+    if (!title) {
+      return Drupal.t('Toggle submenu');
+    }
+    // Drupal.t() escapes @title for HTML; an attribute needs the plain text.
+    const decoder = document.createElement('textarea');
+    decoder.innerHTML = Drupal.t('Toggle submenu of @title', {
+      '@title': title,
+    });
+    return decoder.value;
+  }
+
+  /**
    * Whether a submenu opens beside its parent, over the page.
    *
    * @param {Element} submenu
@@ -321,7 +378,9 @@
    *   FALSE for the mobile and vertical menus, which open in the flow.
    */
   function isFlyout(submenu) {
-    return ['absolute', 'fixed'].includes(window.getComputedStyle(submenu).position);
+    return ['absolute', 'fixed'].includes(
+      window.getComputedStyle(submenu).position,
+    );
   }
 
   /**
@@ -354,8 +413,7 @@
         hide(submenu);
         item.classList.remove(ITEM_HOVER);
         item.classList.add(ITEM_DISMISSED);
-      }
-      else {
+      } else {
         slide(submenu, false);
       }
     });
@@ -368,7 +426,11 @@
    *   The submenu.
    */
   function closeBranch(submenu) {
-    closeSubmenus(Array.from(submenu.querySelectorAll('.w3css-menu__submenu')).concat(submenu));
+    closeSubmenus(
+      Array.from(submenu.querySelectorAll('.w3css-menu__submenu')).concat(
+        submenu,
+      ),
+    );
   }
 
   /**
@@ -382,7 +444,10 @@
    */
   function itemsHeight(submenu) {
     const first = submenu.firstElementChild;
-    return first ? submenu.lastElementChild.getBoundingClientRect().bottom - first.getBoundingClientRect().top : 0;
+    return first
+      ? submenu.lastElementChild.getBoundingClientRect().bottom -
+          first.getBoundingClientRect().top
+      : 0;
   }
 
   /**
@@ -396,12 +461,14 @@
    *   The height of its items.
    */
   function fitHeight(submenu, top, height) {
-    const room = Math.max(MIN_FLYOUT_HEIGHT, window.innerHeight - Math.max(0, top) - VIEWPORT_GAP);
+    const room = Math.max(
+      MIN_FLYOUT_HEIGHT,
+      window.innerHeight - Math.max(0, top) - VIEWPORT_GAP,
+    );
     submenu.classList.toggle(SUBMENU_SCROLLS, height > room);
     if (height > room) {
-      submenu.style.setProperty('--w3css-submenu-max', room + 'px');
-    }
-    else {
+      submenu.style.setProperty('--w3css-submenu-max', `${room}px`);
+    } else {
       submenu.style.removeProperty('--w3css-submenu-max');
     }
   }
@@ -431,9 +498,12 @@
     item.classList.toggle(ITEM_FLIPPED, toRight === rtl);
 
     const height = itemsHeight(submenu);
-    const top = Math.max(VIEWPORT_GAP, Math.min(box.top, window.innerHeight - height - VIEWPORT_GAP));
+    const top = Math.max(
+      VIEWPORT_GAP,
+      Math.min(box.top, window.innerHeight - height - VIEWPORT_GAP),
+    );
     const left = toRight ? box.right : box.left - width;
-    submenu.style.inset = top + 'px auto auto ' + left + 'px';
+    submenu.style.inset = `${top}px auto auto ${left}px`;
     fitHeight(submenu, top, height);
   }
 
@@ -461,7 +531,7 @@
       return;
     }
 
-    if (item.parentElement.closest('.' + SUBMENU_SCROLLS)) {
+    if (item.parentElement.closest(`.${SUBMENU_SCROLLS}`)) {
       submenu.classList.add(SUBMENU_DETACHED);
       placeDetached(submenu);
       return;
@@ -471,10 +541,16 @@
 
     const outside = function () {
       const box = submenu.getBoundingClientRect();
-      return Math.max(0, -box.left) + Math.max(0, box.right - document.documentElement.clientWidth);
+      return (
+        Math.max(0, -box.left) +
+        Math.max(0, box.right - document.documentElement.clientWidth)
+      );
     };
 
-    item.classList.toggle(ITEM_FLIPPED, !!parent && parent.classList.contains(ITEM_FLIPPED));
+    item.classList.toggle(
+      ITEM_FLIPPED,
+      !!parent && parent.classList.contains(ITEM_FLIPPED),
+    );
     const first = outside();
     if (first > 0) {
       item.classList.toggle(ITEM_FLIPPED);
@@ -488,8 +564,11 @@
     if (parent) {
       submenu.style.setProperty('--w3css-submenu-shift', '0px');
       const top = submenu.getBoundingClientRect().top;
-      shift = Math.min(Math.max(0, top + height - window.innerHeight), Math.max(0, top));
-      submenu.style.setProperty('--w3css-submenu-shift', -shift + 'px');
+      shift = Math.min(
+        Math.max(0, top + height - window.innerHeight),
+        Math.max(0, top),
+      );
+      submenu.style.setProperty('--w3css-submenu-shift', `${-shift}px`);
     }
     fitHeight(submenu, submenu.getBoundingClientRect().top, height);
   }
@@ -502,11 +581,36 @@
    *   scrolling submenu is left alone by its own scroll.
    */
   function placeOpenSubmenus(scrolled) {
-    all('.' + ITEM_HOVER + ' > .w3css-menu__submenu, ' + OPEN_SUBMENUS).filter(function (submenu) {
-      return !scrolled || (submenu !== scrolled && scrolled.contains(submenu));
-    }).forEach(function (submenu) {
-      placeSubmenu(submenu);
-    });
+    all(`.${ITEM_HOVER} > .w3css-menu__submenu, ${OPEN_SUBMENUS}`)
+      .filter(function (submenu) {
+        return (
+          !scrolled || (submenu !== scrolled && scrolled.contains(submenu))
+        );
+      })
+      .forEach(function (submenu) {
+        placeSubmenu(submenu);
+      });
+  }
+
+  /**
+   * Opens or closes a whole menu from its mobile button.
+   *
+   * @param {string} parents
+   *   Selector for the top level of the menu.
+   */
+  function toggleMenu(parents) {
+    const menus = all(parents);
+    if (menus.some(isHidden)) {
+      menus.forEach(function (menu) {
+        slide(menu, true);
+      });
+    } else {
+      menus.forEach(function (menu) {
+        slide(menu, false);
+      });
+      closeSubmenus(all(`${parents} li .w3css-menu__submenu`));
+    }
+    syncExpanded();
   }
 
   /**
@@ -519,7 +623,11 @@
     let item = active ? active.closest(MENU_ITEM) : null;
     while (item) {
       const submenu = childSubmenu(item);
-      if (submenu && (submenu.classList.contains(SUBMENU_OPEN) || item.classList.contains(ITEM_HOVER))) {
+      if (
+        submenu &&
+        (submenu.classList.contains(SUBMENU_OPEN) ||
+          item.classList.contains(ITEM_HOVER))
+      ) {
         closeBranch(submenu);
         syncExpanded();
         if (submenu.previousElementSibling) {
@@ -531,7 +639,7 @@
     }
 
     // Focus is elsewhere: a submenu open under the pointer, or left open.
-    const hovered = all('.' + ITEM_HOVER).pop();
+    const hovered = all(`.${ITEM_HOVER}`).pop();
     const pinned = all(OPEN_SUBMENUS).pop();
     if (hovered || pinned) {
       closeBranch(hovered ? childSubmenu(hovered) : pinned);
@@ -547,9 +655,14 @@
         return !isHidden(menu);
       });
       return all(pair[0]).some(function (toggle) {
-        return !isHidden(toggle) && openMenus.length && (toggle === active || openMenus.some(function (menu) {
-          return menu.contains(active);
-        }));
+        return (
+          !isHidden(toggle) &&
+          openMenus.length &&
+          (toggle === active ||
+            openMenus.some(function (menu) {
+              return menu.contains(active);
+            }))
+        );
       });
     });
     if (toggled) {
@@ -560,31 +673,48 @@
 
     const sideMenu = document.querySelector('.w3css-main-nav--vertical');
     const closer = document.querySelector('.w3css-main-nav__close');
-    if (sideMenu && closer && !isHidden(sideMenu) && sideMenu.contains(active)) {
+    if (
+      sideMenu &&
+      closer &&
+      !isHidden(sideMenu) &&
+      sideMenu.contains(active)
+    ) {
       closer.click();
     }
   }
 
+  // The scroll padding last written to the root element.
+  let scrollPadding = '';
+
   /**
-   * Opens or closes a whole menu from its mobile button.
+   * Keeps a focused element clear of a bar pinned to the top (WCAG 2.4.11).
    *
-   * @param {string} parents
-   *   Selector for the top level of the menu.
+   * Sets scroll-padding-top on the root to the bottom edge of the sticky or
+   * fixed header or main menu, so the browser scrolls focus below it.
    */
-  function toggleMenu(parents) {
-    const menus = all(parents);
-    if (menus.some(isHidden)) {
-      menus.forEach(function (menu) {
-        slide(menu, true);
-      });
+  function updateScrollPadding() {
+    let bottom = 0;
+    [document.getElementById('w3css-header'), mainNavigation].forEach(
+      function (bar) {
+        if (!bar) {
+          return;
+        }
+        const position = window.getComputedStyle(bar).position;
+        if (position !== 'sticky' && position !== 'fixed') {
+          return;
+        }
+        const box = bar.getBoundingClientRect();
+        // Only a bar that is at the top edge covers what scrolls under it.
+        if (box.top <= 1 && box.bottom > 0) {
+          bottom = Math.max(bottom, Math.ceil(box.bottom));
+        }
+      },
+    );
+    const value = bottom ? `${bottom + 8}px` : '';
+    if (value !== scrollPadding) {
+      scrollPadding = value;
+      document.documentElement.style.scrollPaddingTop = value;
     }
-    else {
-      menus.forEach(function (menu) {
-        slide(menu, false);
-      });
-      closeSubmenus(all(parents + ' li .w3css-menu__submenu'));
-    }
-    syncExpanded();
   }
 
   // Add flex position to the main menu at scroll.
@@ -592,11 +722,11 @@
     if (mainNavigation) {
       if (window.scrollY > origOffsetY) {
         mainNavigation.classList.add('w3-sticky');
-      }
-      else {
+      } else {
         mainNavigation.classList.remove('w3-sticky');
       }
     }
+    updateScrollPadding();
   };
 
   /**
@@ -619,7 +749,7 @@
    *   Selector for the container.
    */
   function addFlexDisplay(container) {
-    if (all(container + ' > :is(div, main, aside)').length > 1) {
+    if (all(`${container} > :is(div, main, aside)`).length > 1) {
       all(container).forEach(function (element) {
         element.classList.add('w3-f-display');
       });
@@ -634,44 +764,57 @@
    */
   function setScreenClass(size) {
     SCREEN_SIZES.forEach(function (name) {
-      document.body.classList.toggle('w3css-is-' + name + '-screen', name === size);
+      document.body.classList.toggle(`w3css-is-${name}-screen`, name === size);
     });
   }
 
   // Add and remove classes on window resize.
   const mediaSize = function () {
-    const currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const mainMenuChild = computedStyle('.w3css-main-nav--horizontal', 'background-color');
+    const currentWidth =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+    const mainMenuChild = computedStyle(
+      '.w3css-main-nav--horizontal',
+      'background-color',
+    );
 
     if (currentWidth >= 993) {
       setScreenClass('large');
       // The inline display goes below, so the open state has to go with it.
-      all('.w3css-responsive-nav .w3css-menu__submenu, .w3css-main-nav--horizontal .w3css-menu__submenu').forEach(function (element) {
+      all(
+        '.w3css-responsive-nav .w3css-menu__submenu, .w3css-main-nav--horizontal .w3css-menu__submenu',
+      ).forEach(function (element) {
         element.classList.remove(SUBMENU_OPEN);
       });
-      all('.w3css-menu__list, .w3css-menu__submenu').forEach(function (element) {
-        element.classList.remove('w3-show');
-      });
+      all('.w3css-menu__list, .w3css-menu__submenu').forEach(
+        function (element) {
+          element.classList.remove('w3-show');
+        },
+      );
       clearInlineStyles('.w3css-responsive-nav .w3css-menu__list');
       clearInlineStyles('.w3css-responsive-nav .w3css-menu__submenu');
       clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__list');
       clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__submenu');
-      all('.w3css-main-nav--horizontal .w3css-menu__submenu').forEach(function (element) {
-        setStyle(element, 'background-color', mainMenuChild);
-      });
+      all('.w3css-main-nav--horizontal .w3css-menu__submenu').forEach(
+        function (element) {
+          setStyle(element, 'background-color', mainMenuChild);
+        },
+      );
       addFlexDisplay('.w3css-top-region__inner');
       addFlexDisplay('.w3css-main-region__inner > .w3-clear');
       addFlexDisplay('.w3css-bottom-region__inner');
       addFlexDisplay('.w3css-footer-region__inner');
-    }
-    else {
+    } else {
       // Remove the match height on medium/small screen.
-      all('.w3css-top-region__inner, .w3css-main-region__inner > .w3-clear, .w3css-bottom-region__inner, .w3css-footer-region__inner').forEach(function (element) {
+      all(
+        '.w3css-top-region__inner, .w3css-main-region__inner > .w3-clear, .w3css-bottom-region__inner, .w3css-footer-region__inner',
+      ).forEach(function (element) {
         element.classList.remove('w3-f-display');
       });
     }
 
-    if ((currentWidth >= 601) && (currentWidth <= 992)) {
+    if (currentWidth >= 601 && currentWidth <= 992) {
       setScreenClass('medium');
     }
 
@@ -692,13 +835,16 @@
     const submenu = trigger.nextElementSibling;
     if (submenu && submenu.classList.contains(SUBMENU_OPEN)) {
       closeBranch(submenu);
-    }
-    else {
+    } else {
       const list = trigger.parentElement && trigger.parentElement.parentElement;
       if (list) {
-        closeSubmenus(Array.from(list.querySelectorAll(':scope li .w3css-menu__submenu')).filter(function (element) {
-          return element !== submenu;
-        }));
+        closeSubmenus(
+          Array.from(
+            list.querySelectorAll(':scope li .w3css-menu__submenu'),
+          ).filter(function (element) {
+            return element !== submenu;
+          }),
+        );
       }
       if (submenu) {
         submenu.parentElement.classList.remove(ITEM_DISMISSED);
@@ -727,10 +873,12 @@
    */
   function countAncestors(element, selector) {
     let depth = 0;
-    let ancestor = element.parentElement && element.parentElement.closest(selector);
+    let ancestor =
+      element.parentElement && element.parentElement.closest(selector);
     while (ancestor) {
       depth++;
-      ancestor = ancestor.parentElement && ancestor.parentElement.closest(selector);
+      ancestor =
+        ancestor.parentElement && ancestor.parentElement.closest(selector);
     }
     return depth;
   }
@@ -753,84 +901,112 @@
    * Add depth classes to menu items.
    */
   Drupal.behaviors.w3cssMenuDepth = {
-    attach: function (context) {
+    attach(context) {
       // Add class to any UL/LI according to the depth.
       once('w3css-menu-depth-list', 'ul', context).forEach(function (element) {
-        element.classList.add('w3css-list-depth-' + countAncestors(element, 'ul'));
+        element.classList.add(
+          `w3css-list-depth-${countAncestors(element, 'ul')}`,
+        );
       });
       once('w3css-menu-depth-item', 'li', context).forEach(function (element) {
-        element.classList.add('w3css-item-depth-' + countAncestors(element, 'li'));
+        element.classList.add(
+          `w3css-item-depth-${countAncestors(element, 'li')}`,
+        );
       });
-    }
+    },
   };
 
   /**
    * Responsive menu behavior.
    */
   Drupal.behaviors.w3cssResponsiveMenu = {
-    attach: function (context) {
-      once('w3css-responsive-nav-toggle', '.w3css-responsive-nav__toggle', context).forEach(function (element) {
+    attach(context) {
+      once(
+        'w3css-responsive-nav-toggle',
+        '.w3css-responsive-nav__toggle',
+        context,
+      ).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle menu'));
         element.addEventListener('click', function () {
           toggleMenu('.w3css-responsive-nav .w3css-menu__list');
         });
       });
 
-      once('w3css-link-toggle-vertical', '.w3css-menu__link-toggle-vertical', context).forEach(function (element) {
+      once(
+        'w3css-link-toggle-vertical',
+        '.w3css-menu__link-toggle-vertical',
+        context,
+      ).forEach(function (element) {
         element.addEventListener('click', function (event) {
           event.preventDefault();
           showHide(element);
         });
       });
 
-      once('w3css-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(function (element) {
-        makeButton(element, Drupal.t('Toggle submenu'));
-        element.addEventListener('click', function () {
-          showHide(element);
-        });
-      });
-    }
+      once('w3css-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(
+        function (element) {
+          makeButton(element, submenuToggleLabel(element));
+          element.addEventListener('click', function () {
+            showHide(element);
+          });
+        },
+      );
+    },
   };
 
   /**
    * Main navigation behavior.
    */
   Drupal.behaviors.w3cssMainNav = {
-    attach: function (context) {
+    attach(context) {
       // On click show/hide the vertical main menu.
-      once('w3css-main-nav-close', '.w3css-main-nav__close', context).forEach(function (element) {
-        // Templates copied into a sub-theme may still print a div here.
-        if (element.tagName !== 'BUTTON') {
-          makeButton(element, Drupal.t('Close side menu'));
-        }
-        element.addEventListener('click', function () {
-          const opener = document.querySelector('.w3css-main-nav__open');
-          document.querySelector('.w3css-main-nav--vertical').style.display = 'none';
-          closeSubmenus(all('.w3css-main-nav--vertical .w3css-menu__list li .w3css-menu__submenu'));
-          syncExpanded();
-          if (opener) {
-            opener.setAttribute('aria-expanded', 'false');
-            opener.focus();
+      once('w3css-main-nav-close', '.w3css-main-nav__close', context).forEach(
+        function (element) {
+          // Templates copied into a sub-theme may still print a div here.
+          if (element.tagName !== 'BUTTON') {
+            makeButton(element, Drupal.t('Close side menu'));
           }
-        });
-      });
+          element.addEventListener('click', function () {
+            const opener = document.querySelector('.w3css-main-nav__open');
+            document.querySelector('.w3css-main-nav--vertical').style.display =
+              'none';
+            closeSubmenus(
+              all(
+                '.w3css-main-nav--vertical .w3css-menu__list li .w3css-menu__submenu',
+              ),
+            );
+            syncExpanded();
+            if (opener) {
+              opener.setAttribute('aria-expanded', 'false');
+              opener.focus();
+            }
+          });
+        },
+      );
 
-      once('w3css-main-nav-open', '.w3css-main-nav__open', context).forEach(function (element) {
-        if (element.tagName !== 'BUTTON') {
-          makeButton(element, Drupal.t('Open side menu'));
-        }
-        element.addEventListener('click', function () {
-          const closer = document.querySelector('.w3css-main-nav__close');
-          document.querySelector('.w3css-main-nav--vertical').style.display = 'block';
-          element.setAttribute('aria-expanded', 'true');
-          if (closer) {
-            closer.focus();
+      once('w3css-main-nav-open', '.w3css-main-nav__open', context).forEach(
+        function (element) {
+          if (element.tagName !== 'BUTTON') {
+            makeButton(element, Drupal.t('Open side menu'));
           }
-        });
-      });
+          element.addEventListener('click', function () {
+            const closer = document.querySelector('.w3css-main-nav__close');
+            document.querySelector('.w3css-main-nav--vertical').style.display =
+              'block';
+            element.setAttribute('aria-expanded', 'true');
+            if (closer) {
+              closer.focus();
+            }
+          });
+        },
+      );
 
       // Show the mobile menu on click horizontal.
-      once('w3css-mobile-nav-toggle', '.w3css-mobile-nav__toggle', context).forEach(function (element) {
+      once(
+        'w3css-mobile-nav-toggle',
+        '.w3css-mobile-nav__toggle',
+        context,
+      ).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle menu'));
         element.addEventListener('click', function () {
           toggleMenu('.w3css-main-nav--horizontal .w3css-menu__list');
@@ -838,20 +1014,22 @@
       });
 
       // On click expand the dropdown menu for small device.
-      once('w3css-link-toggle', '.w3css-menu__link-toggle', context).forEach(function (element) {
-        element.addEventListener('click', function (event) {
-          event.preventDefault();
-          showHide(element);
-        });
-      });
-    }
+      once('w3css-link-toggle', '.w3css-menu__link-toggle', context).forEach(
+        function (element) {
+          element.addEventListener('click', function (event) {
+            event.preventDefault();
+            showHide(element);
+          });
+        },
+      );
+    },
   };
 
   /**
    * Hover state, staying on screen, and closing the open submenus.
    */
   Drupal.behaviors.w3cssMenuState = {
-    attach: function (context) {
+    attach(context) {
       once('w3css-menu-hover', MENU_ITEM, context).forEach(function (item) {
         item.addEventListener('mouseenter', function () {
           const submenu = childSubmenu(item);
@@ -875,16 +1053,25 @@
       });
 
       // Tabbing out of an open flyout closes it. In the flow, a submenu stays.
-      once('w3css-menu-focusout', '.w3css-menu__list', context).forEach(function (list) {
-        list.addEventListener('focusout', function (event) {
-          if (event.relatedTarget) {
-            closeSubmenus(Array.from(list.querySelectorAll(OPEN_SUBMENUS)).filter(function (submenu) {
-              return isFlyout(submenu) && !submenu.parentElement.contains(event.relatedTarget);
-            }));
-            syncExpanded();
-          }
-        });
-      });
+      once('w3css-menu-focusout', '.w3css-menu__list', context).forEach(
+        function (list) {
+          list.addEventListener('focusout', function (event) {
+            if (event.relatedTarget) {
+              closeSubmenus(
+                Array.from(list.querySelectorAll(OPEN_SUBMENUS)).filter(
+                  function (submenu) {
+                    return (
+                      isFlyout(submenu) &&
+                      !submenu.parentElement.contains(event.relatedTarget)
+                    );
+                  },
+                ),
+              );
+              syncExpanded();
+            }
+          });
+        },
+      );
 
       once('w3css-menu-document', 'html').forEach(function () {
         document.addEventListener('keydown', function (event) {
@@ -899,69 +1086,137 @@
           }
         });
         // Scroll does not bubble, and a flyout can sit in a scrolling submenu.
-        document.addEventListener('scroll', function (event) {
-          placeOpenSubmenus(event.target);
-        }, { capture: true, passive: true });
+        document.addEventListener(
+          'scroll',
+          function (event) {
+            placeOpenSubmenus(event.target);
+          },
+          { capture: true, passive: true },
+        );
         window.addEventListener('resize', function () {
           placeOpenSubmenus();
         });
       });
-    }
+    },
   };
 
   /**
    * General theme behavior.
    */
   Drupal.behaviors.w3cssTheme = {
-    attach: function (context) {
+    attach(context) {
       // Remove Fa class from social links.
-      once('w3css-social-icon', '.w3css-social-media a > i', context).forEach(function (element) {
-        element.classList.remove('fa');
-      });
+      once('w3css-social-icon', '.w3css-social-media a > i', context).forEach(
+        function (element) {
+          element.classList.remove('fa');
+        },
+      );
 
       // In case the admin toolbar search installed.
-      once('w3css-toolbar-search', '#admin-toolbar-search-tab > div', context).forEach(function (element) {
+      once(
+        'w3css-toolbar-search',
+        '#admin-toolbar-search-tab > div',
+        context,
+      ).forEach(function (element) {
         element.classList.remove('w3-section');
       });
 
-      // Change the form color to match the footer color.
-      const footerFormBg = computedStyle('.w3css-footer-menu', 'background-color');
-      const footerFormTxt = computedStyle('.w3css-footer-menu', 'color');
-      once('w3css-footer-form', '.w3css-footer-menu form', context).forEach(function (element) {
-        setStyle(element, 'background-color', footerFormBg);
-        setStyle(element, 'color', footerFormTxt);
-      });
+      // Change the form color to match the footer color. The colors are read
+      // only when a new form is found, so an Ajax attach does not force a
+      // style recalculation for nothing.
+      const footerForms = once(
+        'w3css-footer-form',
+        '.w3css-footer-menu form',
+        context,
+      );
+      if (footerForms.length) {
+        const footerFormBg = computedStyle(
+          '.w3css-footer-menu',
+          'background-color',
+        );
+        const footerFormTxt = computedStyle('.w3css-footer-menu', 'color');
+        footerForms.forEach(function (element) {
+          setStyle(element, 'background-color', footerFormBg);
+          setStyle(element, 'color', footerFormTxt);
+        });
+      }
 
       // Add classes to search page.
-      addClasses(once('w3css-search-advanced', '.search-form .search-advanced', context), 'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom');
-      addClasses(once('w3css-search-summary', '.search-form .search-advanced > summary', context), 'w3-button w3-bar w3-left-align');
-      addClasses(once('w3css-search-help', '.search-form .search-help-link', context), 'w3-button w3-right w3-border w3-margin-top');
-      addClasses(once('w3css-tabledrag-toggle', '.tabledrag-toggle-weight-wrapper button', context), 'w3-button');
+      addClasses(
+        once('w3css-search-advanced', '.search-form .search-advanced', context),
+        'w3-padding-large w3-border w3-bar w3-left-align w3-margin-bottom',
+      );
+      addClasses(
+        once(
+          'w3css-search-summary',
+          '.search-form .search-advanced > summary',
+          context,
+        ),
+        'w3-button w3-bar w3-left-align',
+      );
+      addClasses(
+        once('w3css-search-help', '.search-form .search-help-link', context),
+        'w3-button w3-right w3-border w3-margin-top',
+      );
+      addClasses(
+        once(
+          'w3css-tabledrag-toggle',
+          '.tabledrag-toggle-weight-wrapper button',
+          context,
+        ),
+        'w3-button',
+      );
 
-      // Theme settings.
-      const settingsDetails = once('w3css-settings-details', '#system-theme-settings details', context);
-      settingsDetails.forEach(function (element) {
-        element.removeAttribute('open');
-      });
-      addClasses(settingsDetails, 'w3-border w3-bar w3-left-align w3-margin-bottom');
-      addClasses(once('w3css-settings-summary', '#system-theme-settings details > summary', context), 'w3-button w3-bar w3-left-align');
-      addClasses(once('w3css-settings-wrapper', '#system-theme-settings details > .details-wrapper', context), 'w3-padding w3-left-align');
+      // Theme settings. The form decides which sections start open, and the
+      // settings form script shows one section at a time, so nothing is
+      // closed here.
+      const settingsDetails = once(
+        'w3css-settings-details',
+        '#system-theme-settings details',
+        context,
+      );
+      addClasses(
+        settingsDetails,
+        'w3-border w3-bar w3-left-align w3-margin-bottom',
+      );
+      addClasses(
+        once(
+          'w3css-settings-summary',
+          '#system-theme-settings details > summary',
+          context,
+        ),
+        'w3-button w3-bar w3-left-align',
+      );
+      addClasses(
+        once(
+          'w3css-settings-wrapper',
+          '#system-theme-settings details > .details-wrapper',
+          context,
+        ),
+        'w3-padding w3-left-align',
+      );
 
       // Disable top margin if breadcrumb exist.
       if (document.querySelector('.w3css-breadcrumb')) {
-        addClasses(once('w3css-main-box', '.w3css-main-box', context), 'w3css-main-box--breadcrumb-found');
+        addClasses(
+          once('w3css-main-box', '.w3css-main-box', context),
+          'w3css-main-box--breadcrumb-found',
+        );
       }
 
-      once('w3css-image-link', 'a > .w3-image', context).forEach(function (element) {
-        element.parentElement.classList.add('w3css-image-link');
-      });
+      once('w3css-image-link', 'a > .w3-image', context).forEach(
+        function (element) {
+          element.parentElement.classList.add('w3css-image-link');
+        },
+      );
 
       mediaSize();
       once('w3css-window-listeners', 'html').forEach(function () {
         window.addEventListener('resize', mediaSize);
+        window.addEventListener('resize', updateScrollPadding);
         window.addEventListener('scroll', scrollWindow);
+        updateScrollPadding();
       });
-    }
+    },
   };
-
 })(Drupal, once);

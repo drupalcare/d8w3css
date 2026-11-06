@@ -26,7 +26,7 @@
 .w3css-bottom-region__inner .w3css-forth-bottom,
 .w3css-footer-region__inner .w3css-first-footer,
 .w3css-footer-region__inner .w3css-second-footer,
-.w3css-footer-region__inner .w3css-third-footer{
+.w3css-footer-region__inner .w3css-third-footer {
   float: left;
 }
 
@@ -42,10 +42,10 @@
 .w3css-bottom-region__inner .w3css-forth-bottom > div,
 .w3css-footer-region__inner .w3css-first-footer > div,
 .w3css-footer-region__inner .w3css-second-footer > div,
-.w3css-footer-region__inner .w3css-third-footer > div{
+.w3css-footer-region__inner .w3css-third-footer > div {
   float: left;
-  height: 100%;
   width: 100% !important;
+  height: 100%;
   padding: 24px !important;
 }
 .w3css-main-region__inner .w3css-first-sidebar,
@@ -60,9 +60,9 @@
 .w3css-bottom-region__inner .w3css-forth-bottom,
 .w3css-footer-region__inner .w3css-first-footer,
 .w3css-footer-region__inner .w3css-second-footer,
-.w3css-footer-region__inner .w3css-third-footer{
-  margin-bottom: 12px;
+.w3css-footer-region__inner .w3css-third-footer {
   margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 /* The skip link moves focus here; the region is not a control. */

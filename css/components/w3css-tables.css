@@ -12,8 +12,8 @@ tr.region-title {
 }
 
 .region-title td {
-  font-weight: bold !important;
   text-transform: uppercase;
+  font-weight: bold !important;
 }
 
 .region-title td a {
@@ -36,8 +36,8 @@ table td li {
 .w3-table th,
 .w3-table-all td,
 .w3-table-all th {
-  vertical-align: middle;
   text-align: initial;
+  vertical-align: middle;
 }
 
 td .form-type-radio,

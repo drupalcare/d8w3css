@@ -1,37 +1,38 @@
 .w3-search-block-form {
   position: relative;
-  width: 100%;
   display: inline-block;
+  width: 100%;
 }
 
 .w3-search-block-form input {
   width: 100%;
 }
 
-.w3-search-block-form .form-item , .w3-search-block-form .w3css-form-item{
-  width: 70%;
+.w3-search-block-form .form-item,
+.w3-search-block-form .w3css-form-item {
   float: left;
+  width: 70%;
 }
 
 .w3-search-block-form .form-actions {
-  width: 30%;
   float: right;
+  width: 30%;
 }
 
 .w3-search-block-form .form-type-search input {
-  border-right: none !important;
   text-indent: 20px;
+  border-right: none !important;
   background-color: transparent;
 }
 
-.w3-search-block-form .form-type-search:before {
-/*  content: "\f002";
+.w3-search-block-form .form-type-search::before {
+  /*  content: "\f002";
   font-family: FontAwesome;
   position: absolute;
   top: 14px;
   left: 8px;
   background-color: transparent;
-  opacity: 0.5;*/
+  opacity: 0.5; */
   position: absolute;
   top: 21px;
   left: 8px;
@@ -40,26 +41,34 @@
   height: 16px;
   content: "";
   vertical-align: middle;
+  background-color: transparent;
   background-image: url(../../images/icons/search.svg);
   background-repeat: no-repeat;
-  background-color: transparent;
   background-size: 16px 16px;
 }
 
 .w3-search-block-form .form-item,
 .w3-search-block-form .w3css-form-item,
 .w3-search-block-form .form-actions {
-  margin: 5px auto !important;
   display: inline-block;
+  margin: 5px auto !important;
 }
 
-input.w3css-search-button-block{
+input.w3css-search-button-block {
   margin: 0 !important;
   content: "";
   vertical-align: middle;
+  text-indent: -99999px;
   background-image: url(../../images/icons/arrow-right.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 16px 16px;
-  text-indent: -99999px;
+}
+
+/* Forced colors (Windows High Contrast): the arrow image is not a reliable label there, so the button shows its own text ("Search") instead. */
+@media (forced-colors: active) {
+  form input.w3css-search-button-block {
+    text-indent: 0;
+    background-image: none;
+  }
 }

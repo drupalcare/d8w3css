@@ -16,8 +16,6 @@ final class LayoutUserLogin extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['w3_layout_user'] = [
       '#type' => 'details',
       '#title' => $this->t('Enable custom layout for the login, register and reset password pages.'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
       '#description'   => $this->t('<p>If you check this box the login form will be centered and left/right sides will be hidden.</p>'),
     ];
     $form['drupal8_w3css_theme_settings']['w3_layout_user']['layout_centered_login_pages'] = [

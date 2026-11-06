@@ -71,7 +71,7 @@
 }
 
 #w3css-main-region .w3css-main-box > div {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 #w3css-bottom-region {
@@ -96,8 +96,8 @@
 }
 
 #w3css-footer-region .w3css-first-footer > div {
-  background-color: #494949;
   color: #b8b8b8;
+  background-color: #494949;
 }
 
 #w3css-footer-region .w3css-second-footer > div {
@@ -111,8 +111,8 @@
 }
 
 #w3css-footer-region .w3css-third-footer > div {
-  background-color: #494949;
   color: #9f9f9f;
+  background-color: #494949;
 }
 
 #w3css-footer-menu {

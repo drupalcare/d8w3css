@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Drupal\drupal8_w3css_theme\Hook;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Path\CurrentPathStack;
@@ -27,6 +30,7 @@ final class DocumentHooks {
     private readonly RouteMatchInterface $routeMatch,
     private readonly CurrentPathStack $currentPath,
     private readonly AdminContext $adminContext,
+    private readonly TimeInterface $time,
   ) {
     $this->settings = new SettingsReader($themeSettings);
   }
@@ -39,8 +43,6 @@ final class DocumentHooks {
    */
   #[Hook('preprocess_html')]
   public function preprocessHtml(array &$variables): void {
-    // Add node id to the body class.
-    $variables['path_info']['args'] = FALSE;
     $routeMatch = $this->routeMatch;
     // Test route name.
     switch ($routeMatch->getRouteName()) {
@@ -73,7 +75,7 @@ final class DocumentHooks {
     $curr_path = ltrim($curr_path, '/');
     $user_url = explode('/', $curr_path);
     if (isset($user_url[1]) && $user_url[0] == 'user') {
-      $variables['attributes']['class'][] = 'path-user-' . $user_url[1];
+      $variables['attributes']['class'][] = Html::getClass('path-user-' . $user_url[1]);
     }
     // Add view id name to the body class.
     $view_id = $routeMatch->getParameter('view_id');
@@ -83,8 +85,8 @@ final class DocumentHooks {
     if ($this->adminContext->isAdminRoute()) {
       $variables['attributes']['class'][] = 'w3css-admin-context';
     }
-    // Name the active predefined colour scheme on the body, so a sub-theme
-    // can tie colour fixes to the scheme they were made for.
+    // Name the active predefined color scheme on the body, so a sub-theme
+    // can tie color fixes to the scheme they were made for.
     $scheme = (string) $this->settings->get('color_scheme.predefined');
     if ($scheme !== '' && $scheme !== 'none') {
       $variables['attributes']['class'][] = Html::getClass('w3css-scheme-' . $scheme);
@@ -144,7 +146,8 @@ final class DocumentHooks {
     }
     // Add 3col stacked equal width.
     $variables['equal_width'] = $this->settings->forTwigVariable('equal_width');
-    if ($variables['equal_width'] != NULL) {
+    // Truthiness, not a NULL compare: a legacy '0' string must read as off.
+    if ($variables['equal_width']) {
       if ($has_sidebar_first && $has_sidebar_second) {
         $variables['content_w3css'] = 'w3-third';
         $variables['sidebarfirst'] = 'w3-third';
@@ -209,6 +212,13 @@ final class DocumentHooks {
     foreach ($mvar as $value) {
       $variables[$value] = $this->settings->forTwigVariable($value);
     }
+    // These selects store 'none' for "no class"; the templates print them as
+    // classes, so 'none' would land in class="..." as a stray token.
+    foreach (['website_width', 'sitename_animation', 'pagetitle_animation'] as $value) {
+      if ($variables[$value] === 'none') {
+        $variables[$value] = '';
+      }
+    }
     // Social Media's $variables.
     $svar = [
       'social_media_size',
@@ -227,7 +237,13 @@ final class DocumentHooks {
     ];
     foreach ($svar as $value) {
       $variables[$value] = $this->settings->forTwigVariable($value);
+      // The settings form rejects unsafe links, but config import and older
+      // saved values skip it: strip javascript:, data: and the like here too.
+      if (str_ends_with($value, '_url') && is_string($variables[$value])) {
+        $variables[$value] = UrlHelper::stripDangerousProtocols($variables[$value]);
+      }
     }
+    $this->replaceCopyrightYear($variables);
     // Color's variables.
     $cvar = [
       'color_page_wrapper',
@@ -272,6 +288,34 @@ final class DocumentHooks {
   }
 
   /**
+   * Replaces %year% in the copyright text and limits the cache to the year.
+   *
+   * The page markup is cached, so the year must not outlive December 31.
+   * Drupal sets PHP's default time zone to the user's or the site's, which is
+   * the zone the year is read in; the timezone cache context follows it.
+   *
+   * @param array<string, mixed> $variables
+   *   The page template variables.
+   */
+  private function replaceCopyrightYear(array &$variables): void {
+    $text = $variables['copyright_text'] ?? NULL;
+    if (!is_string($text) || !str_contains($text, '%year%')) {
+      return;
+    }
+    $now = $this->time->getRequestTime();
+    $today = (new \DateTimeImmutable('@' . $now))
+      ->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+    $year = (int) $today->format('Y');
+    $next_year = $today->setDate($year + 1, 1, 1)->setTime(0, 0);
+    $variables['copyright_text'] = str_replace('%year%', (string) $year, $text);
+    $variables['#cache']['contexts'][] = 'timezone';
+    $variables['#cache']['max-age'] = Cache::mergeMaxAges(
+      $variables['#cache']['max-age'] ?? Cache::PERMANENT,
+      max(1, $next_year->getTimestamp() - $now),
+    );
+  }
+
+  /**
    * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
    *
    * @param array<string, mixed> $variables
@@ -286,8 +330,8 @@ final class DocumentHooks {
     if (!$variables['db_is_active']) {
       $variables['site_name'] = '';
     }
-    // drupal8_w3css_theme has custom styling for the maintenance page.
-    $variables['#attached']['library'][] = 'drupal8_w3css_theme/templates/layout/maintenance_page';
+    // The maintenance page styles (css/components/maintenance-page.css) load
+    // with d8w3css-global-styling, a global library in the info.yml file.
   }
 
 }

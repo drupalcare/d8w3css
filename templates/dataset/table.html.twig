@@ -39,7 +39,8 @@
  * @see template_preprocess_table()
  */
 #}
-<div class="w3-responsive">
+{# Focusable and named so keyboard users can scroll a wide table. #}
+<div class="w3-responsive" role="region" tabindex="0" aria-label="{{ 'Scrollable table'|t }}">
   <table{{ attributes.addClass('w3-table-all') }}>
     {% if caption %}
       <caption>{{ caption }}</caption>

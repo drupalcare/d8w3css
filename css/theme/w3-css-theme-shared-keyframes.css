@@ -1,3 +1,4 @@
+/* stylelint-disable-next-line keyframes-name-pattern -- public animation name, also defined by the generated palettes; renaming would break them */
 @keyframes btnBorderAnimation {
   0% {
     width: 0;
@@ -16,6 +17,7 @@
   }
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern -- public animation name, also defined by the generated palettes; renaming would break them */
 @keyframes borderLeftColors {
   0% {
     width: 0;
@@ -39,6 +41,7 @@
   }
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern -- public animation name, also defined by the generated palettes; renaming would break them */
 @keyframes borderRightColors {
   0% {
     width: 0;

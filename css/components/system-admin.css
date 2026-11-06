@@ -10,11 +10,13 @@ dl dd {
   font-size: 1em;
 }
 
-ul.admin-list , ul.w3css-admin-list{
+ul.admin-list,
+ul.w3css-admin-list {
   padding: 0;
 }
 
-.admin-list li , .w3css-admin-list li{
+.admin-list li,
+.w3css-admin-list li {
   position: relative;
   margin: 0;
   padding: 0;
@@ -23,22 +25,23 @@ ul.admin-list , ul.w3css-admin-list{
   border-top: 1px solid #bfbfbf;
 }
 
-.admin-list li a , .w3css-admin-list li a{
+.admin-list li a,
+.w3css-admin-list li a {
   display: block;
   min-height: 0;
   padding: 14px 15px 14px 25px;
   background: url(../../images/icons/chevron-disc-right.svg) no-repeat 1px 17px;
 }
 
-/*Admin pages */
+/* Admin pages */
 .ui-dialog-content .w3-content,
-.w3css-admin-context .block-system-main-block .w3-content{
-  max-width: 100%;
-  width: 100%;
+.w3css-admin-context .block-system-main-block .w3-content {
   display: inline-block;
+  width: 100%;
+  max-width: 100%;
 }
 
-.w3css-admin-context .block-system-main-block .modules-tabs__menu + form.system-modules{
+.w3css-admin-context .block-system-main-block .modules-tabs__menu + form.system-modules {
   width: auto;
 }
 
@@ -61,14 +64,14 @@ ul.admin-list , ul.w3css-admin-list{
 
 .dropbutton input.w3-margin-bottom,
 .dropbutton input.w3-margin-top {
-  margin: 0 !important;
   width: 100% !important;
+  margin: 0 !important;
+  transition: 0.4s;
   text-align: left;
   border: none;
-  transition: 0.4s;
 }
 
-.paragraph-type-top.w3-row:before {
+.paragraph-type-top.w3-row::before {
   display: inline-block;
   content: none;
 }
@@ -82,157 +85,168 @@ form .field--widget-entity-reference-paragraphs td.field-multiple-drag {
   padding-left: 0;
 }
 
-/*.ui-dialog-content .w3-responsive,
+/* .ui-dialog-content .w3-responsive,
 .admin-context .block-system-main-block .w3-responsive {
   max-width: 100%;
   width: 100%;
   display: block;
   clear: both;
   overflow-x: initial;
-}*/
-.w3css-admin-context .block-system-main-block{
+} */
+.w3css-admin-context .block-system-main-block {
   padding: 0 16px;
 }
 
 .w3css-admin-context .block-system-main-block > div,
-.w3css-admin-context .block-system-main-block > form{
+.w3css-admin-context .block-system-main-block > form {
   padding: 0 !important;
 }
 
-.w3css-admin-context nav.action-links , .w3css-admin-context nav.w3css-action-links{
-  list-style: none;
+.w3css-admin-context nav.action-links,
+.w3css-admin-context nav.w3css-action-links {
   margin-left: 16px;
+  list-style: none;
 }
 
-.w3css-admin-context nav.action-links li , .w3css-admin-context nav.w3css-action-links li{
-  white-space: normal;
+.w3css-admin-context nav.action-links li,
+.w3css-admin-context nav.w3css-action-links li {
   display: inline-block;
-  vertical-align: middle;
   overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
   text-decoration: none;
   color: inherit;
   background-color: inherit;
-  text-align: center;
-  cursor: pointer;
 }
 
 .w3css-admin-context .region-title__action a,
-.w3css-admin-context form .form-actions > a{
+.w3css-admin-context form .form-actions > a {
+  display: inline-block;
   margin: 16px 10px;
   padding: 9px 16px;
-  display: inline-block;
 }
 
-.w3css-admin-context .region-title__action a{
+.w3css-admin-context .region-title__action a {
   margin: 5px;
 }
 
 .w3css-admin-context form .form-actions button,
-.w3css-admin-context form .form-actions input{
+.w3css-admin-context form .form-actions input {
   margin: 16px 10px 16px 0;
 }
 
 /* admin pages  */
-.w3css-admin-context .block-system-main-block .modules-tabs{
+.w3css-admin-context .block-system-main-block .modules-tabs {
   margin-right: 16px;
   margin-left: 16px;
   border-color: #eaeaea;
 }
 
-.w3css-admin-context .modules-tabs__pane{
+.w3css-admin-context .modules-tabs__pane {
+  width: auto;
   margin: 0 0 0 240px !important;
   padding: 8px 16px !important;
-  background: #f8f8f8;
   border-left: 1px solid #eaeaea;
-  width: auto;
+  background: #f8f8f8;
 }
 
-.w3css-admin-context .block-system-main-block .modules-tabs tr td{
+.w3css-admin-context .block-system-main-block .modules-tabs tr td {
   padding: 5px;
 }
 
-.w3css-admin-context .system-modules td details{
+.w3css-admin-context .system-modules td details {
   margin: 0 !important;
 }
 
-.w3css-admin-context .system-modules td details summary{
+.w3css-admin-context .system-modules td details summary {
   padding: 6px 0 !important;
 }
 
-.w3css-admin-context .modules-wrapper .requirements , .w3css-admin-context .modules-wrapper .w3css-requirements{
+.w3css-admin-context .modules-wrapper .requirements,
+.w3css-admin-context .modules-wrapper .w3css-requirements {
   max-width: 100%;
 }
 
-.w3css-admin-context .modules-wrapper .requirements span , .w3css-admin-context .modules-wrapper .w3css-requirements span{
+.w3css-admin-context .modules-wrapper .requirements span,
+.w3css-admin-context .modules-wrapper .w3css-requirements span {
   display: inline-block;
 }
 
-.w3css-admin-context .item-list--comma-list:before,
-.w3css-admin-context .item-list--comma-list:after,
-.w3css-admin-context .item-list--comma-list li.w3-panel:after,
-.w3css-admin-context .item-list--comma-list li.w3-panel:before{
+.w3css-admin-context .item-list--comma-list::before,
+.w3css-admin-context .item-list--comma-list::after,
+.w3css-admin-context .item-list--comma-list li.w3-panel::after,
+.w3css-admin-context .item-list--comma-list li.w3-panel::before {
   display: inline-block;
   clear: none !important;
 }
 
-.w3css-admin-context .admin-requirements{
+.w3css-admin-context .admin-requirements {
   text-align: left;
 }
 
-.w3css-admin-context .item-list--comma-list{
+.w3css-admin-context .item-list--comma-list {
   display: inline-block;
 }
 
-.w3css-admin-context .item-list--comma-list li{
+.w3css-admin-context .item-list--comma-list li {
   padding: 8px 5px;
 }
 
-.w3css-admin-context .system-status-report__status-title , .w3css-admin-context .w3css-system-status-report__status-title{
+.w3css-admin-context .system-status-report__status-title,
+.w3css-admin-context .w3css-system-status-report__status-title {
   padding: 8px !important;
 }
 
-@media screen and (min-width:993px) {
-  .w3css-admin-context .system-status-general-info__items , .w3css-admin-context .w3css-system-status-general-info__items{
+@media screen and (min-width: 993px) {
+  .w3css-admin-context .system-status-general-info__items,
+  .w3css-admin-context .w3css-system-status-general-info__items {
     display: flex;
     overflow-x: hidden;
     flex-wrap: wrap;
   }
 
-  .w3css-admin-context .system-status-general-info__item , .w3css-admin-context .w3css-system-status-general-info__item{
-    border-color: #eaeaea;
+  .w3css-admin-context .system-status-general-info__item,
+  .w3css-admin-context .w3css-system-status-general-info__item {
     flex: 1;
     flex-basis: 33%;
     width: 33%;
+    border-color: #eaeaea;
   }
 
-  .w3css-admin-context .system-status-general-info__item:nth-child(2) , .w3css-admin-context .w3css-system-status-general-info__item:nth-child(2){
+  .w3css-admin-context .system-status-general-info__item:nth-child(2),
+  .w3css-admin-context .w3css-system-status-general-info__item:nth-child(2) {
     flex: 2;
     flex-basis: 66%;
   }
 
-  .w3css-admin-context .system-status-general-info__run-cron , .w3css-admin-context .w3css-system-status-general-info__run-cron{
+  .w3css-admin-context .system-status-general-info__run-cron,
+  .w3css-admin-context .w3css-system-status-general-info__run-cron {
     margin: 15px 0 5px;
   }
-
 }
 
 .w3css-admin-context .system-status-report__requirements-group details,
 .w3css-admin-context .w3css-system-status-report__requirements-group details,
-.w3css-admin-context .system-status-report__requirements-group summary ,
-.w3css-admin-context .w3css-system-status-report__requirements-group summary{
+.w3css-admin-context .system-status-report__requirements-group summary,
+.w3css-admin-context .w3css-system-status-report__requirements-group summary {
   list-style-type: none;
 }
 
-.w3css-admin-context .system-status-report__entry__value , .w3css-admin-context .w3css-system-status-report__entry-value{
+.w3css-admin-context .system-status-report__entry__value,
+.w3css-admin-context .w3css-system-status-report__entry-value {
   padding-top: 0 !important;
 }
 
-.w3css-admin-context .system-status-report__status-icon:before , .w3css-admin-context .w3css-system-status-report__status-icon:before{
+.w3css-admin-context .system-status-report__status-icon::before,
+.w3css-admin-context .w3css-system-status-report__status-icon::before {
   top: 11px;
   left: -14px;
 }
 
-.w3css-admin-context .system-status-report__requirements-group details , .w3css-admin-context .w3css-system-status-report__requirements-group details{
+.w3css-admin-context .system-status-report__requirements-group details,
+.w3css-admin-context .w3css-system-status-report__requirements-group details {
   margin-bottom: 5px !important;
 }
 
@@ -241,17 +255,17 @@ form .field--widget-entity-reference-paragraphs td.field-multiple-drag {
  */
 .color-success {
   color: #325e1c;
-  background-color: #ddffdd !important;
+  background-color: #dfd !important;
 }
 
 .color-warning {
   color: #734c00;
-  background-color: #ffffcc !important;
+  background-color: #ffc !important;
 }
 
 .color-error {
   color: #a51b00;
-  background-color: #ffdddd !important;
+  background-color: #fdd !important;
 }
 
 /* CKE */

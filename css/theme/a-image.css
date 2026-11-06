@@ -6,19 +6,18 @@
   to {
     transform: scale(1.1);
   }
-
 }
 
 a.w3css-image-link {
-  overflow: hidden;
   display: block;
-  height: 100%;
+  overflow: hidden;
   min-width: 100%;
+  height: 100%;
 }
 
 a.w3css-image-link > img.w3-image {
-  width: 100%;
   float: left;
+  width: 100%;
 }
 
 .w3-disabled-has-image a.w3css-image-link > img.w3-image {
@@ -27,6 +26,13 @@ a.w3css-image-link > img.w3-image {
 
 a:hover > img.w3-image {
   animation: animateimg 5s;
+}
+
+/* Reduced motion: no hover zoom on linked images. */
+@media (prefers-reduced-motion: reduce) {
+  a:hover > img.w3-image {
+    animation: none;
+  }
 }
 
 a,

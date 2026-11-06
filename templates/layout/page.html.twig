@@ -264,7 +264,7 @@
         {% endif %}
         {% endblock w3css_sidebar_second %}
       </div>
-      <!-- Endn: Main Container  -->
+      <!-- End: Main Container  -->
     </div>
   </div>
   <!-- End: Main -->
@@ -425,9 +425,9 @@
       {% if copyright_text %}
       <!-- Start: Copyright -->
       <div class="w3-half w3-container w3-mobile">
-        <p class="w3-section w3-left-align w3-opacity w3-hover-opacity-off">
-        {% set currentDate = "now" | date("Y") %}
-        {{ copyright_text|replace({"%year%": currentDate }) }}
+        <p class="w3-section w3-left-align">
+        {# The page preprocess replaces %year% and caps the cache at year end. #}
+        {{ copyright_text }}
         </p>
       </div>
       <!-- End: Copyright -->
@@ -435,7 +435,7 @@
       {% if show_credit_link %}
       <!-- Start: Credit Link -->
       <div class="w3-half w3-container w3-mobile">
-        <p class="w3-section w3-right-align w3-opacity w3-hover-opacity-off">{{ 'Developed & Designed by'|t }} <a href="https://www.alaahaddad.com" title="Alaa Haddad" target="_blank" rel="noopener">Alaa Haddad</a></p>
+        <p class="w3-section w3-right-align">{{ 'Developed & Designed by'|t }} <a href="https://www.alaahaddad.com" title="Alaa Haddad" target="_blank" rel="noopener">Alaa Haddad</a></p>
       </div>
       <!-- End: Credit Link -->
       {% endif %}

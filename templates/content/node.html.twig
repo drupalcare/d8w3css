@@ -100,8 +100,8 @@
         </div>
       {% endif %}
         <div class="w3css-node__author-info" {{ author_attributes }}>
-          <span {{ author_attributes }}>
-            {{ 'By'|t }} {% apply spaceless %}{{ author_name }}{% endapply %} | {{ date }}
+          <span>
+            {% trans %}By {{ author_name }} | {{ date }}{% endtrans %}
           </span>
         </div>
         {{ metadata }}

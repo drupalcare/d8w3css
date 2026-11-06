@@ -26,12 +26,12 @@
   {%- endif -%}
   <div class="w3-section details-wrapper w3css-details-wrapper">
     {% if errors %}
-      <div class="w3-paenl w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message w3css-form-item--error-message">
-        <stron>{{ errors }}</stron>
+      <div class="w3-panel w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message w3css-form-item--error-message">
+        <strong>{{ errors }}</strong>
       </div>
     {% endif %}
     {%- if description -%}
-      <div class="w3-paenl details-description">{{ description }}</div>
+      <div class="w3-panel details-description">{{ description }}</div>
     {%- endif -%}
     {%- if children -%}
       {{ children }}

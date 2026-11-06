@@ -16,8 +16,6 @@ final class Copyright extends SettingsSection {
     $form['drupal8_w3css_theme_settings']['copyright'] = [
       '#type' => 'details',
       '#title' => $this->t('Copyright - W3CSS Theme'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
     ];
     $form['drupal8_w3css_theme_settings']['copyright']['footer_copyright_text'] = [
       '#parents' => ['footer', 'copyright_text'],

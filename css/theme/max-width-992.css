@@ -1,13 +1,16 @@
-@media (max-width:992px) {
-  .site-name , .w3css-site-name{
+@media (max-width: 992px) {
+  .site-name,
+  .w3css-site-name {
     font-size: 28px;
   }
 
-  .site-slogan , .w3css-site-slogan{
+  .site-slogan,
+  .w3css-site-slogan {
     font-size: 20px !important;
   }
 
-  h1.page-title , h1.w3css-page-title{
+  h1.page-title,
+  h1.w3css-page-title {
     padding: 16px;
     font-size: 32px;
   }
@@ -25,7 +28,7 @@
     float: none;
   }
 
-  #w3css-main-region-inner>div:nth-child(2) .w3css-main-box--breadcrumb-found:first-child {
+  #w3css-main-region-inner > div:nth-child(2) .w3css-main-box--breadcrumb-found:first-child {
     margin-top: 0 !important;
   }
 
@@ -41,7 +44,7 @@
   .w3css-bottom-region__inner .w3css-forth-bottom,
   .w3css-footer-region__inner .w3css-first-footer,
   .w3css-footer-region__inner .w3css-second-footer,
-  .w3css-footer-region__inner .w3css-third-footer{
+  .w3css-footer-region__inner .w3css-third-footer {
     width: 100% !important;
   }
 
@@ -51,36 +54,37 @@
   #w3css-bottom-region-inner,
   #w3css-footer-region-inner,
   #w3css-footer-menu-inner {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .w3css-top-region__inner .w3css-third-top,
   .w3css-main-region__inner .w3css-second-sidebar,
   .w3css-bottom-region__inner .w3css-forth-bottom,
-  .w3css-footer-region__inner .w3css-third-footer{
+  .w3css-footer-region__inner .w3css-third-footer {
     margin-bottom: 8px;
   }
 
   .w3css-top-region__inner .w3css-first-top,
   .w3css-main-region__inner .w3css-first-sidebar,
   .w3css-bottom-region__inner .w3css-first-bottom,
-  .w3css-footer-region__inner .w3css-first-footer{
+  .w3css-footer-region__inner .w3css-first-footer {
     margin-top: 8px;
   }
 
-  .w3css-main-region__inner .w3css-first-sidebar{
-    margin-bottom: 0;
+  .w3css-main-region__inner .w3css-first-sidebar {
     margin-top: 20px;
+    margin-bottom: 0;
   }
 
-  .w3css-main-region__inner .w3css-second-sidebar{
+  .w3css-main-region__inner .w3css-second-sidebar {
     margin-top: 0;
     margin-bottom: 20px;
   }
 
   /* Default Article Node */
-  .page-node-type-article .node .field--type-image , .page-node-type-article .w3css-node .field--type-image{
+  .page-node-type-article .node .field--type-image,
+  .page-node-type-article .w3css-node .field--type-image {
     float: none;
     margin: 0 auto;
   }
@@ -104,9 +108,9 @@
     display: flex;
   }
 
-  .w3css-menu__list  li.w3css-menu__item--expanded > span,
-  .w3css-menu__list  li.w3css-menu__item--expanded > a > span,
-  .w3css-menu__list  li.w3css-menu__item--expanded > button > span{
+  .w3css-menu__list li.w3css-menu__item--expanded > span,
+  .w3css-menu__list li.w3css-menu__item--expanded > a > span,
+  .w3css-menu__list li.w3css-menu__item--expanded > button > span {
     padding-block: 0;
     padding-inline: 16px;
     align-items: center;
@@ -114,7 +118,7 @@
   }
 
   .w3css-menu__list li.w3css-menu__item--expanded > a,
-  .w3css-menu__list li.w3css-menu__item--expanded > button{
+  .w3css-menu__list li.w3css-menu__item--expanded > button {
     padding-inline-end: 56px;
   }
 
@@ -135,9 +139,9 @@
   #w3css-main-nav-horizontal .w3css-menu__list,
   .w3css-responsive-nav .w3css-menu__item > button,
   #w3css-main-nav-horizontal .w3css-menu__item > button {
+    float: left;
     clear: both;
     width: 100%;
-    float: left;
   }
 
   #w3css-main-nav-horizontal .w3css-menu__list,
@@ -160,7 +164,7 @@
   }
 
   /* Vertical Menus */
-  #w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__toggle-child:after {
+  #w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__toggle-child::after {
     content: none;
   }
 
@@ -168,10 +172,9 @@
   .w3css-node--view-mode-full .w3css-node__content .field--type-text-long,
   .node--view-mode-full .node__content .field--type-string-long,
   .w3css-node--view-mode-full .w3css-node__content .field--type-string-long,
-  .node--view-mode-full .node__content .field--type-text-with-summary ,
-  .w3css-node--view-mode-full .w3css-node__content .field--type-text-with-summary{
+  .node--view-mode-full .node__content .field--type-text-with-summary,
+  .w3css-node--view-mode-full .w3css-node__content .field--type-text-with-summary {
     font-size: 100%;
     line-height: 1.7;
   }
-
 }

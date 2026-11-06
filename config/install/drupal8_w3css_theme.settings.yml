@@ -18,7 +18,7 @@ social_icons:
     instagram: 'https://www.instagram.com/flashwebcenter'
     youtube: 'https://www.youtube.com/user/flashwebcenter'
     drupal: 'https://www.drupal.org/u/flashwebcenter'
-    rss: 'rss.xml'
+    rss: '/rss.xml'
     mastodon: 'https://mastodon.social/deck/@flashwebcenter'
   enabled: true
 footer:

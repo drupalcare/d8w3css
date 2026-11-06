@@ -10,43 +10,43 @@ ul-parent-footer li button {
 }
 
 .w3css-menu__list--menu-footer {
-  width: 100%;
   clear: both;
+  width: 100%;
 }
 
 .w3css-menu__list--menu-footer li {
+  display: inline-block;
   float: none;
   width: auto;
-  display: inline-block;
 }
 
 /* label form in the footer */
 .w3css-footer-menu__inner form label {
-  text-align: left;
   float: left;
+  text-align: left;
 }
 
-.w3css-social-media a > i:before {
+.w3css-social-media a > i::before {
   content: "" !important;
 }
 
 .w3css-social-media a > i {
-  font-family: inherit !important;
-  transition: transform .2s;
+  display: inline-block;
   width: 30px;
   height: 30px;
   margin: 0 5px;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: 30px;
+  transition: transform 0.2s;
   -webkit-filter: grayscale(0.8);
   filter: grayscale(0.8);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  font-family: inherit !important;
 }
 
 .w3css-social-media a > i:hover {
+  transform: scale(1.3);
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
-  transform: scale(1.3);
 }
 
 .w3css-social-media a > i.fa-facebook {
@@ -91,9 +91,9 @@ ul-parent-footer li button {
 
 .w3css-social-media {
   display: flex !important;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .w3css-social-media a {
@@ -103,8 +103,8 @@ ul-parent-footer li button {
 }
 
 .w3css-social-media a > .fa-ext {
-  font-weight: normal;
   font-size: 16px;
+  font-weight: normal;
 }
 
 /* The list lays the links out the way the flex container above used to. */

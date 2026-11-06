@@ -38,7 +38,7 @@ h6 a {
 #w3css-top-region,
 #w3css-footer-region,
 #w3css-main-region,
-#w3css-bottom-region .w3css-bottom-box>div {
+#w3css-bottom-region .w3css-bottom-box > div {
   color: var(--w-pt);
 }
 
@@ -71,8 +71,8 @@ ul.w3css-local-tasks--primary > li {
 #w3css-highlighted,
 #w3css-top-region,
 #w3css-footer-region,
-#w3css-footer-region .w3css-footer-box>div,
-#w3css-bottom-region .w3css-bottom-box>div {
+#w3css-footer-region .w3css-footer-box > div,
+#w3css-bottom-region .w3css-bottom-box > div {
   background-color: var(--w-pt-b);
 }
 
