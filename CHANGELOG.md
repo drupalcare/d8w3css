@@ -2,6 +2,8 @@
 
 ## Next release
 
+- Icons: the interface icons (menu arrows, hamburger and close buttons, required asterisk, form error, Layout Builder plus, admin list chevron) are now Google Material Symbols (Outlined, weight 400), trimmed to their drawing, and take the text color through `currentColor` or a CSS mask. The theme no longer uses `arrow-right-ccc.svg` and `search-ccc.svg`; both files stay so sub-themes that reference them keep working. Brand logos for the social links keep their own drawings.
+- Header search: the open form is one field with a joined submit button, both 44px high, built with flexbox and the theme's own border classes; the floated 70/30 layout, the magnifier image and the off-screen text on the button are removed. The button shows its "Search" label.
 - Extend and Appearance pages: every module and theme description is a short, professional statement that begins with a verb; credits, links and version notes moved out of the info files.
 - New W3CSS Theme logo: it is the theme's default logo (replace or turn it off in Appearance settings), and it sits at the top of the settings menu, which scrolls under it.
 

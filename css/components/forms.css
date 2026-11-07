@@ -61,9 +61,9 @@ abbr.ajax-changed {
   margin: 0 0.3em;
   content: "";
   vertical-align: super;
-  background-image: url(../../images/icons/required.svg);
-  background-repeat: no-repeat;
-  background-size: 10px 10px;
+  background-color: #e00;
+  -webkit-mask: url(../../images/icons/required.svg) center / contain no-repeat;
+  mask: url(../../images/icons/required.svg) center / contain no-repeat;
 }
 
 /* Inline Error Message. */
@@ -75,9 +75,9 @@ abbr.ajax-changed {
   margin: 0 0.3em;
   content: "";
   vertical-align: middle;
-  background-image: url(../../images/icons/error.svg);
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
+  background-color: #e00;
+  -webkit-mask: url(../../images/icons/error.svg) center / contain no-repeat;
+  mask: url(../../images/icons/error.svg) center / contain no-repeat;
 }
 
 input,

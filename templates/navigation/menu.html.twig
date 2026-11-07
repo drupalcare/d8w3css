@@ -20,7 +20,7 @@
 #}
 
 {% macro svg_icon(icon_value) %}
-  <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="{{ icon_value }}"/></svg>
+  <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="236 -631 488 291" fill="currentColor"><path d="{{ icon_value }}"/></svg>
 {% endmacro %}
 
 {% import _self as menus %}
@@ -87,7 +87,7 @@
             {%- if link_target == '_blank' %}<span class="visually-hidden"> {{ '(opens in a new tab)'|t }}</span>{% endif %}
           </a>
           <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
-             {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+             {{ macros.svg_icon('M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z') }}{# down arrow #}
           </span>
         {% else %}
         {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle w3css-menu__toggle-parent'] %}
@@ -97,7 +97,7 @@
           <button type="button" class="{{ non_clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
             <span class="w3css-menu__arrow">
-             {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+             {{ macros.svg_icon('M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z') }}{# down arrow #}
             </span>
           </button>
         {% endif %}
@@ -124,7 +124,7 @@
             {%- if link_target == '_blank' %}<span class="visually-hidden"> {{ '(opens in a new tab)'|t }}</span>{% endif %}
           </a>
           <span class="w3css-menu__arrow w3-hover-over w3css-menu__arrow-toggle">
-            {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+            {{ macros.svg_icon('M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z') }}{# down arrow #}
           </span>
         {% else %}
         {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle w3css-menu__toggle-child'] %}
@@ -134,7 +134,7 @@
           <button type="button" class="{{ non_clickable_classes|join(' ') }}"
             {%- if item.url.getOption('attributes').title %} title="{{ item.url.getOption('attributes').title }}" {% endif -%}>{{ item.title }}
             <span class="w3css-menu__arrow w3-hover-over">
-              {{ macros.svg_icon('M6 9l6 6 6-6') }}{# down arrow #}
+              {{ macros.svg_icon('M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z') }}{# down arrow #}
             </span>
           </button>
         {% endif %}

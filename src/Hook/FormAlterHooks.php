@@ -87,8 +87,8 @@ final class FormAlterHooks {
   #[Hook('form_search_block_form_alter')]
   public function formSearchBlockFormAlter(array &$form, FormStateInterface $form_state): void {
     $form['keys']['#attributes']['placeholder'] = $this->t('Search');
-    // The value is the button's accessible name; search-block.css hides the
-    // text (text-indent) and shows an arrow icon instead.
+    // The value is the button's visible label and accessible name;
+    // search-block.css joins it to the field at the same height.
     $form['actions']['submit']['#value'] = $this->t('Search');
     $form['actions']['submit']['#attributes']['class'][] = 'w3css-search-button-block';
   }
