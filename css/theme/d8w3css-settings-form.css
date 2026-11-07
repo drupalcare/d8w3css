@@ -18,9 +18,9 @@ form.w3css-settings {
   --d8s-surface: #fff;
   --d8s-ink: #1f2933;
   --d8s-muted: #52606d;
-  --d8s-accent: #0b5f6e;
+  --d8s-accent: #a65c38;
   --d8s-on-accent: #fff;
-  --d8s-soft: #e6f2f4;
+  --d8s-soft: #fbf4eb;
   --d8s-error: #a8221a;
   --d8s-ctl: #7b8794;
   --d8s-line: #d5dbe0;
@@ -45,9 +45,9 @@ form.w3css-settings {
   --d8s-surface: #2a2a2d;
   --d8s-ink: #e4e5e6;
   --d8s-muted: #b4b6b9;
-  --d8s-accent: #7fd3e0;
+  --d8s-accent: #d69d62;
   --d8s-on-accent: #0a2a30;
-  --d8s-soft: #203a40;
+  --d8s-soft: #3a2a1e;
   --d8s-error: #ffb0a8;
   --d8s-ctl: #8d9096;
   --d8s-line: #4a4c52;
@@ -717,4 +717,26 @@ form.w3css-settings > .form-actions {
   form.w3css-settings :focus-visible {
     outline-color: Highlight;
   }
+}
+
+/* The W3CSS Theme logo heads the section menu (the theme's own logo.svg). It is
+   sticky inside the menu, so the menu scrolls under it and the logo stays.
+   The negative offset and margins cancel the menu's padding (sticky is
+   measured inside it), so nothing shows above the logo;
+   the accent and soft colours above are the W3CSS Theme palette. */
+form.w3css-settings .w3css-nav::before {
+  position: sticky;
+  z-index: 1;
+  inset-block-start: -0.75rem;
+  display: block;
+  block-size: 4rem;
+  margin-block: -0.75rem 0.75rem;
+  margin-inline: -1rem;
+  content: "";
+  border-block-end: 1px solid var(--d8s-line);
+  background: var(--d8s-surface) url("../../logo.svg") no-repeat 1rem center / auto 2.75rem;
+}
+
+[dir="rtl"] form.w3css-settings .w3css-nav::before {
+  background-position: right 1rem center;
 }

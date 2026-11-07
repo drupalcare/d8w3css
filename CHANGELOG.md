@@ -3,6 +3,7 @@
 ## Next release
 
 - Extend and Appearance pages: every module and theme description is a short, professional statement that begins with a verb; credits, links and version notes moved out of the info files.
+- New W3CSS Theme logo: it is the theme's default logo (replace or turn it off in Appearance settings), and it sits at the top of the settings menu, which scrolls under it.
 
 - Text follows the drupal.org standards: the theme description begins with a verb and its demo link no longer opens a new window, settings titles are in sentence case without "Check this box to", "YouTube" and "LinkedIn" are spelled as the brands spell them, the credit setting no longer says "Please", and the README follows the drupal.org README template (sections, headings, lists, links and code).
 - Every color theme has a new name of two or three words (00008 - Red Turquoise is now Indigo Lagoon, Amber is now Golden Amber). Only the name shown on the settings page changed: the stored value and the w3-theme-* classes are the same, so every site keeps its color theme. The old to new list is in README.md.
