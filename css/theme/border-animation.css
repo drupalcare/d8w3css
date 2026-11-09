@@ -1,35 +1,16 @@
-/* button animation  */
+/* Button hover: a calm change of colour (the scheme's own hover colours) and a
+   soft shadow, nothing that moves. The pseudo-elements are no longer used, so
+   no width, height or transform changes and the page cannot shift. The shadow
+   follows keyboard focus too. Menu items keep colour only. */
 .w3-button {
   position: relative;
+  box-shadow: 0 0 0 0 transparent;
 }
 
-.w3-button::after,
-.w3-button::before {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  content: "";
-  border-bottom: 1px solid transparent;
-  background-color: transparent;
-}
-
-.w3-button::before {
-  left: 0;
-}
-
-.w3-button::after {
-  right: 0;
-}
-
-.w3-button:hover::before {
-  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
-  animation: btnBorderAnimation 0.2s linear forwards;
-}
-
-.w3-button:hover::after {
-  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
-  animation: btnBorderAnimation 0.2s linear forwards;
+@media (prefers-reduced-motion: no-preference) {
+  .w3-button:where(:hover, :focus-visible):not(.w3css-menu__list .w3-button, .w3-bar-item) {
+    box-shadow: 0 2px 8px 0 color-mix(in srgb, currentcolor 28%, transparent);
+  }
 }
 
 /* Border animation  */
@@ -95,8 +76,6 @@
 
 /* Reduced motion: jump to the final border state, no movement. */
 @media (prefers-reduced-motion: reduce) {
-  .w3-button:hover::before,
-  .w3-button:hover::after,
   #w3css-top-region .w3css-top-box > .w3css-animate-border:hover::before,
   #w3css-bottom-region .w3css-bottom-box > .w3css-animate-border:hover::before,
   #w3css-footer-region .w3css-footer-box > .w3css-animate-border:hover::before,

@@ -107,9 +107,10 @@
     font-size: 22px;
   }
 
+  /* No !important: a sub-theme's own slogan size (a narrow header) must be able to win. */
   .site-slogan,
   .w3css-site-slogan {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 
   .node__meta .node__submitted,

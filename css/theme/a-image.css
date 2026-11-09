@@ -40,5 +40,10 @@ li a,
 a .fa,
 button,
 .w3-button {
-  transition: 0.4s;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }

@@ -11,6 +11,7 @@ use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\Radios;
 use Drupal\Core\Render\Markup;
+use Drupal\drupal8_w3css_theme\ColorThemeFamilies;
 
 /**
  * W3.CSS predefined color themes settings.
@@ -100,6 +101,7 @@ final class PredefinedThemes extends SettingsSection {
       ],
       '#default_value' => $this->settings->get('color_scheme.predefined') ?: 'none',
       '#process' => [[Radios::class, 'processRadios'], [self::class, 'arrangeThumbnails']],
+      '#w3css_scheme_families' => ColorThemeFamilies::labels(),
       '#prefix' => '<div class="w3css-schemes">',
       '#suffix' => '</div>',
     ];
@@ -126,7 +128,10 @@ final class PredefinedThemes extends SettingsSection {
   }
 
   /**
-   * Places the radios in one grid.
+   * Places each radio in a titled grid of its color family.
+   *
+   * This is the shape without script as well: one heading and grid per family.
+   * The script turns each family into a tab panel.
    *
    * @param array<string, mixed> $element
    *   The radios element, after core made one radio per option.
@@ -139,15 +144,29 @@ final class PredefinedThemes extends SettingsSection {
    *   The element.
    */
   public static function arrangeThumbnails(array $element, FormStateInterface $form_state, array &$complete_form): array {
-    $grid = [
-      '#type' => 'container',
-      '#attributes' => ['class' => ['w3css-schemes__grid']],
-    ];
-    foreach (array_keys($element['#options']) as $value) {
-      $grid[$value] = $element[$value];
-      unset($element[$value]);
+    foreach ($element['#w3css_scheme_families'] as $family => $title) {
+      $group = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['w3css-schemes__group']],
+        'title' => [
+          '#type' => 'html_tag',
+          '#tag' => 'h4',
+          '#value' => $title,
+          '#attributes' => ['class' => ['w3css-schemes__group-title']],
+        ],
+        'grid' => [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['w3css-schemes__grid']],
+        ],
+      ];
+      foreach (array_keys($element['#options']) as $value) {
+        if (isset($element[$value]) && ColorThemeFamilies::family((string) $value) === $family) {
+          $group['grid'][$value] = $element[$value];
+          unset($element[$value]);
+        }
+      }
+      $element['group_' . $family] = $group;
     }
-    $element['grid'] = $grid;
     return $element;
   }
 

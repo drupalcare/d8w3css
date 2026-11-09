@@ -13,6 +13,16 @@
   container: w3css-settings / inline-size;
 }
 
+/* The one rule on the page itself, only while the navigation is on. Sections
+   differ greatly in height, so the page scrollbar came and went on every
+   switch and shifted the page sideways; its space stays reserved. Scroll
+   anchoring is off too: when a switch changed the content inside the form,
+   the browser moved the page to keep an anchor node in place. */
+html:has(form.w3css-settings.w3css-is-nav-active) {
+  overflow-anchor: none;
+  scrollbar-gutter: stable;
+}
+
 form.w3css-settings {
   --d8s-canvas: #f5f7f8;
   --d8s-surface: #fff;
@@ -26,12 +36,13 @@ form.w3css-settings {
   --d8s-line: #d5dbe0;
   --d8s-chip: #f1f4f5;
   --d8s-mono: ui-monospace, sfmono-regular, menlo, monospace;
+  --d8s-pad: clamp(0.75rem, 2.5vw, 2rem);
 
   display: flow-root;
   box-sizing: border-box;
   max-inline-size: 80rem;
   margin-inline: auto;
-  padding: clamp(0.75rem, 2.5vw, 2rem);
+  padding: var(--d8s-pad);
   color: var(--d8s-ink);
   border-radius: 1rem;
   background: var(--d8s-canvas);
@@ -171,16 +182,19 @@ form.w3css-settings .w3css-nav__link {
   font-weight: 500;
 }
 
-form.w3css-settings .w3css-nav__link:hover {
+/* Links never move: no weight change on hover, focus or current. A bolder
+   current link re-wrapped its text in the narrow column and shook the menu.
+   Focus looks like hover. */
+form.w3css-settings .w3css-nav__link:hover,
+form.w3css-settings .w3css-nav__link:focus-visible {
   text-decoration: underline;
   background: var(--d8s-soft);
 }
 
-/* The current item: a filled pill, and weight as well as color. */
+/* The current item: a filled pill; color, not weight, marks it. */
 form.w3css-settings .w3css-nav__link[aria-current] {
   color: var(--d8s-on-accent);
   background: var(--d8s-accent);
-  font-weight: 600;
 }
 
 /* Their own colors are measured against the surface, not against the pill. */
@@ -683,6 +697,39 @@ form.w3css-settings > .form-actions {
     inline-size: 17rem;
     max-block-size: calc(100vh - 6rem);
     margin-block-end: 0;
+  }
+
+  /* An app shell, while the script runs the navigation: the form fits the
+     viewport below the admin theme's sticky header and is the one scroll
+     container. The menu and Save stick inside it and only the sections
+     scroll, so a section switch never changes the document's height and the
+     page never moves. The header is Gin's sticky bar under its toolbar, or
+     core's displaced toolbar, whichever is larger; both are 0 where the admin
+     theme has none. position: relative makes the form the containing block
+     of absolutely positioned descendants (core's .visually-hidden text in
+     every section), so its overflow clips them. Without it they sat at their
+     place deep in the scrolled sections, outside the form, and the document
+     grew and shrank with each section, which moved the page. */
+  form.w3css-settings.w3css-is-nav-active {
+    --d8s-shell-top: max(var(--drupal-displace-offset-top, 0px), calc(var(--gin-toolbar-y-offset, 0px) + var(--gin-height-sticky, 0px)));
+    --d8s-shell-height: calc(100dvh - var(--d8s-shell-top) - 0.75rem);
+
+    position: relative;
+    overflow: hidden auto;
+    block-size: var(--d8s-shell-height);
+    min-block-size: 0;
+    scrollbar-gutter: stable;
+  }
+
+  /* Sticky against the form now. The browser measures a sticky inset from
+     inside the scroll container's padding, so 0 is exactly where the nav
+     sits in flow (it is the form's first child, with no top margin). Any
+     larger inset pushed the nav down by the difference as soon as a section
+     was taller than the form. */
+  form.w3css-settings.w3css-is-nav-active .w3css-nav {
+    inset-block-start: 0;
+    margin-block: 0;
+    max-block-size: calc(var(--d8s-shell-height) - 2 * var(--d8s-pad));
   }
 
   form.w3css-settings > :not(.w3css-nav) {

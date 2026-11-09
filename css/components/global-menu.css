@@ -57,9 +57,9 @@ ul .w3css-menu__submenu.w3css-is-open {
 
 .w3css-menu__list li a.w3css-menu__link-toggle,
 .w3css-menu__list li button.w3css-menu__link-toggle {
-  -webkit-transition: background 0.4s ease;
-  -o-transition: background 0.4s ease;
-  transition: background 0.4s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .w3css-menu__list li ul {
@@ -191,17 +191,6 @@ ul li.w3css-menu__item--expanded > .w3css-menu__arrow-toggle:hover {
   outline-offset: -2px;
 }
 
-/* The theme's hover sweep (border-animation.css), for keyboard and open states. */
-.w3css-menu__list .w3-button:focus-visible::before,
-.w3css-menu__list .w3-button:focus-visible::after,
-li.w3css-is-open > .w3-button::before,
-li.w3css-is-open > .w3-button::after,
-li.w3css-is-hovered > .w3-button::before,
-li.w3css-is-hovered > .w3-button::after {
-  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
-  animation: btnBorderAnimation 0.2s linear forwards;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .w3css-menu__arrow svg,
   .w3css-menu__list a,
@@ -209,8 +198,6 @@ li.w3css-is-hovered > .w3-button::after {
     transition: none;
   }
 
-  .w3css-menu__list .w3-button::before,
-  .w3css-menu__list .w3-button::after,
   .w3css-menu__list li ul {
     animation: none !important;
   }

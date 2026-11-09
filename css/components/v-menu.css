@@ -171,3 +171,25 @@
   inset-inline-start: 0;
   inset-block-start: auto;
 }
+
+/* The side menu slides in with transform and opacity, which the browser can
+   animate without laying the page out on every frame. W3.CSS animates
+   left (animateleft), which does. Same look, same 0.6s from W3.CSS;
+   reduced motion keeps W3.CSS's own off switch. */
+@keyframes w3css-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #w3css-main-nav-vertical.w3-animate-left {
+    animation-name: w3css-slide-in-left;
+  }
+}

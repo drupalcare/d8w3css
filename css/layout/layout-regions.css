@@ -65,6 +65,47 @@
   margin-bottom: 12px;
 }
 
+/*
+ * Large screens: the boxes of one region group (top, bottom, footer) share
+ * the height of the tallest box, so a row of cards ends on one line. The
+ * main region is left out: a sidebar should not stretch to a long article.
+ */
+@media (min-width: 993px) {
+  .w3css-top-region__inner,
+  .w3css-bottom-region__inner,
+  .w3css-footer-region__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .w3css-top-region__inner::before,
+  .w3css-top-region__inner::after,
+  .w3css-bottom-region__inner::before,
+  .w3css-bottom-region__inner::after,
+  .w3css-footer-region__inner::before,
+  .w3css-footer-region__inner::after {
+    display: none;
+  }
+
+  .w3css-top-region__inner > .w3css-top-box,
+  .w3css-bottom-region__inner > .w3css-bottom-box,
+  .w3css-footer-region__inner > .w3css-footer-box {
+    display: flex;
+    float: none;
+    min-width: 0;
+  }
+
+  .w3css-top-region__inner > .w3css-top-box > div,
+  .w3css-bottom-region__inner > .w3css-bottom-box > div,
+  .w3css-footer-region__inner > .w3css-footer-box > div {
+    float: none;
+    /* The box is a flex row, so this div stretches to its height. */
+    height: auto;
+    min-width: 0;
+  }
+}
+
 /* The skip link moves focus here; the region is not a control. */
 #main-content:focus {
   outline: none;

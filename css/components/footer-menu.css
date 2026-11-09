@@ -35,7 +35,9 @@ ul-parent-footer li button {
   width: 30px;
   height: 30px;
   margin: 0 5px;
-  transition: transform 0.2s;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
   -webkit-filter: grayscale(0.8);
   filter: grayscale(0.8);
   background-repeat: no-repeat;
@@ -121,4 +123,30 @@ ul-parent-footer li button {
 
 .w3css-social-media__item {
   display: flex;
+}
+
+/*
+ * Footer and copyright polish (neutral, no layout change): text a step smaller than the body with a tight line
+ * height, and footer menu hover changes the text only, never the background.
+ */
+#w3css-footer-region-inner,
+#w3css-footer-menu-inner,
+#w3css-copyright-inner {
+  font-size: 0.9em;
+  line-height: 1.45;
+}
+
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:hover,
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:hover,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
 }
