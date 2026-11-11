@@ -80,3 +80,23 @@ function drupal8_w3css_theme_post_update_rename_settings(array &$sandbox): strin
   }
   return $message;
 }
+
+/**
+ * Moves the removed Font Awesome choices to Font Awesome 7 from the CDN.
+ */
+function drupal8_w3css_theme_post_update_switch_font_awesome_7(): string {
+  // Sorts after rename_settings on purpose: post-updates run by name, and the
+  // key below only exists once the settings are renamed. Choices 3 and 4 were
+  // the removed 5.x and 6.x CDN options, and 2 is now the CDN. Choices 0 and 1
+  // keep their meaning.
+  $factory = \Drupal::configFactory();
+  $moved = [];
+  foreach (SettingsMigrator::create()->themes() as $theme) {
+    $config = $factory->getEditable($theme . '.settings');
+    if (in_array((int) $config->get('libraries.font_awesome'), [3, 4], TRUE)) {
+      $config->set('libraries.font_awesome', 2)->save();
+      $moved[] = $theme;
+    }
+  }
+  return $moved ? 'Moved to Font Awesome 7 from the CDN: ' . implode(', ', $moved) . '.' : 'No theme used a removed Font Awesome choice.';
+}

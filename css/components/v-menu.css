@@ -193,3 +193,44 @@
     animation-name: w3css-slide-in-left;
   }
 }
+
+/* A menu placed in a sidebar opens its submenus in the page flow, like the
+   vertical menu: a flyout there had no background of its own and covered the
+   items under it. Hover opens them, as everywhere; the arrow
+   also opens them on click or from the keyboard. */
+.w3-sidebar-first .w3css-menu__list li ul,
+.w3-sidebar-second .w3css-menu__list li ul {
+  position: static;
+  float: none;
+  inline-size: 100%;
+  box-shadow: none;
+}
+
+/* Every arrow in a sidebar turns down, at any depth. */
+.w3-sidebar-first li.w3css-menu__item--expanded,
+.w3-sidebar-second li.w3css-menu__item--expanded {
+  --w3css-arrow-open: rotate(180deg);
+}
+
+/* The arrow stays beside its link when the submenu opens below: the item is
+   two columns, link and arrow, and the submenu takes the next row. */
+.w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded,
+.w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+}
+
+.w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded > span,
+.w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded > span {
+  position: static;
+  grid-row: 1;
+  grid-column: 2;
+  align-items: center;
+  height: auto;
+}
+
+.w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded > ul,
+.w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded > ul {
+  grid-column: 1 / -1;
+}

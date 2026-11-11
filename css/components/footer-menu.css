@@ -26,69 +26,33 @@ ul-parent-footer li button {
   text-align: left;
 }
 
-.w3css-social-media a > i::before {
-  content: "" !important;
-}
-
-.w3css-social-media a > i {
+/* Icons are inline SVG in the link's own colour, so they follow the link and its hover. */
+.w3css-social-media__icon {
   display: inline-block;
   width: 30px;
   height: 30px;
   margin: 0 5px;
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
-  -webkit-filter: grayscale(0.8);
-  filter: grayscale(0.8);
-  background-repeat: no-repeat;
-  background-size: 30px;
-  font-family: inherit !important;
+  transition: transform 0.2s ease;
 }
 
-.w3css-social-media a > i:hover {
+.w3css-social-media__icon .w3css-svg-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.w3css-social-media__link:is(:hover, :focus-visible) .w3css-social-media__icon {
   transform: scale(1.3);
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
 }
 
-.w3css-social-media a > i.fa-facebook {
-  background-image: url(../../images/icons/facebook-circle.svg);
-}
+@media (prefers-reduced-motion: reduce) {
+  .w3css-social-media__icon {
+    transition: none;
+  }
 
-.w3css-social-media a > i.fa-twitter {
-  background-image: url(../../images/icons/twitter-circle.svg);
-}
-
-.w3css-social-media a > i.fa-pinterest {
-  background-image: url(../../images/icons/pinterest-circle.svg);
-}
-
-.w3css-social-media a > i.fa-google-plus {
-  background-image: url(../../images/icons/google-plus-circle.svg);
-}
-
-.w3css-social-media a > i.fa-linkedin {
-  background-image: url(../../images/icons/linkedin-circle.svg);
-}
-
-.w3css-social-media a > i.fa-instagram {
-  background-image: url(../../images/icons/instagram-circle.svg);
-}
-
-.w3css-social-media a > i.fa-youtube {
-  background-image: url(../../images/icons/youtube-circle.svg);
-}
-
-.w3css-social-media a > i.fa-drupal {
-  background-image: url(../../images/icons/drupal-circle.svg);
-}
-
-.w3css-social-media a > i.fa-mastodon {
-  background-image: url(../../images/icons/mastodon-circle.svg);
-}
-
-.w3css-social-media a > i.fa-rss {
-  background-image: url(../../images/icons/rss.svg);
+  .w3css-social-media__link:is(:hover, :focus-visible) .w3css-social-media__icon {
+    transform: none;
+  }
 }
 
 .w3css-social-media {
@@ -102,11 +66,6 @@ ul-parent-footer li button {
   display: flex !important;
   align-items: center;
   justify-content: center;
-}
-
-.w3css-social-media a > .fa-ext {
-  font-size: 16px;
-  font-weight: normal;
 }
 
 /* The list lays the links out the way the flex container above used to. */

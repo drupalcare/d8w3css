@@ -49,7 +49,7 @@
   {{ comments }}
 
   {% if comment_form %}
-    <h2 class="comment-form__title w3css-comment-form__title">{{ 'Add new comment'|t }}</h2>
+    <h2{{ content_attributes.addClass(['comment-form__title', 'w3css-comment-form__title']) }}>{{ 'Add new comment'|t }}</h2>
     {{ comment_form }}
   {% endif %}
 

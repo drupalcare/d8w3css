@@ -1,0 +1,14 @@
+/**
+ * @file
+ * W3CSS cascade layer order: the one place it is declared.
+ *
+ * Weakest first. This file holds nothing else and loads before any other
+ * W3CSS file (library w3-css, css base, weight -1000), so the order below is
+ * fixed before any layer is named elsewhere. To change the order, change this
+ * line only. Rules: docs/css-layers.md. Check: scripts/css-layers-check.py.
+ *
+ * w3css.locked is first on purpose: inside layers !important runs backwards,
+ * so an !important here beats every other layer. It holds only values that
+ * must never change, each with its reason.
+ */
+@layer w3css.locked, w3css.reset, w3css.tokens, w3css.base, w3css.layout, w3css.library, w3css.theme, w3css.schemes, w3css.utilities, w3css.subtheme, w3css.custom;

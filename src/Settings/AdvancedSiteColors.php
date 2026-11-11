@@ -405,7 +405,7 @@ final class AdvancedSiteColors extends SettingsSection {
           '#template' => self::CLASS_PANE_TEMPLATE,
           '#context' => [
             'name' => $labels[$kind]['name'],
-            'pattern' => $definition['prefix'] . '<color>',
+            'pattern' => $definition['prefix'] . '[color]',
             'count' => $this->formatPlural(count($colors), '1 class', '@count classes'),
             'demo' => $definition['demo'],
             'demo_label' => $this->t('Live demo'),

@@ -26,10 +26,8 @@ final class ExternalLibraries extends SettingsSection {
       '#default_value' => $this->settings->get('libraries.font_awesome') ?? 0,
       '#options' => [
         0 => $this->t('None'),
-        1 => $this->t('Load Font Awesome 4.7 locally.'),
-        2 => $this->t('Load Font Awesome 4.7 from the CDN.'),
-        3 => $this->t('Load Font Awesome 5.15.4 from the CDN.'),
-        4 => $this->t('Load Font Awesome 6.1.1 from the CDN.'),
+        1 => $this->t('Load Font Awesome 7 locally.'),
+        2 => $this->t('Load Font Awesome 7 from the CDN.'),
       ],
     ];
 

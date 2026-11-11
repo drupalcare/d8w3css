@@ -1,0 +1,29 @@
+{
+  "_about": "Manifest for scripts/css-layers-check.py. Rules: docs/css-layers.md. Entries marked 'unlayered: migrating in batch N' are the W3CSS layers build in progress (planning: themes-layers-plan-w3css-2026-11-10.md); each batch replaces its entries with the layers its files use.",
+  "ladder": ["w3css.locked", "w3css.reset", "w3css.tokens", "w3css.base", "w3css.layout", "w3css.library", "w3css.theme", "w3css.schemes", "w3css.utilities", "w3css.subtheme", "w3css.custom"],
+  "ladder_file": "css/w3-css/w3css-layers.css",
+  "libraries_file": "drupal8_w3css_theme.libraries.yml",
+  "locked_layer": "w3css.locked",
+  "tokens_layer": "w3css.tokens",
+  "element_layers": ["w3css.reset", "w3css.base"],
+  "css_dirs": ["css", "fonts"],
+  "roots": ["#w3css-", ".w3css-", ".w3-", ".d8w3css-"],
+  "important_allow": {},
+  "files": {
+    "css/w3-css/w3css-layers.css": ["w3css.locked"],
+    "css/w3-css/w3.css": "ignored: frozen upstream W3.CSS 4.15 reference, not loaded by any library",
+    "css/w3-css/w3-modern.css": "pending: batch 2 (becomes w3css-drupal.css)",
+    "css/w3-css/w3css-extended-classes.css": "pending: batch 3",
+    "css/w3-css/w3css-color-libraries-*.css": "pending: batch 3",
+    "css/w3-css-theme/*.css": "pending: batch 4a",
+    "css/w3-css-theme-custom/*.css": "pending: batch 4b",
+    "css/base/*.css": "pending: batch 5a",
+    "css/layout/*.css": "pending: batch 5a",
+    "css/components/*.css": "pending: batch 5b",
+    "css/theme/d8w3css-settings-*.css": "admin",
+    "css/theme/*.css": "pending: batch 5c",
+    "fonts/*.css": "pending: batch 5c",
+    "fonts/css/*.css": "pending: batch 5c",
+    "fonts/css/special/*.css": "pending: batch 5c"
+  }
+}

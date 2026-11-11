@@ -218,7 +218,7 @@ other environments get the new names instead of the old ones.
   total space in the footer region will be divided by the number of regions you
   filled.)
 
-- W3CSS Theme comes with Font Awesome 4.7.0, 5.15.4 or 6.1.1. It is off by
+- W3CSS Theme comes with Font Awesome 7, local or from a CDN. It is off by
   default; you can enable it in theme settings, under Libraries and Fonts.
 
 - W3CSS Theme comes with match height. Example: If you have three blocks in the

@@ -8,5 +8,4 @@ Google Material Symbols, Outlined, weight 400, Apache-2.0. Not redrawn.
 - Files: search (search), chevron-right and chevron-disc-right (chevron_right), chevron-down (keyboard_arrow_down),
   arrow-right (arrow_forward), ex (close), hamburger (menu), plus-circle (add_circle), plus-square (add_box),
   error (error), required (asterisk). `chevron-disc-right.svg` is filled grey because it is a CSS background image.
-- Brand logos (`*-circle.svg`, `rss.svg`): the brands' own drawings; Material has no brand icons. Only the `viewBox` is trimmed.
 - `settings/`: see its own SOURCE.md.

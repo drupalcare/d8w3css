@@ -78,7 +78,6 @@
 <div id="w3css-main-nav-vertical" class="w3css-main-nav--vertical w3css-main-nav w3-sidebar w3-bar-block w3-animate-left w3-theme {{ color_primary_menu }}">
   <div id="w3css-main-nav-inner-vertical" class="w3css-main-nav__inner--vertical">
     <button type="button" id="w3css-main-nav-close" class="w3css-main-nav__close w3-button w3-bar-block w3-large w3-theme {{ color_primary_menu }}" aria-label="{{ 'Close side menu'|t }}">
-      {# <i class="fa fa-close"></i> #}
       <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="203 -757 554 554" fill="currentColor"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
     </button>
     {{ page.primary_menu_vertical }}
@@ -98,7 +97,6 @@
     <div id="w3css-header-inner" class="w3-container w3css-header__inner {{ website_width }}">
       {% if page.primary_menu_vertical %}
       <button type="button" id="w3css-main-nav-open" class="w3css-main-nav__open w3-opacity w3-hover-opacity-off w3-left w3-button w3-left-align w3-large w3-theme {{ color_primary_menu }}" aria-label="{{ 'Open side menu'|t }}" aria-controls="w3css-main-nav-vertical" aria-expanded="false">
-        {# <i class="fa fa-bars"></i> #}
         <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="116 -724 728 488" fill="currentColor"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
       </button>
       {% endif %}
@@ -117,7 +115,6 @@
   <div id="w3css-main-nav-horizontal" class="w3css-main-nav--horizontal w3-col w3-clear w3css-main-nav w3-theme {{ color_primary_menu }}">
     <div id="w3css-main-nav-inner-horizontal" class="w3-row w3css-main-nav__inner--horizontal {{ website_width }}">
       <div class="w3css-mobile-nav__toggle w3-hide-large w3-button w3-block w3-right-align w3-large w3-theme {{ color_primary_menu }}">
-        {# <i class="fa fa-bars"></i> #}
         <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="116 -724 728 488" fill="currentColor"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
       </div>
       {{ page.primary_menu }}
@@ -361,33 +358,29 @@
         <!-- Start: Social Media -->
       <div class="w3css-fade w3-center w3-container w3-mobile w3css-social-media">
         <ul class="w3css-social-media__list">
-        {% if facebook_url %}
-        <li class="w3css-social-media__item"><a href="{{ facebook_url }}" title="Facebook" class="w3-opacity w3-hover-opacity-off w3-hover-text-blue w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'Facebook (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-facebook" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if twitter_url %}
-        <li class="w3css-social-media__item"><a href="{{ twitter_url }}" title="X" class="w3-opacity w3-hover-opacity-off w3-hover-text-blue w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'X (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-twitter" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if pinterest_url %}
-        <li class="w3css-social-media__item"><a href="{{ pinterest_url }}" title="Pinterest" class="w3-opacity w3-hover-opacity-off w3-hover-text-red w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'Pinterest (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-pinterest" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if linkedin_url %}
-        <li class="w3css-social-media__item"><a href="{{ linkedin_url }}" title="LinkedIn" class="w3-opacity w3-hover-opacity-off w3-hover-text-blue w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'LinkedIn (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-linkedin" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if instagram_url %}
-        <li class="w3css-social-media__item"><a href="{{ instagram_url }}" title="Instagram" class="w3-opacity w3-hover-opacity-off w3-hover-text-red w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'Instagram (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-instagram" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if youtube_url %}
-        <li class="w3css-social-media__item"><a href="{{ youtube_url }}" title="YouTube" class="w3-opacity w3-hover-opacity-off w3-hover-text-red w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'YouTube (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-youtube" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if drupal_url %}
-        <li class="w3css-social-media__item"><a href="{{ drupal_url }}" title="Drupal" class="w3-opacity w3-hover-opacity-off w3-hover-text-blue w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'Drupal (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-drupal" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if mastodon_url %}
-          <li class="w3css-social-media__item"><a href="{{ mastodon_url }}" title="Mastodon" class="w3-opacity w3-hover-opacity-off w3-hover-text-blue w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'Mastodon (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-mastodon" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if rss_url %}
-        <li class="w3css-social-media__item"><a href="{{ rss_url }}" title="RSS Feed" class="w3-opacity w3-hover-opacity-off w3-hover-text-orange w3-show-inline-block w3-xlarge w3-padding" target="_blank" rel="noopener"><span class="visually-hidden">{{ 'RSS Feed (opens in a new tab)'|t }}</span><i class="w3-social-icon fa-rss" aria-hidden="true"></i></a></li>
-        {% endif %}
+        {% set w3css_social_links = {
+          'facebook': {'url': facebook_url, 'title': 'Facebook', 'label': 'Facebook (opens in a new tab)'|t},
+          'twitter': {'url': twitter_url, 'title': 'X', 'label': 'X (opens in a new tab)'|t},
+          'pinterest': {'url': pinterest_url, 'title': 'Pinterest', 'label': 'Pinterest (opens in a new tab)'|t},
+          'linkedin': {'url': linkedin_url, 'title': 'LinkedIn', 'label': 'LinkedIn (opens in a new tab)'|t},
+          'instagram': {'url': instagram_url, 'title': 'Instagram', 'label': 'Instagram (opens in a new tab)'|t},
+          'youtube': {'url': youtube_url, 'title': 'YouTube', 'label': 'YouTube (opens in a new tab)'|t},
+          'drupal': {'url': drupal_url, 'title': 'Drupal', 'label': 'Drupal (opens in a new tab)'|t},
+          'mastodon': {'url': mastodon_url, 'title': 'Mastodon', 'label': 'Mastodon (opens in a new tab)'|t},
+          'rss': {'url': rss_url, 'title': 'RSS Feed', 'label': 'RSS Feed (opens in a new tab)'|t},
+        } %}
+        {% for key, social in w3css_social_links %}
+          {% if social.url %}
+            <li class="w3css-social-media__item">
+              <a href="{{ social.url }}" title="{{ social.title }}" class="w3css-social-media__link w3css-social-media__link--{{ key }}" target="_blank" rel="noopener noreferrer">
+                <span class="w3css-social-media__icon" aria-hidden="true">
+                  {% include '@drupal8_w3css_theme/partials/svg/_svg-' ~ key ~ '.html.twig' %}
+                </span>
+                <span class="visually-hidden">{{ social.label }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
         </ul>
       </div>
       <!-- End: Social Media -->

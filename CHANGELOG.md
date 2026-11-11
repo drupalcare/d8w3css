@@ -2,6 +2,11 @@
 
 ## Next release
 
+- Social links: built as inline SVG in the link's colour, so they follow the link color and hover. The Font Awesome class hooks, their JavaScript and the old social icon images are gone; a sub-theme that styled `.w3css-social-media a > i` or `.w3-social-icon` should use `.w3css-social-media__icon`.
+- Font Awesome: the only choices are now Font Awesome 7 locally or from the CDN. Sites on the 5.x or 6.x CDN option move to Font Awesome 7 from the CDN. Icons that exist only under Font Awesome 4 names may need renaming.
+- Templates: brought in line with Drupal 11 core (no redundant landmark roles, description ids on details, the description-before position in form elements, `view_mode` for titles, no `spaceless`).
+- Sidebar menus: a menu placed in the left or right sidebar opens its submenus on hover or with the arrow, in the page flow below their parent, with the arrow beside its link; before, the submenu flew out over the items below it with no background of its own.
+- Contextual links (the pencil menu) show one link per row again, as in Drupal core; the theme's floated link items had put two on one row in a narrow column.
 - Icons: the interface icons (menu arrows, hamburger and close buttons, required asterisk, form error, Layout Builder plus, admin list chevron) are now Google Material Symbols (Outlined, weight 400), trimmed to their drawing, and take the text color through `currentColor` or a CSS mask. The theme no longer uses `arrow-right-ccc.svg` and `search-ccc.svg`; both files stay so sub-themes that reference them keep working. Brand logos for the social links keep their own drawings.
 - Header search: the open form is one field with a joined submit button, both 44px high, built with flexbox and the theme's own border classes; the floated 70/30 layout, the magnifier image and the off-screen text on the button are removed. The button shows its "Search" label.
 - Extend and Appearance pages: every module and theme description is a short, professional statement that begins with a verb; credits, links and version notes moved out of the info files.

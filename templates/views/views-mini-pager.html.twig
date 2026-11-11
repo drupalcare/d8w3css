@@ -12,7 +12,8 @@
 #}
 {% if items.previous or items.next %}
   <nav class="w3-center pager" aria-labelledby="{{ heading_id }}">
-    <h4 id="{{ heading_id }}" class="pager__heading visually-hidden">{{ 'Pagination'|t }}</h4>
+    {% set pager_heading = pagination_heading_level|default('h4') %}
+    <{{ pager_heading }} id="{{ heading_id }}" class="pager__heading visually-hidden">{{ 'Pagination'|t }}</{{ pager_heading }}>
     <ul class="w3-bar pager__items w3css-pager__items js-pager__items">
       {% if items.previous %}
         <li class="w3-button pager__item w3css-pager__item pager__item--previous">

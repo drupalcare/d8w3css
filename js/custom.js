@@ -1105,13 +1105,6 @@
    */
   Drupal.behaviors.w3cssTheme = {
     attach(context) {
-      // Remove Fa class from social links.
-      once('w3css-social-icon', '.w3css-social-media a > i', context).forEach(
-        function (element) {
-          element.classList.remove('fa');
-        },
-      );
-
       // In case the admin toolbar search installed.
       once(
         'w3css-toolbar-search',

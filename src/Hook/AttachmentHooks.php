@@ -50,21 +50,13 @@ final class AttachmentHooks {
       $attachments['#attached']['library'][] = $predefined_theme_filename;
     }
     // Load font awesome.
-    switch ($this->settings->get('libraries.font_awesome')) {
+    switch ((int) $this->settings->get('libraries.font_awesome')) {
       case 1:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-in';
+        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-in';
         break;
 
       case 2:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-4-ex';
-        break;
-
-      case 3:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-5-ex';
-        break;
-
-      case 4:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-6-ex';
+        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-ex';
         break;
     }
     // The size styles only matter when the social icons are shown.

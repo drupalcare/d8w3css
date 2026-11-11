@@ -31,7 +31,8 @@
       </div>
     {% endif %}
     {%- if description -%}
-      <div class="w3-panel details-description">{{ description }}</div>
+      {% set description_attributes = create_attribute({id: attributes['aria-describedby']}) %}
+      <div{{ description_attributes.addClass(['w3-panel', 'details-description']) }}>{{ description }}</div>
     {%- endif -%}
     {%- if children -%}
       {{ children }}

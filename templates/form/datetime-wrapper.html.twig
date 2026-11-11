@@ -28,5 +28,5 @@
   </div>
 {% endif %}
 {% if description %}
-  <div class="w3-panel w3-small description w3css-description">{{ description }}</div>
+  <div{{ description_attributes.addClass(['w3-panel', 'w3-small', 'description', 'w3css-description']) }}>{{ description }}</div>
 {% endif %}
