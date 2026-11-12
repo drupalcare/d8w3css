@@ -43,10 +43,7 @@ final class SettingsReader {
     if ($old === NULL) {
       return NULL;
     }
-    [$castable, $cast] = SettingsMigrator::castValue(
-      $this->provider->getSetting($old),
-      SettingsMap::MAP['moved'][$old]['type'],
-    );
+    [$castable, $cast] = SettingsMigrator::castMoved($old, $this->provider->getSetting($old));
     return $castable ? $cast : NULL;
   }
 

@@ -1,0 +1,350 @@
+@layer w3css.tokens {
+  :root {
+    --w3css-site-branding-animation-background: #5f2879;
+    --w3css-site-branding-animation-background-2: #00418d;
+    --w3css-site-branding-animation-background-3: #00c2de;
+    --w3css-site-branding-animation-background-4: #fad717;
+    --w3css-site-branding-animation-background-5: #00ba71;
+    --w3css-site-branding-animation-background-6: #fa8901;
+    --w3css-site-branding-animation-background-7: #f43545;
+    --w3css-site-branding-animation-background-8: #ccc;
+    --w3css-site-branding-animation-background-9: #095fab;
+    --w3css-site-branding-animation-background-10: #25abe8;
+    --w3css-site-branding-animation-background-11: #57d75b;
+    --w3css-site-branding-animation-background-12: #d0e4f7;
+    --w3css-site-branding-animation-background-13: #73b1e7;
+    --w3css-site-branding-animation-background-14: #e2d40b;
+    --w3css-site-branding-animation-background-15: #539fe1;
+    --w3css-site-branding-animation-background-16: #87bcea;
+    --w3css-site-branding-animation-background-17: #ffb5ba;
+    --w3css-site-branding-animation-background-18: #ff796c;
+    --w3css-site-branding-animation-background-19: #ce4676;
+    --w3css-site-branding-animation-background-20: #8db600;
+    --w3css-site-branding-animation-background-21: #27a64c;
+    --w3css-site-branding-animation-background-22: #008882;
+    --w3css-site-branding-animation-background-23: #0085a1;
+    --w3css-site-branding-animation-background-24: #ffb7a5;
+    --w3css-site-branding-animation-background-25: #e25822;
+    --w3css-site-branding-animation-background-26: #f6a600;
+    --w3css-site-branding-animation-background-27: #dcd300;
+    --w3css-site-branding-animation-background-28: #008856;
+    --w3css-site-branding-animation-background-29: #00a1c2;
+    --w3css-site-branding-animation-background-30: #9065ca;
+    --w3css-site-branding-animation-background-31: #9a4eae;
+    --w3css-site-branding-animation-background-32: #be0032;
+    --w3css-site-branding-animation-background-33: #f38400;
+    --w3css-site-branding-animation-background-34: #f3c300;
+    --w3css-site-branding-animation-background-35: #bd1e24;
+    --w3css-site-branding-animation-background-36: #e97600;
+    --w3css-site-branding-animation-background-37: #f6c700;
+    --w3css-site-branding-animation-background-38: #007256;
+    --w3css-site-branding-animation-background-39: #0067a7;
+    --w3css-site-branding-animation-background-40: #964f8e;
+    --w3css-site-branding-animation-background-41: #aebcbf;
+    --w3css-site-branding-animation-background-42: #6e7774;
+    --w3css-site-branding-animation-background-43: #cefc00;
+    --w3css-site-branding-animation-background-44: #444;
+    --w3css-site-branding-animation-background-45: #ff6a00;
+    --w3css-site-branding-animation-background-46: #fe0;
+    --w3css-site-branding-animation-background-47: #46f900;
+    --w3css-site-branding-animation-background-48: #00fcde;
+    --w3css-site-branding-animation-background-49: #00c9fc;
+    --w3css-site-branding-animation-background-50: #e000f4;
+    --w3css-site-branding-animation-background-51: #f7001c;
+    --w3css-site-branding-animation-background-52: #e50095;
+    --w3css-site-branding-animation-background-53: #30267a;
+    --w3css-site-branding-animation-background-54: #870074;
+  }
+}
+
+@layer w3css.theme {
+  /* stylelint-disable-next-line keyframes-name-pattern -- public animation name, also defined by the generated palettes; renaming would break them */
+
+  @keyframes animateSiteName {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  .animate-text-01,
+  #w3css-page-title.animate-title-01 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background));
+  }
+
+  .animate-text-02,
+  #w3css-page-title.animate-title-02 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-9), var(--w3css-site-branding-animation-background-10), var(--w3css-site-branding-animation-background-11), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-11), var(--w3css-site-branding-animation-background-10), var(--w3css-site-branding-animation-background-9));
+  }
+
+  .animate-text-03,
+  #w3css-page-title.animate-title-03 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-12), var(--w3css-site-branding-animation-background-13), var(--w3css-site-branding-animation-background-14), var(--w3css-site-branding-animation-background-15), var(--w3css-site-branding-animation-background-16), var(--w3css-site-branding-animation-background-15), var(--w3css-site-branding-animation-background-14), var(--w3css-site-branding-animation-background-13), var(--w3css-site-branding-animation-background-12));
+  }
+
+  .animate-text-04,
+  #w3css-page-title.animate-title-04 .page-title {
+    background: linear-gradient(45deg, var(--w3-red), var(--w3-pink), var(--w3-purple), var(--w3-deep-purple), var(--w3-indigo), var(--w3-blue), var(--w3-light-blue), var(--w3-cyan), var(--w3-aqua), var(--w3-teal), var(--w3-green), var(--w3-light-green), var(--w3-light-green), var(--w3-light-green), var(--w3-light-green), var(--w3-green), var(--w3-teal), var(--w3-aqua), var(--w3-cyan), var(--w3-light-blue), var(--w3-blue), var(--w3-indigo), var(--w3-deep-purple), var(--w3-purple), var(--w3-pink), var(--w3-red));
+  }
+
+  .animate-text-05,
+  #w3css-page-title.animate-title-05 .page-title {
+    background: linear-gradient(45deg, var(--w3-teal), var(--w3-blue), var(--w3-yellow), var(--w3-orange), var(--w3-red), var(--w3-purple), var(--w3-purple), var(--w3-red), var(--w3-orange), var(--w3-yellow), var(--w3-blue), var(--w3-teal));
+  }
+
+  .animate-text-06,
+  #w3css-page-title.animate-title-06 .page-title {
+    background: linear-gradient(45deg, var(--w3-red), var(--w3-purple), var(--w3-blue), var(--w3-green), var(--w3-orange), var(--w3-orange), var(--w3-green), var(--w3-blue), var(--w3-purple), var(--w3-red));
+  }
+
+  .animate-text-07,
+  #w3css-page-title.animate-title-07 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-17), var(--w3css-site-branding-animation-background-18), var(--w3css-site-branding-animation-background-19), var(--w3-light-blue), var(--w3-cyan), var(--w3-blue), var(--w3-cyan), var(--w3-light-blue), var(--w3css-site-branding-animation-background-19), var(--w3css-site-branding-animation-background-18), var(--w3css-site-branding-animation-background-17));
+  }
+
+  .animate-text-08,
+  #w3css-page-title.animate-title-08 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-20), var(--w3css-site-branding-animation-background-21), var(--w3css-site-branding-animation-background-22), var(--w3css-site-branding-animation-background-23), var(--w3css-site-branding-animation-background-23), var(--w3css-site-branding-animation-background-22), var(--w3css-site-branding-animation-background-21), var(--w3css-site-branding-animation-background-20));
+  }
+
+  .animate-text-09,
+  #w3css-page-title.animate-title-09 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-24), var(--w3css-site-branding-animation-background-25), var(--w3css-site-branding-animation-background-26), var(--w3css-site-branding-animation-background-27), var(--w3css-site-branding-animation-background-27), var(--w3css-site-branding-animation-background-26), var(--w3css-site-branding-animation-background-25), var(--w3css-site-branding-animation-background-24));
+  }
+
+  .animate-text-10,
+  #w3css-page-title.animate-title-10 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-28), var(--w3css-site-branding-animation-background-29), var(--w3css-site-branding-animation-background-30), var(--w3css-site-branding-animation-background-31), var(--w3css-site-branding-animation-background-31), var(--w3css-site-branding-animation-background-30), var(--w3css-site-branding-animation-background-29), var(--w3css-site-branding-animation-background-28));
+  }
+
+  .animate-text-11,
+  #w3css-page-title.animate-title-11 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-17), var(--w3css-site-branding-animation-background-32), var(--w3css-site-branding-animation-background-33), var(--w3css-site-branding-animation-background-34), var(--w3css-site-branding-animation-background-34), var(--w3css-site-branding-animation-background-33), var(--w3css-site-branding-animation-background-32), var(--w3css-site-branding-animation-background-17));
+  }
+
+  .animate-text-12,
+  #w3css-page-title.animate-title-12 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-35), var(--w3css-site-branding-animation-background-36), var(--w3css-site-branding-animation-background-37), var(--w3css-site-branding-animation-background-38), var(--w3css-site-branding-animation-background-39), var(--w3css-site-branding-animation-background-40), var(--w3css-site-branding-animation-background-40), var(--w3css-site-branding-animation-background-39), var(--w3css-site-branding-animation-background-38), var(--w3css-site-branding-animation-background-37), var(--w3css-site-branding-animation-background-36), var(--w3css-site-branding-animation-background-35));
+  }
+
+  .animate-text-13,
+  #w3css-page-title.animate-title-13 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background));
+  }
+
+  .animate-text-14,
+  #w3css-page-title.animate-title-14 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-4));
+  }
+
+  .animate-text-15,
+  #w3css-page-title.animate-title-15 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-43), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-43), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-16,
+  #w3css-page-title.animate-title-16 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-45), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-45), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-17,
+  #w3css-page-title.animate-title-17 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-46), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-46), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-18,
+  #w3css-page-title.animate-title-18 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-47), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-47), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-19,
+  #w3css-page-title.animate-title-19 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-48), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-48), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-20,
+  #w3css-page-title.animate-title-20 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-49), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-49), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-21,
+  #w3css-page-title.animate-title-21 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-50), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-50), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-22,
+  #w3css-page-title.animate-title-22 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-51), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-51), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-23,
+  #w3css-page-title.animate-title-23 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-41), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-52), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-44), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-52), var(--w3css-site-branding-animation-background-42), var(--w3css-site-branding-animation-background-41));
+  }
+
+  .animate-text-24,
+  #w3css-page-title.animate-title-24 .page-title {
+    background: linear-gradient(45deg, var(--w3css-site-branding-animation-background-53), var(--w3css-site-branding-animation-background-23), var(--w3css-site-branding-animation-background-54), var(--w3css-site-branding-animation-background-19), var(--w3css-site-branding-animation-background-19), var(--w3css-site-branding-animation-background-54), var(--w3css-site-branding-animation-background-23), var(--w3css-site-branding-animation-background-53));
+  }
+
+  .animate-text-01,
+  .animate-text-02,
+  .animate-text-03,
+  .animate-text-04,
+  .animate-text-05,
+  .animate-text-06,
+  .animate-text-07,
+  .animate-text-08,
+  .animate-text-09,
+  .animate-text-10,
+  .animate-text-11,
+  .animate-text-12,
+  .animate-text-13,
+  .animate-text-14,
+  .animate-text-15,
+  .animate-text-16,
+  .animate-text-17,
+  .animate-text-18,
+  .animate-text-19,
+  .animate-text-20,
+  .animate-text-21,
+  .animate-text-22,
+  .animate-text-23,
+  .animate-text-24 {
+    /* One 5-second sweep, then still: moving text that starts on its own must stop within 5 seconds (WCAG 2.2.2). */
+    animation: animateSiteName 5s linear 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% 200%;
+  }
+
+  #w3css-header.animate-name-01 a.w3css-site-name__link,
+  #w3css-header.animate-name-02 a.w3css-site-name__link,
+  #w3css-header.animate-name-03 a.w3css-site-name__link,
+  #w3css-header.animate-name-04 a.w3css-site-name__link,
+  #w3css-header.animate-name-05 a.w3css-site-name__link,
+  #w3css-header.animate-name-06 a.w3css-site-name__link,
+  #w3css-header.animate-name-07 a.w3css-site-name__link,
+  #w3css-header.animate-name-08 a.w3css-site-name__link,
+  #w3css-header.animate-name-09 a.w3css-site-name__link,
+  #w3css-header.animate-name-10 a.w3css-site-name__link,
+  #w3css-header.animate-name-11 a.w3css-site-name__link,
+  #w3css-header.animate-name-12 a.w3css-site-name__link,
+  #w3css-header.animate-name-13 a.w3css-site-name__link,
+  #w3css-header.animate-name-14 a.w3css-site-name__link,
+  #w3css-header.animate-name-15 a.w3css-site-name__link,
+  #w3css-header.animate-name-16 a.w3css-site-name__link,
+  #w3css-header.animate-name-17 a.w3css-site-name__link,
+  #w3css-header.animate-name-18 a.w3css-site-name__link,
+  #w3css-header.animate-name-19 a.w3css-site-name__link,
+  #w3css-header.animate-name-20 a.w3css-site-name__link,
+  #w3css-header.animate-name-21 a.w3css-site-name__link,
+  #w3css-header.animate-name-22 a.w3css-site-name__link,
+  #w3css-header.animate-name-23 a.w3css-site-name__link,
+  #w3css-header.animate-name-24 a.w3css-site-name__link,
+  #w3css-page-title.animate-title-01 .page-title span,
+  #w3css-page-title.animate-title-02 .page-title span,
+  #w3css-page-title.animate-title-03 .page-title span,
+  #w3css-page-title.animate-title-04 .page-title span,
+  #w3css-page-title.animate-title-05 .page-title span,
+  #w3css-page-title.animate-title-06 .page-title span,
+  #w3css-page-title.animate-title-07 .page-title span,
+  #w3css-page-title.animate-title-08 .page-title span,
+  #w3css-page-title.animate-title-09 .page-title span,
+  #w3css-page-title.animate-title-10 .page-title span,
+  #w3css-page-title.animate-title-11 .page-title span,
+  #w3css-page-title.animate-title-12 .page-title span,
+  #w3css-page-title.animate-title-13 .page-title span,
+  #w3css-page-title.animate-title-14 .page-title span,
+  #w3css-page-title.animate-title-15 .page-title span,
+  #w3css-page-title.animate-title-16 .page-title span,
+  #w3css-page-title.animate-title-17 .page-title span,
+  #w3css-page-title.animate-title-18 .page-title span,
+  #w3css-page-title.animate-title-19 .page-title span,
+  #w3css-page-title.animate-title-20 .page-title span,
+  #w3css-page-title.animate-title-21 .page-title span,
+  #w3css-page-title.animate-title-22 .page-title span,
+  #w3css-page-title.animate-title-23 .page-title span,
+  #w3css-page-title.animate-title-24 .page-title span {
+    -webkit-background-clip: text;
+  }
+
+  #w3css-page-title.animate-title-01 .page-title,
+  #w3css-page-title.animate-title-02 .page-title,
+  #w3css-page-title.animate-title-03 .page-title,
+  #w3css-page-title.animate-title-04 .page-title,
+  #w3css-page-title.animate-title-05 .page-title,
+  #w3css-page-title.animate-title-06 .page-title,
+  #w3css-page-title.animate-title-07 .page-title,
+  #w3css-page-title.animate-title-08 .page-title,
+  #w3css-page-title.animate-title-09 .page-title,
+  #w3css-page-title.animate-title-10 .page-title,
+  #w3css-page-title.animate-title-11 .page-title,
+  #w3css-page-title.animate-title-12 .page-title,
+  #w3css-page-title.animate-title-13 .page-title,
+  #w3css-page-title.animate-title-14 .page-title,
+  #w3css-page-title.animate-title-15 .page-title,
+  #w3css-page-title.animate-title-16 .page-title,
+  #w3css-page-title.animate-title-17 .page-title,
+  #w3css-page-title.animate-title-18 .page-title,
+  #w3css-page-title.animate-title-19 .page-title,
+  #w3css-page-title.animate-title-20 .page-title,
+  #w3css-page-title.animate-title-21 .page-title,
+  #w3css-page-title.animate-title-22 .page-title,
+  #w3css-page-title.animate-title-23 .page-title,
+  #w3css-page-title.animate-title-24 .page-title {
+    /* One 5-second sweep, then still: moving text that starts on its own must stop within 5 seconds (WCAG 2.2.2). */
+    animation: animateSiteName 5s linear 1;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% 200%;
+  }
+
+  /* Reduced motion: stop the looping gradient and the wiggle (WCAG 2.2.2). */
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-text-01,
+    .animate-text-02,
+    .animate-text-03,
+    .animate-text-04,
+    .animate-text-05,
+    .animate-text-06,
+    .animate-text-07,
+    .animate-text-08,
+    .animate-text-09,
+    .animate-text-10,
+    .animate-text-11,
+    .animate-text-12,
+    .animate-text-13,
+    .animate-text-14,
+    .animate-text-15,
+    .animate-text-16,
+    .animate-text-17,
+    .animate-text-18,
+    .animate-text-19,
+    .animate-text-20,
+    .animate-text-21,
+    .animate-text-22,
+    .animate-text-23,
+    .animate-text-24,
+    #w3css-page-title[class*="animate-title-"] .page-title {
+      animation: none;
+    }
+  }
+
+  /* Windows high contrast removes the gradient behind clipped text, which would
+     leave the text transparent. Show it in the system text color (WCAG 1.4.3). */
+  @media (forced-colors: active) {
+    .animate-text-24,
+    #w3css-page-title.animate-title-24 .page-title,
+    #w3css-page-title.animate-title-24 .page-title span {
+      color: CanvasText;
+      background: none;
+      -webkit-text-fill-color: CanvasText;
+    }
+  }
+}

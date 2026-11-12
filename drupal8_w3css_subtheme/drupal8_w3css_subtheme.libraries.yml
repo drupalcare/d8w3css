@@ -1,10 +1,10 @@
-d8w3css-subtheme-global:
+subtheme-global:
   css:
     theme:
-      css/d8w3css-subtheme-style.css: {}
+      css/w3css-subtheme-style.css: {}
 
   js:
-    js/d8w3css-subtheme-script.js: {}
+    js/w3css-subtheme-script.js: {}
 
   dependencies:
     - core/drupal

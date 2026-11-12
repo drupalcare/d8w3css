@@ -1,0 +1,45 @@
+@layer w3css.theme {
+  .w3css-header__inner > div {
+    float: left;
+    width: auto;
+  }
+
+  .w3css-site-name-slogan {
+    display: inline-block;
+    margin: 16px 0 0 16px;
+  }
+
+  .site-name,
+  .w3css-site-name,
+  .site-slogan,
+  .w3css-site-slogan {
+    text-transform: uppercase;
+    line-height: 140%;
+  }
+
+  .site-name a,
+  .w3css-site-name a {
+    text-transform: uppercase;
+  }
+
+  .site-name,
+  .w3css-site-name {
+    margin: 0;
+    font-size: 36px;
+  }
+
+  .site-slogan,
+  .w3css-site-slogan {
+    font-size: 24px;
+  }
+
+  .site-logo,
+  .w3css-site-branding__logo {
+    margin-top: 4px;
+  }
+
+  .w3css-site-name__link {
+    display: block;
+    width: 100%;
+  }
+}

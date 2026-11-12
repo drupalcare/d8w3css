@@ -1,0 +1,10 @@
+@layer w3css.theme {
+  ul.w3css-breadcrumb__list {
+    list-style: none;
+  }
+
+  ol.w3css-breadcrumb__list {
+    padding: 8px 16px;
+    list-style: none;
+  }
+}

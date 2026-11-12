@@ -102,7 +102,7 @@ final class PredefinedThemes extends SettingsSection {
       '#default_value' => $this->settings->get('color_scheme.predefined') ?: 'none',
       '#process' => [[Radios::class, 'processRadios'], [self::class, 'arrangeThumbnails']],
       '#w3css_scheme_families' => ColorThemeFamilies::labels(),
-      '#prefix' => '<div class="w3css-schemes">',
+      '#prefix' => '<div class="w3css-scheme-picker">',
       '#suffix' => '</div>',
     ];
     foreach ($picker['#options'] as $value => $label) {
@@ -124,7 +124,7 @@ final class PredefinedThemes extends SettingsSection {
    */
   private function thumbnail(string $value, string $label): MarkupInterface {
     $src = base_path() . $this->themeList->getPath('drupal8_w3css_theme') . '/images/schemes/' . $value . '.webp';
-    return Markup::create('<img class="w3css-schemes__image" src="' . Html::escape($src) . '" alt="" width="120" height="160" loading="lazy" decoding="async"><span class="w3css-schemes__name">' . Html::escape($label) . '</span>');
+    return Markup::create('<img class="w3css-scheme-picker__image" src="' . Html::escape($src) . '" alt="" width="120" height="160" loading="lazy" decoding="async"><span class="w3css-scheme-picker__name">' . Html::escape($label) . '</span>');
   }
 
   /**
@@ -147,16 +147,16 @@ final class PredefinedThemes extends SettingsSection {
     foreach ($element['#w3css_scheme_families'] as $family => $title) {
       $group = [
         '#type' => 'container',
-        '#attributes' => ['class' => ['w3css-schemes__group']],
+        '#attributes' => ['class' => ['w3css-scheme-picker__group']],
         'title' => [
           '#type' => 'html_tag',
           '#tag' => 'h4',
           '#value' => $title,
-          '#attributes' => ['class' => ['w3css-schemes__group-title']],
+          '#attributes' => ['class' => ['w3css-scheme-picker__group-title']],
         ],
         'grid' => [
           '#type' => 'container',
-          '#attributes' => ['class' => ['w3css-schemes__grid']],
+          '#attributes' => ['class' => ['w3css-scheme-picker__grid']],
         ],
       ];
       foreach (array_keys($element['#options']) as $value) {

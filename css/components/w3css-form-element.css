@@ -1,0 +1,111 @@
+@layer w3css.tokens {
+  :root {
+    --w3css-form-element-color: #e00;
+    --w3css-form-element-background: #e00;
+    --w3css-form-element-shadow: rgb(51, 44, 51, 0.1);
+  }
+}
+
+@layer w3css.theme {
+  /* Form API. */
+
+  .w3css-radios .w3css-form-item,
+  .w3css-checkboxes .w3css-form-item {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+  }
+
+  .form-radios .form-type-radio,
+  .w3css-radios .form-type-radio,
+  .form-type-checkbox {
+    max-width: 100%;
+    text-align: start;
+  }
+
+  .form-type-radio .w3css-form-element__description,
+  .form-type-checkbox .w3css-form-element__description {
+    margin-inline-start: 2px;
+  }
+
+  .marker,
+  .w3css-mark {
+    color: var(--w3css-form-element-color);
+  }
+
+  .form-checkbox,
+  .form-radio {
+    display: inline-block;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) abbr.tabledrag-changed,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) abbr.ajax-changed {
+    border-bottom: none;
+  }
+
+  .form-wrapper .field-multiple-table .label,
+  .w3css-container .field-multiple-table .w3css-admin-block-content__label {
+    font-size: inherit;
+  }
+
+  .form-required::after {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 0.3em;
+    vertical-align: super;
+    background-color: var(--w3css-form-element-background);
+    -webkit-mask: url(../../images/icons/required.svg) center / contain no-repeat;
+    mask: url(../../images/icons/required.svg) center / contain no-repeat;
+  }
+
+  .w3css-form-element__required::after {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 0.3em;
+    content: "";
+    vertical-align: super;
+    background-color: var(--w3css-form-element-background);
+    -webkit-mask: url(../../images/icons/required.svg) center / contain no-repeat;
+    mask: url(../../images/icons/required.svg) center / contain no-repeat;
+  }
+
+  /* Inline Error Message. */
+
+  .form-item--error-message::before,
+  .w3css-form-item--error-message::before {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 0.3em;
+    content: "";
+    vertical-align: middle;
+    background-color: var(--w3css-form-element-background);
+    -webkit-mask: url(../../images/icons/error.svg) center / contain no-repeat;
+    mask: url(../../images/icons/error.svg) center / contain no-repeat;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) input,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea,
+  .region-title__action a {
+    box-shadow: inset 0 0 5px var(--w3css-form-element-shadow);
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    box-shadow: none;
+  }
+
+  /* Windows high contrast: the required and error icons are a mask painted with
+     background-color, which forced colors would turn into the page color and
+     hide. Paint them with the system text color instead (WCAG 1.4.11). */
+  @media (forced-colors: active) {
+    .form-required::after,
+    .w3css-form-element__required::after,
+    .form-item--error-message::before,
+    .w3css-form-item--error-message::before {
+      forced-color-adjust: none;
+      background-color: CanvasText;
+    }
+  }
+}

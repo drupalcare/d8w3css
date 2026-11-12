@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\drupal8_w3css_theme\Settings\ExternalLibraries;
 use Drupal\drupal8_w3css_theme\Upgrade\SettingsMigrator;
 
 /**
@@ -99,4 +101,34 @@ function drupal8_w3css_theme_post_update_switch_font_awesome_7(): string {
     }
   }
   return $moved ? 'Moved to Font Awesome 7 from the CDN: ' . implode(', ', $moved) . '.' : 'No theme used a removed Font Awesome choice.';
+}
+
+/**
+ * Renames the stored font choices to the w3css-font prefix.
+ */
+function drupal8_w3css_theme_post_update_rename_typography_font_values(): string {
+  // Post-updates run in name order: "rename_typography..." sorts after
+  // "rename_settings", which creates the typography keys this reads. The
+  // earlier name rename_font_values sorted first and found nothing (measured
+  // on a 2.0.18 database, 2026-11-11). Only a value that
+  // still starts with the old prefix changes, so a second run changes nothing.
+  // Theme settings only: block config and other modules hold no font values.
+  $factory = \Drupal::configFactory();
+  $count = 0;
+  foreach (SettingsMigrator::create()->themes() as $theme) {
+    $config = $factory->getEditable($theme . '.settings');
+    $changed = FALSE;
+    foreach (['site_font', 'heading_font', 'special_font'] as $key) {
+      $value = $config->get('typography.' . $key);
+      if (is_string($value) && str_starts_with($value, 'd8w3css-')) {
+        $config->set('typography.' . $key, ExternalLibraries::currentFont($value));
+        $changed = TRUE;
+        $count++;
+      }
+    }
+    if ($changed) {
+      $config->save();
+    }
+  }
+  return (string) new TranslatableMarkup('Renamed @count stored font choices to the w3css-font prefix.', ['@count' => $count]);
 }

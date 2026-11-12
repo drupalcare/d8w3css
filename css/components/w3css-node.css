@@ -1,0 +1,152 @@
+@layer w3css.theme {
+  /* To roll the text around the image */
+
+  .node__content > .field--name-field-image,
+  .w3css-node__content > .field--name-field-image,
+  .node__content > .field--name-field-media-image,
+  .w3css-node__content > .field--name-field-media-image {
+    float: left;
+  }
+
+  .field--type-text::after,
+  .field--type-text::before,
+  .field--type-text-with-summary::after,
+  .field--type-text-with-summary::before {
+    display: inline;
+  }
+
+  /* User picture on the node */
+
+  .node__header,
+  .w3css-node__header,
+  .node__content,
+  .w3css-node__content {
+    margin-bottom: 12px;
+  }
+
+  .node__meta,
+  .w3css-node__meta {
+    display: flex;
+    align-items: center;
+  }
+
+  .node__meta .node__author-image,
+  .w3css-node__meta .w3css-node__author-image {
+    overflow: hidden;
+    margin-right: 12px;
+  }
+
+  .node__meta .w3css-node__author-info,
+  .w3css-node__meta .w3css-node__author-info {
+    font-size: 90%;
+  }
+
+  /* .node--view-mode-full .node__content .field--type-text-long,
+  .node--view-mode-full .node__content .field--type-string-long,
+  .node--view-mode-full .node__content .field--type-text-with-summary {
+    font-size: 22px;
+    line-height: 190%;
+  } */
+
+  /* Multi items field */
+
+  .w3css-field.w3css-field__items > .w3css-field__item,
+  .w3css-field > .w3css-field__items > .w3css-field__item {
+    display: inline-block;
+  }
+
+  .w3-expand-fields .w3css-field.w3css-field__items > .w3css-field__item,
+  .w3-expand-fields .w3css-field > .w3css-field__items > .w3css-field__item {
+    display: block;
+  }
+
+  /* The wrapper for multi items field always block */
+
+  .field > .field__items,
+  .w3css-field > .w3css-field__items {
+    display: block;
+  }
+
+  /* The wrapper for multi items field if the label is inline */
+
+  .field--label-inline > .field__label,
+  .field--label-inline > .w3css-field__label,
+  .field--label-inline > .field__item,
+  .field--label-inline > .w3css-field__item,
+  .field--label-inline > .field__items,
+  .field--label-inline > .w3css-field__items {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .field--label-above > .field__label,
+  .field--label-above > .w3css-field__label,
+  .field--label-above > .field__item,
+  .field--label-above > .w3css-field__item,
+  .field--label-above > .field__items,
+  .field--label-above > .w3css-field__items {
+    display: block;
+  }
+
+  .field--type-h5p .field__label,
+  .field--type-h5p .w3css-field__label,
+  .field--type-h5p .field__item,
+  .field--type-h5p .w3css-field__item,
+  .field--type-h5p .field__items,
+  .field--type-h5p .w3css-field__items {
+    width: 100%;
+  }
+
+  .field--label-above > .field__item,
+  .field--label-above > .w3css-field__item,
+  .field--label-above > .field__items > .field__item:first-child,
+  .field--label-above > .w3css-field__items > .w3css-field__item:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .field__items > .field__item,
+  .w3css-field__items > .w3css-field__item,
+  .field--label-inline > .field__label,
+  .field--label-inline > .w3css-field__label {
+    margin-right: 10px;
+  }
+
+  .field--label-inline .field__label::after,
+  .field--label-inline .w3css-field__label::after {
+    content: ":";
+  }
+
+  .field--name-field-tags .field__item,
+  .field--name-field-tags .w3css-field__item {
+    border: none;
+  }
+
+  .node__content ul.links,
+  .w3css-node__content ul.w3css-links {
+    float: right;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) label,
+  .field__label,
+  .w3css-field__label {
+    font-weight: bold;
+  }
+
+  .node--view-mode-teaser .node__title,
+  .w3css-node--view-mode-teaser .w3css-node__title {
+    margin-left: 0;
+  }
+
+  .node--view-mode-teaser .node__content .field--name-field-media-image,
+  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-media-image,
+  .node--view-mode-teaser .node__content .field--name-field-image,
+  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-image {
+    margin: 24px 16px 0 0;
+  }
+
+  .view .node__header,
+  .w3css-views-view .w3css-node__header {
+    margin-bottom: 0;
+  }
+}

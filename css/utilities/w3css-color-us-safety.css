@@ -1,0 +1,71 @@
+/**
+ * @file
+ * W3CSS color library: US safety.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-safety-red: #bd1e24;
+    --w3-safety-red-on: var(--w3-white);
+    --w3-safety-orange: #e97600;
+    --w3-safety-orange-on: var(--w3-black);
+    --w3-safety-yellow: #f6c700;
+    --w3-safety-yellow-on: var(--w3-black);
+    --w3-safety-green: #007256;
+    --w3-safety-green-on: var(--w3-white);
+    --w3-safety-blue: #0067a7;
+    --w3-safety-blue-on: var(--w3-white);
+    --w3-safety-purple: #964f8e;
+    --w3-safety-purple-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-safety-red {
+    --r-background: var(--w3-safety-red);
+    --r-text: var(--w3-safety-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-safety-orange {
+    --r-background: var(--w3-safety-orange);
+    --r-text: var(--w3-safety-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-safety-yellow {
+    --r-background: var(--w3-safety-yellow);
+    --r-text: var(--w3-safety-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-safety-green {
+    --r-background: var(--w3-safety-green);
+    --r-text: var(--w3-safety-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-safety-blue {
+    --r-background: var(--w3-safety-blue);
+    --r-text: var(--w3-safety-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-safety-purple {
+    --r-background: var(--w3-safety-purple);
+    --r-text: var(--w3-safety-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

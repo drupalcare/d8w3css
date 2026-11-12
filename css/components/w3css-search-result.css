@@ -1,0 +1,49 @@
+@layer w3css.theme {
+  .path-search form.search-form > .form-wrapper,
+  .path-search form.search-form > .w3css-container {
+    position: relative;
+  }
+
+  .path-search form.search-form > .form-wrapper > .form-type-search,
+  .path-search form.search-form > .w3css-container > .form-type-search {
+    float: left;
+    width: 74%;
+    margin: 0 0 10px 0;
+  }
+
+  .path-search form.search-form > .form-wrapper > .form-submit,
+  .path-search form.search-form > .w3css-container > .form-submit {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 25%;
+  }
+
+  .path-search .search-form .search-advanced summary.w3-button {
+    box-sizing: border-box;
+  }
+
+  .path-search .search-form .search-advanced summary.w3-button {
+    box-sizing: border-box;
+  }
+
+  .path-search .search-form .search-advanced #edit-keywords-fieldset > .fieldset-wrapper,
+  .path-search .search-form .search-advanced #edit-keywords-fieldset > .w3css-fieldset__wrapper {
+    margin: 0;
+  }
+
+  .path-search .search-form .search-advanced #edit-lang-fieldset > .fieldset-wrapper,
+  .path-search .search-form .search-advanced #edit-lang-fieldset > .w3css-fieldset__wrapper,
+  .path-search .search-form .search-advanced #edit-types-fieldset > .fieldset-wrapper,
+  .path-search .search-form .search-advanced #edit-types-fieldset > .w3css-fieldset__wrapper {
+    margin-top: 0;
+  }
+
+  .search-form .search-advanced:hover {
+    background-color: transparent;
+  }
+
+  .search-form + h2 {
+    clear: both;
+  }
+}

@@ -1,0 +1,45 @@
+@layer w3css.theme {
+  /*
+   * Header search block: one field with the submit button joined to it, both
+   * 44px high. Every selector is scoped to the search form; colours come from
+   * the theme's own classes (w3-theme-border on the button) and currentColor, so
+   * any colour theme works without a second set of rules.
+   * The submit shows its own label (the input's value, "Search"), which is also
+   * its accessible name; no image or hidden text is needed.
+   */
+
+  .w3-search-block-form {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .w3-search-block-form .w3css-form-item {
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .w3-search-block-form .w3css-form-item {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .w3-search-block-form .form-actions {
+    width: auto;
+  }
+
+  .w3-search-block-form input[type="search"] {
+    box-sizing: border-box;
+    text-indent: 0;
+  }
+
+  .w3-search-block-form input.w3css-search-block-form__button {
+    box-sizing: border-box;
+    text-indent: 0;
+    cursor: pointer;
+  }
+}

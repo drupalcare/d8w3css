@@ -1,0 +1,11 @@
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) nav.action-links > li,
+  nav.w3css-local-actions > li {
+    float: left;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary > li,
+  ul.w3css-local-tasks--primary > li {
+    float: left;
+  }
+}

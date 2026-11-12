@@ -1,0 +1,162 @@
+/**
+ * @file
+ * W3CSS color scheme: Pure Monochrome (option w3-theme-default, library scheme-pure-monochrome).
+ *
+ * Tokens in w3css.schemes, then the region paint that reads no token: this
+ * scheme paints regions directly, so its rules are in w3css.schemes too.
+ * Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.schemes {
+  :root {
+    --w3css-scheme-keyframe-button: #fff;
+    --w3css-scheme-keyframe-border: #fff;
+    --w3css-scheme-mono-page-wrapper-background: #f8f8f8;
+    --w3css-scheme-mono-page-wrapper-and-6-more-color: #3a3a3a;
+    --w3css-scheme-mono-header-background: #bebebe;
+    --w3css-scheme-mono-main-nav-and-2-more-background: #222;
+    --w3css-scheme-mono-main-nav-and-7-more-color: #efefef;
+    --w3css-scheme-mono-welcome-text-background: white;
+    --w3css-scheme-mono-highlighted-background: #efefef;
+    --w3css-scheme-mono-top-region-background: #e4e4e4;
+    --w3css-scheme-mono-top-region-top-first-div-background: #ededed;
+    --w3css-scheme-mono-top-region-top-second-div-background: #ddd;
+    --w3css-scheme-mono-top-region-top-third-div-background: #ededed;
+    --w3css-scheme-mono-page-title-background: #4e4e4e;
+    --w3css-scheme-mono-main-region-background: #f4f4f4;
+    --w3css-scheme-mono-main-region-main-box-div-background: #fff;
+    --w3css-scheme-mono-bottom-region-background: #4d4d4d;
+    --w3css-scheme-mono-bottom-region-bottom-first-div-background: #636363;
+    --w3css-scheme-mono-bottom-region-bottom-second-div-and-1-more-background: #525252;
+    --w3css-scheme-mono-bottom-region-bottom-fourth-div-background: #636363;
+    --w3css-scheme-mono-footer-region-background: #3a3a3a;
+    --w3css-scheme-mono-footer-region-footer-first-div-color: #b8b8b8;
+    --w3css-scheme-mono-footer-region-footer-first-div-background: #494949;
+    --w3css-scheme-mono-footer-region-footer-second-div-background: #313131;
+    --w3css-scheme-mono-footer-region-footer-second-div-and-2-more-color: #bebebe;
+    --w3css-scheme-mono-footer-region-footer-third-div-color: #9f9f9f;
+    --w3css-scheme-mono-footer-region-footer-third-div-background: #494949;
+    --w3css-scheme-mono-footer-menu-background: #1e1e1e;
+    --w3css-scheme-mono-copyright-background: #141414;
+  }
+
+  .w3css-page-wrapper {
+    background-color: var(--w3css-scheme-mono-page-wrapper-background);
+  }
+
+  .w3css-page-wrapper,
+  #w3css-welcome-text,
+  #w3css-highlighted,
+  #w3css-top-region .w3css-page__top-first > div,
+  #w3css-top-region .w3css-page__top-second > div,
+  #w3css-top-region .w3css-page__top-third > div,
+  #w3css-main-region {
+    color: var(--w3css-scheme-mono-page-wrapper-and-6-more-color);
+  }
+
+  #w3css-header {
+    background-color: var(--w3css-scheme-mono-header-background);
+  }
+
+  .w3css-main-nav,
+  .w3css-mobile-nav__toggle,
+  .w3css-main-nav__close {
+    background-color: var(--w3css-scheme-mono-main-nav-and-2-more-background);
+  }
+
+  .w3css-main-nav,
+  .w3css-mobile-nav__toggle,
+  .w3css-main-nav__close,
+  #w3css-page-title,
+  #w3css-bottom-region .w3css-page__bottom-first > div,
+  #w3css-bottom-region .w3css-page__bottom-second > div,
+  #w3css-bottom-region .w3css-page__bottom-third > div,
+  #w3css-bottom-region .w3css-page__bottom-fourth > div {
+    color: var(--w3css-scheme-mono-main-nav-and-7-more-color);
+  }
+
+  #w3css-welcome-text {
+    background-color: var(--w3css-scheme-mono-welcome-text-background);
+  }
+
+  #w3css-highlighted {
+    background-color: var(--w3css-scheme-mono-highlighted-background);
+  }
+
+  #w3css-top-region {
+    background-color: var(--w3css-scheme-mono-top-region-background);
+  }
+
+  #w3css-top-region .w3css-page__top-first > div {
+    background-color: var(--w3css-scheme-mono-top-region-top-first-div-background);
+  }
+
+  #w3css-top-region .w3css-page__top-second > div {
+    background-color: var(--w3css-scheme-mono-top-region-top-second-div-background);
+  }
+
+  #w3css-top-region .w3css-page__top-third > div {
+    background-color: var(--w3css-scheme-mono-top-region-top-third-div-background);
+  }
+
+  #w3css-page-title {
+    background-color: var(--w3css-scheme-mono-page-title-background);
+  }
+
+  #w3css-main-region {
+    background-color: var(--w3css-scheme-mono-main-region-background);
+  }
+
+  #w3css-main-region .w3css-page__main > div {
+    background-color: var(--w3css-scheme-mono-main-region-main-box-div-background);
+  }
+
+  #w3css-bottom-region {
+    background-color: var(--w3css-scheme-mono-bottom-region-background);
+  }
+
+  #w3css-bottom-region .w3css-page__bottom-first > div {
+    background-color: var(--w3css-scheme-mono-bottom-region-bottom-first-div-background);
+  }
+
+  #w3css-bottom-region .w3css-page__bottom-second > div,
+  #w3css-bottom-region .w3css-page__bottom-third > div {
+    background-color: var(--w3css-scheme-mono-bottom-region-bottom-second-div-and-1-more-background);
+  }
+
+  #w3css-bottom-region .w3css-page__bottom-fourth > div {
+    background-color: var(--w3css-scheme-mono-bottom-region-bottom-fourth-div-background);
+  }
+
+  #w3css-footer-region {
+    background-color: var(--w3css-scheme-mono-footer-region-background);
+  }
+
+  #w3css-footer-region .w3css-page__footer-first > div {
+    color: var(--w3css-scheme-mono-footer-region-footer-first-div-color);
+    background-color: var(--w3css-scheme-mono-footer-region-footer-first-div-background);
+  }
+
+  #w3css-footer-region .w3css-page__footer-second > div {
+    background-color: var(--w3css-scheme-mono-footer-region-footer-second-div-background);
+  }
+
+  #w3css-footer-region .w3css-page__footer-second > div,
+  #w3css-footer-menu,
+  #w3css-copyright {
+    color: var(--w3css-scheme-mono-footer-region-footer-second-div-and-2-more-color);
+  }
+
+  #w3css-footer-region .w3css-page__footer-third > div {
+    color: var(--w3css-scheme-mono-footer-region-footer-third-div-color);
+    background-color: var(--w3css-scheme-mono-footer-region-footer-third-div-background);
+  }
+
+  #w3css-footer-menu {
+    background-color: var(--w3css-scheme-mono-footer-menu-background);
+  }
+
+  #w3css-copyright {
+    background-color: var(--w3css-scheme-mono-copyright-background);
+  }
+}

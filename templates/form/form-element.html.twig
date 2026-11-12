@@ -60,7 +60,7 @@
 {% set description_classes = [
     'w3-small',
     'w3-row',
-    'description', 'w3css-description',
+    'description', 'w3css-form-element__description',
     description_display == 'invisible' ? 'visually-hidden',
   ]
 %}
@@ -74,11 +74,11 @@
     </div>
   {% endif %}
   {% if prefix is not empty %}
-    <span class="field-prefix w3css-field-prefix">{{ prefix }}</span>
+    <span class="field-prefix w3css-form-element__prefix">{{ prefix }}</span>
   {% endif %}
   {{ children }}
   {% if suffix is not empty %}
-    <span class="field-suffix w3css-field-suffix">{{ suffix }}</span>
+    <span class="field-suffix w3css-form-element__suffix">{{ suffix }}</span>
   {% endif %}
   {% if label_display == 'after' %}
     {{ label }}

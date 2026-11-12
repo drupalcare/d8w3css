@@ -135,6 +135,26 @@ final class SettingsMigrator {
   }
 
   /**
+   * Casts the stored value of a moved key to its new type, aliases applied.
+   *
+   * @param string $old
+   *   The old key, a row of SettingsMap::MAP['moved'].
+   * @param mixed $raw
+   *   The stored value.
+   *
+   * @return array{0: bool, 1: mixed}
+   *   Whether the value casts, and the value.
+   */
+  public static function castMoved(string $old, mixed $raw): array {
+    $row = SettingsMap::MAP['moved'][$old];
+    [$castable, $value] = self::castValue($raw, $row['type']);
+    if ($castable && is_string($value) && isset($row['aliases'][$value])) {
+      $value = $row['aliases'][$value];
+    }
+    return [$castable, $value];
+  }
+
+  /**
    * Moves the old keys in one config array.
    *
    * @param array<string, mixed> $raw
@@ -156,7 +176,7 @@ final class SettingsMigrator {
       if (!array_key_exists($old, $data)) {
         continue;
       }
-      [$castable, $value] = self::castValue($data[$old], $row['type']);
+      [$castable, $value] = self::castMoved($old, $data[$old]);
       if (!$castable || !self::canHold($data, $parts)) {
         $stuck[] = $old;
         continue;

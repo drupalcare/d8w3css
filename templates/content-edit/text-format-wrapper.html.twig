@@ -16,7 +16,7 @@
 <div class="js-text-format-wrapper text-format-wrapper w3css-text-format-wrapper js-form-item form-item w3css-form-item">
   {{ children }}
   {% if description %}
-    {% set classes = [aria_description ? 'description w3css-description'] %}
+    {% set classes = [aria_description ? 'description w3css-form-element__description'] %}
     <div{{ attributes.addClass(classes) }}>{{ description }}</div>
   {% endif %}
 </div>

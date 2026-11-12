@@ -20,14 +20,14 @@
  */
 #}
 {% set classes = [
-    'admin-list', 'w3css-admin-list',
+    'admin-list', 'w3css-admin-block-content__list',
     compact|default(false) ? 'compact',
   ]
 %}
 {% if content %}
   <ul{{ attributes.addClass(classes) }}>
     {% for item in content %}
-      <li><a href="{{ item.url }}"><span class="label w3css-label">{{ item.title }}</span><div class="description w3css-description" data-admin-compact-collapsible>{{ item.description }}</div></a></li>
+      <li><a href="{{ item.url }}"><span class="label w3css-admin-block-content__label">{{ item.title }}</span><div class="description w3css-form-element__description" data-admin-compact-collapsible>{{ item.description }}</div></a></li>
     {% endfor %}
   </ul>
 {% endif %}

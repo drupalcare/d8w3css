@@ -2,17 +2,23 @@
 
 /**
  * @file
- * Renames the W3CSS Theme's old classes and ids in a sub-theme or module.
+ * Renames the W3CSS Theme's old names in a sub-theme or module.
+ *
+ * Covers classes and ids (ClassMigrator) and CSS variables, JavaScript
+ * behaviors, once ids, data attributes and library ids (NameMigrator). The
+ * full list is docs/CLASS-MIGRATION.md.
  *
  * Run: drush php:script <path to this file> -- <target> [--apply]
- *   [--report=file] [--ext=css,js] [--stored] [--content]
+ *   [--report=file] [--ext=css,js] [--stored] [--content] [--yml]
  *
  * Dry run by default. Same rules as Solo's drush solo:migrate-classes:
  * .css .scss .sass .less .twig .js are rewritten; .theme .php .module .inc
- * are only reported; .yml, *.min.*, symbolic links and hard-linked files are
- * never read. The target must be inside the Drupal root and may not be core,
- * this theme or the public files folder. The report is a new file (0600),
- * never inside the web root. There is deliberately no web UI for this.
+ * are only reported; *.min.*, symbolic links and hard-linked files are never
+ * read. .yml files are read for library ids and file paths (not when --ext
+ * is given): reported, and rewritten only in *.info.yml and *.libraries.yml
+ * with --apply --yml. The target must be inside the Drupal root and may not
+ * be core, this theme or the public files folder. The report is a new file
+ * (0600), never inside the web root. There is deliberately no web UI for this.
  */
 
 declare(strict_types=1);
@@ -20,6 +26,7 @@ declare(strict_types=1);
 use Drush\Drush;
 use Drupal\drupal8_w3css_theme\Upgrade\ClassMigrationPaths;
 use Drupal\drupal8_w3css_theme\Upgrade\ClassMigrator;
+use Drupal\drupal8_w3css_theme\Upgrade\NameMigrator;
 use Drupal\drupal8_w3css_theme\Upgrade\SettingsMigrator;
 use Drupal\drupal8_w3css_theme\Upgrade\StoredClassMigrator;
 use Drupal\drupal8_w3css_theme\Upgrade\W3cssClassMap;
@@ -48,7 +55,7 @@ $fail = static function (string $message): never {
 };
 
 // Arguments: one target, flags once each, nothing unknown.
-$flags = ['apply' => FALSE, 'stored' => FALSE, 'content' => FALSE];
+$flags = ['apply' => FALSE, 'stored' => FALSE, 'content' => FALSE, 'yml' => FALSE];
 $values = ['report' => NULL, 'ext' => NULL];
 $target = NULL;
 $seen = [];
@@ -76,7 +83,7 @@ foreach ((array) $extra as $arg) {
     $values[$name] = $value;
   }
   else {
-    $fail('Unknown option ' . $arg . '. Allowed: --apply --report=file --ext=list --stored --content.');
+    $fail('Unknown option ' . $arg . '. Allowed: --apply --report=file --ext=list --stored --content --yml.');
   }
 }
 if ($target === NULL || $target === '') {
@@ -97,6 +104,7 @@ $cwd = class_exists('\Drush\Drush') ? Drush::config()->cwd() : (string) getcwd()
 
 try {
   $migrator = W3cssClassMap::migrator();
+  $names = W3cssClassMap::nameMigrator();
   $extensions = $migrator->normalizeExtensions($values['ext']);
   $paths = new ClassMigrationPaths(
     DRUPAL_ROOT,
@@ -134,7 +142,8 @@ $report = [
   '',
   'Target: ' . $paths->relative($root) . ' (relative to the Drupal root)',
   'Mode: ' . ($apply ? 'APPLIED' : 'dry run'),
-  'Extensions: ' . implode(', ', $extensions),
+  'Extensions: ' . implode(', ', $extensions) . ($values['ext'] === NULL ? ', yml (library ids and file paths)' : ''),
+  'Library ids in info and libraries YAML files: ' . ($flags['yml'] ? ($apply ? 'rewritten' : 'would be rewritten') : 'reported only (add --yml to rewrite them)'),
   '',
 ];
 $review = [];
@@ -186,6 +195,15 @@ if ($flags['stored'] || $flags['content']) {
 }
 
 $scan = $migrator->scan($root, $extensions);
+// YAML files are read for library ids and file paths, unless --ext narrows
+// the run to the types the migrator was asked for.
+if ($values['ext'] === NULL) {
+  $yamlScan = $names->scanYaml($root);
+  $scan['files'] = array_merge($scan['files'], $yamlScan['files']);
+  sort($scan['files']);
+  $scan['symlinks'] = array_values(array_unique(array_merge($scan['symlinks'], $yamlScan['symlinks'])));
+  $scan['hardlinks'] = array_values(array_unique(array_merge($scan['hardlinks'], $yamlScan['hardlinks'])));
+}
 $scan['readonly'] = [];
 $scan['owner'] = [];
 $euid = function_exists('posix_geteuid') ? posix_geteuid() : NULL;
@@ -211,7 +229,26 @@ foreach ($scan['files'] as $path) {
     $failed++;
     continue;
   }
-  $result = $migrator->migrate($contents, $real);
+  $result = str_ends_with($real, '.yml')
+    ? ['content' => $contents, 'changes' => [], 'notes' => []]
+    : $migrator->migrate($contents, $real);
+  // Variables, JavaScript names and library ids run on the class result, so
+  // one line changed by both is listed once, with the first before and last
+  // after text.
+  $named = $names->migrate($result['content'], $real, $flags['yml']);
+  $result['content'] = $named['content'];
+  $byLine = [];
+  foreach ($result['changes'] as $change) {
+    $byLine[$change['line']] = $change;
+  }
+  foreach ($named['changes'] as $change) {
+    $byLine[$change['line']] = isset($byLine[$change['line']])
+      ? ['line' => $change['line'], 'before' => $byLine[$change['line']]['before'], 'after' => $change['after']]
+      : $change;
+  }
+  ksort($byLine);
+  $result['changes'] = array_values($byLine);
+  $result['notes'] = array_merge($result['notes'], $named['notes']);
   foreach ($result['notes'] as $note) {
     $review[$note['kind']][] = [$relative] + $note;
   }
@@ -260,7 +297,7 @@ if ($review !== []) {
   $report[] = '# Needs manual review';
   $report[] = '';
 }
-foreach (ClassMigrator::NOTE_LABELS as $kind => $label) {
+foreach (ClassMigrator::NOTE_LABELS + NameMigrator::NOTE_LABELS as $kind => $label) {
   if (empty($review[$kind])) {
     continue;
   }

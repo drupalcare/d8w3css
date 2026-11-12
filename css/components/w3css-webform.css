@@ -1,0 +1,39 @@
+@layer w3css.theme {
+  /* CSS Webform */
+
+  .webform-submission-form fieldset .fieldset-wrapper.w3-panel {
+    background: transparent;
+  }
+
+  .webform-submission-form fieldset .w3css-fieldset__wrapper.w3-panel {
+    border: none;
+    background: transparent;
+  }
+
+  .webform-submission-form .form-actions {
+    text-align: center;
+  }
+
+  .webform-submission-form .form-type-webform-rating label {
+    float: left;
+  }
+
+  .webform-multiple-add {
+    text-align: center;
+  }
+
+  .webform-multiple-add > div,
+  .webform-multiple-add > input {
+    float: left;
+  }
+
+  .webform-multiple-add .field-suffix,
+  .webform-multiple-add .w3css-form-element__suffix {
+    font-size: 90%;
+  }
+
+  .webform-has-field-suffix > div + span.field-suffix,
+  .webform-has-field-suffix > div + span.w3css-form-element__suffix {
+    clear: none;
+  }
+}

@@ -1,0 +1,215 @@
+/**
+ * @file
+ * W3CSS color library: Windows 8.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-win8-lime: #a4c400;
+    --w3-win8-lime-on: var(--w3-black);
+    --w3-win8-green: #60a917;
+    --w3-win8-green-on: var(--w3-black);
+    --w3-win8-emerald: #008a00;
+    --w3-win8-emerald-on: var(--w3-white);
+    --w3-win8-teal: #00aba9;
+    --w3-win8-teal-on: var(--w3-black);
+    --w3-win8-cyan: #1ba1e2;
+    --w3-win8-cyan-on: var(--w3-black);
+    --w3-win8-blue: #3e65ff;
+    --w3-win8-blue-on: var(--w3-white);
+    --w3-win8-cobalt: #0050ef;
+    --w3-win8-cobalt-on: var(--w3-white);
+    --w3-win8-indigo: #6a00ff;
+    --w3-win8-indigo-on: var(--w3-white);
+    --w3-win8-violet: #aa00ff;
+    --w3-win8-violet-on: var(--w3-white);
+    --w3-win8-pink: #f472d0;
+    --w3-win8-pink-on: var(--w3-black);
+    --w3-win8-magenta: #d80073;
+    --w3-win8-magenta-on: var(--w3-white);
+    --w3-win8-crimson: #a20025;
+    --w3-win8-crimson-on: var(--w3-white);
+    --w3-win8-red: #e51400;
+    --w3-win8-red-on: var(--w3-white);
+    --w3-win8-orange: #fa6800;
+    --w3-win8-orange-on: var(--w3-black);
+    --w3-win8-amber: #f0a30a;
+    --w3-win8-amber-on: var(--w3-black);
+    --w3-win8-yellow: #e3c800;
+    --w3-win8-yellow-on: var(--w3-black);
+    --w3-win8-brown: #825a2c;
+    --w3-win8-brown-on: var(--w3-white);
+    --w3-win8-olive: #6d8764;
+    --w3-win8-olive-on: var(--w3-black);
+    --w3-win8-steel: #647687;
+    --w3-win8-steel-on: var(--w3-white);
+    --w3-win8-mauve: #76608a;
+    --w3-win8-mauve-on: var(--w3-white);
+    --w3-win8-taupe: #87794e;
+    --w3-win8-taupe-on: var(--w3-black);
+    --w3-win8-sienna: #a0522d;
+    --w3-win8-sienna-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-win8-lime {
+    --r-background: var(--w3-win8-lime);
+    --r-text: var(--w3-win8-lime-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-green {
+    --r-background: var(--w3-win8-green);
+    --r-text: var(--w3-win8-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-emerald {
+    --r-background: var(--w3-win8-emerald);
+    --r-text: var(--w3-win8-emerald-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-teal {
+    --r-background: var(--w3-win8-teal);
+    --r-text: var(--w3-win8-teal-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-cyan {
+    --r-background: var(--w3-win8-cyan);
+    --r-text: var(--w3-win8-cyan-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-blue {
+    --r-background: var(--w3-win8-blue);
+    --r-text: var(--w3-win8-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-cobalt {
+    --r-background: var(--w3-win8-cobalt);
+    --r-text: var(--w3-win8-cobalt-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-indigo {
+    --r-background: var(--w3-win8-indigo);
+    --r-text: var(--w3-win8-indigo-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-violet {
+    --r-background: var(--w3-win8-violet);
+    --r-text: var(--w3-win8-violet-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-pink {
+    --r-background: var(--w3-win8-pink);
+    --r-text: var(--w3-win8-pink-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-magenta {
+    --r-background: var(--w3-win8-magenta);
+    --r-text: var(--w3-win8-magenta-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-crimson {
+    --r-background: var(--w3-win8-crimson);
+    --r-text: var(--w3-win8-crimson-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-red {
+    --r-background: var(--w3-win8-red);
+    --r-text: var(--w3-win8-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-orange {
+    --r-background: var(--w3-win8-orange);
+    --r-text: var(--w3-win8-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-amber {
+    --r-background: var(--w3-win8-amber);
+    --r-text: var(--w3-win8-amber-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-yellow {
+    --r-background: var(--w3-win8-yellow);
+    --r-text: var(--w3-win8-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-brown {
+    --r-background: var(--w3-win8-brown);
+    --r-text: var(--w3-win8-brown-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-olive {
+    --r-background: var(--w3-win8-olive);
+    --r-text: var(--w3-win8-olive-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-steel {
+    --r-background: var(--w3-win8-steel);
+    --r-text: var(--w3-win8-steel-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-mauve {
+    --r-background: var(--w3-win8-mauve);
+    --r-text: var(--w3-win8-mauve-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-taupe {
+    --r-background: var(--w3-win8-taupe);
+    --r-text: var(--w3-win8-taupe-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-win8-sienna {
+    --r-background: var(--w3-win8-sienna);
+    --r-text: var(--w3-win8-sienna-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

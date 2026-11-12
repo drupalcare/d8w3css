@@ -1,0 +1,6 @@
+@layer w3css.theme {
+  .pager__items li.is-active,
+  .w3css-pager__items li.is-active {
+    font-weight: bold;
+  }
+}

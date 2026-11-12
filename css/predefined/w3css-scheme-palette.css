@@ -1,0 +1,179 @@
+/**
+ * @file
+ * W3CSS color schemes: the rules every scheme shares.
+ *
+ * A scheme file (css/predefined/w3css-*.css) only sets --w3css-scheme-*
+ * tokens in w3css.schemes. These rules read them. A class sets the region roles
+ * (--r-background, --r-text, --r-border) and then paints from them.
+ * A token a scheme leaves out falls back to what applied before the token
+ * existed: the W3.CSS hover values, or the element's own --r-background (the
+ * w3-light-gray class on an active pager item). The copyright text and footer
+ * box hover shadow have no such value: their rules follow the tokens in each
+ * scheme file that sets them (scripts/build-scheme-paint.py).
+ * Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.schemes {
+  .w3css-main-region__inner {
+    --r-text: var(--w3css-scheme-main-text);
+
+    color: var(--r-text);
+  }
+
+  #w3css-main-region .w3css-page__main > div {
+    --r-background: var(--w3css-scheme-main-background);
+
+    background-color: var(--r-background);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-theme-l5 {
+    --r-background: var(--w3css-scheme-l5-background);
+    --r-text: var(--w3css-scheme-l5-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-l4 {
+    --r-background: var(--w3css-scheme-l4-background);
+    --r-text: var(--w3css-scheme-l4-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-l3 {
+    --r-background: var(--w3css-scheme-l3-background);
+    --r-text: var(--w3css-scheme-l3-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-l2 {
+    --r-background: var(--w3css-scheme-l2-background);
+    --r-text: var(--w3css-scheme-l2-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-l1 {
+    --r-background: var(--w3css-scheme-l1-background);
+    --r-text: var(--w3css-scheme-l1-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-d1 {
+    --r-background: var(--w3css-scheme-d1-background);
+    --r-text: var(--w3css-scheme-d1-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-d2 {
+    --r-background: var(--w3css-scheme-d2-background);
+    --r-text: var(--w3css-scheme-d2-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-d3 {
+    --r-background: var(--w3css-scheme-d3-background);
+    --r-text: var(--w3css-scheme-d3-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-d4 {
+    --r-background: var(--w3css-scheme-d4-background);
+    --r-text: var(--w3css-scheme-d4-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-d5 {
+    --r-background: var(--w3css-scheme-d5-background);
+    --r-text: var(--w3css-scheme-d5-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-light {
+    --r-background: var(--w3css-scheme-light-background);
+    --r-text: var(--w3css-scheme-l5-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme-dark,
+  .w3-theme-action {
+    --r-background: var(--w3css-scheme-dark-background);
+    --r-text: var(--w3css-scheme-d5-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-theme,
+  .w3css-mobile-nav__toggle,
+  .w3css-main-nav__close {
+    --r-background: var(--w3css-scheme-base-background);
+    --r-text: var(--w3css-scheme-base-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-text-theme {
+    --r-text: var(--w3css-scheme-accent-text);
+
+    color: var(--r-text);
+  }
+
+  .w3-border-theme,
+  .w3-hover-border-theme:hover {
+    --r-border: var(--w3css-scheme-border);
+
+    border-color: var(--r-border);
+  }
+
+  .w3-hover-theme:hover {
+    --r-background: var(--w3css-scheme-hover-background);
+    --r-text: var(--w3css-scheme-hover-text);
+
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-hover-text-theme:hover {
+    --r-text: var(--w3css-scheme-accent-text);
+
+    color: var(--r-text);
+  }
+
+  .w3-active-pager {
+    background-color: var(--w3css-scheme-pager-active-background, var(--r-background));
+  }
+
+  .w3-hover-over:hover,
+  .w3-button:hover,
+  .w3-button:hover + .w3css-menu__arrow {
+    background-color: var(--w3css-scheme-button-hover-background, var(--w3-border-color));
+    color: var(--w3css-scheme-button-hover-text, var(--w3-black));
+  }
+
+  #w3css-main-nav-open.w3-theme:hover {
+    color: var(--w3css-scheme-nav-open-hover-text, var(--w3css-scheme-button-hover-text, var(--w3-black)));
+  }
+}

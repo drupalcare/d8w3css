@@ -1,0 +1,6 @@
+@layer w3css.theme {
+  .w3css-social-media .w3css-social-media__icon {
+    width: 40px;
+    height: 40px;
+  }
+}

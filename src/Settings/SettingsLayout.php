@@ -71,25 +71,25 @@ final class SettingsLayout {
    * The navigation. Twig escapes every value except the icons, which are files.
    */
   private const NAV_TEMPLATE = <<<'TWIG'
-<nav class="w3css-nav" aria-label="{{ nav_label }}">
-  <details class="w3css-nav__menu" open>
-    <summary class="w3css-nav__toggle">{{ icons.sections }}{{ nav_label }}<span class="w3css-nav__current"></span></summary>
+<nav class="w3css-settings-nav" aria-label="{{ nav_label }}">
+  <details class="w3css-settings-nav__menu" open>
+    <summary class="w3css-settings-nav__toggle">{{ icons.sections }}{{ nav_label }}<span class="w3css-settings-nav__current"></span></summary>
     {% for group in groups %}
-      <h2 class="w3css-nav__group">{{ group.icon }}{{ group.title }}</h2>
-      <ul class="w3css-nav__list">
+      <h2 class="w3css-settings-nav__group">{{ group.icon }}{{ group.title }}</h2>
+      <ul class="w3css-settings-nav__list">
         {% for row in group.rows %}
-          <li class="w3css-nav__item">
-            <a class="w3css-nav__link" href="#{{ row.target }}">
+          <li class="w3css-settings-nav__item">
+            <a class="w3css-settings-nav__link" href="#{{ row.target }}">
               {{ row.icon }}
-              <span class="w3css-nav__name">{{ row.label }}</span>
-              {% if row.detail %}<small class="w3css-nav__detail">{{ row.detail }}</small>{% endif %}
+              <span class="w3css-settings-nav__name">{{ row.label }}</span>
+              {% if row.detail %}<small class="w3css-settings-nav__detail">{{ row.detail }}</small>{% endif %}
             </a>
           </li>
         {% endfor %}
       </ul>
     {% endfor %}
-    {% if block_layout_url %}<p class="w3css-nav__note"><a href="{{ block_layout_url }}">{{ icons.block_layout }}{{ block_layout }}</a></p>{% endif %}
-    <template data-w3css-icon="other">{{ icons.other }}</template>
+    {% if block_layout_url %}<p class="w3css-settings-nav__note"><a href="{{ block_layout_url }}">{{ icons.block_layout }}{{ block_layout }}</a></p>{% endif %}
+    <template data-w3css-settings-icon="other">{{ icons.other }}</template>
   </details>
 </nav>
 TWIG;
@@ -109,7 +109,7 @@ TWIG;
    */
   public function arrange(array &$form): void {
     $form['#attributes']['class'][] = 'w3css-settings';
-    $form['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-settings-form';
+    $form['#attached']['library'][] = 'drupal8_w3css_theme/admin-settings-form';
 
     $built = $form[self::ROOT];
     // The navigation sorts first, then a stale keys warning, then the sections,
@@ -117,7 +117,7 @@ TWIG;
     $form[self::ROOT] = [
       '#type' => 'container',
       '#weight' => -90,
-      '#attributes' => ['class' => ['w3css-sections']],
+      '#attributes' => ['class' => ['w3css-settings__sections']],
     ];
 
     $titles = $this->navGroups();
@@ -146,7 +146,7 @@ TWIG;
       $section['#weight'] = $weight;
       $section['#open'] = TRUE;
       $section['#id'] = self::sectionId($key);
-      $section['#attributes']['data-w3css-section'] = $key;
+      $section['#attributes']['data-w3css-settings-section'] = $key;
       $rows[$nav['group']][] = [
         'icon' => $this->icon($nav['icon']),
         'label' => (string) ($section['#title'] ?? ''),
@@ -268,7 +268,7 @@ TWIG;
       $file = dirname(__DIR__, 2) . '/images/icons/settings/' . $name . '.svg';
       $svg = is_file($file) ? (string) file_get_contents($file) : '';
       $this->iconMarkup[$name] = str_starts_with($svg, '<svg ')
-        ? Markup::create('<svg class="w3css-icon" aria-hidden="true" focusable="false" ' . substr($svg, 5))
+        ? Markup::create('<svg class="w3css-settings-nav__icon" aria-hidden="true" focusable="false" ' . substr($svg, 5))
         : '';
     }
     return $this->iconMarkup[$name];

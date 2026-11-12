@@ -1,297 +1,130 @@
-details.form-wrapper::after,
-details.w3css-form-wrapper::after {
-  display: table;
-  clear: both;
-  content: "";
+@layer w3css.tokens {
+  :root {
+    --w3css-node-form-border: #e8e8e8;
+  }
 }
 
-details.form-wrapper,
-details.w3css-form-wrapper {
-  margin-bottom: 8px !important;
-  padding: 0 !important;
-  color: inherit;
-  line-height: inherit;
-}
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) details.form-wrapper::after,
+  details.w3css-container::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
 
-details.form-wrapper > summary,
-details.w3css-form-wrapper > summary {
-  padding: 8px 16px;
-  cursor: pointer;
-}
+  details.w3css-container {
+    padding: 0;
+  }
 
-details[open] {
-  padding: 8px 16px !important;
-}
+  .vertical-tabs details[open] {
+    padding: 0;
+  }
 
-.modules-wrapper details[open] {
-  padding: 8px 16px !important;
-  background: white;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .field-multiple-drag {
+    width: 50px;
+  }
 
-.vertical-tabs details[open] {
-  padding: 0 !important;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-date label,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-color label,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-select label,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datelist label,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datetime label {
+    clear: both;
+  }
 
-details[open] > summary {
-  padding: 0 0 8px 0;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form #edit-datelist,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form #edit-datetime {
+    margin: 0;
+    padding: 0;
+  }
 
-form .tableselect-sort th:first-child,
-form .tableselect-sort td:first-child {
-  width: 85px;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form #edit-datetime > div {
+    float: left;
+  }
 
-form tr.draggable td > a,
-form tr.draggable td > div.form-type-radio,
-form tr.draggable td > div.form-type-checkbox {
-  float: left !important;
-  clear: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-date,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datetime,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-webform-time {
+    float: left;
+    clear: none;
+    width: 50%;
+  }
 
-form a.tabledrag-handle .handle {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-range .form-item-range__output {
+    display: block;
+    float: left;
+    width: 100%;
+  }
 
-form .draggable a.tabledrag-handle {
-  width: 25px;
-  margin: -3px 5px 0 0 !important;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form select {
+    min-width: 75px;
+  }
 
-form tr.draggable .w3-check,
-form tr.draggable .w3-radio {
-  top: 0;
-}
+  .js-filter-guidelines {
+    font-size: 85%;
+  }
 
-form .field-multiple-drag {
-  width: 50px;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item,
+  form .w3css-form-item {
+    text-align: left;
+  }
 
-form div.form-type-datelist.w3-section.form-item,
-form div.form-type-datelist.w3-section.w3css-form-item {
-  clear: none;
-  width: auto;
-}
+  fieldset.w3css-form-item > .w3css-fieldset__wrapper {
+    padding: 0;
+  }
 
-form .form-type-date label,
-form .form-item-color label,
-form .form-type-select label,
-form .form-type-datelist label,
-form .form-type-datetime label {
-  display: block;
-  clear: both;
-}
+  .field-ui-overview .field-plugin-settings-edit {
+    width: auto;
+    max-width: 40px;
+  }
 
-.form-type-datelist > div {
-  padding-left: 0;
-}
+  table ul.dropbutton li.w3-left.dropbutton-action {
+    z-index: 1;
+  }
 
-form #edit-datelist,
-form #edit-datetime {
-  margin: 0;
-  padding: 0;
-}
+  .js .dropbutton-widget .dropbutton {
+    padding: 0;
+    border: 1px solid var(--w3css-node-form-border);
+    background-color: white;
+  }
 
-form #edit-datetime > div {
-  float: left;
-  width: 50%;
-  margin: 0 !important;
-}
+  /* Node preview */
 
-form #edit-datetime > div input {
-  min-width: 165px;
-}
+  .node-preview-container {
+    background-color: transparent;
+  }
 
-form .form-type-date,
-form .form-type-datetime,
-form .form-type-webform-time {
-  float: left;
-  clear: none;
-  width: 50% !important;
-}
+  .node-preview-container .node-preview-form-select {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
 
-form .form-type-date input,
-form .form-type-datetime input,
-form .form-type-webform-time input {
-  width: calc(100% - 2px);
-}
+  .node-preview-container a.node-preview-backlink {
+    align-items: center;
+  }
 
-form .form-item-range > span.field-suffix,
-form .form-item-range > span.w3css-field-suffix,
-form .form-item-range .form-item-range__output {
-  display: block;
-  float: left;
-  width: 100%;
-}
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.node-preview-container .form-item-view-mode {
+    display: inline-flex;
+    align-items: center;
+  }
 
-form .form-item-range .form-item-range__output input {
-  display: inline-block;
-  clear: none;
-  width: 4em;
-}
+  .ui-dialog .ui-widget-content.ui-dialog-buttonpane .w3css-button {
+    margin: 10px auto;
+  }
 
-form .form-item-datelist #edit-datelist > div select {
-  padding-right: 10px;
-  padding-left: 10px;
-}
+  .ui-dialog {
+    border-width: 0;
+  }
 
-form .table-sort-weight.form-select {
-  width: auto;
-}
+  body .ui-dialog {
+    z-index: 1001;
+  }
 
-form select {
-  min-width: 75px;
-}
-
-.messages.messages--info,
-.w3css-messages.messages--info {
-  background-position: 2px 17px;
-}
-
-.js-filter-guidelines {
-  font-size: 85%;
-}
-
-.js-filter-guidelines li {
-  padding-bottom: 0;
-}
-
-form .form-item,
-form .w3css-form-item {
-  text-align: left;
-}
-
-fieldset.form-item > .fieldset-wrapper,
-fieldset.w3css-form-item > .w3css-fieldset-wrapper {
-  padding: 0;
-}
-
-.field-ui-overview .field-plugin-settings-edit {
-  width: auto !important;
-  max-width: 40px;
-}
-
-form .form-item label,
-form .w3css-form-item label {
-  padding-right: 10px;
-}
-
-table ul.dropbutton li.w3-left.dropbutton-action {
-  z-index: 1;
-  float: none !important;
-  margin-right: 0 !important;
-  line-height: 26px;
-}
-
-table ul.dropbutton,
-.js .dropbutton-widget .dropbutton {
-  padding: 0 !important;
-  border: 1px solid #e8e8e8;
-  background-color: white;
-}
-
-.dropbutton li {
-  padding: 0;
-}
-
-.dropbutton li a {
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 26px;
-}
-
-.dropbutton button {
-  border: 1px solid #e8e8e8;
-  border-left: none;
-  background-color: white;
-}
-
-.js td .dropbutton-wrapper {
-  min-height: 40px;
-}
-
-table ul.dropbutton li:first-child {
-  margin-right: 10px !important;
-}
-
-.node-form table ul.dropbutton li:first-child {
-  margin-right: 0 !important;
-}
-
-table ul.dropbutton li.dropbutton-toggle {
-  margin-right: 0 !important;
-  margin-left: 10px;
-}
-
-/* Node preview */
-.node-preview-container {
-  position: relative;
-  background-color: transparent;
-}
-
-.node-preview-container .node-preview-form-select {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: auto;
-  height: 100%;
-  margin: 0 auto !important;
-}
-
-.node-preview-container a.node-preview-backlink {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-}
-
-.node-preview-container a.node-preview-backlink:hover {
-  text-decoration: underline;
-}
-
-div.node-preview-container .form-item-view-mode {
-  display: inline-flex;
-  align-items: center;
-}
-
-div.node-preview-container .form-item-view-mode label,
-div.node-preview-container .form-item-view-mode select {
-  display: inline-block;
-  width: auto;
-  border: none !important;
-}
-
-div.node-preview-container .form-item-view-mode select {
-  min-width: 130px;
-}
-
-.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button,
-.ui-dialog .ui-widget-content.ui-dialog-buttonpane .w3css-button {
-  margin: 10px auto;
-}
-
-fieldset {
-  border-color: #eaeaea !important;
-}
-
-.ui-dialog,
-.ui-dialog > div {
-  border-width: 0 !important;
-}
-
-body .ui-dialog {
-  z-index: 1001 !important;
-}
-
-.vertical-tabs .vertical-tabs__panes {
-  padding: 0 16px;
-}
-
-span.admin-link button,
-span.field-edit-link button {
-  border: none !important;
-  background-color: transparent !important;
+  .vertical-tabs .vertical-tabs__panes {
+    padding: 0 16px;
+  }
 }

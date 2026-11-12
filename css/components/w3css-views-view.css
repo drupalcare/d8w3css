@@ -1,0 +1,62 @@
+@layer w3css.theme {
+  #views-entity-list {
+    padding: 0.01em 16px;
+  }
+
+  .view-filters details.form-wrapper:hover,
+  .w3css-views-view__filters details.w3css-container:hover {
+    cursor: pointer;
+  }
+
+  .view-header,
+  .w3css-views-view__header {
+    padding: 0 16px;
+  }
+
+  .js .views-edit-view .dropbutton-wrapper .dropbutton .dropbutton-action > *,
+  .views-display-setting .label,
+  .views-display-setting .w3css-admin-block-content__label {
+    font-size: 14px;
+  }
+
+  .views-preview-wrapper {
+    margin: 0 16px 8px 16px;
+    padding: 10px;
+  }
+
+  .view-preview-form > h2,
+  .view-preview-form > .w3-section {
+    position: static;
+    display: block;
+    clear: both;
+    width: 100%;
+  }
+
+  .views-filterable-options-controls .form-item,
+  .views-filterable-options-controls .w3css-form-item {
+    float: left;
+  }
+
+  .views-align-left {
+    text-align: left;
+  }
+
+  .views-align-right {
+    text-align: right;
+  }
+
+  .views-align-center {
+    text-align: center;
+  }
+
+  .views-exposed-form > div.w3-block > .w3css-form-item {
+    flex-grow: 1;
+  }
+
+  @media (min-width: 48rem) {
+    .views-exposed-form > div.w3-block > *:not(:last-child),
+    .views-exposed-form > div.w3-block > .form-actions > *:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+}

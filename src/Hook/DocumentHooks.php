@@ -83,7 +83,7 @@ final class DocumentHooks {
       $variables['attributes']['class'][] = 'path-view-' . Html::cleanCssIdentifier((string) $view_id);
     }
     if ($this->adminContext->isAdminRoute()) {
-      $variables['attributes']['class'][] = 'w3css-admin-context';
+      $variables['attributes']['class'][] = 'w3css-page--admin';
     }
     // Name the active predefined color scheme on the body, so a sub-theme
     // can tie color fixes to the scheme they were made for.
@@ -282,7 +282,7 @@ final class DocumentHooks {
       $curr_path = ltrim($curr_path, '/');
       if ($curr_path == 'user/login' || $curr_path == 'user/register' || $curr_path == 'user/password') {
         unset($variables['page']['sidebar_first'], $variables['page']['sidebar_second']);
-        $variables['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-user-login-custom';
+        $variables['#attached']['library'][] = 'drupal8_w3css_theme/layout-user-login';
       }
     }
   }
@@ -330,8 +330,8 @@ final class DocumentHooks {
     if (!$variables['db_is_active']) {
       $variables['site_name'] = '';
     }
-    // The maintenance page styles (css/components/maintenance-page.css) load
-    // with d8w3css-global-styling, a global library in the info.yml file.
+    // The maintenance page styles (css/components/w3css-maintenance-page.css) load
+    // with component-maintenance-page, a global library in the info.yml file.
   }
 
 }

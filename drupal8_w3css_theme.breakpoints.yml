@@ -6,7 +6,7 @@ drupal8_w3css_theme.screen-xsm-min:
     - 1x
 drupal8_w3css_theme.screen-sm-min:
   label: screen-sm-min
-  mediaQuery: 'all and (min-width: 414px)'
+  mediaQuery: 'all and (min-width: 25.875rem)'
   weight: 1
   multipliers:
     - 1x
@@ -15,7 +15,7 @@ drupal8_w3css_theme.screen-sm-min:
     - 3x
 drupal8_w3css_theme.screen-md-min:
   label: screen-md-min
-  mediaQuery: 'all and (min-width: 601px)'
+  mediaQuery: 'all and (min-width: 37.5rem)'
   weight: 2
   multipliers:
     - 1x
@@ -24,7 +24,7 @@ drupal8_w3css_theme.screen-md-min:
     - 3x
 drupal8_w3css_theme.screen-lg-min:
   label: screen-lg-min
-  mediaQuery: 'all and (min-width: 993px)'
+  mediaQuery: 'all and (min-width: 62rem)'
   weight: 3
   multipliers:
     - 1x
@@ -33,7 +33,7 @@ drupal8_w3css_theme.screen-lg-min:
     - 3x
 drupal8_w3css_theme.screen-xlg-min:
   label: screen-xlg-min
-  mediaQuery: 'all and (min-width: 1281px)'
+  mediaQuery: 'all and (min-width: 80rem)'
   weight: 4
   multipliers:
     - 1x
@@ -42,7 +42,7 @@ drupal8_w3css_theme.screen-xlg-min:
     - 3x
 drupal8_w3css_theme.screen-xxlg-min:
   label: screen-xxlg-min
-  mediaQuery: 'all and (min-width: 1440px)'
+  mediaQuery: 'all and (min-width: 90rem)'
   weight: 5
   multipliers:
     - 1x

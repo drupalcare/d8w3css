@@ -17,7 +17,10 @@ Checks (each code is printed with every failure):
       moves it; pending files are counted in the summary, not checked), or
       "ignored: <reason>" for a file no library loads.
   L3  A layered file puts every rule inside @layer blocks it is allowed to use.
-      An unlayered or admin file uses no @layer at all.
+      An unlayered or admin file uses no @layer at all. A layered file whose
+      spec carries "unlayered_tail": "<reason>" may also end with plain rules
+      (the declarations that must beat unlayered core, contrib or PB CSS and
+      so cannot sit in a layer); those follow the unlayered rules (A1 roots).
   L4  No anonymous @layer block, and no @layer name outside the ladder.
   L5  No @import ... layer(...): Drupal's aggregator does not handle it.
   L6  !important only where a value must never change: inside the manifest's
@@ -33,8 +36,17 @@ Checks (each code is printed with every failure):
       only in the base or reset layer.
   A2  No front-end selector names an admin part (contextual links, toolbar,
       Claro, Gin, Layout Builder, off-canvas, dialogs, messages, tabs,
-      data-drupal attributes, visually-hidden), unless inside :not(...).
+      data-drupal attributes, visually-hidden), unless inside :not(...) or
+      listed in the manifest's admin_allow (selector text -> written reason)
+      for front-end restyles the owner approved.
   D1  The ladder file is in a library at css base weight -1000 or lower.
+
+Sub-themes: a manifest with "ladder_parent": "<parent theme machine name>" owns
+no ladder file. The ladder is read from the parent's css-layers.json when the
+parent is found (the folder one level up, a sibling folder named like the
+parent, "../d8w3css", or a composer path); L1 and D1 then run against the
+parent's ladder only through the layer names. When the parent is not found the
+checker says so and skips every check that needs the ladder (L1, L4, D1).
 
 Exit 0 when clean, 1 when a check fails, 2 when the manifest is unusable.
 What it cannot see: CSS added from PHP or JS at runtime, inline styles, and
@@ -168,7 +180,7 @@ def without_not(sel: str) -> str:
 
 
 def declarations(body: str):
-    for m in re.finditer(r"([a-zA-Z-]+)\s*:\s*([^;]+)", body):
+    for m in re.finditer(r"([a-zA-Z_-][a-zA-Z0-9_-]*)\s*:\s*([^;]+)", body):
         yield m.group(1).lower(), m.group(2)
 
 
@@ -190,6 +202,7 @@ def check_css(rel: str, text: str, spec, manifest) -> list[str]:
     else:
         allowed = list(spec)
     colors_ok = isinstance(spec, dict) and spec.get("colors_ok")
+    tail_ok = isinstance(spec, dict) and bool(spec.get("unlayered_tail"))
     roots = manifest.get("roots", [])
     imp_allow = manifest.get("important_allow", {})
     if isinstance(imp_allow, list):
@@ -203,7 +216,7 @@ def check_css(rel: str, text: str, spec, manifest) -> list[str]:
         at = f"{rel}:{line_of(text, pos)}"
         if kind_i == "import" and re.search(r"\blayer\s*\(|\blayer\b", data):
             out.append(f"L5 {at} @import with a layer")
-        if kind_i == "layer-statement" and rel != ladder_file:
+        if kind_i == "layer-statement" and (rel != ladder_file or not ladder_file):
             out.append(f"L1 {at} layer order statement outside the ladder file")
         if kind_i == "layer-block":
             full = leaf(layers + [data]) if data else ""
@@ -211,7 +224,7 @@ def check_css(rel: str, text: str, spec, manifest) -> list[str]:
                 out.append(f"L4 {at} anonymous @layer block")
             elif kind != "layered":
                 out.append(f"L3 {at} @layer {full} in a file listed as {kind}")
-            elif full not in ladder and not any(full.startswith(x + ".") for x in ladder):
+            elif ladder is not None and full not in ladder and not any(full.startswith(x + ".") for x in ladder):
                 out.append(f"L4 {at} @layer {full} is not in the ladder")
             elif allowed is not None and full not in allowed and not any(full.startswith(x + ".") for x in allowed):
                 out.append(f"L3 {at} @layer {full} not allowed for this file (allowed: {', '.join(allowed)})")
@@ -219,35 +232,62 @@ def check_css(rel: str, text: str, spec, manifest) -> list[str]:
             continue
         head, body = data
         layer_name = leaf(layers)
-        if kind == "layered" and not layers:
+        tail = kind == "layered" and not layers and tail_ok
+        if kind == "layered" and not layers and not tail_ok:
             out.append(f"L3 {at} rule outside any @layer: {' '.join(head.split())[:60]}")
         sels = split_selectors(head)
         for sel in sels:
             bare = without_not(sel)
-            if kind != "admin":
+            allowed_admin = any(a in " ".join(sel.split()) for a in (manifest.get("admin_allow") or {}))
+            if kind != "admin" and not allowed_admin:
                 for pat in ADMIN_PATTERNS:
                     if re.search(pat, bare):
                         out.append(f"A2 {at} selector reaches admin UI: {sel[:70]}")
                         break
-            if kind == "unlayered" and roots and not any(r in sel for r in roots):
+            if (kind == "unlayered" or tail) and roots and not allowed_admin and sel.strip() not in ("html", "body") and not any(r in sel for r in roots):
                 out.append(f"A1 {at} selector not under a project root: {sel[:70]}")
-            if kind == "layered" and ELEMENT_START.match(re.sub(r"^:where\(", "", sel).strip()) and layer_name not in base_layers and not any(r in sel for r in roots):
+            if kind == "layered" and not tail and not allowed_admin and ELEMENT_START.match(re.sub(r"^:where\(", "", sel).strip()) and layer_name not in base_layers and not any(r in sel for r in roots):
                 out.append(f"A1 {at} bare element selector outside the base layers: {sel[:70]}")
         sel_allowed = any(a in head for a in imp_allow) or (locked and layer_name == locked)
         for prop, value in declarations(body):
-            if "!important" in value and not sel_allowed and kind == "layered":
+            if "!important" in value and not sel_allowed and kind == "layered" and not tail:
                 if prop in GUARDED_PROPS:
                     out.append(f"L6 {at} layered !important on {prop}")
                 else:
                     out.append(f"L6 {at} !important on {prop} outside the locked layer and the allow-list")
-            if (kind == "layered" and not colors_ok and layer_name != tokens_layer
+            if (kind == "layered" and not tail and not colors_ok and layer_name != tokens_layer
                     and not prop.startswith("--") and COLOR_RE.search(value)):
                 out.append(f"L7 {at} color literal in {prop} outside the tokens layer")
     return out
 
 
+def find_parent(root: str, name: str):
+    """Return the parent theme's manifest dict, or None when it is not found."""
+    root = os.path.abspath(root)
+    up = os.path.dirname(root)
+    candidates = [
+        up,
+        os.path.join(up, name),
+        os.path.join(up, "d8w3css"),
+        os.path.join(os.path.dirname(up), "contrib", name),
+        os.path.join(os.path.dirname(up), name),
+    ]
+    for c in candidates:
+        mp = os.path.join(c, "css-layers.json")
+        if os.path.isfile(mp):
+            try:
+                data = json.load(open(mp, encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            if isinstance(data.get("ladder"), list):
+                return data
+    return None
+
+
 def check_ladder(root: str, manifest) -> list[str]:
     out = []
+    if manifest.get("ladder_parent"):
+        return out
     locked = manifest.get("locked_layer")
     if locked and manifest["ladder"][:1] != [locked]:
         out.append(f"L6 locked layer {locked} must be the first layer of the ladder")
@@ -267,6 +307,8 @@ def check_ladder(root: str, manifest) -> list[str]:
 
 
 def check_library(root: str, manifest) -> list[str]:
+    if manifest.get("ladder_parent"):
+        return []
     libfile = manifest.get("libraries_file")
     lf = manifest.get("ladder_file")
     if not libfile:
@@ -298,6 +340,9 @@ def check_library(root: str, manifest) -> list[str]:
 
 
 def spec_for(rel: str, manifest):
+    # An exact path entry wins over any glob, whatever the key order.
+    if rel in manifest["files"]:
+        return manifest["files"][rel]
     for pattern, spec in manifest["files"].items():
         if fnmatch.fnmatch(rel, pattern):
             return spec
@@ -305,9 +350,24 @@ def spec_for(rel: str, manifest):
 
 
 def run(root: str, manifest) -> list[str]:
-    for key in ("ladder", "ladder_file", "files", "css_dirs"):
-        if key not in manifest:
-            raise ValueError(f"manifest needs '{key}'")
+    manifest = dict(manifest)
+    run.note = ""
+    if manifest.get("ladder_parent"):
+        for key in ("files", "css_dirs"):
+            if key not in manifest:
+                raise ValueError(f"manifest needs '{key}'")
+        parent = find_parent(root, manifest["ladder_parent"])
+        if parent is None:
+            run.note = "ladder taken from parent, not found here: skipped"
+            manifest["ladder"] = None
+        else:
+            manifest["ladder"] = parent["ladder"]
+            run.note = f"ladder taken from parent {manifest['ladder_parent']}"
+        manifest.setdefault("ladder_file", None)
+    else:
+        for key in ("ladder", "ladder_file", "files", "css_dirs"):
+            if key not in manifest:
+                raise ValueError(f"manifest needs '{key}'")
     out = check_ladder(root, manifest) + check_library(root, manifest)
     pending: list[str] = []
     for d in manifest["css_dirs"]:
@@ -321,7 +381,7 @@ def run(root: str, manifest) -> list[str]:
                 if spec is None:
                     out.append(f"L2 {rel} is not listed in the manifest")
                     continue
-                if rel == manifest["ladder_file"]:
+                if manifest["ladder_file"] and rel == manifest["ladder_file"]:
                     continue
                 if isinstance(spec, str) and spec.startswith("ignored"):
                     continue
@@ -338,7 +398,7 @@ def self_test() -> int:
         "ladder": ["p.locked", "p.reset", "p.tokens", "p.base", "p.theme", "p.utilities"],
         "locked_layer": "p.locked",
         "ladder_file": "css/layers.css", "css_dirs": ["css"], "files": {},
-        "roots": [".mod"], "important_allow": {".p-hide": "show/hide must win"}, "tokens_layer": "p.tokens",
+        "roots": [".mod"], "important_allow": {".p-hide": "show/hide must win"}, "admin_allow": {".p-login ul.tabs": "login tabs restyle, owner approved"}, "tokens_layer": "p.tokens",
         "element_layers": ["p.reset", "p.base"],
     }
     lay = ["p.theme"]
@@ -367,8 +427,20 @@ def self_test() -> int:
         (".mod a:not(.contextual-links *) { color: red; }", "unlayered: module", None),
         ("@layer p.theme { .toolbar .x { margin: 0; } }", lay, "A2"),
         (".contextual-links a { color: red; }", "admin", None),
+        (".mod .a { color: red; }", {"layers": ["p.theme"], "unlayered_tail": "answers unlayered CSS"}, None),
+        ("a { color: red; }", {"layers": ["p.theme"], "unlayered_tail": "answers unlayered CSS"}, "A1"),
+        (".mod .a { color: red; }", {"layers": ["p.theme"]}, "L3"),
+        (".mod .a { color: #fff !important; }", {"layers": ["p.theme"], "unlayered_tail": "answers unlayered CSS"}, None),
+        (".mod .p-login ul.tabs a { color: red; }", "unlayered: module", None),
+        (".mod .p-other ul.tabs a { color: red; }", "unlayered: module", "A2"),
+        ("@layer p.theme { body .p-login ul.tabs { margin: 0; } }", ["p.theme"], None),
+        ("@layer p.theme { body .p-x { margin: 0; } }", ["p.theme"], "A1"),
+        ("body { font-family: serif; }", "unlayered: answers module CSS", None),
+        ("body p { font-family: serif; }", "unlayered: answers module CSS", "A1"),
         ("@layer p.theme { .a { content: \"{\"; margin: 0; } }", lay, None),
         ("@layer p.theme { @keyframes k { from { color: #000; } } }", lay, None),
+        ("@layer p.theme { :root { --p3-a: #fff; } }", lay, None),
+        ("@layer p.theme { .a { color: #fff; --p3-a: red; } }", lay, "L7"),
     ]
     fails = 0
     for css, spec, want in cases:
@@ -406,6 +478,34 @@ def self_test() -> int:
                 fails += 1
                 print(f"SELF-TEST FAIL want={want} got={got}")
         cases.append(None)
+    # Sub-theme manifests: ladder from the parent, found or not found.
+    parent_m = {"ladder": ["p.locked", "p.reset", "p.tokens", "p.base", "p.theme", "p.utilities", "p.subtheme"]}
+    sub_m = {"ladder_parent": "p_theme", "locked_layer": "p.locked", "tokens_layer": "p.tokens",
+             "element_layers": ["p.reset", "p.base"], "css_dirs": ["css"], "roots": [".sub"],
+             "files": {"css/s.css": ["p.subtheme"]}}
+    sub_disk = [
+        # (parent present, css, expected code or None, expected note fragment)
+        (True, "@layer p.subtheme { .a { margin: 0; } }", None, "ladder taken from parent p_theme"),
+        (True, "@layer p.nope { .a { margin: 0; } }", "L4", "ladder taken from parent p_theme"),
+        (True, "@layer p.subtheme, p.base;", "L1", "ladder taken from parent p_theme"),
+        (False, "@layer p.nope { .a { margin: 0; } }", "L3", "not found here: skipped"),
+        (False, "@layer p.subtheme { .a { margin: 0; } }", None, "not found here: skipped"),
+    ]
+    for have_parent, css, want, note in sub_disk:
+        with tempfile.TemporaryDirectory() as d:
+            sub_root = os.path.join(d, "work", "sub")
+            os.makedirs(os.path.join(sub_root, "css"))
+            open(os.path.join(sub_root, "css", "s.css"), "w").write(css)
+            if have_parent:
+                os.makedirs(os.path.join(d, "work", "p_theme"))
+                json.dump(parent_m, open(os.path.join(d, "work", "p_theme", "css-layers.json"), "w"))
+            got = run(sub_root, sub_m)
+            codes = {g.split()[0] for g in got}
+            ok = ((not got) if want is None else (want in codes)) and note in run.note
+            if not ok:
+                fails += 1
+                print(f"SELF-TEST FAIL sub-theme want={want} note={note!r} got={got} note={run.note!r}")
+        cases.append(None)
     print(f"self-test: {len(cases)} cases, {fails} failures")
     return 1 if fails else 0
 
@@ -428,6 +528,8 @@ def main() -> int:
     for line in out:
         print(line)
     pend = getattr(run, "pending", [])
+    if getattr(run, "note", ""):
+        print(f"css-layers-check: {run.note}")
     print(f"css-layers-check: {len(out)} failures, {len(pend)} files pending migration")
     return 1 if out else 0
 

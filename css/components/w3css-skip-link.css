@@ -1,0 +1,25 @@
+@layer w3css.theme {
+  /* The skip link stays hidden until it gets keyboard focus (core's
+     .visually-hidden.focusable), then shows as a high contrast bar at the top
+     of the page (WCAG 2.4.1, 1.4.3: white on black is 21:1). */
+  .skip-link {
+    color: var(--w3-white);
+    background-color: var(--w3-black);
+    text-decoration: none;
+  }
+
+  .skip-link.focusable:focus {
+    position: absolute;
+    z-index: 1000;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    padding-block: 0.75rem;
+    padding-inline: 1.5rem;
+    outline: 2px solid var(--w3-white);
+    outline-offset: -4px;
+  }
+
+  .skip-link:hover {
+    text-decoration: underline;
+  }
+}

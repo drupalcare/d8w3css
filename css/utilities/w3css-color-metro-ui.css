@@ -1,0 +1,170 @@
+/**
+ * @file
+ * W3CSS color library: Metro UI.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-metro-light-green: #99b433;
+    --w3-metro-light-green-on: var(--w3-black);
+    --w3-metro-green: #00a300;
+    --w3-metro-green-on: var(--w3-black);
+    --w3-metro-dark-green: #1e7145;
+    --w3-metro-dark-green-on: var(--w3-white);
+    --w3-metro-magenta: #ff0097;
+    --w3-metro-magenta-on: var(--w3-black);
+    --w3-metro-light-purple: #9f00a7;
+    --w3-metro-light-purple-on: var(--w3-white);
+    --w3-metro-purple: #7e3878;
+    --w3-metro-purple-on: var(--w3-white);
+    --w3-metro-dark-purple: #603cba;
+    --w3-metro-dark-purple-on: var(--w3-white);
+    --w3-metro-darken: #1d1d1d;
+    --w3-metro-darken-on: var(--w3-white);
+    --w3-metro-teal: #00aba9;
+    --w3-metro-teal-on: var(--w3-black);
+    --w3-metro-light-blue: #eff4ff;
+    --w3-metro-light-blue-on: var(--w3-black);
+    --w3-metro-blue: #2d89ef;
+    --w3-metro-blue-on: var(--w3-black);
+    --w3-metro-dark-blue: #2b5797;
+    --w3-metro-dark-blue-on: var(--w3-white);
+    --w3-metro-yellow: #ffc40d;
+    --w3-metro-yellow-on: var(--w3-black);
+    --w3-metro-orange: #e3a21a;
+    --w3-metro-orange-on: var(--w3-black);
+    --w3-metro-dark-orange: #da532c;
+    --w3-metro-dark-orange-on: var(--w3-black);
+    --w3-metro-red: #ee1111;
+    --w3-metro-red-on: var(--w3-black);
+    --w3-metro-dark-red: #b91d47;
+    --w3-metro-dark-red-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-metro-light-green {
+    --r-background: var(--w3-metro-light-green);
+    --r-text: var(--w3-metro-light-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-green {
+    --r-background: var(--w3-metro-green);
+    --r-text: var(--w3-metro-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-dark-green {
+    --r-background: var(--w3-metro-dark-green);
+    --r-text: var(--w3-metro-dark-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-magenta {
+    --r-background: var(--w3-metro-magenta);
+    --r-text: var(--w3-metro-magenta-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-light-purple {
+    --r-background: var(--w3-metro-light-purple);
+    --r-text: var(--w3-metro-light-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-purple {
+    --r-background: var(--w3-metro-purple);
+    --r-text: var(--w3-metro-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-dark-purple {
+    --r-background: var(--w3-metro-dark-purple);
+    --r-text: var(--w3-metro-dark-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-darken {
+    --r-background: var(--w3-metro-darken);
+    --r-text: var(--w3-metro-darken-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-teal {
+    --r-background: var(--w3-metro-teal);
+    --r-text: var(--w3-metro-teal-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-light-blue {
+    --r-background: var(--w3-metro-light-blue);
+    --r-text: var(--w3-metro-light-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-blue {
+    --r-background: var(--w3-metro-blue);
+    --r-text: var(--w3-metro-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-dark-blue {
+    --r-background: var(--w3-metro-dark-blue);
+    --r-text: var(--w3-metro-dark-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-yellow {
+    --r-background: var(--w3-metro-yellow);
+    --r-text: var(--w3-metro-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-orange {
+    --r-background: var(--w3-metro-orange);
+    --r-text: var(--w3-metro-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-dark-orange {
+    --r-background: var(--w3-metro-dark-orange);
+    --r-text: var(--w3-metro-dark-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-red {
+    --r-background: var(--w3-metro-red);
+    --r-text: var(--w3-metro-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-metro-dark-red {
+    --r-background: var(--w3-metro-dark-red);
+    --r-text: var(--w3-metro-dark-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

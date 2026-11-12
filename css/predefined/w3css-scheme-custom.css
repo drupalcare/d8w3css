@@ -1,0 +1,65 @@
+/**
+ * @file
+ * W3CSS custom color schemes: the rules that are not a color.
+ *
+ * The color rules follow the tokens in each scheme file and read the
+ * --w3css-custom-* tokens each scheme file sets. What stays here is the same
+ * for every scheme that loads this file.
+ * Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.base {
+  /* Links change colour only, quickly (150-250ms rule): never every property. */
+  a {
+    transition:
+      color 0.18s ease,
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      opacity 0.18s ease;
+  }
+}
+
+@layer w3css.utilities {
+  /* Buttons change only colour and shadow, quickly: nothing here moves. */
+  .w3-button {
+    transition:
+      color 0.18s ease,
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+}
+
+@layer w3css.schemes {
+  #w3css-header .fa,
+  #w3css-header .svg-inline--fa {
+    color: inherit;
+  }
+}
+
+@layer w3css.theme {
+  /* Accordion buttons wrap: W3.CSS sets nowrap on .w3-button, so a long title ran past the phone edge. */
+  .w3css-accordion__button {
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+
+/**
+ * @file
+ * W3CSS custom color schemes: the box borders that are not a color.
+ *
+ * The border colors follow the tokens in each scheme file.
+ * Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.theme {
+  #w3css-top-region .w3css-page__top > div,
+  #w3css-bottom-region .w3css-page__bottom > div,
+  #w3css-footer-region .w3css-page__footer > div {
+    border-width: 1px;
+    border-style: solid;
+  }
+}

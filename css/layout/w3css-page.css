@@ -1,0 +1,109 @@
+@layer w3css.layout {
+  .w3css-header__inner,
+  .w3css-main-nav__inner--horizontal,
+  .w3css-welcome-text__inner,
+  .w3css-highlighted__inner,
+  .w3css-top-region__inner,
+  .w3css-page-title__inner,
+  .w3css-main-region__inner,
+  .w3css-bottom-region__inner,
+  .w3css-footer-region__inner,
+  .w3css-footer-menu__inner,
+  .w3css-copyright__inner {
+    float: none;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .w3css-top-region__inner .w3css-page__top-first,
+  .w3css-top-region__inner .w3css-page__top-second,
+  .w3css-top-region__inner .w3css-page__top-third,
+  .w3css-main-region__inner .w3css-page__sidebar-first,
+  .w3css-main-region__inner .w3css-page__content,
+  .w3css-main-region__inner .w3css-page__sidebar-second,
+  .w3css-bottom-region__inner .w3css-page__bottom-first,
+  .w3css-bottom-region__inner .w3css-page__bottom-second,
+  .w3css-bottom-region__inner .w3css-page__bottom-third,
+  .w3css-bottom-region__inner .w3css-page__bottom-fourth,
+  .w3css-footer-region__inner .w3css-page__footer-first,
+  .w3css-footer-region__inner .w3css-page__footer-second,
+  .w3css-footer-region__inner .w3css-page__footer-third {
+    float: left;
+  }
+
+  .w3css-top-region__inner .w3css-page__top-first > div,
+  .w3css-top-region__inner .w3css-page__top-second > div,
+  .w3css-top-region__inner .w3css-page__top-third > div,
+  .w3css-main-region__inner .w3css-page__sidebar-first > div,
+  .w3css-main-region__inner .w3css-page__content > div,
+  .w3css-main-region__inner .w3css-page__sidebar-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-first > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-third > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-fourth > div,
+  .w3css-footer-region__inner .w3css-page__footer-first > div,
+  .w3css-footer-region__inner .w3css-page__footer-second > div,
+  .w3css-footer-region__inner .w3css-page__footer-third > div {
+    float: left;
+  }
+
+  .w3css-main-region__inner .w3css-page__sidebar-first,
+  .w3css-main-region__inner .w3css-page__content,
+  .w3css-main-region__inner .w3css-page__sidebar-second,
+  .w3css-top-region__inner .w3css-page__top-first,
+  .w3css-top-region__inner .w3css-page__top-second,
+  .w3css-top-region__inner .w3css-page__top-third,
+  .w3css-bottom-region__inner .w3css-page__bottom-first,
+  .w3css-bottom-region__inner .w3css-page__bottom-second,
+  .w3css-bottom-region__inner .w3css-page__bottom-third,
+  .w3css-bottom-region__inner .w3css-page__bottom-fourth,
+  .w3css-footer-region__inner .w3css-page__footer-first,
+  .w3css-footer-region__inner .w3css-page__footer-second,
+  .w3css-footer-region__inner .w3css-page__footer-third {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  /*
+ * Large screens: the boxes of one region group (top, bottom, footer) share
+ * the height of the tallest box, so a row of cards ends on one line. The
+ * main region is left out: a sidebar should not stretch to a long article.
+ */
+  @media (min-width: 62rem) {
+    .w3css-top-region__inner,
+    .w3css-bottom-region__inner,
+    .w3css-footer-region__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .w3css-top-region__inner::before,
+    .w3css-top-region__inner::after,
+    .w3css-bottom-region__inner::before,
+    .w3css-bottom-region__inner::after,
+    .w3css-footer-region__inner::before,
+    .w3css-footer-region__inner::after {
+      display: none;
+    }
+
+    .w3css-top-region__inner > .w3css-page__top,
+    .w3css-bottom-region__inner > .w3css-page__bottom,
+    .w3css-footer-region__inner > .w3css-page__footer {
+      display: flex;
+      float: none;
+      min-width: 0;
+    }
+
+    .w3css-top-region__inner > .w3css-page__top > div,
+    .w3css-bottom-region__inner > .w3css-page__bottom > div,
+    .w3css-footer-region__inner > .w3css-page__footer > div {
+      min-width: 0;
+    }
+  }
+
+  /* The skip link moves focus here; the region is not a control. */
+  #main-content:focus {
+    outline: none;
+  }
+}

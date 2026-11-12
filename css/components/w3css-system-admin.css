@@ -1,0 +1,168 @@
+@layer w3css.tokens {
+  :root {
+    --w3css-system-admin-border: #eaeaea;
+    --w3css-system-admin-color: #325e1c;
+    --w3css-system-admin-color-2: #734c00;
+    --w3css-system-admin-color-3: #a51b00;
+  }
+}
+
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) dl dd {
+    margin-bottom: 8px;
+    margin-left: 8px;
+  }
+
+  .panel__title {
+    margin: 0;
+    padding-bottom: 9px;
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+
+  .admin-list li,
+  .w3css-admin-block-content__list li {
+    position: relative;
+    list-style-type: none;
+    list-style-image: none;
+  }
+
+  /* Admin pages */
+
+  .ui-dialog-content .w3-content,
+  .w3css-page--admin .block-system-main-block .w3-content {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .winnow-clear {
+    top: 4px;
+  }
+
+  .paragraph-type-top {
+    align-items: center;
+  }
+
+  /* .ui-dialog-content .w3-responsive,
+  .admin-context .block-system-main-block .w3-responsive {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    clear: both;
+    overflow-x: initial;
+  } */
+
+  .w3css-page--admin .block-system-main-block {
+    padding: 0 16px;
+  }
+
+  .w3css-page--admin nav.action-links,
+  .w3css-page--admin nav.w3css-local-actions {
+    margin-left: 16px;
+    list-style: none;
+  }
+
+  .w3css-page--admin nav.action-links li,
+  .w3css-page--admin nav.w3css-local-actions li {
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .w3css-page--admin .modules-tabs__pane {
+    width: auto;
+  }
+
+  .w3css-page--admin .modules-wrapper .w3css-status-report__requirements {
+    max-width: 100%;
+  }
+
+  .w3css-page--admin .item-list--comma-list::before,
+  .w3css-page--admin .item-list--comma-list::after {
+    display: inline-block;
+    clear: none;
+  }
+
+  .w3css-page--admin .admin-requirements {
+    text-align: left;
+  }
+
+  .w3css-page--admin .item-list--comma-list {
+    display: inline-block;
+  }
+
+  .w3css-page--admin .w3css-status-report__status-title {
+    padding: 8px;
+  }
+
+  @media screen and (min-width: 62rem) {
+    .w3css-page--admin .system-status-general-info__items,
+    .w3css-page--admin .w3css-status-report-general-info__items {
+      display: flex;
+      overflow-x: hidden;
+      flex-wrap: wrap;
+    }
+
+    .w3css-page--admin .system-status-general-info__item {
+      flex: 1;
+      flex-basis: 33%;
+      width: 33%;
+    }
+
+    .w3css-page--admin .w3css-status-report-general-info__item {
+      flex: 1;
+      flex-basis: 33%;
+      width: 33%;
+      border-color: var(--w3css-system-admin-border);
+    }
+
+    .w3css-page--admin .system-status-general-info__item:nth-child(2),
+    .w3css-page--admin .w3css-status-report-general-info__item:nth-child(2) {
+      flex: 2;
+      flex-basis: 66%;
+    }
+
+    .w3css-page--admin .system-status-general-info__run-cron,
+    .w3css-page--admin .w3css-status-report-general-info__run-cron {
+      margin: 15px 0 5px;
+    }
+  }
+
+  .w3css-page--admin .system-status-report__requirements-group details,
+  .w3css-page--admin .w3css-status-report__requirements-group details,
+  .w3css-page--admin .system-status-report__requirements-group summary,
+  .w3css-page--admin .w3css-status-report__requirements-group summary {
+    list-style-type: none;
+  }
+
+  .w3css-page--admin .w3css-status-report__entry-value {
+    padding-top: 0;
+  }
+
+  .w3css-page--admin .w3css-status-report__status-icon::before {
+    top: 11px;
+    left: -14px;
+  }
+
+  /**
+   * Reusable colors.
+   */
+
+  .color-success {
+    color: var(--w3css-system-admin-color);
+    background-color: var(--w3-pale-green);
+  }
+
+  .color-warning {
+    color: var(--w3css-system-admin-color-2);
+    background-color: var(--w3-pale-yellow);
+  }
+
+  .color-error {
+    color: var(--w3css-system-admin-color-3);
+    background-color: var(--w3-pale-red);
+  }
+
+  /* CKE */
+}

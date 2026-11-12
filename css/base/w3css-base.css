@@ -1,0 +1,89 @@
+/**
+ * @file
+ * Overall specifications for W3CSS Theme.
+ *
+ * Box sizing lives once, in the w3css.reset layer of w3css-drupal.css
+ * (border-box on html, inherited by every element).
+ */
+
+@layer w3css.base {
+  html,
+  body {
+    min-height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+
+  /* 18px at the browser's default text size, and it follows the visitor's own
+   text-size setting. rem values keep their old size because the root is
+   still 18px by default. */
+  html {
+    font-size: 112.5%;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  img,
+  object,
+  embed {
+    display: block;
+  }
+
+  object,
+  embed,
+  video {
+    max-width: 100%;
+    border: 0;
+  }
+
+  img,
+  object,
+  embed,
+  video {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  li a {
+    text-decoration: none;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Keyboard focus ring for every focusable element. Mouse clicks do not match
+   :focus-visible, so they look as before. Elements focused by script
+   (tabindex="-1", such as the main region after the skip link) stay unringed.
+   :where() keeps the specificity low, so menus and sub-themes can adjust the
+   offset or color with a plain selector. */
+  :where(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  a,
+  button {
+    border-radius: 0;
+  }
+
+  input[type="button"],
+  input[type="search"] {
+    appearance: none;
+  }
+}

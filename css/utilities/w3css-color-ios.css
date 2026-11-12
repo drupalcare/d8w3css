@@ -1,0 +1,125 @@
+/**
+ * @file
+ * W3CSS color library: iOS.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-ios-dark-blue: #5856d6;
+    --w3-ios-dark-blue-on: var(--w3-white);
+    --w3-ios-deep-blue: #007aff;
+    --w3-ios-deep-blue-on: var(--w3-black);
+    --w3-ios-blue: #34aadc;
+    --w3-ios-blue-on: var(--w3-black);
+    --w3-ios-light-blue: #5ac8fa;
+    --w3-ios-light-blue-on: var(--w3-black);
+    --w3-ios-green: #4cd964;
+    --w3-ios-green-on: var(--w3-black);
+    --w3-ios-pink: #ff2d55;
+    --w3-ios-pink-on: var(--w3-black);
+    --w3-ios-red: #ff3b30;
+    --w3-ios-red-on: var(--w3-black);
+    --w3-ios-orange: #ff9500;
+    --w3-ios-orange-on: var(--w3-black);
+    --w3-ios-yellow: #fc0;
+    --w3-ios-yellow-on: var(--w3-black);
+    --w3-ios-grey: #8e8e93;
+    --w3-ios-grey-on: var(--w3-black);
+    --w3-ios-light-grey: #ceced2;
+    --w3-ios-light-grey-on: var(--w3-black);
+    --w3-ios-background: #efeff4;
+    --w3-ios-background-on: var(--w3-black);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-ios-dark-blue {
+    --r-background: var(--w3-ios-dark-blue);
+    --r-text: var(--w3-ios-dark-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-deep-blue {
+    --r-background: var(--w3-ios-deep-blue);
+    --r-text: var(--w3-ios-deep-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-blue {
+    --r-background: var(--w3-ios-blue);
+    --r-text: var(--w3-ios-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-light-blue {
+    --r-background: var(--w3-ios-light-blue);
+    --r-text: var(--w3-ios-light-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-green {
+    --r-background: var(--w3-ios-green);
+    --r-text: var(--w3-ios-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-pink {
+    --r-background: var(--w3-ios-pink);
+    --r-text: var(--w3-ios-pink-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-red {
+    --r-background: var(--w3-ios-red);
+    --r-text: var(--w3-ios-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-orange {
+    --r-background: var(--w3-ios-orange);
+    --r-text: var(--w3-ios-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-yellow {
+    --r-background: var(--w3-ios-yellow);
+    --r-text: var(--w3-ios-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-grey {
+    --r-background: var(--w3-ios-grey);
+    --r-text: var(--w3-ios-grey-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-light-grey {
+    --r-background: var(--w3-ios-light-grey);
+    --r-text: var(--w3-ios-light-grey-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-ios-background {
+    --r-background: var(--w3-ios-background);
+    --r-text: var(--w3-ios-background-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

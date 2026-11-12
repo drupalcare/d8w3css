@@ -1,0 +1,164 @@
+@layer w3css.theme {
+  #w3css-main-nav-vertical {
+    z-index: 1000;
+    width: auto;
+    min-width: 250px;
+  }
+
+  /* The side menu starts closed only when JavaScript runs: core's
+     drupal.init.js adds the class js to <html> before any theme script.
+     :where() keeps the specificity of the old rule. */
+
+  :where(.js) #w3css-main-nav-vertical {
+    display: none;
+  }
+
+  /* Without the script, or when it fails, the side menu and its submenus show
+     in the page flow, and the open and close buttons, which need the script,
+     are hidden. position needs !important to beat w3-sidebar's. */
+
+  :where(html:not(.js)) #w3css-main-nav-vertical {
+    position: static;
+    height: auto;
+  }
+
+  :where(html:not(.js)) #w3css-main-nav-vertical #w3css-main-nav-close,
+  :where(html:not(.js)) #w3css-main-nav-open {
+    display: none;
+  }
+
+  #w3css-main-nav-vertical #w3css-main-nav-close {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+  }
+
+  #w3css-main-nav-vertical .w3css-menu__item--depth-1 .w3css-menu__arrow,
+  .w3css-menu--responsive-v .w3css-menu__item--depth-1 .w3css-menu__arrow {
+    display: flex;
+  }
+
+  #w3css-main-nav-vertical .w3css-menu__item--depth-1 .w3css-menu__right-arrow,
+  .w3css-menu--responsive-v .w3css-menu__item--depth-1 .w3css-menu__right-arrow {
+    display: none;
+  }
+
+  .w3css-menu--responsive-v .w3css-menu__list .w3css-menu__submenu,
+  #w3css-main-nav-vertical .w3css-menu__list .w3css-menu__submenu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .w3css-mobile-nav__toggle:hover {
+    cursor: pointer;
+  }
+
+  .w3css-menu--responsive-v .w3css-menu__list,
+  .w3css-menu--responsive-v .w3css-menu__submenu,
+  .w3css-menu--responsive-v .w3css-menu__item {
+    clear: both;
+  }
+
+  #w3css-main-nav-vertical .w3css-menu__list,
+  #w3css-main-nav-vertical .w3css-menu__submenu,
+  #w3css-main-nav-vertical .w3css-menu__item {
+    clear: both;
+    min-width: 100%;
+  }
+
+  .w3css-menu--responsive-v .w3css-menu__item--depth-1 .w3css-menu__toggle-child,
+  #w3css-main-nav-vertical .w3css-menu__item--depth-1 .w3css-menu__toggle-child {
+    clear: none;
+    width: auto;
+  }
+
+  #w3css-main-nav-open {
+    z-index: 1;
+    width: 60px;
+    margin: 10px 20px 0 0;
+    text-align: center;
+    line-height: 24px;
+  }
+
+  #w3css-main-nav-vertical .w3css-menu__right-arrow {
+    display: none;
+  }
+
+  #w3css-main-nav-vertical li.w3css-menu__item--expanded > span,
+  .w3css-menu--responsive-v li.w3css-menu__item--expanded > span {
+    pointer-events: auto;
+  }
+
+  .w3css-menu--responsive-v li.w3css-menu__item--expanded > span,
+  #w3css-main-nav-vertical li.w3css-menu__item--expanded > span,
+  .w3css-menu--responsive-v li.w3css-menu__item--expanded > a > span,
+  #w3css-main-nav-vertical li.w3css-menu__item--expanded > a > span,
+  .w3css-menu--responsive-v li.w3css-menu__item--expanded > button > span,
+  #w3css-main-nav-vertical li.w3css-menu__item--expanded > button > span {
+    align-items: center;
+  }
+
+  #w3css-main-nav-vertical .w3css-menu__list li li > ul,
+  .w3css-menu--responsive-v .w3css-menu__list li li > ul {
+    inset-inline-start: 0;
+    inset-block-start: auto;
+  }
+
+  /* The side menu slides in with transform and opacity, which the browser can
+     animate without laying the page out on every frame. W3.CSS animates
+     left (animateleft), which does. Same look, same 0.6s from W3.CSS;
+     reduced motion keeps W3.CSS's own off switch. */
+
+  @keyframes w3css-slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-300px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* A menu placed in a sidebar opens its submenus in the page flow, like the
+     vertical menu: a flyout there had no background of its own and covered the
+     items under it. Hover opens them, as everywhere; the arrow
+     also opens them on click or from the keyboard. */
+
+  .w3-sidebar-first .w3css-menu__list li ul,
+  .w3-sidebar-second .w3css-menu__list li ul {
+    float: none;
+    inline-size: 100%;
+    box-shadow: none;
+  }
+
+  /* Every arrow in a sidebar turns down, at any depth. */
+
+  .w3-sidebar-first li.w3css-menu__item--expanded,
+  .w3-sidebar-second li.w3css-menu__item--expanded {
+    --w3css-menu-arrow-open: rotate(180deg);
+  }
+
+  /* The arrow stays beside its link when the submenu opens below: the item is
+     two columns, link and arrow, and the submenu takes the next row. */
+
+  .w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded,
+  .w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded > span,
+  .w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded > span {
+    grid-row: 1;
+    grid-column: 2;
+    align-items: center;
+  }
+
+  .w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded > ul,
+  .w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded > ul {
+    grid-column: 1 / -1;
+  }
+}

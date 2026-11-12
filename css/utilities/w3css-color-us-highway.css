@@ -1,0 +1,80 @@
+/**
+ * @file
+ * W3CSS color library: US highway.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-highway-brown: #633517;
+    --w3-highway-brown-on: var(--w3-white);
+    --w3-highway-red: #a6001a;
+    --w3-highway-red-on: var(--w3-white);
+    --w3-highway-orange: #e06000;
+    --w3-highway-orange-on: var(--w3-black);
+    --w3-highway-schoolbus: #ee9600;
+    --w3-highway-schoolbus-on: var(--w3-black);
+    --w3-highway-yellow: #ffab00;
+    --w3-highway-yellow-on: var(--w3-black);
+    --w3-highway-green: #004d33;
+    --w3-highway-green-on: var(--w3-white);
+    --w3-highway-blue: #00477e;
+    --w3-highway-blue-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-highway-brown {
+    --r-background: var(--w3-highway-brown);
+    --r-text: var(--w3-highway-brown-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-red {
+    --r-background: var(--w3-highway-red);
+    --r-text: var(--w3-highway-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-orange {
+    --r-background: var(--w3-highway-orange);
+    --r-text: var(--w3-highway-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-schoolbus {
+    --r-background: var(--w3-highway-schoolbus);
+    --r-text: var(--w3-highway-schoolbus-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-yellow {
+    --r-background: var(--w3-highway-yellow);
+    --r-text: var(--w3-highway-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-green {
+    --r-background: var(--w3-highway-green);
+    --r-text: var(--w3-highway-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-highway-blue {
+    --r-background: var(--w3-highway-blue);
+    --r-text: var(--w3-highway-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

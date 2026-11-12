@@ -1,0 +1,22 @@
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .region-title td {
+    text-transform: uppercase;
+  }
+
+  .region-title td a {
+    text-transform: capitalize;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) table td ul {
+    margin: 0;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) table td li {
+    list-style: none;
+  }
+}

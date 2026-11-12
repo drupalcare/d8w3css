@@ -7,14 +7,66 @@ base theme: false
 
 # Libraries
 libraries:
-  - drupal8_w3css_theme/w3-css
-  - drupal8_w3css_theme/d8w3css-global-styling
+  # One library per file, in load order (the old w3-css and d8w3css-global-styling
+  # ids still work as deprecated aliases).
+  - drupal8_w3css_theme/base-layers
+  - drupal8_w3css_theme/base-drupal
+  - drupal8_w3css_theme/utility-extended-classes
+  - drupal8_w3css_theme/utility-color-camouflage
+  - drupal8_w3css_theme/utility-color-european-signal
+  - drupal8_w3css_theme/utility-color-fashion
+  - drupal8_w3css_theme/utility-color-flat-ui
+  - drupal8_w3css_theme/utility-color-food
+  - drupal8_w3css_theme/utility-color-ios
+  - drupal8_w3css_theme/utility-color-metro-ui
+  - drupal8_w3css_theme/utility-color-us-highway
+  - drupal8_w3css_theme/utility-color-us-safety
+  - drupal8_w3css_theme/utility-color-vivid
+  - drupal8_w3css_theme/utility-color-win8
+  - drupal8_w3css_theme/base-w3css-base
+  - drupal8_w3css_theme/layout-page
+  - drupal8_w3css_theme/layout-page-width
+  - drupal8_w3css_theme/component-status-messages
+  - drupal8_w3css_theme/component-form-element
+  - drupal8_w3css_theme/component-media
+  - drupal8_w3css_theme/component-breadcrumb
+  - drupal8_w3css_theme/component-local-tasks
+  - drupal8_w3css_theme/component-maintenance-page
+  - drupal8_w3css_theme/component-system-admin
+  - drupal8_w3css_theme/component-table
+  - drupal8_w3css_theme/component-menu
+  - drupal8_w3css_theme/component-menu-responsive-v
+  - drupal8_w3css_theme/component-site-branding
+  - drupal8_w3css_theme/component-user-login
+  - drupal8_w3css_theme/component-footer-menu
+  - drupal8_w3css_theme/component-node
+  - drupal8_w3css_theme/component-page-title
+  - drupal8_w3css_theme/component-search-result
+  - drupal8_w3css_theme/component-search-block-form
+  - drupal8_w3css_theme/component-pager
+  - drupal8_w3css_theme/component-comment
+  - drupal8_w3css_theme/component-views-view
+  - drupal8_w3css_theme/component-layout-builder
+  - drupal8_w3css_theme/component-webform
+  - drupal8_w3css_theme/component-node-form
+  - drupal8_w3css_theme/component-menu-sitemap
+  - drupal8_w3css_theme/component-contact-form
+  - drupal8_w3css_theme/component-ckeditor
+  - drupal8_w3css_theme/component-image
+  - drupal8_w3css_theme/theme-min-width-993
+  - drupal8_w3css_theme/theme-max-width-992
+  - drupal8_w3css_theme/theme-max-min-width-992-601
+  - drupal8_w3css_theme/theme-max-width-767
+  - drupal8_w3css_theme/theme-max-width-600
+  - drupal8_w3css_theme/utility-animate-border
+  - drupal8_w3css_theme/component-site-branding-animation
+  - drupal8_w3css_theme/base-custom-js
 
 ckeditor_stylesheets:
-  - css/theme/w3-ckeditor-iframe.css
+  - css/admin/w3css-ckeditor-iframe.css
 
 ckeditor5-stylesheets:
-  - css/theme/w3-ckeditor5.css
+  - css/admin/w3css-ckeditor5.css
 
 # Regions
 regions:

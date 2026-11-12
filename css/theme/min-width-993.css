@@ -1,130 +1,142 @@
-@media (min-width: 993px) {
-  /* node edit */
-  .path-node .layout-node-form,
-  .path-node .w3css-layout-node-form {
-    display: flex;
-    flex-wrap: wrap;
-  }
+/**
+ * @file
+ * Rules for screens 993px and wider: the node edit columns and the horizontal menu.
+ */
 
-  .layout-region-node-secondary,
-  .w3css-layout-region-node-secondary {
-    width: 29%;
-    margin: 20px 0 20px 1%;
-    -webkit-box-shadow: 10px 0 20px 10px rgb(180, 180, 180, 0.1);
-    box-shadow: 10px 0 20px 10px rgb(180, 180, 180, 0.2);
+@layer w3css.tokens {
+  :root {
+    --w3css-min-width-993-box-shadow: rgb(180, 180, 180, 0.1);
+    --w3css-min-width-993-box-shadow-2: rgb(180, 180, 180, 0.2);
+    --w3css-min-width-993-box-shadow-3: rgb(0, 0, 0, 0.2);
   }
+}
 
-  .layout-region-node-main,
-  .w3css-layout-region-node-main {
-    width: 69%;
-    margin: 20px 1% 20px 0;
-    -webkit-box-shadow: -10px 0 20px 10px rgb(180, 180, 180, 0.1);
-    box-shadow: -10px 0 20px 10px rgb(180, 180, 180, 0.2);
-  }
+@layer w3css.theme {
+  @media (min-width: 62rem) {
+    /* node edit */
+    .path-node .layout-node-form,
+    .path-node .w3css-node-edit-form {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  .layout-region-node-footer,
-  .w3css-layout-region-node-footer {
-    flex: 0 0 100%;
-    margin-top: 0;
-  }
+    .layout-region-node-secondary {
+      margin: 20px 0 20px 1%;
+      -webkit-box-shadow: 10px 0 20px 10px var(--w3css-min-width-993-box-shadow);
+      box-shadow: 10px 0 20px 10px var(--w3css-min-width-993-box-shadow-2);
+    }
 
-  #w3css-main-region-inner .w3css-main-box--breadcrumb-found {
-    margin-top: 0 !important;
-  }
+    .w3css-node-edit-form__secondary {
+      width: 29%;
+      margin: 20px 0 20px 1%;
+      -webkit-box-shadow: 10px 0 20px 10px var(--w3css-min-width-993-box-shadow);
+      box-shadow: 10px 0 20px 10px var(--w3css-min-width-993-box-shadow-2);
+    }
 
-  .w3css-highlighted__inner {
-    padding: 0 20px;
-  }
+    .layout-region-node-main {
+      margin: 20px 1% 20px 0;
+      -webkit-box-shadow: -10px 0 20px 10px var(--w3css-min-width-993-box-shadow);
+      box-shadow: -10px 0 20px 10px var(--w3css-min-width-993-box-shadow-2);
+    }
 
-  /* Main Menu */
-  .w3css-menu__list li > a,
-  .w3css-menu__list li > button {
-    padding: 12px 16px;
-  }
+    .w3css-node-edit-form__main {
+      width: 69%;
+      margin: 20px 1% 20px 0;
+      -webkit-box-shadow: -10px 0 20px 10px var(--w3css-min-width-993-box-shadow);
+      box-shadow: -10px 0 20px 10px var(--w3css-min-width-993-box-shadow-2);
+    }
 
-  .w3css-menu__list li li > a,
-  .w3css-menu__list li li > button {
-    padding: 10px 14px;
-  }
+    .layout-region-node-footer,
+    .w3css-node-edit-form__footer {
+      flex: 0 0 100%;
+      margin-top: 0;
+    }
 
-  /* Global Menus */
-  .w3css-menu__list .w3css-menu__submenu {
-    box-shadow: 0 8px 16px 0 rgb(0, 0, 0, 0.2);
-  }
+    #w3css-main-region-inner .w3css-page__main--breadcrumb-found {
+      margin-top: 0;
+    }
 
-  /* Not only on hover: a submenu opened from the keyboard sits here too. */
-  .w3css-menu__list li li > ul {
-    inset-inline-start: 100%;
-    inset-block-start: var(--w3css-submenu-shift, 0);
-  }
+    .w3css-highlighted__inner {
+      padding: 0 20px;
+    }
 
-  /* custom.js sets this when the submenu would leave the screen. */
-  .w3css-menu__list > li.w3css-is-flipped > ul {
-    inset-inline-start: auto;
-    inset-inline-end: 0;
-  }
+    /* Global Menus */
+    .w3css-menu__list .w3css-menu__submenu {
+      box-shadow: 0 8px 16px 0 var(--w3css-min-width-993-box-shadow-3);
+    }
 
-  .w3css-menu__list li li.w3css-is-flipped > ul {
-    inset-inline-start: auto;
-    inset-inline-end: 100%;
-  }
+    /* Not only on hover: a submenu opened from the keyboard sits here too. */
+    .w3css-menu__list li li > ul {
+      inset-inline-start: 100%;
+      inset-block-start: var(--w3css-menu-submenu-shift, 0);
+    }
 
-  .w3css-menu__list li ul {
-    position: absolute;
-  }
+    /* custom.js sets this when the submenu would leave the screen. */
+    .w3css-menu__list > li.w3css-is-flipped > ul {
+      inset-inline-start: auto;
+      inset-inline-end: 0;
+    }
 
-  /* custom.js sets these when a flyout is too long for the room below it. */
-  .w3css-menu__list .w3css-is-scrollable {
-    max-block-size: var(--w3css-submenu-max, 100vh);
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
+    .w3css-menu__list li li.w3css-is-flipped > ul {
+      inset-inline-start: auto;
+      inset-inline-end: 100%;
+    }
 
-  /* Inside a scrolling list only this keeps a nested flyout from being clipped. */
-  .w3css-menu__list .w3css-is-detached {
-    position: fixed;
-  }
+    .w3css-menu__list li ul {
+      position: absolute;
+    }
 
-  .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
-  .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
-    z-index: 1;
-    display: block;
-    /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
-    animation: comeout 0.3s;
-  }
+    /* custom.js sets these when a flyout is too long for the room below it. */
+    .w3css-menu__list .w3css-is-scrollable {
+      max-block-size: var(--w3css-menu-submenu-max, 100vh);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
 
-  /* A nested arrow turns toward the side its submenu opens on. */
-  .w3css-menu__list li li.w3css-menu__item--expanded {
-    --w3css-arrow-open: rotate(-90deg);
-  }
+    /* Inside a scrolling list only this keeps a nested flyout from being clipped. */
+    .w3css-menu__list .w3css-is-detached {
+      position: fixed;
+    }
 
-  .w3css-menu__list li li.w3css-is-flipped,
-  [dir="rtl"] .w3css-menu__list li li.w3css-menu__item--expanded {
-    --w3css-arrow-open: rotate(90deg);
-  }
+    .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+    .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
+      z-index: 1;
+      /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
+      animation: comeout 0.3s;
+    }
 
-  [dir="rtl"] .w3css-menu__list li li.w3css-is-flipped {
-    --w3css-arrow-open: rotate(-90deg);
-  }
+    /* A nested arrow turns toward the side its submenu opens on. */
+    .w3css-menu__list li li.w3css-menu__item--expanded {
+      --w3css-menu-arrow-open: rotate(-90deg);
+    }
 
-  /* The vertical menus open in the flow at every depth. */
-  #w3css-main-nav-vertical .w3css-menu__list li li.w3css-menu__item--expanded,
-  .w3css-vertical-nav .w3css-menu__list li li.w3css-menu__item--expanded {
-    --w3css-arrow-open: rotate(180deg);
-  }
+    .w3css-menu__list li li.w3css-is-flipped,
+    [dir="rtl"] .w3css-menu__list li li.w3css-menu__item--expanded {
+      --w3css-menu-arrow-open: rotate(90deg);
+    }
 
-  li.w3css-menu__item--expanded > span,
-  li.w3css-menu__item--expanded > a > span,
-  li.w3css-menu__item--expanded > button > span {
-    align-items: center;
-    height: 100%;
-  }
+    [dir="rtl"] .w3css-menu__list li li.w3css-is-flipped {
+      --w3css-menu-arrow-open: rotate(-90deg);
+    }
 
-  /* With a mouse the row is the link, so hovering the arrow hovers the link. */
-  @media (hover: hover) {
-    li.w3css-menu__item--expanded > span {
-      pointer-events: none;
+    /* The vertical menus open in the flow at every depth. */
+    #w3css-main-nav-vertical .w3css-menu__list li li.w3css-menu__item--expanded,
+    .w3css-menu--responsive-v .w3css-menu__list li li.w3css-menu__item--expanded {
+      --w3css-menu-arrow-open: rotate(180deg);
+    }
+
+    li.w3css-menu__item--expanded > span,
+    li.w3css-menu__item--expanded > a > span,
+    li.w3css-menu__item--expanded > button > span {
+      align-items: center;
+    }
+
+    /* With a mouse the row is the link, so hovering the arrow hovers the link. */
+    @media (hover: hover) {
+      li.w3css-menu__item--expanded > span {
+        pointer-events: none;
+      }
     }
   }
 }

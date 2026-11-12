@@ -20,7 +20,12 @@ final class SettingsMap {
    */
   public const MAP = [
     'moved' => [
-      'current_theme' => ['new' => 'color_scheme.predefined', 'type' => 'string'],
+      // Before 2.0 an empty choice was stored as '0' or ''; both mean none.
+      'current_theme' => [
+        'new' => 'color_scheme.predefined',
+        'type' => 'string',
+        'aliases' => ['0' => 'none', '' => 'none'],
+      ],
       'website_width' => ['new' => 'layout.width', 'type' => 'string'],
       'equal_width' => ['new' => 'layout.equal_columns', 'type' => 'boolean'],
       'layout_user_login_custom' => ['new' => 'layout.centered_login_pages', 'type' => 'boolean'],

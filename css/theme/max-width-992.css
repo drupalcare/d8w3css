@@ -1,181 +1,153 @@
-@media (max-width: 992px) {
-  .site-name,
-  .w3css-site-name {
-    font-size: 28px;
-  }
+/**
+ * @file
+ * Rules for screens up to 992px: stacked regions, the mobile menus and the dialogs.
+ */
 
-  /* No !important: a sub-theme's own slogan size (a narrow header) must be able to win. */
-  .site-slogan,
-  .w3css-site-slogan {
-    font-size: 20px;
-  }
+@layer w3css.theme {
+  @media (max-width: 61.99875rem) {
+    .site-name,
+    .w3css-site-name {
+      font-size: 28px;
+    }
 
-  h1.page-title,
-  h1.w3css-page-title {
-    padding: 16px;
-    font-size: 32px;
-  }
+    /* No !important: a sub-theme's own slogan size (a narrow header) must be able to win. */
+    .site-slogan,
+    .w3css-site-slogan {
+      font-size: 20px;
+    }
 
-  .ui-dialog {
-    max-width: 90%;
-    margin: 0 5%;
-  }
+    :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+    h1.w3css-page-title {
+      padding: 16px;
+    }
 
-  .ui-dialog .ui-dialog-buttonpane {
-    text-align: center;
-  }
+    .ui-dialog {
+      max-width: 90%;
+      margin: 0 5%;
+    }
 
-  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
-    float: none;
-  }
+    #w3css-main-region-inner > div:nth-child(2) .w3css-page__main--breadcrumb-found:first-child {
+      margin-top: 0;
+    }
 
-  #w3css-main-region-inner > div:nth-child(2) .w3css-main-box--breadcrumb-found:first-child {
-    margin-top: 0 !important;
-  }
+    .w3css-top-region__inner .w3css-page__top-first,
+    .w3css-top-region__inner .w3css-page__top-second,
+    .w3css-top-region__inner .w3css-page__top-third,
+    .w3css-main-region__inner .w3css-page__sidebar-first,
+    .w3css-main-region__inner .w3css-page__content,
+    .w3css-main-region__inner .w3css-page__sidebar-second,
+    .w3css-bottom-region__inner .w3css-page__bottom-first,
+    .w3css-bottom-region__inner .w3css-page__bottom-second,
+    .w3css-bottom-region__inner .w3css-page__bottom-third,
+    .w3css-bottom-region__inner .w3css-page__bottom-fourth,
+    .w3css-footer-region__inner .w3css-page__footer-first,
+    .w3css-footer-region__inner .w3css-page__footer-second,
+    .w3css-footer-region__inner .w3css-page__footer-third {
+      width: 100%;
+    }
 
-  .w3css-top-region__inner .w3css-first-top,
-  .w3css-top-region__inner .w3css-second-top,
-  .w3css-top-region__inner .w3css-third-top,
-  .w3css-main-region__inner .w3css-first-sidebar,
-  .w3css-main-region__inner .w3css-content-region,
-  .w3css-main-region__inner .w3css-second-sidebar,
-  .w3css-bottom-region__inner .w3css-first-bottom,
-  .w3css-bottom-region__inner .w3css-second-bottom,
-  .w3css-bottom-region__inner .w3css-third-bottom,
-  .w3css-bottom-region__inner .w3css-forth-bottom,
-  .w3css-footer-region__inner .w3css-first-footer,
-  .w3css-footer-region__inner .w3css-second-footer,
-  .w3css-footer-region__inner .w3css-third-footer {
-    width: 100% !important;
-  }
+    #w3css-top-region-inner,
+    #w3css-main-region-inner,
+    #w3css-bottom-region-inner,
+    #w3css-footer-region-inner,
+    #w3css-footer-menu-inner {
+      padding-right: 0;
+      padding-left: 0;
+    }
 
-  #w3css-top-region-inner,
-  #w3css-main-region-inner,
-  #w3css-main-region-inner > div,
-  #w3css-bottom-region-inner,
-  #w3css-footer-region-inner,
-  #w3css-footer-menu-inner {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
+    .w3css-top-region__inner .w3css-page__top-third,
+    .w3css-main-region__inner .w3css-page__sidebar-second,
+    .w3css-bottom-region__inner .w3css-page__bottom-fourth,
+    .w3css-footer-region__inner .w3css-page__footer-third {
+      margin-bottom: 8px;
+    }
 
-  .w3css-top-region__inner .w3css-third-top,
-  .w3css-main-region__inner .w3css-second-sidebar,
-  .w3css-bottom-region__inner .w3css-forth-bottom,
-  .w3css-footer-region__inner .w3css-third-footer {
-    margin-bottom: 8px;
-  }
+    .w3css-top-region__inner .w3css-page__top-first,
+    .w3css-main-region__inner .w3css-page__sidebar-first,
+    .w3css-bottom-region__inner .w3css-page__bottom-first,
+    .w3css-footer-region__inner .w3css-page__footer-first {
+      margin-top: 8px;
+    }
 
-  .w3css-top-region__inner .w3css-first-top,
-  .w3css-main-region__inner .w3css-first-sidebar,
-  .w3css-bottom-region__inner .w3css-first-bottom,
-  .w3css-footer-region__inner .w3css-first-footer {
-    margin-top: 8px;
-  }
+    .w3css-main-region__inner .w3css-page__sidebar-first {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
 
-  .w3css-main-region__inner .w3css-first-sidebar {
-    margin-top: 20px;
-    margin-bottom: 0;
-  }
+    .w3css-main-region__inner .w3css-page__sidebar-second {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
 
-  .w3css-main-region__inner .w3css-second-sidebar {
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
+    /* Default Article Node */
+    .page-node-type-article .node .field--type-image,
+    .page-node-type-article .w3css-node .field--type-image {
+      float: none;
+      margin: 0 auto;
+    }
 
-  /* Default Article Node */
-  .page-node-type-article .node .field--type-image,
-  .page-node-type-article .w3css-node .field--type-image {
-    float: none;
-    margin: 0 auto;
-  }
+    .page-node-type-article .field--type-text,
+    .page-node-type-article .field--type-text-with-summary {
+      display: block;
+      clear: both;
+    }
 
-  .page-node-type-article .field--type-text,
-  .page-node-type-article .field--type-text-with-summary {
-    display: block !important;
-    clear: both;
-  }
+    /* Global Menus */
+    .w3css-menu__submenu {
+      position: relative;
+    }
 
-  /* Global Menus */
-  .w3css-menu__submenu {
-    position: relative !important;
-  }
+    .w3css-menu__item--depth-1 .w3css-menu__right-arrow {
+      display: none;
+    }
 
-  .w3css-item-depth-1 .w3css-menu__right-arrow {
-    display: none;
-  }
+    .w3css-menu__item--depth-1 .w3css-menu__arrow {
+      display: flex;
+    }
 
-  .w3css-item-depth-1 .w3css-menu__arrow {
-    display: flex;
-  }
+    .w3css-menu__list li.w3css-menu__item--expanded > span,
+    .w3css-menu__list li.w3css-menu__item--expanded > a > span,
+    .w3css-menu__list li.w3css-menu__item--expanded > button > span {
+      align-items: center;
+    }
 
-  .w3css-menu__list li.w3css-menu__item--expanded > span,
-  .w3css-menu__list li.w3css-menu__item--expanded > a > span,
-  .w3css-menu__list li.w3css-menu__item--expanded > button > span {
-    padding-block: 0;
-    padding-inline: 16px;
-    align-items: center;
-    height: 44px;
-  }
+    /* Horizontal Main Menu */
+    .w3css-menu--responsive-h .w3css-menu__item > a,
+    #w3css-main-nav-horizontal .w3css-menu__item > a,
+    .w3css-menu--responsive-h .w3css-menu__item > button,
+    #w3css-main-nav-horizontal .w3css-menu__item > button {
+      clear: both;
+    }
 
-  .w3css-menu__list li.w3css-menu__item--expanded > a,
-  .w3css-menu__list li.w3css-menu__item--expanded > button {
-    padding-inline-end: 56px;
-  }
+    .w3css-menu--responsive-h .w3css-menu__item,
+    .w3css-menu--responsive-h .w3css-menu__submenu,
+    .w3css-menu--responsive-h .w3css-menu__list,
+    #w3css-main-nav-horizontal .w3css-menu__item,
+    #w3css-main-nav-horizontal .w3css-menu__submenu,
+    #w3css-main-nav-horizontal .w3css-menu__list {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
 
-  /* A 44px row, the height of the arrow beside it. */
-  .w3css-menu__list li > a,
-  .w3css-menu__list li > button {
-    padding-block: 10px;
-  }
+    #w3css-main-nav-horizontal .w3css-menu__list,
+    .w3css-menu--responsive-h .w3css-menu__list {
+      display: none;
+    }
 
-  /* Horizontal Main Menu */
-  .w3css-responsive-nav .w3css-menu__item > a,
-  .w3css-responsive-nav .w3css-menu__item,
-  .w3css-responsive-nav .w3css-menu__submenu,
-  .w3css-responsive-nav .w3css-menu__list,
-  #w3css-main-nav-horizontal .w3css-menu__item > a,
-  #w3css-main-nav-horizontal .w3css-menu__item,
-  #w3css-main-nav-horizontal .w3css-menu__submenu,
-  #w3css-main-nav-horizontal .w3css-menu__list,
-  .w3css-responsive-nav .w3css-menu__item > button,
-  #w3css-main-nav-horizontal .w3css-menu__item > button {
-    float: left;
-    clear: both;
-    width: 100%;
-  }
+    /* Vertical Menus */
+    #w3css-main-nav-vertical .w3css-menu__item--depth-1 .w3css-menu__toggle-child::after {
+      content: none;
+    }
 
-  #w3css-main-nav-horizontal .w3css-menu__list,
-  .w3css-responsive-nav .w3css-menu__list {
-    display: none;
-  }
-
-  #w3css-main-nav-horizontal .w3css-menu__list ul li > a,
-  .w3css-responsive-nav .w3css-menu__list ul li > a,
-  #w3css-main-nav-horizontal .w3css-menu__list ul li > button,
-  .w3css-responsive-nav .w3css-menu__list ul li > button {
-    padding-inline-start: 35px !important;
-  }
-
-  #w3css-main-nav-horizontal .w3css-menu__list ul ul li > a,
-  .w3css-responsive-nav .w3css-menu__list ul ul li > a,
-  #w3css-main-nav-horizontal .w3css-menu__list ul ul li > button,
-  .w3css-responsive-nav .w3css-menu__list ul ul li > button {
-    padding-inline-start: 50px !important;
-  }
-
-  /* Vertical Menus */
-  #w3css-main-nav-vertical .w3css-item-depth-1 .w3css-menu__toggle-child::after {
-    content: none;
-  }
-
-  .node--view-mode-full .node__content .field--type-text-long,
-  .w3css-node--view-mode-full .w3css-node__content .field--type-text-long,
-  .node--view-mode-full .node__content .field--type-string-long,
-  .w3css-node--view-mode-full .w3css-node__content .field--type-string-long,
-  .node--view-mode-full .node__content .field--type-text-with-summary,
-  .w3css-node--view-mode-full .w3css-node__content .field--type-text-with-summary {
-    font-size: 100%;
-    line-height: 1.7;
+    .node--view-mode-full .node__content .field--type-text-long,
+    .w3css-node--view-mode-full .w3css-node__content .field--type-text-long,
+    .node--view-mode-full .node__content .field--type-string-long,
+    .w3css-node--view-mode-full .w3css-node__content .field--type-string-long,
+    .node--view-mode-full .node__content .field--type-text-with-summary,
+    .w3css-node--view-mode-full .w3css-node__content .field--type-text-with-summary {
+      font-size: 100%;
+      line-height: 1.7;
+    }
   }
 }

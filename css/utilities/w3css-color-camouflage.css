@@ -1,0 +1,154 @@
+/**
+ * @file
+ * W3CSS color library: Camouflage.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-camo-brown: #594d45;
+    --w3-camo-brown-on: var(--w3-white);
+    --w3-camo-red: #79533d;
+    --w3-camo-red-on: var(--w3-white);
+    --w3-camo-olive: #595142;
+    --w3-camo-olive-on: var(--w3-white);
+    --w3-camo-field: #745d46;
+    --w3-camo-field-on: var(--w3-white);
+    --w3-camo-earth: #ac7e54;
+    --w3-camo-earth-on: var(--w3-black);
+    --w3-camo-sand: #a9947b;
+    --w3-camo-sand-on: var(--w3-black);
+    --w3-camo-tan: #b49d80;
+    --w3-camo-tan-on: var(--w3-black);
+    --w3-camo-sandstone: #bcab90;
+    --w3-camo-sandstone-on: var(--w3-black);
+    --w3-camo-dark-green: #535640;
+    --w3-camo-dark-green-on: var(--w3-white);
+    --w3-camo-forest: #54504b;
+    --w3-camo-forest-on: var(--w3-white);
+    --w3-camo-light-green: #63613e;
+    --w3-camo-light-green-on: var(--w3-white);
+    --w3-camo-green: #4a5444;
+    --w3-camo-green-on: var(--w3-white);
+    --w3-camo-dark-gray: #5c5c5b;
+    --w3-camo-dark-gray-on: var(--w3-white);
+    --w3-camo-gray: #9495a5;
+    --w3-camo-gray-on: var(--w3-black);
+    --w3-camo-black: #373538;
+    --w3-camo-black-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-camo-brown {
+    --r-background: var(--w3-camo-brown);
+    --r-text: var(--w3-camo-brown-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-red {
+    --r-background: var(--w3-camo-red);
+    --r-text: var(--w3-camo-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-olive {
+    --r-background: var(--w3-camo-olive);
+    --r-text: var(--w3-camo-olive-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-field {
+    --r-background: var(--w3-camo-field);
+    --r-text: var(--w3-camo-field-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-earth {
+    --r-background: var(--w3-camo-earth);
+    --r-text: var(--w3-camo-earth-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-sand {
+    --r-background: var(--w3-camo-sand);
+    --r-text: var(--w3-camo-sand-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-tan {
+    --r-background: var(--w3-camo-tan);
+    --r-text: var(--w3-camo-tan-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-sandstone {
+    --r-background: var(--w3-camo-sandstone);
+    --r-text: var(--w3-camo-sandstone-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-dark-green {
+    --r-background: var(--w3-camo-dark-green);
+    --r-text: var(--w3-camo-dark-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-forest {
+    --r-background: var(--w3-camo-forest);
+    --r-text: var(--w3-camo-forest-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-light-green {
+    --r-background: var(--w3-camo-light-green);
+    --r-text: var(--w3-camo-light-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-green {
+    --r-background: var(--w3-camo-green);
+    --r-text: var(--w3-camo-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-dark-gray,
+  .w3-camo-dark-grey {
+    --r-background: var(--w3-camo-dark-gray);
+    --r-text: var(--w3-camo-dark-gray-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-gray,
+  .w3-camo-grey {
+    --r-background: var(--w3-camo-gray);
+    --r-text: var(--w3-camo-gray-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-camo-black {
+    --r-background: var(--w3-camo-black);
+    --r-text: var(--w3-camo-black-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

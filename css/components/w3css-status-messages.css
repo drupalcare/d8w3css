@@ -1,0 +1,117 @@
+@layer w3css.tokens {
+  :root {
+    --w3css-status-messages-color: #325e1c;
+    --w3css-status-messages-border: #c9e1bd;
+    --w3css-status-messages-background: #f3faef;
+    --w3css-status-messages-shadow: #77b259;
+    --w3css-status-messages-color-2: #734c00;
+    --w3css-status-messages-border-2: #f4daa6;
+    --w3css-status-messages-background-2: #fdf8ed;
+    --w3css-status-messages-shadow-2: #e09600;
+    --w3css-status-messages-color-3: #a51b00;
+    --w3css-status-messages-border-3: #f9c9bf;
+    --w3css-status-messages-background-3: #fcf4f2;
+    --w3css-status-messages-shadow-3: #e62600;
+  }
+}
+
+@layer w3css.theme {
+  /* System Messages. */
+
+  .messages,
+  .w3css-status-messages {
+    padding: 15px 20px;
+    /* LTR */
+    word-wrap: break-word;
+    border: 1px solid;
+    border-width: 1px 1px 1px 0;
+    /* LTR */
+    border-radius: 2px;
+    background: no-repeat 10px 17px;
+    /* LTR */
+    overflow-wrap: break-word;
+  }
+
+  [dir="rtl"] .messages {
+    padding-right: 35px;
+    padding-left: 20px;
+    text-align: right;
+  }
+
+  [dir="rtl"] .w3css-status-messages {
+    padding-right: 35px;
+    padding-left: 20px;
+    text-align: right;
+    border-width: 1px 0 1px 1px;
+    background-position: right 10px top 17px;
+  }
+
+  .w3css-status-messages + .w3css-status-messages {
+    margin-top: 1.538em;
+  }
+
+  .messages__list {
+    margin: 0;
+    list-style: none;
+  }
+
+  .w3css-status-messages__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .messages__item + .messages__item,
+  .w3css-status-messages__item + .w3css-status-messages__item {
+    margin-top: 0.769em;
+  }
+
+  /* See .color-success in Seven's colors.css */
+
+  .messages--status {
+    color: var(--w3css-status-messages-color);
+    border-color: var(--w3css-status-messages-border) var(--w3css-status-messages-border) var(--w3css-status-messages-border) transparent;
+    /* LTR */
+    background-color: var(--w3css-status-messages-background);
+    box-shadow: -8px 0 0 var(--w3css-status-messages-shadow);
+    /* LTR */
+  }
+
+  [dir="rtl"] .messages--status {
+    margin-left: 0;
+    border-color: var(--w3css-status-messages-border) transparent var(--w3css-status-messages-border) var(--w3css-status-messages-border);
+    box-shadow: 8px 0 0 var(--w3css-status-messages-shadow);
+  }
+
+  /* See .color-warning in Seven's colors.css */
+
+  .messages--warning {
+    color: var(--w3css-status-messages-color-2);
+    border-color: var(--w3css-status-messages-border-2) var(--w3css-status-messages-border-2) var(--w3css-status-messages-border-2) transparent;
+    /* LTR */
+    background-color: var(--w3css-status-messages-background-2);
+    box-shadow: -8px 0 0 var(--w3css-status-messages-shadow-2);
+    /* LTR */
+  }
+
+  [dir="rtl"] .messages--warning {
+    border-color: var(--w3css-status-messages-border-2) transparent var(--w3css-status-messages-border-2) var(--w3css-status-messages-border-2);
+    box-shadow: 8px 0 0 var(--w3css-status-messages-shadow-2);
+  }
+
+  /* See .color-error in Seven's colors.css */
+
+  .messages--error {
+    color: var(--w3css-status-messages-color-3);
+    border-color: var(--w3css-status-messages-border-3) var(--w3css-status-messages-border-3) var(--w3css-status-messages-border-3) transparent;
+    /* LTR */
+    background-color: var(--w3css-status-messages-background-3);
+    box-shadow: -8px 0 0 var(--w3css-status-messages-shadow-3);
+    /* LTR */
+  }
+
+  [dir="rtl"] .messages--error {
+    border-color: var(--w3css-status-messages-border-3) transparent var(--w3css-status-messages-border-3) var(--w3css-status-messages-border-3);
+    box-shadow: 8px 0 0 var(--w3css-status-messages-shadow-3);
+  }
+}

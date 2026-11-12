@@ -19,12 +19,12 @@
   {%- if title -%}
     {% set summary_classes = [
         required ? 'js-form-required',
-        required ? 'form-required w3css-form-required',
+        required ? 'form-required w3css-form-element__required',
   ]
 %}
     <summary{{ summary_attributes.addClass(summary_classes) }}>{{ title }}</summary>
   {%- endif -%}
-  <div class="w3-section details-wrapper w3css-details-wrapper">
+  <div class="w3-section details-wrapper w3css-details__wrapper">
     {% if errors %}
       <div class="w3-panel w3-pale-red w3-leftbar w3-border w3-border-red form-item--error-message w3css-form-item--error-message">
         <strong>{{ errors }}</strong>

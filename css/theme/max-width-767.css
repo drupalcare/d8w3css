@@ -1,18 +1,25 @@
-@media (max-width: 767px) {
-  .node--view-mode-teaser .field--name-field-image,
-  .w3css-node--view-mode-teaser .field--name-field-image,
-  .node--view-mode-teaser .node__content .field--name-field-media-image,
-  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-media-image {
-    min-width: 100%;
-  }
+/**
+ * @file
+ * Rules for screens up to 767px: teaser images.
+ */
 
-  .node--view-mode-teaser .node__title,
-  .w3css-node--view-mode-teaser .w3css-node__title,
-  .node--view-mode-teaser .field--name-field-image,
-  .w3css-node--view-mode-teaser .field--name-field-image,
-  .node--view-mode-teaser .node__content .field--name-field-image,
-  .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-image {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
+@layer w3css.theme {
+  @media (max-width: 47.99875rem) {
+    .node--view-mode-teaser .field--name-field-image,
+    .w3css-node--view-mode-teaser .field--name-field-image,
+    .node--view-mode-teaser .node__content .field--name-field-media-image,
+    .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-media-image {
+      min-width: 100%;
+    }
+
+    .node--view-mode-teaser .node__title,
+    .w3css-node--view-mode-teaser .w3css-node__title,
+    .node--view-mode-teaser .field--name-field-image,
+    .w3css-node--view-mode-teaser .field--name-field-image,
+    .node--view-mode-teaser .node__content .field--name-field-image,
+    .w3css-node--view-mode-teaser .w3css-node__content .field--name-field-image {
+      margin-right: 0;
+      padding-right: 0;
+    }
   }
 }

@@ -1,0 +1,5 @@
+@layer w3css.theme {
+  .sitemap ul {
+    list-style: none;
+  }
+}

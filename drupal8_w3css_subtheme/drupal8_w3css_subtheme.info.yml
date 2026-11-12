@@ -4,7 +4,7 @@ base theme: drupal8_w3css_theme
 core_version_requirement: ^11.3 || ^12
 description: 'Provides an empty starter sub-theme of the W3CSS Theme for your own customizations.'
 libraries:
-  - drupal8_w3css_subtheme/d8w3css-subtheme-global
+  - drupal8_w3css_subtheme/subtheme-global
 
 #Regions
 regions:

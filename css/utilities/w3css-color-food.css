@@ -1,0 +1,377 @@
+/**
+ * @file
+ * W3CSS color library: Food.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-food-apple: #76cd26;
+    --w3-food-apple-on: var(--w3-black);
+    --w3-food-aspargus: #77ab56;
+    --w3-food-aspargus-on: var(--w3-black);
+    --w3-food-apricot: #ffb16d;
+    --w3-food-apricot-on: var(--w3-black);
+    --w3-food-aubergine: #3d0734;
+    --w3-food-aubergine-on: var(--w3-white);
+    --w3-food-avocado: #87a922;
+    --w3-food-avocado-on: var(--w3-black);
+    --w3-food-banana: #fafe4b;
+    --w3-food-banana-on: var(--w3-black);
+    --w3-food-butter: #ffff81;
+    --w3-food-butter-on: var(--w3-black);
+    --w3-food-blueberry: #464196;
+    --w3-food-blueberry-on: var(--w3-white);
+    --w3-food-carrot: #e67e22;
+    --w3-food-carrot-on: var(--w3-black);
+    --w3-food-cherry: #cf0234;
+    --w3-food-cherry-on: var(--w3-white);
+    --w3-food-chocolate: #411900;
+    --w3-food-chocolate-on: var(--w3-white);
+    --w3-food-cranberry: #9e003a;
+    --w3-food-cranberry-on: var(--w3-white);
+    --w3-food-coffee: #a6814c;
+    --w3-food-coffee-on: var(--w3-black);
+    --w3-food-egg: #fffcc4;
+    --w3-food-egg-on: var(--w3-black);
+    --w3-food-grape: #6c3461;
+    --w3-food-grape-on: var(--w3-white);
+    --w3-food-kiwi: #8ee53f;
+    --w3-food-kiwi-on: var(--w3-black);
+    --w3-food-lemon: #fdff52;
+    --w3-food-lemon-on: var(--w3-black);
+    --w3-food-lime: #bffe28;
+    --w3-food-lime-on: var(--w3-black);
+    --w3-food-mango: #ffa62b;
+    --w3-food-mango-on: var(--w3-black);
+    --w3-food-mushroom: #ba9e88;
+    --w3-food-mushroom-on: var(--w3-black);
+    --w3-food-mustard: #ceb301;
+    --w3-food-mustard-on: var(--w3-black);
+    --w3-food-mint: #c0fa8b;
+    --w3-food-mint-on: var(--w3-black);
+    --w3-food-olive: #6e750e;
+    --w3-food-olive-on: var(--w3-white);
+    --w3-food-orange: #f97306;
+    --w3-food-orange-on: var(--w3-black);
+    --w3-food-pea: #a4bf20;
+    --w3-food-pea-on: var(--w3-black);
+    --w3-food-peach: #ffb07c;
+    --w3-food-peach-on: var(--w3-black);
+    --w3-food-pear: #cbf85f;
+    --w3-food-pear-on: var(--w3-black);
+    --w3-food-pistachio: #c0fa8b;
+    --w3-food-pistachio-on: var(--w3-black);
+    --w3-food-plum: #3f012c;
+    --w3-food-plum-on: var(--w3-white);
+    --w3-food-pomegranate: #c0392b;
+    --w3-food-pomegranate-on: var(--w3-white);
+    --w3-food-pumpkin: #d35400;
+    --w3-food-pumpkin-on: var(--w3-black);
+    --w3-food-raspberry: #b00149;
+    --w3-food-raspberry-on: var(--w3-white);
+    --w3-food-saffron: #feb209;
+    --w3-food-saffron-on: var(--w3-black);
+    --w3-food-salmon: #ff796c;
+    --w3-food-salmon-on: var(--w3-black);
+    --w3-food-spearmint: #1ef876;
+    --w3-food-spearmint-on: var(--w3-black);
+    --w3-food-squash: #f2ab15;
+    --w3-food-squash-on: var(--w3-black);
+    --w3-food-strawberry: #fb2943;
+    --w3-food-strawberry-on: var(--w3-black);
+    --w3-food-tomato: #ec2d01;
+    --w3-food-tomato-on: var(--w3-black);
+    --w3-food-wheat: #fbdd7e;
+    --w3-food-wheat-on: var(--w3-black);
+    --w3-food-wine: #80013f;
+    --w3-food-wine-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-food-apple {
+    --r-background: var(--w3-food-apple);
+    --r-text: var(--w3-food-apple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-aspargus {
+    --r-background: var(--w3-food-aspargus);
+    --r-text: var(--w3-food-aspargus-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-apricot {
+    --r-background: var(--w3-food-apricot);
+    --r-text: var(--w3-food-apricot-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-aubergine {
+    --r-background: var(--w3-food-aubergine);
+    --r-text: var(--w3-food-aubergine-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-avocado {
+    --r-background: var(--w3-food-avocado);
+    --r-text: var(--w3-food-avocado-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-banana {
+    --r-background: var(--w3-food-banana);
+    --r-text: var(--w3-food-banana-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-butter {
+    --r-background: var(--w3-food-butter);
+    --r-text: var(--w3-food-butter-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-blueberry {
+    --r-background: var(--w3-food-blueberry);
+    --r-text: var(--w3-food-blueberry-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-carrot {
+    --r-background: var(--w3-food-carrot);
+    --r-text: var(--w3-food-carrot-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-cherry {
+    --r-background: var(--w3-food-cherry);
+    --r-text: var(--w3-food-cherry-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-chocolate {
+    --r-background: var(--w3-food-chocolate);
+    --r-text: var(--w3-food-chocolate-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-cranberry {
+    --r-background: var(--w3-food-cranberry);
+    --r-text: var(--w3-food-cranberry-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-coffee {
+    --r-background: var(--w3-food-coffee);
+    --r-text: var(--w3-food-coffee-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-egg {
+    --r-background: var(--w3-food-egg);
+    --r-text: var(--w3-food-egg-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-grape {
+    --r-background: var(--w3-food-grape);
+    --r-text: var(--w3-food-grape-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-kiwi {
+    --r-background: var(--w3-food-kiwi);
+    --r-text: var(--w3-food-kiwi-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-lemon {
+    --r-background: var(--w3-food-lemon);
+    --r-text: var(--w3-food-lemon-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-lime {
+    --r-background: var(--w3-food-lime);
+    --r-text: var(--w3-food-lime-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-mango {
+    --r-background: var(--w3-food-mango);
+    --r-text: var(--w3-food-mango-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-mushroom {
+    --r-background: var(--w3-food-mushroom);
+    --r-text: var(--w3-food-mushroom-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-mustard {
+    --r-background: var(--w3-food-mustard);
+    --r-text: var(--w3-food-mustard-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-mint {
+    --r-background: var(--w3-food-mint);
+    --r-text: var(--w3-food-mint-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-olive {
+    --r-background: var(--w3-food-olive);
+    --r-text: var(--w3-food-olive-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-orange {
+    --r-background: var(--w3-food-orange);
+    --r-text: var(--w3-food-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-pea {
+    --r-background: var(--w3-food-pea);
+    --r-text: var(--w3-food-pea-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-peach {
+    --r-background: var(--w3-food-peach);
+    --r-text: var(--w3-food-peach-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-pear {
+    --r-background: var(--w3-food-pear);
+    --r-text: var(--w3-food-pear-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-pistachio {
+    --r-background: var(--w3-food-pistachio);
+    --r-text: var(--w3-food-pistachio-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-plum {
+    --r-background: var(--w3-food-plum);
+    --r-text: var(--w3-food-plum-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-pomegranate {
+    --r-background: var(--w3-food-pomegranate);
+    --r-text: var(--w3-food-pomegranate-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-pumpkin {
+    --r-background: var(--w3-food-pumpkin);
+    --r-text: var(--w3-food-pumpkin-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-raspberry {
+    --r-background: var(--w3-food-raspberry);
+    --r-text: var(--w3-food-raspberry-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-saffron {
+    --r-background: var(--w3-food-saffron);
+    --r-text: var(--w3-food-saffron-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-salmon {
+    --r-background: var(--w3-food-salmon);
+    --r-text: var(--w3-food-salmon-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-spearmint {
+    --r-background: var(--w3-food-spearmint);
+    --r-text: var(--w3-food-spearmint-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-squash {
+    --r-background: var(--w3-food-squash);
+    --r-text: var(--w3-food-squash-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-strawberry {
+    --r-background: var(--w3-food-strawberry);
+    --r-text: var(--w3-food-strawberry-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-tomato {
+    --r-background: var(--w3-food-tomato);
+    --r-text: var(--w3-food-tomato-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-wheat {
+    --r-background: var(--w3-food-wheat);
+    --r-text: var(--w3-food-wheat-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-food-wine {
+    --r-background: var(--w3-food-wine);
+    --r-text: var(--w3-food-wine-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

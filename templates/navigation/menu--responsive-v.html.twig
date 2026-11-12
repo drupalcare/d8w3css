@@ -23,7 +23,7 @@
   <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="236 -631 488 291" fill="currentColor"><path d="{{ icon_value }}"/></svg>
 {% endmacro %}
 
-<div class="w3css-vertical-nav">
+<div class="w3css-menu--responsive-v">
 {% import _self as menus %}
 {#
   We call a macro which calls itself to render the full tree.
@@ -92,7 +92,7 @@
           </span>
         {# if link is not clickable #}
         {% else %}
-        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle-vertical w3css-menu__toggle-parent'] %}
+        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle--vertical w3css-menu__toggle-parent'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}
@@ -132,7 +132,7 @@
           </span>
         {# if link is not clickable #}
         {% else %}
-        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle-vertical w3css-menu__toggle-child'] %}
+        {% set non_clickable_classes = ['w3-button w3css-menu__link--disabled w3css-menu__link-toggle--vertical w3css-menu__toggle-child'] %}
         {% if class_list %}
             {% set non_clickable_classes = non_clickable_classes|merge([class_list]) %}
         {% endif %}

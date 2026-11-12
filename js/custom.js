@@ -21,7 +21,7 @@
 
   // Elements whose next sibling is the submenu they open.
   const SUBMENU_TRIGGERS =
-    '.w3css-menu__link-toggle, .w3css-menu__link-toggle-vertical, .w3css-menu__arrow-toggle';
+    '.w3css-menu__link-toggle, .w3css-menu__link-toggle--vertical, .w3css-menu__arrow-toggle';
 
   // Marks a submenu opened by a click.
   const SUBMENU_OPEN = 'w3css-is-open';
@@ -57,8 +57,8 @@
       '.w3css-main-nav--horizontal .w3css-menu__list',
     ],
     [
-      '.w3css-responsive-nav__toggle',
-      '.w3css-responsive-nav .w3css-menu__list',
+      '.w3css-menu__responsive-toggle',
+      '.w3css-menu--responsive-h .w3css-menu__list',
     ],
   ];
 
@@ -321,11 +321,16 @@
    *   The translated accessible name.
    */
   function makeButton(element, label) {
-    element.setAttribute('role', 'button');
-    element.setAttribute('tabindex', '0');
     if (!element.hasAttribute('aria-label')) {
       element.setAttribute('aria-label', label);
     }
+    // A real button already has the role, focus and the Enter and Space keys;
+    // the patch below is for older sub-theme templates that still print a div.
+    if (element.tagName === 'BUTTON') {
+      return;
+    }
+    element.setAttribute('role', 'button');
+    element.setAttribute('tabindex', '0');
     element.addEventListener('keydown', function (event) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -467,9 +472,9 @@
     );
     submenu.classList.toggle(SUBMENU_SCROLLS, height > room);
     if (height > room) {
-      submenu.style.setProperty('--w3css-submenu-max', `${room}px`);
+      submenu.style.setProperty('--w3css-menu-submenu-max', `${room}px`);
     } else {
-      submenu.style.removeProperty('--w3css-submenu-max');
+      submenu.style.removeProperty('--w3css-menu-submenu-max');
     }
   }
 
@@ -527,7 +532,7 @@
       item.classList.remove(ITEM_FLIPPED);
       submenu.classList.remove(SUBMENU_SCROLLS, SUBMENU_DETACHED);
       submenu.style.removeProperty('inset');
-      submenu.style.removeProperty('--w3css-submenu-max');
+      submenu.style.removeProperty('--w3css-menu-submenu-max');
       return;
     }
 
@@ -562,13 +567,13 @@
     // While sliding open its box is short, but its items have their full height.
     const height = itemsHeight(submenu);
     if (parent) {
-      submenu.style.setProperty('--w3css-submenu-shift', '0px');
+      submenu.style.setProperty('--w3css-menu-submenu-shift', '0px');
       const top = submenu.getBoundingClientRect().top;
       shift = Math.min(
         Math.max(0, top + height - window.innerHeight),
         Math.max(0, top),
       );
-      submenu.style.setProperty('--w3css-submenu-shift', `${-shift}px`);
+      submenu.style.setProperty('--w3css-menu-submenu-shift', `${-shift}px`);
     }
     fitHeight(submenu, submenu.getBoundingClientRect().top, height);
   }
@@ -770,20 +775,20 @@
 
   // Add and remove classes on window resize.
   const mediaSize = function () {
-    const currentWidth =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
+    // The same media queries as the CSS, so the screen class and the CSS
+    // always agree, also when the visitor changes the browser text size.
+    const isLarge = window.matchMedia('(min-width: 62rem)').matches;
+    const isSmall = window.matchMedia('(max-width: 37.49875rem)').matches;
     const mainMenuChild = computedStyle(
       '.w3css-main-nav--horizontal',
       'background-color',
     );
 
-    if (currentWidth >= 993) {
+    if (isLarge) {
       setScreenClass('large');
       // The inline display goes below, so the open state has to go with it.
       all(
-        '.w3css-responsive-nav .w3css-menu__submenu, .w3css-main-nav--horizontal .w3css-menu__submenu',
+        '.w3css-menu--responsive-h .w3css-menu__submenu, .w3css-main-nav--horizontal .w3css-menu__submenu',
       ).forEach(function (element) {
         element.classList.remove(SUBMENU_OPEN);
       });
@@ -792,8 +797,8 @@
           element.classList.remove('w3-show');
         },
       );
-      clearInlineStyles('.w3css-responsive-nav .w3css-menu__list');
-      clearInlineStyles('.w3css-responsive-nav .w3css-menu__submenu');
+      clearInlineStyles('.w3css-menu--responsive-h .w3css-menu__list');
+      clearInlineStyles('.w3css-menu--responsive-h .w3css-menu__submenu');
       clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__list');
       clearInlineStyles('.w3css-main-nav--horizontal .w3css-menu__submenu');
       all('.w3css-main-nav--horizontal .w3css-menu__submenu').forEach(
@@ -814,11 +819,11 @@
       });
     }
 
-    if (currentWidth >= 601 && currentWidth <= 992) {
+    if (!isLarge && !isSmall) {
       setScreenClass('medium');
     }
 
-    if (currentWidth <= 600) {
+    if (isSmall) {
       setScreenClass('small');
     }
 
@@ -898,6 +903,38 @@
   }
 
   /**
+   * Keeps a behavior name released in 2.x working under its 3.0 name.
+   *
+   * Deprecated in 3.0, removed in the next major. Sub-theme code that reads,
+   * extends or replaces Drupal.behaviors.<oldName> reaches
+   * Drupal.behaviors.<newName>. The alias is not enumerable, so
+   * Drupal.attachBehaviors() runs the behavior once. Deleting the old name
+   * removes only the alias; delete the new name to stop the behavior.
+   *
+   * @param {string} oldName
+   *   The 2.x behavior name.
+   * @param {string} newName
+   *   The 3.0 behavior name.
+   */
+  function aliasBehavior(oldName, newName) {
+    if (Object.prototype.hasOwnProperty.call(Drupal.behaviors, oldName)) {
+      return;
+    }
+    Object.defineProperty(Drupal.behaviors, oldName, {
+      configurable: true,
+      get: () => Drupal.behaviors[newName],
+      set: (value) => {
+        Drupal.behaviors[newName] = value;
+      },
+    });
+  }
+
+  aliasBehavior('d8w3cssMenuDepth', 'w3cssMenuDepth');
+  aliasBehavior('d8w3cssResponsiveMenu', 'w3cssMenuResponsive');
+  aliasBehavior('d8w3cssMainNav', 'w3cssPageNav');
+  aliasBehavior('d8w3cssTheme', 'w3cssPage');
+
+  /**
    * Add depth classes to menu items.
    */
   Drupal.behaviors.w3cssMenuDepth = {
@@ -910,7 +947,7 @@
       });
       once('w3css-menu-depth-item', 'li', context).forEach(function (element) {
         element.classList.add(
-          `w3css-item-depth-${countAncestors(element, 'li')}`,
+          `w3css-menu__item--depth-${countAncestors(element, 'li')}`,
         );
       });
     },
@@ -919,22 +956,22 @@
   /**
    * Responsive menu behavior.
    */
-  Drupal.behaviors.w3cssResponsiveMenu = {
+  Drupal.behaviors.w3cssMenuResponsive = {
     attach(context) {
       once(
-        'w3css-responsive-nav-toggle',
-        '.w3css-responsive-nav__toggle',
+        'w3css-menu-responsive-toggle',
+        '.w3css-menu__responsive-toggle',
         context,
       ).forEach(function (element) {
         makeButton(element, Drupal.t('Toggle menu'));
         element.addEventListener('click', function () {
-          toggleMenu('.w3css-responsive-nav .w3css-menu__list');
+          toggleMenu('.w3css-menu--responsive-h .w3css-menu__list');
         });
       });
 
       once(
-        'w3css-link-toggle-vertical',
-        '.w3css-menu__link-toggle-vertical',
+        'w3css-menu-link-toggle-vertical',
+        '.w3css-menu__link-toggle--vertical',
         context,
       ).forEach(function (element) {
         element.addEventListener('click', function (event) {
@@ -943,7 +980,7 @@
         });
       });
 
-      once('w3css-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(
+      once('w3css-menu-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(
         function (element) {
           makeButton(element, submenuToggleLabel(element));
           element.addEventListener('click', function () {
@@ -957,10 +994,10 @@
   /**
    * Main navigation behavior.
    */
-  Drupal.behaviors.w3cssMainNav = {
+  Drupal.behaviors.w3cssPageNav = {
     attach(context) {
       // On click show/hide the vertical main menu.
-      once('w3css-main-nav-close', '.w3css-main-nav__close', context).forEach(
+      once('w3css-page-nav-close', '.w3css-main-nav__close', context).forEach(
         function (element) {
           // Templates copied into a sub-theme may still print a div here.
           if (element.tagName !== 'BUTTON') {
@@ -984,7 +1021,7 @@
         },
       );
 
-      once('w3css-main-nav-open', '.w3css-main-nav__open', context).forEach(
+      once('w3css-page-nav-open', '.w3css-main-nav__open', context).forEach(
         function (element) {
           if (element.tagName !== 'BUTTON') {
             makeButton(element, Drupal.t('Open side menu'));
@@ -1003,7 +1040,7 @@
 
       // Show the mobile menu on click horizontal.
       once(
-        'w3css-mobile-nav-toggle',
+        'w3css-page-nav-toggle',
         '.w3css-mobile-nav__toggle',
         context,
       ).forEach(function (element) {
@@ -1014,7 +1051,7 @@
       });
 
       // On click expand the dropdown menu for small device.
-      once('w3css-link-toggle', '.w3css-menu__link-toggle', context).forEach(
+      once('w3css-menu-link-toggle', '.w3css-menu__link-toggle', context).forEach(
         function (element) {
           element.addEventListener('click', function (event) {
             event.preventDefault();
@@ -1101,13 +1138,13 @@
   };
 
   /**
-   * General theme behavior.
+   * Search forms: toolbar search, footer search form and the search page.
    */
-  Drupal.behaviors.w3cssTheme = {
+  Drupal.behaviors.w3cssSearch = {
     attach(context) {
       // In case the admin toolbar search installed.
       once(
-        'w3css-toolbar-search',
+        'w3css-search-toolbar',
         '#admin-toolbar-search-tab > div',
         context,
       ).forEach(function (element) {
@@ -1118,7 +1155,7 @@
       // only when a new form is found, so an Ajax attach does not force a
       // style recalculation for nothing.
       const footerForms = once(
-        'w3css-footer-form',
+        'w3css-search-footer-form',
         '.w3css-footer-menu form',
         context,
       );
@@ -1151,9 +1188,17 @@
         once('w3css-search-help', '.search-form .search-help-link', context),
         'w3-button w3-right w3-border w3-margin-top',
       );
+    },
+  };
+
+  /**
+   * General page behavior.
+   */
+  Drupal.behaviors.w3cssPage = {
+    attach(context) {
       addClasses(
         once(
-          'w3css-tabledrag-toggle',
+          'w3css-table-tabledrag-toggle',
           '.tabledrag-toggle-weight-wrapper button',
           context,
         ),
@@ -1192,19 +1237,19 @@
       // Disable top margin if breadcrumb exist.
       if (document.querySelector('.w3css-breadcrumb')) {
         addClasses(
-          once('w3css-main-box', '.w3css-main-box', context),
-          'w3css-main-box--breadcrumb-found',
+          once('w3css-page-main', '.w3css-page__main', context),
+          'w3css-page__main--breadcrumb-found',
         );
       }
 
       once('w3css-image-link', 'a > .w3-image', context).forEach(
         function (element) {
-          element.parentElement.classList.add('w3css-image-link');
+          element.parentElement.classList.add('w3css-image__link');
         },
       );
 
       mediaSize();
-      once('w3css-window-listeners', 'html').forEach(function () {
+      once('w3css-page-window-listeners', 'html').forEach(function () {
         window.addEventListener('resize', mediaSize);
         window.addEventListener('resize', updateScrollPadding);
         window.addEventListener('scroll', scrollWindow);

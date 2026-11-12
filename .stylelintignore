@@ -2,6 +2,9 @@
 fonts/
 # Vendored W3.CSS framework files: kept byte-identical to upstream.
 css/w3-css/
+css/base/w3css-drupal.css
+css/base/w3css-layers.css
+css/utilities/w3css-extended-classes.css
+css/utilities/w3css-color-*.css
 # Generated W3.CSS color scheme palettes: data, not hand-written styles.
-css/w3-css-theme/
-css/w3-css-theme-custom/
+css/predefined/

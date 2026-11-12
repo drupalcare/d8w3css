@@ -1,167 +1,97 @@
-@media (max-width: 600px) {
-  html,
-  body {
-    font-size: 100%;
-  }
+/**
+ * @file
+ * Rules for screens up to 600px: type sizes, region padding, header and search page.
+ */
 
-  .w3css-top-region__inner .w3css-first-top > div,
-  .w3css-top-region__inner .w3css-second-top > div,
-  .w3css-top-region__inner .w3css-third-top > div,
-  .w3css-main-region__inner .w3css-first-sidebar > div,
-  .w3css-main-region__inner .w3css-content-region > div,
-  .w3css-main-region__inner .w3css-second-sidebar > div,
-  .w3css-bottom-region__inner .w3css-first-bottom > div,
-  .w3css-bottom-region__inner .w3css-second-bottom > div,
-  .w3css-bottom-region__inner .w3css-third-bottom > div,
-  .w3css-bottom-region__inner .w3css-forth-bottom > div,
-  .w3css-footer-region__inner .w3css-first-footer > div,
-  .w3css-footer-region__inner .w3css-second-footer > div,
-  .w3css-footer-region__inner .w3css-third-footer > div,
-  .w3css-footer-menu__inner > div {
-    padding: 8px !important;
-  }
+@layer w3css.theme {
+  @media (max-width: 37.49875rem) {
+    :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+    h1.w3css-page-title {
+      padding: 12px 8px;
+    }
 
-  .w3-container {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
+    #w3css-header-inner {
+      padding: 0;
+    }
 
-  .w3-padding-large,
-  .w3-padding {
-    padding: 3px 6px !important;
-  }
+    #w3css-header-inner > nav,
+    #w3css-header-inner > nav > ul {
+      clear: both;
+    }
 
-  h1.page-title,
-  h1.w3css-page-title {
-    padding: 12px 8px;
-    font-size: 22px;
-  }
+    .site-logo,
+    .w3css-site-branding__logo {
+      width: 100%;
+      margin: 10px auto 0 auto;
+      padding: 0;
+      text-align: center;
+    }
 
-  h1 {
-    font-size: 22px;
-  }
+    .block-system-branding-block {
+      width: 96%;
+      margin: 0 2%;
+    }
 
-  h2 {
-    font-size: 20px;
-  }
+    .site-name,
+    .w3css-site-name,
+    .site-slogan,
+    .w3css-site-slogan {
+      display: block;
+      text-align: center;
+    }
 
-  h3 {
-    font-size: 18px;
-  }
+    .site-name a,
+    .w3css-site-name a {
+      text-align: center;
+    }
 
-  h4 {
-    font-size: 16px;
-  }
+    .w3css-site-name-slogan {
+      display: inline-block;
+      width: 100%;
+      margin: 16px auto;
+    }
 
-  p {
-    margin: 0;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
+    .site-name,
+    .w3css-site-name {
+      font-size: 22px;
+    }
 
-  #w3css-header-inner {
-    padding: 0 !important;
-  }
+    /* No !important: a sub-theme's own slogan size (a narrow header) must be able to win. */
+    .site-slogan,
+    .w3css-site-slogan {
+      font-size: 16px;
+    }
 
-  #w3css-header-inner > nav,
-  #w3css-header-inner > nav > ul {
-    clear: both !important;
-    width: 100% !important;
-  }
+    .node__meta .node__submitted,
+    .w3css-node__meta .node__submitted {
+      margin: -2px 10px 0 0;
+    }
 
-  #w3css-header-inner > nav > ul li {
-    float: left !important;
-  }
+    .w3css-highlighted__inner,
+    .w3css-welcome-text__inner {
+      padding: 0 5px;
+    }
 
-  .site-logo,
-  .w3css-site-logo {
-    width: 100%;
-    margin: 10px auto 0 auto !important;
-    padding: 0 !important;
-    text-align: center;
-  }
+    .path-search form.search-form > .form-wrapper > .form-type-search,
+    .path-search form.search-form > .w3css-container > .form-type-search {
+      width: 100%;
+    }
 
-  .block-system-branding-block {
-    width: 96%;
-    margin: 0 2% !important;
-  }
+    .path-search form.search-form > .form-wrapper > .form-submit,
+    .path-search form.search-form > .w3css-container > .form-submit {
+      position: inherit;
+      bottom: 0;
+      width: 100%;
+    }
 
-  .site-name,
-  .w3css-site-name,
-  .site-slogan,
-  .w3css-site-slogan,
-  .site-name a,
-  .w3css-site-name a {
-    display: block;
-    text-align: center;
-  }
-
-  .w3css-site-name-slogan {
-    display: inline-block;
-    width: 100%;
-    margin: 16px auto;
-  }
-
-  .site-name,
-  .w3css-site-name {
-    font-size: 22px;
-  }
-
-  /* No !important: a sub-theme's own slogan size (a narrow header) must be able to win. */
-  .site-slogan,
-  .w3css-site-slogan {
-    font-size: 16px;
-  }
-
-  .node__meta .node__submitted,
-  .w3css-node__meta .node__submitted {
-    margin: -2px 10px 0 0 !important;
-  }
-
-  .w3css-highlighted__inner,
-  .w3css-welcome-text__inner {
-    padding: 0 5px !important;
-  }
-
-  #w3css-copyright-inner .w3-container {
-    padding: 0 5px !important;
-  }
-
-  .w3-section {
-    margin: 5px 0 !important;
-  }
-
-  .w3css-copyright__inner .w3-half p {
-    text-align: center !important;
-  }
-
-  /* Search Page */
-  .path-search form.search-form > .form-wrapper,
-  .path-search form.search-form > .w3css-form-wrapper {
-    margin-bottom: 10px;
-  }
-
-  .path-search form.search-form > .form-wrapper > .form-type-search,
-  .path-search form.search-form > .w3css-form-wrapper > .form-type-search {
-    width: 100%;
-  }
-
-  .path-search form.search-form > .form-wrapper > .form-submit,
-  .path-search form.search-form > .w3css-form-wrapper > .form-submit {
-    position: inherit;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-  }
-
-  .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
-  .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
-  .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
-  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+    .path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+    .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+    .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+    .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+    .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
+      flex-direction: column;
+      justify-content: start;
+    }
   }
 }

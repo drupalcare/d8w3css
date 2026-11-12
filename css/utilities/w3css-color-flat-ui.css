@@ -1,0 +1,197 @@
+/**
+ * @file
+ * W3CSS color library: Flat UI.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-flat-turquoise: #1abc9c;
+    --w3-flat-turquoise-on: var(--w3-black);
+    --w3-flat-emerald: #2ecc71;
+    --w3-flat-emerald-on: var(--w3-black);
+    --w3-flat-peter-river: #3498db;
+    --w3-flat-peter-river-on: var(--w3-black);
+    --w3-flat-amethyst: #9b59b6;
+    --w3-flat-amethyst-on: var(--w3-white);
+    --w3-flat-wet-asphalt: #34495e;
+    --w3-flat-wet-asphalt-on: var(--w3-white);
+    --w3-flat-green-sea: #16a085;
+    --w3-flat-green-sea-on: var(--w3-black);
+    --w3-flat-nephritis: #27ae60;
+    --w3-flat-nephritis-on: var(--w3-black);
+    --w3-flat-belize-hole: #2980b9;
+    --w3-flat-belize-hole-on: var(--w3-black);
+    --w3-flat-wisteria: #8e44ad;
+    --w3-flat-wisteria-on: var(--w3-white);
+    --w3-flat-midnight-blue: #2c3e50;
+    --w3-flat-midnight-blue-on: var(--w3-white);
+    --w3-flat-sun-flower: #f1c40f;
+    --w3-flat-sun-flower-on: var(--w3-black);
+    --w3-flat-carrot: #e67e22;
+    --w3-flat-carrot-on: var(--w3-black);
+    --w3-flat-alizarin: #e74c3c;
+    --w3-flat-alizarin-on: var(--w3-black);
+    --w3-flat-clouds: #ecf0f1;
+    --w3-flat-clouds-on: var(--w3-black);
+    --w3-flat-concrete: #95a5a6;
+    --w3-flat-concrete-on: var(--w3-black);
+    --w3-flat-orange: #f39c12;
+    --w3-flat-orange-on: var(--w3-black);
+    --w3-flat-pumpkin: #d35400;
+    --w3-flat-pumpkin-on: var(--w3-black);
+    --w3-flat-pomegranate: #c0392b;
+    --w3-flat-pomegranate-on: var(--w3-white);
+    --w3-flat-silver: #bdc3c7;
+    --w3-flat-silver-on: var(--w3-black);
+    --w3-flat-asbestos: #7f8c8d;
+    --w3-flat-asbestos-on: var(--w3-black);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-flat-turquoise {
+    --r-background: var(--w3-flat-turquoise);
+    --r-text: var(--w3-flat-turquoise-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-emerald {
+    --r-background: var(--w3-flat-emerald);
+    --r-text: var(--w3-flat-emerald-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-peter-river {
+    --r-background: var(--w3-flat-peter-river);
+    --r-text: var(--w3-flat-peter-river-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-amethyst {
+    --r-background: var(--w3-flat-amethyst);
+    --r-text: var(--w3-flat-amethyst-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-wet-asphalt {
+    --r-background: var(--w3-flat-wet-asphalt);
+    --r-text: var(--w3-flat-wet-asphalt-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-green-sea {
+    --r-background: var(--w3-flat-green-sea);
+    --r-text: var(--w3-flat-green-sea-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-nephritis {
+    --r-background: var(--w3-flat-nephritis);
+    --r-text: var(--w3-flat-nephritis-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-belize-hole {
+    --r-background: var(--w3-flat-belize-hole);
+    --r-text: var(--w3-flat-belize-hole-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-wisteria {
+    --r-background: var(--w3-flat-wisteria);
+    --r-text: var(--w3-flat-wisteria-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-midnight-blue {
+    --r-background: var(--w3-flat-midnight-blue);
+    --r-text: var(--w3-flat-midnight-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-sun-flower {
+    --r-background: var(--w3-flat-sun-flower);
+    --r-text: var(--w3-flat-sun-flower-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-carrot {
+    --r-background: var(--w3-flat-carrot);
+    --r-text: var(--w3-flat-carrot-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-alizarin {
+    --r-background: var(--w3-flat-alizarin);
+    --r-text: var(--w3-flat-alizarin-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-clouds {
+    --r-background: var(--w3-flat-clouds);
+    --r-text: var(--w3-flat-clouds-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-concrete {
+    --r-background: var(--w3-flat-concrete);
+    --r-text: var(--w3-flat-concrete-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-orange {
+    --r-background: var(--w3-flat-orange);
+    --r-text: var(--w3-flat-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-pumpkin {
+    --r-background: var(--w3-flat-pumpkin);
+    --r-text: var(--w3-flat-pumpkin-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-pomegranate {
+    --r-background: var(--w3-flat-pomegranate);
+    --r-text: var(--w3-flat-pomegranate-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-silver {
+    --r-background: var(--w3-flat-silver);
+    --r-text: var(--w3-flat-silver-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-flat-asbestos {
+    --r-background: var(--w3-flat-asbestos);
+    --r-text: var(--w3-flat-asbestos-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

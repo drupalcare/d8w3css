@@ -1,19 +1,4 @@
-/* Medium Screen Only */
-@media (max-width: 992px) and (min-width: 601px) {
-  .w3css-top-region__inner .w3css-first-top > div,
-  .w3css-top-region__inner .w3css-second-top > div,
-  .w3css-top-region__inner .w3css-third-top > div,
-  .w3css-main-region__inner .w3css-first-sidebar > div,
-  .w3css-main-region__inner .w3css-content-region > div,
-  .w3css-main-region__inner .w3css-second-sidebar > div,
-  .w3css-bottom-region__inner .w3css-first-bottom > div,
-  .w3css-bottom-region__inner .w3css-second-bottom > div,
-  .w3css-bottom-region__inner .w3css-third-bottom > div,
-  .w3css-bottom-region__inner .w3css-forth-bottom > div,
-  .w3css-footer-region__inner .w3css-first-footer > div,
-  .w3css-footer-region__inner .w3css-second-footer > div,
-  .w3css-footer-region__inner .w3css-third-footer > div,
-  .w3css-footer-menu__inner > div {
-    padding: 10px !important;
-  }
-}
+/**
+ * @file
+ * Rules for medium screens only (601px to 992px): region padding.
+ */

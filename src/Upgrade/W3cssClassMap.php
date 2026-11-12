@@ -78,6 +78,52 @@ final class W3cssClassMap {
   }
 
   /**
+   * Returns the rename rows of every other kind: variables, JavaScript, ids.
+   *
+   * They live once, in w3css-rename-map.json next to this class. The same file
+   * feeds docs/CLASS-MIGRATION.md through scripts/class-list.py.
+   *
+   * @return list<array<string, mixed>>
+   *   The rows, each with kind, old, new, action, handling and source.
+   *
+   * @throws \RuntimeException
+   *   When the file cannot be read or holds no rows.
+   */
+  public static function nameRows(): array {
+    $file = __DIR__ . '/w3css-rename-map.json';
+    $json = @file_get_contents($file);
+    if ($json === FALSE) {
+      throw new \RuntimeException('Could not read ' . $file . '.');
+    }
+    try {
+      $data = json_decode($json, TRUE, 512, JSON_THROW_ON_ERROR);
+    }
+    catch (\JsonException $e) {
+      throw new \RuntimeException('The rename map ' . $file . ' is not valid JSON: ' . $e->getMessage(), 0, $e);
+    }
+    $rows = is_array($data) ? ($data['rows'] ?? NULL) : NULL;
+    if (!is_array($rows) || $rows === []) {
+      throw new \RuntimeException('The rename map ' . $file . ' holds no rows.');
+    }
+    return array_values(array_filter($rows, 'is_array'));
+  }
+
+  /**
+   * Builds the engine for variables, JavaScript names and library ids.
+   *
+   * @throws \RuntimeException
+   *   When the rename map cannot be read or holds nothing to rewrite.
+   */
+  public static function nameMigrator(): NameMigrator {
+    try {
+      return new NameMigrator(self::nameRows());
+    }
+    catch (\InvalidArgumentException $e) {
+      throw new \RuntimeException($e->getMessage(), 0, $e);
+    }
+  }
+
+  /**
    * Builds the engine from the map.
    *
    * @throws \RuntimeException

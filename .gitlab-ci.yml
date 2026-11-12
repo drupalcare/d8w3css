@@ -32,8 +32,38 @@ variables:
   # Spelling: skip vendored or generated text that is not ours to correct:
   # fonts/ (Font Awesome and Google font CSS), css/w3-css/ (vendored W3.CSS)
   # and the two generated color scheme palette folders.
-  _CSPELL_IGNORE_PATHS: 'fonts/**, css/w3-css/**, css/w3-css-theme/**, css/w3-css-theme-custom/**'
+  _CSPELL_IGNORE_PATHS: 'fonts/**, css/w3-css/**, css/predefined/**, css/base/w3css-drupal.css, css/base/w3css-layers.css, css/utilities/w3css-extended-classes.css, css/utilities/w3css-color-*.css, docs/class-migration.html, docs/CLASS-MIGRATION.md, src/Upgrade/w3css-rename-map.json'
   # fonts/ is in .stylelintignore, so the template's one-level glob alone would
   # see only ignored files and fail. `_STYLELINT_EXTRA` adds the css/ folder
   # (expanded recursively by Stylelint itself, minus the ignored palettes).
   _STYLELINT_EXTRA: 'css'
+
+# Library drift: drupal8_w3css_theme.libraries.yml and src/SchemeLibraries.php are
+# generated from libraries/w3css-libraries.json. This job fails when either file
+# differs from what scripts/build-libraries.py writes from the data. It prints
+# the library count, so a run that read nothing cannot pass.
+library-drift:
+  stage: validate
+  image: python:3.12-bookworm
+  script:
+    - python3 -I scripts/build-libraries.py --check
+
+# Scheme paint drift: the paint rules in css/predefined/ scheme files are generated
+# from scripts/scheme-paint-rules.json. Fails on drift and on any
+# var(..., revert-layer) under css/predefined/. Prints the file and rule counts.
+scheme-paint-drift:
+  stage: validate
+  image: python:3.12-bookworm
+  script:
+    - python3 -I scripts/build-scheme-paint.py --self-test
+    - python3 -I scripts/build-scheme-paint.py --check
+
+# Rename list drift: docs/CLASS-MIGRATION.md and docs/class-migration.html are
+# generated from ClassMap.php and src/Upgrade/w3css-rename-map.json. This job
+# fails when either document differs from what scripts/class-list.py writes,
+# and prints the row count, so a run that read nothing cannot pass.
+class-list:
+  stage: validate
+  image: python:3.12-bookworm
+  script:
+    - python3 -I scripts/class-list.py --check

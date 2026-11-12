@@ -1,0 +1,35 @@
+@layer w3css.base {
+  h1,
+  h2,
+  h3 {
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+
+  .fredericka-the-great {
+    font-family: 'Fredericka the Great', cursive;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+}
+
+/* Headings that answer other unlayered CSS stay unlayered. */
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3 {
+  font-family: 'Fredericka the Great', cursive;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1 {
+  font-size: 46px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2 {
+  font-size: 40px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3 {
+  font-size: 34px;
+}

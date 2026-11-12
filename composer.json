@@ -18,5 +18,11 @@
     },
     "require": {
         "drupal/core": "^11.3 || ^12"
+    },
+    "conflict": {
+        "drupal/amun": "<3.0",
+        "drupal/amunet": "<3.0",
+        "drupal/anhur": "<3.0",
+        "drupal/w3css_paragraphs": "<2.0"
     }
 }

@@ -1,0 +1,20 @@
+@layer w3css.layout {
+  .path-user-register .w3css-main-region__inner .w3css-page__content,
+  .path-user-password .w3css-main-region__inner .w3css-page__content,
+  .path-user-login .w3css-main-region__inner .w3css-page__content {
+    display: table;
+    float: none;
+    width: 100%;
+    max-width: 900px;
+    margin: 16px auto;
+  }
+
+  .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
+    flex-direction: row;
+  }
+}

@@ -7,6 +7,8 @@ namespace Drupal\drupal8_w3css_theme\Hook;
 use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Routing\AdminContext;
+use Drupal\drupal8_w3css_theme\SchemeLibraries;
+use Drupal\drupal8_w3css_theme\Settings\ExternalLibraries;
 use Drupal\drupal8_w3css_theme\Settings\SettingsReader;
 
 /**
@@ -42,48 +44,52 @@ final class AttachmentHooks {
     $this->attachFont($attachments, $this->settings->get('typography.special_font'), FALSE);
     // Load default color theme if not.
     if (!$this->settings->get('color_scheme.predefined') || $this->settings->get('color_scheme.predefined') == 'none') {
-      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/w3css-default-theme';
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/' . SchemeLibraries::DEFAULT;
     }
     else {
-      $my_current_theme = $this->settings->get('color_scheme.predefined');
-      $predefined_theme_filename = 'drupal8_w3css_theme/' . str_replace('w3-theme-', 'w3-css-theme-', (string) $my_current_theme);
-      $attachments['#attached']['library'][] = $predefined_theme_filename;
+      // The stored value keeps its name ("w3-theme-amber"); SchemeLibraries
+      // gives the library id. A value no scheme has attaches nothing.
+      $scheme_library = SchemeLibraries::BY_VALUE[(string) $this->settings->get('color_scheme.predefined')] ?? NULL;
+      if ($scheme_library !== NULL) {
+        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/' . $scheme_library;
+      }
     }
     // Load font awesome.
     switch ((int) $this->settings->get('libraries.font_awesome')) {
       case 1:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-in';
+        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-local';
         break;
 
       case 2:
-        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-ex';
+        $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-awesome-7-cdn';
         break;
     }
     // The size styles only matter when the social icons are shown.
     if ($this->settings->get('social_icons.enabled')) {
       switch ($this->settings->get('social_icons.size')) {
         case 1:
-          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-m';
+          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/component-social-media-size-m';
           break;
 
         case 2:
-          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/social-media-icon-size-l';
+          $attachments['#attached']['library'][] = 'drupal8_w3css_theme/component-social-media-size-l';
           break;
       }
     }
     // Load full opacity if enabled but not on admin pages.
     if ($this->settings->get('effects.reveal_on_scroll') && !$this->adminContext->isAdminRoute()) {
-      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-full-opacity';
+      $attachments['#attached']['library'][] = 'drupal8_w3css_theme/utility-fade';
     }
   }
 
   /**
    * Attaches the library of one font choice.
    *
-   * The choice is stored as "d8w3css-<font>" and its libraries are named
-   * "d8w3css-gfin-<font>" (local) and "d8w3css-gfex-<font>" (Google Fonts).
-   * "None", empty and any other value attach nothing, because no library with
-   * that name exists.
+   * The choice is stored as "w3css-font-<font>" and its libraries are named
+   * "font-<font>-local" (local) and "font-<font>-google" (Google Fonts).
+   * An old "d8w3css-<font>" value, from config the post update has not rewritten
+   * yet, is mapped to the new one first. "None", empty and any other value attach
+   * nothing, because no library with that name exists.
    *
    * @param array<string, mixed> $attachments
    *   The page attachments render array.
@@ -93,10 +99,12 @@ final class AttachmentHooks {
    *   TRUE to load the font files shipped with the theme.
    */
   private function attachFont(array &$attachments, mixed $font, bool $local): void {
-    if (!is_string($font) || !str_starts_with($font, 'd8w3css-') || $font === 'd8w3css-') {
+    $font = ExternalLibraries::currentFont($font);
+    $prefix = ExternalLibraries::FONT_PREFIX;
+    if (!is_string($font) || !str_starts_with($font, $prefix) || $font === $prefix) {
       return;
     }
-    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/d8w3css-' . ($local ? 'gfin' : 'gfex') . substr($font, 7);
+    $attachments['#attached']['library'][] = 'drupal8_w3css_theme/font-' . substr($font, strlen($prefix)) . ($local ? '-local' : '-google');
   }
 
 }

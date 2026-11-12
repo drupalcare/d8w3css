@@ -1,0 +1,5273 @@
+{
+ "_comment": "The one place that holds every library of the W3CSS Theme. Edit this file, then run: python3 -I scripts/build-libraries.py (it writes drupal8_w3css_theme.libraries.yml and src/SchemeLibraries.php; --check fails on drift). A library with 'was' also gets a deprecated alias under the old id (alias:false for ids that never shipped). 'also_was' lists more released ids folded into one library; each gets a deprecated alias. 'stored' is the color_scheme.predefined value that selects a scheme library. 'gap:false' = no blank line before it in the yml.",
+ "scheme_default": "scheme-pure-monochrome",
+ "libraries": [
+  {
+   "id": "base-layers",
+   "css": {
+    "base": [
+     {
+      "path": "css/base/w3css-layers.css",
+      "options": {
+       "weight": -1000
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "base-drupal",
+   "css": {
+    "base": [
+     {
+      "path": "css/base/w3css-drupal.css",
+      "options": {
+       "weight": -11
+      }
+     }
+    ]
+   },
+   "meta": {
+    "remote": "https://www.w3schools.com/w3css/",
+    "version": "4.15-modern",
+    "license": {
+     "name": "MIT",
+     "url": "https://www.w3schools.com/w3css/w3css_downloads.asp",
+     "gpl-compatible": true
+    }
+   }
+  },
+  {
+   "id": "utility-extended-classes",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-extended-classes.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-camouflage",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-camouflage.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-european-signal",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-european-signal.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-fashion",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-fashion.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-flat-ui",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-flat-ui.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-food",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-food.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-ios",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-ios.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-metro-ui",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-metro-ui.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-us-highway",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-us-highway.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-us-safety",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-us-safety.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-vivid",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-vivid.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "utility-color-win8",
+   "css": {
+    "base": [
+     {
+      "path": "css/utilities/w3css-color-win8.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "base-w3css-base",
+   "css": {
+    "base": [
+     {
+      "path": "css/base/w3css-base.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Theme CSS.",
+    ""
+   ]
+  },
+  {
+   "id": "layout-page",
+   "css": {
+    "layout": [
+     {
+      "path": "css/layout/w3css-page.css",
+      "options": {
+       "weight": -8
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "layout-page-width",
+   "css": {
+    "layout": [
+     {
+      "path": "css/layout/w3css-page-width.css",
+      "options": {
+       "weight": -7
+      }
+     },
+     {
+      "path": "css/base/w3css-host-overrides.css",
+      "options": {
+       "weight": -6
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-status-messages",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-status-messages.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-form-element",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-form-element.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-media",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-media.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-breadcrumb",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-breadcrumb.css",
+      "options": {}
+     },
+     {
+      "path": "css/components/w3css-skip-link.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-local-tasks",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-local-tasks.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-maintenance-page",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-maintenance-page.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-system-admin",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-system-admin.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-table",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-table.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-menu",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-menu.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-menu-responsive-v",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-menu-responsive-v.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-site-branding",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-site-branding.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-user-login",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/user-login.css",
+      "options": {}
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/components/user-login.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "component-footer-menu",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-footer-menu.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-node",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-node.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-page-title",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-page-title.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-search-result",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-search-result.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-search-block-form",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-search-block-form.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-pager",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-pager.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-comment",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-comment.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-views-view",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-views-view.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-layout-builder",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-layout-builder.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-webform",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-webform.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-node-form",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/node-form.css",
+      "options": {}
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/components/node-form.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "component-menu-sitemap",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-menu-sitemap.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-contact-form",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-contact-form.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-ckeditor",
+   "css": {
+    "component": [
+     {
+      "path": "css/components/w3css-ckeditor.css",
+      "options": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-image",
+   "css": {
+    "theme": [
+     {
+      "path": "css/components/w3css-image.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "theme-min-width-993",
+   "css": {
+    "theme": [
+     {
+      "path": "css/theme/min-width-993.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/theme/min-width-993.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "theme-max-width-992",
+   "css": {
+    "theme": [
+     {
+      "path": "css/theme/max-width-992.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/theme/max-width-992.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "theme-max-min-width-992-601",
+   "css": {
+    "theme": [
+     {
+      "path": "css/theme/max-min-width-992-601.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/theme/max-min-width-992-601.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "theme-max-width-767",
+   "css": {
+    "theme": [
+     {
+      "path": "css/theme/max-width-767.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/theme/max-width-767.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "theme-max-width-600",
+   "css": {
+    "theme": [
+     {
+      "path": "css/theme/max-width-600.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "pre": [
+    "# Pending split: css/theme/max-width-600.css is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "utility-animate-border",
+   "css": {
+    "theme": [
+     {
+      "path": "css/utilities/w3css-animate-border.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "component-site-branding-animation",
+   "css": {
+    "theme": [
+     {
+      "path": "css/components/w3css-site-branding-animation.css",
+      "options": {
+       "weight": 10
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "base-custom-js",
+   "js": [
+    {
+     "path": "js/custom.js",
+     "options": {}
+    }
+   ],
+   "dependencies": [
+    "core/drupal",
+    "core/once"
+   ],
+   "pre": [
+    "# Pending split: js/custom.js is cut into component files in a later step."
+   ]
+  },
+  {
+   "id": "utility-fade",
+   "pre": [
+    "# Full Opacity on Scroll.",
+    ""
+   ],
+   "meta": {
+    "header": true
+   },
+   "js": [
+    {
+     "path": "js/utilities/w3css-fade.js",
+     "options": {}
+    }
+   ],
+   "dependencies": [
+    "core/drupal",
+    "core/once"
+   ],
+   "was": "d8w3css-full-opacity"
+  },
+  {
+   "id": "layout-user-login",
+   "pre": [
+    "# custom user login page.",
+    ""
+   ],
+   "css": {
+    "layout": [
+     {
+      "path": "css/layout/w3css-user-login.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-user-login-custom"
+  },
+  {
+   "id": "layout-node-edit-form",
+   "pre": [
+    "# use when node edit.",
+    ""
+   ],
+   "css": {
+    "layout": [
+     {
+      "path": "css/layout/w3css-node-edit-form.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-node-edit-form"
+  },
+  {
+   "id": "component-social-media-size-m",
+   "pre": [
+    "# change the icon media size.",
+    ""
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/components/w3css-social-media-size-m.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "social-media-icon-size-m"
+  },
+  {
+   "id": "component-social-media-size-l",
+   "css": {
+    "theme": [
+     {
+      "path": "css/components/w3css-social-media-size-l.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "social-media-icon-size-l"
+  },
+  {
+   "id": "font-awesome-7-local",
+   "pre": [
+    "# Font Awesome.",
+    ""
+   ],
+   "meta": {
+    "version": "7.0.1"
+   },
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-awesome-7.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "font-awesome-7-in",
+   "alias": false,
+   "also_was": [
+    "font-awesome-4-in"
+   ]
+  },
+  {
+   "id": "font-awesome-7-cdn",
+   "meta": {
+    "remote": "https://github.com/FortAwesome/Font-Awesome",
+    "license": {
+     "name": "CC BY 4.0",
+     "url": "https://fontawesome.com/license/free",
+     "gpl-compatible": true
+    },
+    "version": "7.0.1"
+   },
+   "css": {
+    "base": [
+     {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css",
+      "options": {
+       "type": "external",
+       "minified": true,
+       "attributes": {
+        "integrity": "sha384-rWj9FmWWt3OMqd9vBkWRhFavvVUYalYqGPoMdL1brs/qvvqz88gvLShYa4hKNyqb",
+        "crossorigin": "anonymous"
+       }
+      }
+     }
+    ]
+   },
+   "was": "font-awesome-7-ex",
+   "alias": false,
+   "also_was": [
+    "font-awesome-4-ex",
+    "font-awesome-5-ex",
+    "font-awesome-6-ex"
+   ]
+  },
+  {
+   "id": "font-alegreya-sans-google",
+   "pre": [
+    "# Google Fonts - Global.",
+    ""
+   ],
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-alegreya-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-alegreya-sans"
+  },
+  {
+   "id": "font-alegreya-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-alegreya-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-alegreya-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-alegreya-sans"
+  },
+  {
+   "id": "font-alegreya-sans-sc-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-alegreya-sans-sc-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-alegreya-sans-sc"
+  },
+  {
+   "id": "font-alegreya-sans-sc-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-alegreya-sans-sc-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-alegreya-sans-sc-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-alegreya-sans-sc"
+  },
+  {
+   "id": "font-lato-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-lato-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-lato"
+  },
+  {
+   "id": "font-lato-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-lato-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-lato-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-lato"
+  },
+  {
+   "id": "font-montserrat-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-montserrat-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-montserrat"
+  },
+  {
+   "id": "font-montserrat-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-montserrat-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-montserrat-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-montserrat"
+  },
+  {
+   "id": "font-nunito-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-nunito-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-nunito"
+  },
+  {
+   "id": "font-nunito-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-nunito-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-nunito-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-nunito"
+  },
+  {
+   "id": "font-kavivanar-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Kavivanar&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-kavivanar-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-kavivanar"
+  },
+  {
+   "id": "font-kavivanar-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-kavivanar-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-kavivanar-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-kavivanar"
+  },
+  {
+   "id": "font-open-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-open-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-open-sans"
+  },
+  {
+   "id": "font-open-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-open-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-open-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-open-sans"
+  },
+  {
+   "id": "font-oswald-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-oswald-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-oswald"
+  },
+  {
+   "id": "font-oswald-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-oswald-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-oswald-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-oswald"
+  },
+  {
+   "id": "font-playfair-display-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-playfair-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-playfair-display"
+  },
+  {
+   "id": "font-playfair-display-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-playfair-display-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-playfair-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-playfair-display"
+  },
+  {
+   "id": "font-roboto-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-roboto-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-roboto"
+  },
+  {
+   "id": "font-roboto-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-roboto-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-roboto-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-roboto"
+  },
+  {
+   "id": "font-roboto-condensed-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-roboto-condensed-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-roboto-condensed"
+  },
+  {
+   "id": "font-roboto-condensed-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-roboto-condensed-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-roboto-condensed-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-roboto-condensed"
+  },
+  {
+   "id": "font-roboto-mono-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-roboto-mono-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-roboto-mono"
+  },
+  {
+   "id": "font-roboto-mono-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-roboto-mono-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-roboto-mono-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-roboto-mono"
+  },
+  {
+   "id": "font-source-sans-3-google",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-source-sans-3-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-source-sans-3"
+  },
+  {
+   "id": "font-source-sans-3-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-source-sans-3-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-source-sans-3-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-source-sans-3"
+  },
+  {
+   "id": "font-domine-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Domine:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-domine-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-domine"
+  },
+  {
+   "id": "font-domine-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-domine-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-domine-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-domine"
+  },
+  {
+   "id": "font-glegoo-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-glegoo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-glegoo"
+  },
+  {
+   "id": "font-glegoo-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-glegoo-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-glegoo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-glegoo"
+  },
+  {
+   "id": "font-amita-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Amita&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-amita-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-amita"
+  },
+  {
+   "id": "font-amita-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-amita-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-amita-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-amita"
+  },
+  {
+   "id": "font-oranienbaum-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-oranienbaum-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-oranienbaum"
+  },
+  {
+   "id": "font-oranienbaum-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-oranienbaum-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-oranienbaum-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-oranienbaum"
+  },
+  {
+   "id": "font-abel-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Abel&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-abel-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-abel"
+  },
+  {
+   "id": "font-abel-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-abel-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-abel-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-abel"
+  },
+  {
+   "id": "font-archivo-narrow-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-archivo-narrow-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-archivo-narrow"
+  },
+  {
+   "id": "font-archivo-narrow-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-archivo-narrow-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-archivo-narrow-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-archivo-narrow"
+  },
+  {
+   "id": "font-arimo-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-arimo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-arimo"
+  },
+  {
+   "id": "font-arimo-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-arimo-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-arimo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-arimo"
+  },
+  {
+   "id": "font-arvo-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-arvo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-arvo"
+  },
+  {
+   "id": "font-arvo-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-arvo-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-arvo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-arvo"
+  },
+  {
+   "id": "font-barlow-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-barlow-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-barlow"
+  },
+  {
+   "id": "font-barlow-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-barlow-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-barlow-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-barlow"
+  },
+  {
+   "id": "font-barlow-semi-condensed-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-barlow-semi-condensed-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-barlow-semi-condensed"
+  },
+  {
+   "id": "font-barlow-semi-condensed-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-barlow-semi-condensed-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-barlow-semi-condensed-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-barlow-semi-condensed"
+  },
+  {
+   "id": "font-bitter-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-bitter-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-bitter"
+  },
+  {
+   "id": "font-bitter-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-bitter-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-bitter-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-bitter"
+  },
+  {
+   "id": "font-cairo-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-cairo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-cairo"
+  },
+  {
+   "id": "font-cairo-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-cairo-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-cairo-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-cairo"
+  },
+  {
+   "id": "font-comfortaa-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-comfortaa-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-comfortaa"
+  },
+  {
+   "id": "font-comfortaa-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-comfortaa-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-comfortaa-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-comfortaa"
+  },
+  {
+   "id": "font-courgette-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-courgette-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-courgette"
+  },
+  {
+   "id": "font-courgette-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-courgette-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-courgette-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-courgette"
+  },
+  {
+   "id": "font-dosis-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-dosis-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-dosis"
+  },
+  {
+   "id": "font-dosis-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-dosis-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-dosis-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-dosis"
+  },
+  {
+   "id": "font-exo-2-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-exo-2-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-exo-2"
+  },
+  {
+   "id": "font-exo-2-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-exo-2-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-exo-2-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-exo-2"
+  },
+  {
+   "id": "font-fira-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-fira-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-fira-sans"
+  },
+  {
+   "id": "font-fira-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-fira-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-fira-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-fira-sans"
+  },
+  {
+   "id": "font-hind-siliguri-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-hind-siliguri-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-hind-siliguri"
+  },
+  {
+   "id": "font-hind-siliguri-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-hind-siliguri-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-hind-siliguri-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-hind-siliguri"
+  },
+  {
+   "id": "font-ibm-plex-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-ibm-plex-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-ibm-plex-sans"
+  },
+  {
+   "id": "font-ibm-plex-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-ibm-plex-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-ibm-plex-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-ibm-plex-sans"
+  },
+  {
+   "id": "font-inconsolata-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-inconsolata-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-inconsolata"
+  },
+  {
+   "id": "font-inconsolata-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-inconsolata-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-inconsolata-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-inconsolata"
+  },
+  {
+   "id": "font-josefin-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-josefin-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-josefin-sans"
+  },
+  {
+   "id": "font-josefin-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-josefin-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-josefin-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-josefin-sans"
+  },
+  {
+   "id": "font-kanit-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-kanit-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-kanit"
+  },
+  {
+   "id": "font-kanit-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-kanit-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-kanit-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-kanit"
+  },
+  {
+   "id": "font-libre-baskerville-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-libre-baskerville-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-libre-baskerville"
+  },
+  {
+   "id": "font-libre-baskerville-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-libre-baskerville-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-libre-baskerville-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-libre-baskerville"
+  },
+  {
+   "id": "font-lora-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-lora-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-lora"
+  },
+  {
+   "id": "font-lora-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-lora-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-lora-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-lora"
+  },
+  {
+   "id": "font-merienda-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-merienda-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-merienda"
+  },
+  {
+   "id": "font-merienda-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-merienda-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-merienda-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-merienda"
+  },
+  {
+   "id": "font-merriweather-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-merriweather-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-merriweather"
+  },
+  {
+   "id": "font-merriweather-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-merriweather-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-merriweather-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-merriweather"
+  },
+  {
+   "id": "font-mukta-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-mukta-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-mukta"
+  },
+  {
+   "id": "font-mukta-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-mukta-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-mukta-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-mukta"
+  },
+  {
+   "id": "font-oxygen-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-oxygen-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-oxygen"
+  },
+  {
+   "id": "font-oxygen-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-oxygen-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-oxygen-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-oxygen"
+  },
+  {
+   "id": "font-poppins-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-poppins-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-poppins"
+  },
+  {
+   "id": "font-poppins-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-poppins-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-poppins-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-poppins"
+  },
+  {
+   "id": "font-prompt-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-prompt-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-prompt"
+  },
+  {
+   "id": "font-prompt-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-prompt-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-prompt-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-prompt"
+  },
+  {
+   "id": "font-pt-serif-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-pt-serif-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-pt-serif"
+  },
+  {
+   "id": "font-pt-serif-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-pt-serif-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-pt-serif-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-pt-serif"
+  },
+  {
+   "id": "font-quicksand-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-quicksand-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-quicksand"
+  },
+  {
+   "id": "font-quicksand-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-quicksand-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-quicksand-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-quicksand"
+  },
+  {
+   "id": "font-raleway-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-raleway-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-raleway"
+  },
+  {
+   "id": "font-raleway-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-raleway-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-raleway-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-raleway"
+  },
+  {
+   "id": "font-spline-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-spline-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-spline-sans"
+  },
+  {
+   "id": "font-spline-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-spline-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-spline-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-spline-sans"
+  },
+  {
+   "id": "font-titillium-web-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-titillium-web-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-titillium-web"
+  },
+  {
+   "id": "font-titillium-web-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-titillium-web-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-titillium-web-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-titillium-web"
+  },
+  {
+   "id": "font-ubuntu-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-ubuntu-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-ubuntu"
+  },
+  {
+   "id": "font-ubuntu-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-ubuntu-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-ubuntu-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-ubuntu"
+  },
+  {
+   "id": "font-work-sans-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-work-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-work-sans"
+  },
+  {
+   "id": "font-work-sans-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-work-sans-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-work-sans-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-work-sans"
+  },
+  {
+   "id": "font-abril-fatface-google",
+   "pre": [
+    "# Google fonts - Heading.",
+    ""
+   ],
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-abril-fatface-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-abril-fatface"
+  },
+  {
+   "id": "font-abril-fatface-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-abril-fatface-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-abril-fatface-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-abril-fatface"
+  },
+  {
+   "id": "font-aladin-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Aladin&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-aladin-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-aladin"
+  },
+  {
+   "id": "font-aladin-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-aladin-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-aladin-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-aladin"
+  },
+  {
+   "id": "font-anton-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Anton&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-anton-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-anton"
+  },
+  {
+   "id": "font-anton-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-anton-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-anton-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-anton"
+  },
+  {
+   "id": "font-archivo-black-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-archivo-black-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-archivo-black"
+  },
+  {
+   "id": "font-archivo-black-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-archivo-black-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-archivo-black-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-archivo-black"
+  },
+  {
+   "id": "font-bebas-neue-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-bebas-neue-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-bebas-neue"
+  },
+  {
+   "id": "font-bebas-neue-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-bebas-neue-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-bebas-neue-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-bebas-neue"
+  },
+  {
+   "id": "font-big-shoulders-stencil-display-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-big-shoulders-stencil-display"
+  },
+  {
+   "id": "font-big-shoulders-stencil-display-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-display-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-big-shoulders-stencil-display"
+  },
+  {
+   "id": "font-big-shoulders-stencil-text-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-text-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-big-shoulders-stencil-text"
+  },
+  {
+   "id": "font-big-shoulders-stencil-text-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-text-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-big-shoulders-stencil-text-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-big-shoulders-stencil-text"
+  },
+  {
+   "id": "font-black-ops-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-black-ops-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-black-ops-one"
+  },
+  {
+   "id": "font-black-ops-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-black-ops-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-black-ops-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-black-ops-one"
+  },
+  {
+   "id": "font-bree-serif-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-bree-serif-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-bree-serif"
+  },
+  {
+   "id": "font-bree-serif-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-bree-serif-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-bree-serif-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-bree-serif"
+  },
+  {
+   "id": "font-cinzel-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Cinzel&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-cinzel-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-cinzel"
+  },
+  {
+   "id": "font-cinzel-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-cinzel-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-cinzel-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-cinzel"
+  },
+  {
+   "id": "font-dancing-script-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-dancing-script-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-dancing-script"
+  },
+  {
+   "id": "font-dancing-script-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-dancing-script-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-dancing-script-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-dancing-script"
+  },
+  {
+   "id": "font-dm-serif-display-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-dm-serif-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-dm-serif-display"
+  },
+  {
+   "id": "font-dm-serif-display-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-dm-serif-display-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-dm-serif-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-dm-serif-display"
+  },
+  {
+   "id": "font-doppio-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Doppio+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-doppio-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-doppio-one"
+  },
+  {
+   "id": "font-doppio-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-doppio-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-doppio-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-doppio-one"
+  },
+  {
+   "id": "font-fjalla-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-fjalla-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-fjalla-one"
+  },
+  {
+   "id": "font-fjalla-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-fjalla-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-fjalla-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-fjalla-one"
+  },
+  {
+   "id": "font-francois-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Francois+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-francois-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-francois-one"
+  },
+  {
+   "id": "font-francois-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-francois-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-francois-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-francois-one"
+  },
+  {
+   "id": "font-fredericka-the-great-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-fredericka-the-great-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-fredericka-the-great"
+  },
+  {
+   "id": "font-fredericka-the-great-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-fredericka-the-great-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-fredericka-the-great-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-fredericka-the-great"
+  },
+  {
+   "id": "font-fredoka-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-fredoka-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-fredoka"
+  },
+  {
+   "id": "font-fredoka-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-fredoka-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-fredoka-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-fredoka"
+  },
+  {
+   "id": "font-hammersmith-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-hammersmith-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-hammersmith-one"
+  },
+  {
+   "id": "font-hammersmith-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-hammersmith-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-hammersmith-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-hammersmith-one"
+  },
+  {
+   "id": "font-indie-flower-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-indie-flower-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-indie-flower"
+  },
+  {
+   "id": "font-indie-flower-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-indie-flower-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-indie-flower-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-indie-flower"
+  },
+  {
+   "id": "font-kalam-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-kalam-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-kalam"
+  },
+  {
+   "id": "font-kalam-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-kalam-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-kalam-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-kalam"
+  },
+  {
+   "id": "font-lobster-two-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-lobster-two-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-lobster-two"
+  },
+  {
+   "id": "font-lobster-two-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-lobster-two-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-lobster-two-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-lobster-two"
+  },
+  {
+   "id": "font-patrick-hand-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-patrick-hand-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-patrick-hand"
+  },
+  {
+   "id": "font-patrick-hand-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-patrick-hand-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-patrick-hand-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-patrick-hand"
+  },
+  {
+   "id": "font-prosto-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Prosto+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-prosto-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-prosto-one"
+  },
+  {
+   "id": "font-prosto-one-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-prosto-one-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-prosto-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-prosto-one"
+  },
+  {
+   "id": "font-righteous-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Righteous&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-righteous-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-righteous"
+  },
+  {
+   "id": "font-righteous-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-righteous-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-righteous-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-righteous"
+  },
+  {
+   "id": "font-staatliches-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Staatliches&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-staatliches-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-staatliches"
+  },
+  {
+   "id": "font-staatliches-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-staatliches-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-staatliches-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-staatliches"
+  },
+  {
+   "id": "font-yanone-kaffeesatz-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-yanone-kaffeesatz-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-yanone-kaffeesatz"
+  },
+  {
+   "id": "font-yanone-kaffeesatz-local",
+   "gap": false,
+   "css": {
+    "base": [
+     {
+      "path": "fonts/w3css-font-yanone-kaffeesatz-local.css",
+      "options": {}
+     },
+     {
+      "path": "fonts/w3css-font-yanone-kaffeesatz-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfin-yanone-kaffeesatz"
+  },
+  {
+   "id": "font-metal-mania-google",
+   "pre": [
+    "# Google fonts - Special Fonts.",
+    ""
+   ],
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-metal-mania-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-metal-mania"
+  },
+  {
+   "id": "font-train-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Train+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-train-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-train-one"
+  },
+  {
+   "id": "font-barriecito-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Barriecito&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-barriecito-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-barriecito"
+  },
+  {
+   "id": "font-sancreek-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Sancreek&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-sancreek-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-sancreek"
+  },
+  {
+   "id": "font-new-rocker-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=New+Rocker&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-new-rocker-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-new-rocker"
+  },
+  {
+   "id": "font-nosifer-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Nosifer&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-nosifer-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-nosifer"
+  },
+  {
+   "id": "font-kumar-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Kumar+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-kumar-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-kumar-one"
+  },
+  {
+   "id": "font-londrina-outline-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-londrina-outline-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-londrina-outline"
+  },
+  {
+   "id": "font-trade-winds-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-trade-winds-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-trade-winds"
+  },
+  {
+   "id": "font-slackey-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Slackey&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-slackey-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-slackey"
+  },
+  {
+   "id": "font-frijole-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Frijole&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-frijole-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-frijole"
+  },
+  {
+   "id": "font-ruslan-display-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-ruslan-display-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-ruslan-display"
+  },
+  {
+   "id": "font-faster-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Faster+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-faster-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-faster-one"
+  },
+  {
+   "id": "font-akronim-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Akronim&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-akronim-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-akronim"
+  },
+  {
+   "id": "font-finger-paint-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-finger-paint-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-finger-paint"
+  },
+  {
+   "id": "font-ceviche-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-ceviche-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-ceviche-one"
+  },
+  {
+   "id": "font-unifrakturmaguntia-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-unifrakturmaguntia-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-unifrakturmaguntia"
+  },
+  {
+   "id": "font-megrim-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Megrim&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-megrim-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-megrim"
+  },
+  {
+   "id": "font-bungee-shade-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-bungee-shade-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-bungee-shade"
+  },
+  {
+   "id": "font-irish-grover-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-irish-grover-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-irish-grover"
+  },
+  {
+   "id": "font-pirata-one-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Pirata+One&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-pirata-one-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-pirata-one"
+  },
+  {
+   "id": "font-rye-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Rye&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-rye-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-rye"
+  },
+  {
+   "id": "font-creepster-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Creepster&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-creepster-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-creepster"
+  },
+  {
+   "id": "font-moo-lah-lah-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-moo-lah-lah-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-moo-lah-lah"
+  },
+  {
+   "id": "font-monoton-google",
+   "css": {
+    "base": [
+     {
+      "path": "https://fonts.googleapis.com/css2?family=Monoton&display=swap",
+      "options": {
+       "type": "external",
+       "minified": true
+      }
+     },
+     {
+      "path": "fonts/w3css-font-monoton-google.css",
+      "options": {}
+     }
+    ]
+   },
+   "was": "d8w3css-gfex-monoton"
+  },
+  {
+   "id": "scheme-pure-monochrome",
+   "pre": [
+    "# Predefined themes.",
+    ""
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-pure-monochrome.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes"
+   ],
+   "was": "w3css-default-theme"
+  },
+  {
+   "id": "scheme-golden-amber",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-golden-amber.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-amber",
+   "stored": "w3-theme-amber"
+  },
+  {
+   "id": "scheme-royal-blue",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-royal-blue.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-blue",
+   "stored": "w3-theme-blue"
+  },
+  {
+   "id": "scheme-misty-blue-gray",
+   "pre": [
+    "# cspell:disable-next-line"
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-misty-blue-gray.css",
+      "options": {
+       "weight": -9
+      },
+      "pre": [
+       "# cspell:disable-next-line"
+      ]
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-blue-grey",
+   "stored": "w3-theme-blue-grey"
+  },
+  {
+   "id": "scheme-walnut-brown",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-walnut-brown.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-brown",
+   "stored": "w3-theme-brown"
+  },
+  {
+   "id": "scheme-bright-cyan",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-bright-cyan.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-cyan",
+   "stored": "w3-theme-cyan"
+  },
+  {
+   "id": "scheme-burnt-orange",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-burnt-orange.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-deep-orange",
+   "stored": "w3-theme-deep-orange"
+  },
+  {
+   "id": "scheme-plum-purple",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-plum-purple.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-deep-purple",
+   "stored": "w3-theme-deep-purple"
+  },
+  {
+   "id": "scheme-meadow-green",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-meadow-green.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-green",
+   "stored": "w3-theme-green"
+  },
+  {
+   "id": "scheme-ink-indigo",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-ink-indigo.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-indigo",
+   "stored": "w3-theme-indigo"
+  },
+  {
+   "id": "scheme-desert-khaki",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-desert-khaki.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-khaki",
+   "stored": "w3-theme-khaki"
+  },
+  {
+   "id": "scheme-sky-blue",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-sky-blue.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-light-blue",
+   "stored": "w3-theme-light-blue"
+  },
+  {
+   "id": "scheme-spring-green",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-spring-green.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-light-green",
+   "stored": "w3-theme-light-green"
+  },
+  {
+   "id": "scheme-fresh-lime",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-fresh-lime.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-lime",
+   "stored": "w3-theme-lime"
+  },
+  {
+   "id": "scheme-tangerine-orange",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-tangerine-orange.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-orange",
+   "stored": "w3-theme-orange"
+  },
+  {
+   "id": "scheme-rose-pink",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-rose-pink.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-pink",
+   "stored": "w3-theme-pink"
+  },
+  {
+   "id": "scheme-grape-purple",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-grape-purple.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-purple",
+   "stored": "w3-theme-purple"
+  },
+  {
+   "id": "scheme-cherry-red",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-cherry-red.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-red",
+   "stored": "w3-theme-red"
+  },
+  {
+   "id": "scheme-lagoon-teal",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-lagoon-teal.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-teal",
+   "stored": "w3-theme-teal"
+  },
+  {
+   "id": "scheme-sun-yellow",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-sun-yellow.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-yellow",
+   "stored": "w3-theme-yellow"
+  },
+  {
+   "id": "scheme-jet-black",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-jet-black.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-black",
+   "stored": "w3-theme-black"
+  },
+  {
+   "id": "scheme-charcoal-gray",
+   "pre": [
+    "# cspell:disable-next-line"
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-charcoal-gray.css",
+      "options": {
+       "weight": -9
+      },
+      "pre": [
+       "# cspell:disable-next-line"
+      ]
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-dark-grey",
+   "stored": "w3-theme-dark-grey"
+  },
+  {
+   "id": "scheme-silver-gray",
+   "pre": [
+    "# cspell:disable-next-line"
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-silver-gray.css",
+      "options": {
+       "weight": -9
+      },
+      "pre": [
+       "# cspell:disable-next-line"
+      ]
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-palette"
+   ],
+   "was": "w3-css-theme-grey",
+   "stored": "w3-theme-grey"
+  },
+  {
+   "id": "scheme-custom",
+   "pre": [
+    "# Custom predefined color themes.",
+    ""
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-custom.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-custom",
+   "stored": "w3-theme-custom"
+  },
+  {
+   "id": "scheme-quiet-slate",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-quiet-slate.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-custom-paint",
+    "drupal8_w3css_theme/scheme-keyframes"
+   ],
+   "was": "w3-css-theme-00000",
+   "stored": "w3-theme-00000"
+  },
+  {
+   "id": "scheme-harbor-steel",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-harbor-steel.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint",
+    "drupal8_w3css_theme/scheme-keyframes"
+   ],
+   "was": "w3-css-theme-00001",
+   "stored": "w3-theme-00001"
+  },
+  {
+   "id": "scheme-ocean-blue",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-ocean-blue.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00002",
+   "stored": "w3-theme-00002"
+  },
+  {
+   "id": "scheme-forest-green",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-forest-green.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00003",
+   "stored": "w3-theme-00003"
+  },
+  {
+   "id": "scheme-orchid-purple",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-orchid-purple.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00004",
+   "stored": "w3-theme-00004"
+  },
+  {
+   "id": "scheme-copper-brown",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-copper-brown.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00005",
+   "stored": "w3-theme-00005"
+  },
+  {
+   "id": "scheme-crimson-red",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-crimson-red.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00006",
+   "stored": "w3-theme-00006"
+  },
+  {
+   "id": "scheme-indigo-ink",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-indigo-ink.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00007",
+   "stored": "w3-theme-00007"
+  },
+  {
+   "id": "scheme-indigo-lagoon",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-indigo-lagoon.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00008",
+   "stored": "w3-theme-00008"
+  },
+  {
+   "id": "scheme-deep-cyan",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-deep-cyan.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00009",
+   "stored": "w3-theme-00009"
+  },
+  {
+   "id": "scheme-lime-grass",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-lime-grass.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00010",
+   "stored": "w3-theme-00010"
+  },
+  {
+   "id": "scheme-espresso-brown",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-espresso-brown.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00011",
+   "stored": "w3-theme-00011"
+  },
+  {
+   "id": "scheme-navy-ruby",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-navy-ruby.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00012",
+   "stored": "w3-theme-00012"
+  },
+  {
+   "id": "scheme-cadet-blue",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-cadet-blue.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00013",
+   "stored": "w3-theme-00013"
+  },
+  {
+   "id": "scheme-harbor-blue",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-harbor-blue.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00014",
+   "stored": "w3-theme-00014"
+  },
+  {
+   "id": "scheme-cadet-steel",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-cadet-steel.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00015",
+   "stored": "w3-theme-00015"
+  },
+  {
+   "id": "scheme-slate-amber",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-slate-amber.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00016",
+   "stored": "w3-theme-00016"
+  },
+  {
+   "id": "scheme-midnight-ember",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-midnight-ember.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00017",
+   "stored": "w3-theme-00017"
+  },
+  {
+   "id": "scheme-dark-graphite",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-graphite.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00018",
+   "stored": "w3-theme-00018"
+  },
+  {
+   "id": "scheme-dark-moss",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-moss.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00019",
+   "stored": "w3-theme-00019"
+  },
+  {
+   "id": "scheme-dark-ocean",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-ocean.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00020",
+   "stored": "w3-theme-00020"
+  },
+  {
+   "id": "scheme-dark-violet",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-violet.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00021",
+   "stored": "w3-theme-00021"
+  },
+  {
+   "id": "scheme-dark-ruby",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-ruby.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00022",
+   "stored": "w3-theme-00022"
+  },
+  {
+   "id": "scheme-dark-rose",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-rose.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00023",
+   "stored": "w3-theme-00023"
+  },
+  {
+   "id": "scheme-dark-emerald",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-emerald.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00024",
+   "stored": "w3-theme-00024"
+  },
+  {
+   "id": "scheme-dark-lavender",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-lavender.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00025",
+   "stored": "w3-theme-00025"
+  },
+  {
+   "id": "scheme-dark-gold",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-gold.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00026",
+   "stored": "w3-theme-00026"
+  },
+  {
+   "id": "scheme-dark-sky",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-dark-sky.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00027",
+   "stored": "w3-theme-00027"
+  },
+  {
+   "id": "scheme-teal-coral",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-teal-coral.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-shared",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00028",
+   "stored": "w3-theme-00028"
+  },
+  {
+   "id": "scheme-photo-backdrop",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-photo-backdrop.css",
+      "options": {
+       "weight": -9
+      }
+     }
+    ]
+   },
+   "dependencies": [
+    "drupal8_w3css_theme/scheme-keyframes",
+    "drupal8_w3css_theme/scheme-custom-paint"
+   ],
+   "was": "w3-css-theme-00029",
+   "stored": "w3-theme-00029"
+  },
+  {
+   "id": "admin-settings-form",
+   "css": {
+    "theme": [
+     {
+      "path": "css/admin/w3css-settings-form.css",
+      "options": {
+       "weight": 200
+      }
+     },
+     {
+      "path": "css/admin/w3css-settings-swatches.css",
+      "options": {
+       "weight": 201
+      }
+     },
+     {
+      "path": "css/admin/w3css-settings-schemes.css",
+      "options": {
+       "weight": 202
+      }
+     },
+     {
+      "path": "css/admin/w3css-settings-search.css",
+      "options": {
+       "weight": 203
+      }
+     }
+    ]
+   },
+   "js": [
+    {
+     "path": "js/admin/w3css-settings-form.js",
+     "options": {}
+    },
+    {
+     "path": "js/admin/w3css-settings-schemes.js",
+     "options": {}
+    },
+    {
+     "path": "js/admin/w3css-settings-search.js",
+     "options": {}
+    }
+   ],
+   "dependencies": [
+    "core/drupal",
+    "core/drupal.announce",
+    "core/once"
+   ],
+   "was": "d8w3css-settings-form",
+   "alias": false
+  },
+  {
+   "id": "scheme-keyframes",
+   "pre": [
+    "# Rules the color schemes share: a scheme file sets the tokens (--w-*), these use them."
+   ],
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-scheme-keyframes.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "was": "w3-css-theme-shared-keyframes",
+   "alias": false
+  },
+  {
+   "id": "scheme-palette",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-scheme-palette.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "was": "w3-css-theme-shared-palette",
+   "alias": false
+  },
+  {
+   "id": "scheme-custom-shared",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-scheme-custom.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "was": "w3-css-theme-shared-custom",
+   "alias": false
+  },
+  {
+   "id": "scheme-custom-paint",
+   "css": {
+    "theme": [
+     {
+      "path": "css/predefined/w3css-scheme-custom-paint.css",
+      "options": {
+       "weight": -10
+      }
+     }
+    ]
+   },
+   "was": "w3-css-theme-shared-custom-paint",
+   "alias": false
+  }
+ ],
+ "multi_aliases": [
+  {
+   "was": "w3-css",
+   "of": [
+    "base-layers",
+    "base-drupal",
+    "utility-extended-classes",
+    "utility-color-camouflage",
+    "utility-color-european-signal",
+    "utility-color-fashion",
+    "utility-color-flat-ui",
+    "utility-color-food",
+    "utility-color-ios",
+    "utility-color-metro-ui",
+    "utility-color-us-highway",
+    "utility-color-us-safety",
+    "utility-color-vivid",
+    "utility-color-win8"
+   ]
+  },
+  {
+   "was": "d8w3css-global-styling",
+   "of": [
+    "base-w3css-base",
+    "layout-page",
+    "layout-page-width",
+    "component-status-messages",
+    "component-form-element",
+    "component-media",
+    "component-breadcrumb",
+    "component-local-tasks",
+    "component-maintenance-page",
+    "component-system-admin",
+    "component-table",
+    "component-menu",
+    "component-menu-responsive-v",
+    "component-site-branding",
+    "component-user-login",
+    "component-footer-menu",
+    "component-node",
+    "component-page-title",
+    "component-search-result",
+    "component-search-block-form",
+    "component-pager",
+    "component-comment",
+    "component-views-view",
+    "component-layout-builder",
+    "component-webform",
+    "component-node-form",
+    "component-menu-sitemap",
+    "component-contact-form",
+    "component-ckeditor",
+    "component-image",
+    "theme-min-width-993",
+    "theme-max-width-992",
+    "theme-max-min-width-992-601",
+    "theme-max-width-767",
+    "theme-max-width-600",
+    "utility-animate-border",
+    "component-site-branding-animation",
+    "base-custom-js"
+   ]
+  }
+ ]
+}

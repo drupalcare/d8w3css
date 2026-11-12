@@ -1,0 +1,224 @@
+@layer w3css.tokens {
+  :root {
+    --w3css-layout-builder-background: #113e5f;
+    --w3css-layout-builder-background-2: #dcedf9;
+    --w3css-layout-builder-color: #0b3e6f;
+    --w3css-layout-builder-color-2: #eaf4fb;
+    --w3css-layout-builder-background-3: #040f17;
+    --w3css-layout-builder-background-4: rgb(55, 170, 220);
+    --w3css-layout-builder-background-5: rgb(46, 147, 190);
+    --w3css-layout-builder-background-6: rgb(213, 71, 43);
+    --w3css-layout-builder-background-7: rgb(158, 46, 37);
+    --w3css-layout-builder-background-8: rgb(75, 187, 34);
+    --w3css-layout-builder-background-9: rgb(52, 130, 24);
+    --w3css-layout-builder-background-10: #45484d;
+  }
+}
+
+@layer w3css.theme {
+  #drupal-off-canvas .cke_top {
+    padding: 0;
+  }
+
+  #drupal-off-canvas details,
+  #drupal-off-canvas summary,
+  #drupal-off-canvas .details-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  #drupal-off-canvas .w3css-details__wrapper {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  #drupal-off-canvas .details-wrapper ul,
+  #drupal-off-canvas .w3css-details__wrapper ul,
+  #drupal-off-canvas .details-wrapper ul li,
+  #drupal-off-canvas .w3css-details__wrapper ul li {
+    box-sizing: border-box;
+  }
+
+  .layout-builder-block .w3-left.field__item,
+  .layout-builder-block .w3-left.w3css-field__item {
+    padding: 0;
+  }
+
+  #drupal-off-canvas .w3css-form-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #drupal-off-canvas .inline-block-create-button,
+  #drupal-off-canvas .inline-block-list__item {
+    background: var(--w3css-layout-builder-background);
+  }
+
+  /* Layout Form */
+
+  .layout-builder-revert-overrides .form-actions a.button,
+  .layout-builder-revert-overrides .form-actions a.w3css-button,
+  .layout-builder-revert-overrides .form-actions input {
+    clear: none;
+  }
+
+  .node-layout-builder-form {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 90%;
+  }
+
+  .node-layout-builder-form .w3css-status-messages {
+    margin-left: 10px;
+    padding-left: 30px;
+  }
+
+  .node-layout-builder-form .vertical-tabs__panes {
+    margin: 20px;
+  }
+
+  .layout-builder__region {
+    background-color: var(--w3css-layout-builder-background-2);
+  }
+
+  .layout-builder-block {
+    clear: both;
+    padding: 5px 15px;
+    background-color: transparent;
+  }
+
+  .node-layout-builder-form .vertical-tabs {
+    background-color: transparent;
+  }
+
+  /* Layout Builder body */
+
+  .node__content .layout--onecol-section,
+  .w3css-node__content .layout--onecol-section,
+  .node__content .layout--twocol-section,
+  .w3css-node__content .layout--twocol-section,
+  .node__content .layout--threecol-section,
+  .w3css-node__content .layout--threecol-section,
+  .node__content .layout--fourcol-section,
+  .w3css-node__content .layout--fourcol-section {
+    clear: both;
+    content: "";
+  }
+
+  .layout-builder {
+    margin: 10px;
+  }
+
+  .layout-builder__link--configure,
+  .layout-builder__link--remove {
+    display: inline-block;
+    clear: none;
+    width: auto;
+    height: auto;
+    margin: 0 10px 0 0;
+    padding: 7px 15px;
+    text-align: center;
+    text-indent: unset;
+    font-size: 13px;
+  }
+
+  .layout-builder__link--remove,
+  .layout-builder__link--configure {
+    border-radius: 15px 0 15px 0;
+  }
+
+  .layout-builder__add-block,
+  .layout-builder__link--add,
+  .layout-builder__add-section {
+    border-radius: 20px 0 20px 0;
+  }
+
+  .layout-builder__link--add::before {
+    /*  content: "\f196";
+  font-family: FontAwesome;
+  font-size: 16px;
+  margin-right: 10px;
+  background-color: transparent; */
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 0;
+    content: "";
+    vertical-align: middle;
+    background-color: currentcolor;
+    -webkit-mask: url(../../images/icons/plus-circle.svg) center / contain no-repeat;
+    mask: url(../../images/icons/plus-circle.svg) center / contain no-repeat;
+  }
+
+  .layout-builder__add-section {
+    border: none;
+  }
+
+  .layout-builder__add-block {
+    display: inline-block;
+  }
+
+  .layout-builder__link--add {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+  }
+
+  .layout-builder__link--remove:hover {
+    background-image: none;
+  }
+
+  .layout-builder__link--configure {
+    margin: 0 0 20px 0;
+    color: var(--w3css-layout-builder-color);
+  }
+
+  .layout-builder__section .comment-comment-form {
+    padding: 0;
+  }
+
+  .ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar {
+    color: var(--w3css-layout-builder-color-2);
+    background: var(--w3css-layout-builder-background-3);
+  }
+
+  /* Button Colors */
+
+  .layout-builder__link--add {
+    color: white;
+    background: var(--w3css-layout-builder-background-4);
+    background: -moz-linear-gradient(top, var(--w3css-layout-builder-background-4) 0%, var(--w3css-layout-builder-background-5) 100%);
+    background: -webkit-linear-gradient(top, var(--w3css-layout-builder-background-4) 0%, var(--w3css-layout-builder-background-5) 100%);
+    background: linear-gradient(to bottom, var(--w3css-layout-builder-background-4) 0%, var(--w3css-layout-builder-background-5) 100%);
+  }
+
+  .layout-builder__link--remove:hover,
+  .layout-builder__link--remove {
+    color: white;
+    background: var(--w3css-layout-builder-background-6);
+    background: -moz-linear-gradient(top, var(--w3css-layout-builder-background-6) 0%, var(--w3css-layout-builder-background-7) 100%);
+    background: -webkit-linear-gradient(top, var(--w3css-layout-builder-background-6) 0%, var(--w3css-layout-builder-background-7) 100%);
+    background: linear-gradient(to bottom, var(--w3css-layout-builder-background-6) 0%, var(--w3css-layout-builder-background-7) 100%);
+  }
+
+  .layout-builder__link--configure {
+    color: white;
+    background: var(--w3css-layout-builder-background-8);
+    background: -moz-linear-gradient(top, var(--w3css-layout-builder-background-8) 0%, var(--w3css-layout-builder-background-9) 100%);
+    background: -webkit-linear-gradient(top, var(--w3css-layout-builder-background-8) 0%, var(--w3css-layout-builder-background-9) 100%);
+    background: linear-gradient(to bottom, var(--w3css-layout-builder-background-8) 0%, var(--w3css-layout-builder-background-9) 100%);
+  }
+
+  .layout-builder__link--add:hover,
+  .layout-builder__link--remove:hover,
+  .layout-builder__link--configure:hover {
+    color: white;
+    border-radius: 0;
+    background: var(--w3css-layout-builder-background-10);
+    background: -moz-linear-gradient(-45deg, var(--w3css-layout-builder-background-10) 0%, var(--w3-black) 100%);
+    background: -webkit-linear-gradient(-45deg, var(--w3css-layout-builder-background-10) 0%, var(--w3-black) 100%);
+    background: linear-gradient(135deg, var(--w3css-layout-builder-background-10) 0%, var(--w3-black) 100%);
+  }
+}

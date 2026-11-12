@@ -1,0 +1,197 @@
+/**
+ * @file
+ * W3CSS color library: Vivid.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-vivid-pink: #ffb5ba;
+    --w3-vivid-pink-on: var(--w3-black);
+    --w3-vivid-red: #be0032;
+    --w3-vivid-red-on: var(--w3-white);
+    --w3-vivid-orange: #f38400;
+    --w3-vivid-orange-on: var(--w3-black);
+    --w3-vivid-yellow: #f3c300;
+    --w3-vivid-yellow-on: var(--w3-black);
+    --w3-vivid-green: #008856;
+    --w3-vivid-green-on: var(--w3-white);
+    --w3-vivid-blue: #00a1c2;
+    --w3-vivid-blue-on: var(--w3-black);
+    --w3-vivid-black: #000;
+    --w3-vivid-black-on: var(--w3-white);
+    --w3-vivid-white: #fff;
+    --w3-vivid-white-on: var(--w3-black);
+    --w3-vivid-purple: #9a4eae;
+    --w3-vivid-purple-on: var(--w3-white);
+    --w3-vivid-yellowish-pink: #ffb7a5;
+    --w3-vivid-yellowish-pink-on: var(--w3-black);
+    --w3-vivid-reddish-orange: #e25822;
+    --w3-vivid-reddish-orange-on: var(--w3-black);
+    --w3-vivid-orange-yellow: #f6a600;
+    --w3-vivid-orange-yellow-on: var(--w3-black);
+    --w3-vivid-greenish-yellow: #dcd300;
+    --w3-vivid-greenish-yellow-on: var(--w3-black);
+    --w3-vivid-yellow-green: #8db600;
+    --w3-vivid-yellow-green-on: var(--w3-black);
+    --w3-vivid-yellowish-green: #27a64c;
+    --w3-vivid-yellowish-green-on: var(--w3-black);
+    --w3-vivid-bluish-green: #008882;
+    --w3-vivid-bluish-green-on: var(--w3-black);
+    --w3-vivid-greenish-blue: #0085a1;
+    --w3-vivid-greenish-blue-on: var(--w3-black);
+    --w3-vivid-purplish-blue: #30267a;
+    --w3-vivid-purplish-blue-on: var(--w3-white);
+    --w3-vivid-reddish-purple: #870074;
+    --w3-vivid-reddish-purple-on: var(--w3-white);
+    --w3-vivid-purplish-red: #ce4676;
+    --w3-vivid-purplish-red-on: var(--w3-black);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-vivid-pink {
+    --r-background: var(--w3-vivid-pink);
+    --r-text: var(--w3-vivid-pink-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-red {
+    --r-background: var(--w3-vivid-red);
+    --r-text: var(--w3-vivid-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-orange {
+    --r-background: var(--w3-vivid-orange);
+    --r-text: var(--w3-vivid-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-yellow {
+    --r-background: var(--w3-vivid-yellow);
+    --r-text: var(--w3-vivid-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-green {
+    --r-background: var(--w3-vivid-green);
+    --r-text: var(--w3-vivid-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-blue {
+    --r-background: var(--w3-vivid-blue);
+    --r-text: var(--w3-vivid-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-black {
+    --r-background: var(--w3-vivid-black);
+    --r-text: var(--w3-vivid-black-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-white {
+    --r-background: var(--w3-vivid-white);
+    --r-text: var(--w3-vivid-white-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-purple {
+    --r-background: var(--w3-vivid-purple);
+    --r-text: var(--w3-vivid-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-yellowish-pink {
+    --r-background: var(--w3-vivid-yellowish-pink);
+    --r-text: var(--w3-vivid-yellowish-pink-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-reddish-orange {
+    --r-background: var(--w3-vivid-reddish-orange);
+    --r-text: var(--w3-vivid-reddish-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-orange-yellow {
+    --r-background: var(--w3-vivid-orange-yellow);
+    --r-text: var(--w3-vivid-orange-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-greenish-yellow {
+    --r-background: var(--w3-vivid-greenish-yellow);
+    --r-text: var(--w3-vivid-greenish-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-yellow-green {
+    --r-background: var(--w3-vivid-yellow-green);
+    --r-text: var(--w3-vivid-yellow-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-yellowish-green {
+    --r-background: var(--w3-vivid-yellowish-green);
+    --r-text: var(--w3-vivid-yellowish-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-bluish-green {
+    --r-background: var(--w3-vivid-bluish-green);
+    --r-text: var(--w3-vivid-bluish-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-greenish-blue {
+    --r-background: var(--w3-vivid-greenish-blue);
+    --r-text: var(--w3-vivid-greenish-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-purplish-blue {
+    --r-background: var(--w3-vivid-purplish-blue);
+    --r-text: var(--w3-vivid-purplish-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-reddish-purple {
+    --r-background: var(--w3-vivid-reddish-purple);
+    --r-text: var(--w3-vivid-reddish-purple-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-vivid-purplish-red {
+    --r-background: var(--w3-vivid-purplish-red);
+    --r-text: var(--w3-vivid-purplish-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

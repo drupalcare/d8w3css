@@ -1,0 +1,107 @@
+/**
+ * @file
+ * W3CSS color library: European signal.
+ *
+ * Tokens: one background (--w3-<class>) and one text color (--w3-<class>-on) per
+ * class, in w3css.tokens. Classes: w3css.utilities, each reads only var().
+ * Text-on colors point at the shared black and white in w3css-drupal.css.
+ * Where two class names share a rule (gray and grey), the token is named from
+ * the first name. Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.tokens {
+  :root {
+    --w3-signal-yellow: #f7ba0b;
+    --w3-signal-yellow-on: var(--w3-black);
+    --w3-signal-orange: #d4652f;
+    --w3-signal-orange-on: var(--w3-black);
+    --w3-signal-red: #a02128;
+    --w3-signal-red-on: var(--w3-white);
+    --w3-signal-violet: #904684;
+    --w3-signal-violet-on: var(--w3-white);
+    --w3-signal-blue: #154889;
+    --w3-signal-blue-on: var(--w3-white);
+    --w3-signal-green: #317f43;
+    --w3-signal-green-on: var(--w3-white);
+    --w3-signal-grey: #9b9b9b;
+    --w3-signal-grey-on: var(--w3-black);
+    --w3-signal-brown: #7b5141;
+    --w3-signal-brown-on: var(--w3-white);
+    --w3-signal-white: #f4f4f4;
+    --w3-signal-white-on: var(--w3-black);
+    --w3-signal-black: #282828;
+    --w3-signal-black-on: var(--w3-white);
+  }
+}
+
+@layer w3css.utilities {
+  .w3-signal-yellow {
+    --r-background: var(--w3-signal-yellow);
+    --r-text: var(--w3-signal-yellow-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-orange {
+    --r-background: var(--w3-signal-orange);
+    --r-text: var(--w3-signal-orange-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-red {
+    --r-background: var(--w3-signal-red);
+    --r-text: var(--w3-signal-red-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-violet {
+    --r-background: var(--w3-signal-violet);
+    --r-text: var(--w3-signal-violet-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-blue {
+    --r-background: var(--w3-signal-blue);
+    --r-text: var(--w3-signal-blue-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-green {
+    --r-background: var(--w3-signal-green);
+    --r-text: var(--w3-signal-green-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-grey {
+    --r-background: var(--w3-signal-grey);
+    --r-text: var(--w3-signal-grey-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-brown {
+    --r-background: var(--w3-signal-brown);
+    --r-text: var(--w3-signal-brown-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-white {
+    --r-background: var(--w3-signal-white);
+    --r-text: var(--w3-signal-white-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+
+  .w3-signal-black {
+    --r-background: var(--w3-signal-black);
+    --r-text: var(--w3-signal-black-on);
+    background-color: var(--r-background);
+    color: var(--r-text);
+  }
+}

@@ -21,7 +21,7 @@
 
 <div class="system-status-report">
   {% for group in grouped_requirements %}
-    <div class="system-status-report__requirements-group w3css-system-status-report__requirements-group">
+    <div class="system-status-report__requirements-group w3css-status-report__requirements-group">
 
       <h3 id="{{ group.type }}">{{ group.title }}</h3>
       {% for requirement in group.items %}
@@ -31,8 +31,8 @@
  {{ group.type == 'checked' ? 'w3-panel w3-padding w3-pale-green w3-bottombar w3-border-green' }}" open>
           {%
             set summary_classes = [
-              'system-status-report__status-title', 'w3css-system-status-report__status-title',
-              group.type in ['warning', 'error'] ? 'system-status-report__status-icon w3css-system-status-report__status-icon system-status-report__status-icon--' ~ group.type,
+              'system-status-report__status-title', 'w3css-status-report__status-title',
+              group.type in ['warning', 'error'] ? 'system-status-report__status-icon w3css-status-report__status-icon system-status-report__status-icon--' ~ group.type,
             ]
           %}
           <summary{{ create_attribute({class: summary_classes}) }} role="button">
@@ -41,10 +41,10 @@
             {% endif %}
             {{ requirement.title }}
           </summary>
-          <div class="system-status-report__entry__value w3css-system-status-report__entry-value">
+          <div class="system-status-report__entry__value w3css-status-report__entry-value">
             {{ requirement.value }}
             {% if requirement.description %}
-              <div class="description w3css-description w3-small">{{ requirement.description }}</div>
+              <div class="description w3css-form-element__description w3-small">{{ requirement.description }}</div>
             {% endif %}
           </div>
         </details>

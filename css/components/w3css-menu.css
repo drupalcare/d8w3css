@@ -1,0 +1,158 @@
+@layer w3css.theme {
+  .w3css-menu__item,
+  .w3css-menu__list,
+  .w3css-menu__submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .w3css-menu__list::before,
+  .w3css-menu__list::after {
+    display: table;
+    content: " ";
+  }
+
+  .w3css-menu__list::after {
+    clear: both;
+  }
+
+  .w3css-menu__list {
+    z-index: 2000;
+  }
+
+  .w3css-menu__list li ul.w3css-menu__submenu li .w3css-menu__submenu {
+    z-index: 4000;
+  }
+
+  ul .w3css-menu__submenu.w3css-is-open {
+    /* display: block; */
+    background-color: inherit;
+  }
+
+  .w3css-menu__list button {
+    line-height: 1.5;
+  }
+
+  .w3css-menu__list a:hover {
+    opacity: 1;
+  }
+
+  .w3css-menu__list li {
+    position: relative;
+    text-align: start;
+  }
+
+  .w3css-menu__list li ul {
+    min-width: 160px;
+  }
+
+  .w3css-menu__toggle-parent,
+  .w3css-menu__toggle-child {
+    cursor: pointer;
+  }
+
+  .w3css-menu__list li button {
+    text-align: start;
+  }
+
+  /* Vertical/Horizontal Main Menu */
+
+  #w3css-main-nav-horizontal {
+    z-index: 1000;
+  }
+
+  /* span arrow right or down */
+
+  li.w3css-menu__item--expanded i.fa {
+    float: inline-end;
+    font-size: 0.8889rem;
+    font-weight: normal;
+  }
+
+  li.w3css-menu__item--expanded .w3css-menu__right-arrow svg,
+  li.w3css-menu__item--expanded .w3css-menu__arrow svg {
+    float: inline-end;
+  }
+
+  .w3css-menu__right-arrow,
+  .w3css-menu__arrow {
+    display: inline-block;
+    text-align: end;
+    font-family: inherit;
+  }
+
+  .w3css-menu__list .w3css-menu__item--expanded {
+    position: relative;
+  }
+
+  li.w3css-menu__item--expanded > span,
+  li.w3css-menu__item--expanded > a > span,
+  li.w3css-menu__item--expanded > button > span {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    justify-content: center;
+  }
+
+  .w3css-mobile-nav__toggle svg,
+  .w3css-menu__responsive-toggle svg {
+    float: inline-end;
+  }
+
+  /* Submenu toggles without a link are buttons; they keep the look of the links. */
+
+  button.w3css-menu__toggle-parent,
+  button.w3css-menu__toggle-child {
+    line-height: inherit;
+  }
+
+  /* The arrow turns when its submenu opens. The turn itself is set per depth. */
+
+  li.w3css-menu__item--expanded {
+    --w3css-menu-arrow-open: rotate(180deg);
+  }
+
+  /* One arrow at every depth. This hides the second one in copied templates. */
+
+  li.w3css-menu__item--expanded > .w3css-menu__right-arrow,
+  li.w3css-menu__item--expanded > button > .w3css-menu__right-arrow {
+    display: none;
+  }
+
+  ul li.w3css-menu__item--expanded > .w3css-menu__arrow-toggle:hover {
+    cursor: pointer;
+  }
+
+  /* Escape closes a submenu held open by hover, until the pointer leaves. */
+
+  .w3css-is-dismissed > .w3css-menu__submenu {
+    display: none;
+  }
+
+  .w3css-menu__arrow-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .w3css-menu__arrow svg {
+      transition: none;
+    }
+  }
+
+  .w3css-menu__list--menu-account li {
+    width: auto;
+  }
+
+  .w3css-menu__list--menu-account {
+    position: relative;
+    z-index: 1;
+    float: right;
+    width: auto;
+  }
+
+  .w3css-header__inner .contextual-region.block-system-branding-block .contextual {
+    bottom: 0;
+  }
+}

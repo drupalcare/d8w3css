@@ -1,0 +1,6 @@
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+  h1.w3css-page-title {
+    padding: 24px 32px;
+  }
+}

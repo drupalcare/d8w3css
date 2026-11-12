@@ -1,0 +1,789 @@
+/**
+ * @file
+ * The theme settings form: one navigation on the left, the chosen section on the
+ * right. Attached only to this form. The form paints its own canvas, so every
+ * contrast ratio has a known background and a site's admin accent cannot lower
+ * it. Text pairs reach 4.5:1 and control edges 3:1, light and dark; computed
+ * from these values, not rendered.
+ */
+
+/* The form's parent: a query cannot style the container itself, and the two
+   columns are the form's own layout. */
+:has(> form.w3css-settings) {
+  container: w3css-settings / inline-size;
+}
+
+/* The one rule on the page itself, only while the navigation is on. Sections
+   differ greatly in height, so the page scrollbar came and went on every
+   switch and shifted the page sideways; its space stays reserved. Scroll
+   anchoring is off too: when a switch changed the content inside the form,
+   the browser moved the page to keep an anchor node in place. */
+html:has(form.w3css-settings.w3css-is-nav-active) {
+  overflow-anchor: none;
+  scrollbar-gutter: stable;
+}
+
+form.w3css-settings {
+  --w3css-settings-canvas: #f5f7f8;
+  --w3css-settings-surface: #fff;
+  --w3css-settings-ink: #1f2933;
+  --w3css-settings-muted: #52606d;
+  --w3css-settings-accent: #a65c38;
+  --w3css-settings-on-accent: #fff;
+  --w3css-settings-soft: #fbf4eb;
+  --w3css-settings-error: #a8221a;
+  --w3css-settings-ctl: #7b8794;
+  --w3css-settings-line: #d5dbe0;
+  --w3css-settings-chip: #f1f4f5;
+  --w3css-settings-mono: ui-monospace, sfmono-regular, menlo, monospace;
+  --w3css-settings-pad: clamp(0.75rem, 2.5vw, 2rem);
+
+  display: flow-root;
+  box-sizing: border-box;
+  max-inline-size: 80rem;
+  margin-inline: auto;
+  padding: var(--w3css-settings-pad);
+  color: var(--w3css-settings-ink);
+  border-radius: 1rem;
+  background: var(--w3css-settings-canvas);
+  font-size: 0.875rem;
+  color-scheme: light;
+}
+
+.dark-mode form.w3css-settings,
+.gin--dark-mode form.w3css-settings {
+  --w3css-settings-canvas: #1f1f22;
+  --w3css-settings-surface: #2a2a2d;
+  --w3css-settings-ink: #e4e5e6;
+  --w3css-settings-muted: #b4b6b9;
+  --w3css-settings-accent: #d69d62;
+  --w3css-settings-on-accent: #0a2a30;
+  --w3css-settings-soft: #3a2a1e;
+  --w3css-settings-error: #ffb0a8;
+  --w3css-settings-ctl: #8d9096;
+  --w3css-settings-line: #4a4c52;
+  --w3css-settings-chip: #38383d;
+
+  color-scheme: dark;
+}
+
+form.w3css-settings * {
+  box-sizing: border-box;
+}
+
+form.w3css-settings a {
+  color: var(--w3css-settings-accent);
+}
+
+form.w3css-settings :is(summary, a, button, .w3css-settings__section-title):focus-visible {
+  outline: 3px solid var(--w3css-settings-accent);
+  outline-offset: 2px;
+}
+
+/* Keeps a focused field and a link's target clear of the sticky save bar and
+   the admin toolbar. */
+form.w3css-settings :focus,
+form.w3css-settings [data-w3css-settings-section] {
+  scroll-margin-block: 6rem;
+}
+
+form.w3css-settings summary {
+  cursor: pointer;
+}
+
+/* One size for every icon. The files are trimmed to their drawing, so a wide
+   one is centered in this square. Fill follows the surrounding text, including
+   the system colors of forced-colors mode. */
+form.w3css-settings .w3css-settings-nav__icon {
+  flex: none;
+  inline-size: 1rem;
+  block-size: 1rem;
+  fill: currentColor;
+}
+
+/* Navigation. On top as a compact menu until the form is wide enough. */
+.w3css-settings-nav {
+  min-inline-size: 0;
+  margin-block-end: 1rem;
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--w3css-settings-line);
+  border-radius: 0.75rem;
+  background: var(--w3css-settings-surface);
+}
+
+.w3css-settings-nav__toggle {
+  padding-block: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Inline: a summary that became flex would lose its disclosure marker. */
+.w3css-settings-nav__toggle .w3css-settings-nav__icon {
+  margin-inline-end: 0.5rem;
+  vertical-align: -0.125rem;
+}
+
+.w3css-settings-nav__current {
+  margin-inline-start: 0.5rem;
+  color: var(--w3css-settings-muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+form.w3css-settings .w3css-settings-nav__group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 1.25rem 0.375rem;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0.625rem;
+  color: var(--w3css-settings-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+form.w3css-settings .w3css-settings-nav__group:first-of-type {
+  margin-block-start: 0.5rem;
+}
+
+form.w3css-settings .w3css-settings-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+form.w3css-settings .w3css-settings-nav__item {
+  min-inline-size: 0;
+  margin-block: 0 0.125rem;
+  margin-inline: 0;
+  list-style: none;
+}
+
+/* Icon in its own column; name, detail and error mark stack beside it. */
+.w3css-settings-nav__link {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0.5rem;
+  border-radius: 0.625rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  padding-block: 0.375rem;
+  padding-inline: 0.625rem;
+  overflow-wrap: anywhere;
+}
+
+form.w3css-settings .w3css-settings-nav__link {
+  text-decoration: none;
+  color: var(--w3css-settings-accent);
+  font-weight: 500;
+}
+
+/* Links never move: no weight change on hover, focus or current. A bolder
+   current link re-wrapped its text in the narrow column and shook the menu.
+   Focus looks like hover. */
+form.w3css-settings .w3css-settings-nav__link:hover,
+form.w3css-settings .w3css-settings-nav__link:focus-visible {
+  text-decoration: underline;
+  background: var(--w3css-settings-soft);
+}
+
+/* The current item: a filled pill; color, not weight, marks it. */
+form.w3css-settings .w3css-settings-nav__link[aria-current] {
+  color: var(--w3css-settings-on-accent);
+  background: var(--w3css-settings-accent);
+}
+
+/* Their own colors are measured against the surface, not against the pill. */
+form.w3css-settings .w3css-settings-nav__link[aria-current] :is(.w3css-settings-nav__detail, .w3css-settings-nav__error) {
+  color: inherit;
+}
+
+.w3css-settings-nav__link > .w3css-settings-nav__icon {
+  margin-block-start: 0.05rem;
+}
+
+.w3css-settings-nav__name,
+.w3css-settings-nav__detail,
+.w3css-settings-nav__error {
+  display: block;
+  grid-column: 2;
+}
+
+.w3css-settings-nav__detail {
+  color: var(--w3css-settings-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.w3css-settings-nav__error {
+  color: var(--w3css-settings-error);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.w3css-settings-nav__note {
+  margin-block: 0.875rem 0.25rem;
+  margin-inline: 0;
+  padding-block: 0.625rem 0;
+  padding-inline: 0.625rem;
+  border-block-start: 1px solid var(--w3css-settings-line);
+  font-size: 0.8125rem;
+}
+
+form.w3css-settings .w3css-settings-nav__note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Holds the icon the script uses. Browsers already hide it; an admin theme's
+   blanket rule must not show it. */
+.w3css-settings-nav template {
+  display: none;
+}
+
+/* Sections. flow-root keeps core's clearfix from clearing the floated column. */
+.w3css-settings__sections {
+  display: flow-root;
+  min-inline-size: 0;
+}
+
+form.w3css-settings [data-w3css-settings-section] {
+  display: flow-root;
+  min-inline-size: 0;
+  margin-block: 0 0.75rem;
+  margin-inline: 0;
+  color: var(--w3css-settings-ink);
+  border: 1px solid var(--w3css-settings-line);
+  border-radius: 0.625rem;
+  background: var(--w3css-settings-surface);
+  box-shadow: none;
+}
+
+form.w3css-settings [data-w3css-settings-section][hidden] {
+  display: none;
+}
+
+/* A details wrapper, whichever class the admin theme gives it. */
+form.w3css-settings [data-w3css-settings-section] > :is(.details-wrapper, .details__wrapper, .claro-details__wrapper) {
+  margin: 0;
+  padding: 1rem;
+  border: 0;
+  background: none;
+}
+
+form.w3css-settings [data-w3css-settings-section] > summary {
+  padding-block: 0.625rem;
+  color: var(--w3css-settings-ink);
+  border-block-end: 1px solid var(--w3css-settings-line);
+  border-radius: 0.625rem 0.625rem 0 0;
+  background: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* The heading is built by the script, so without it the summary stays. */
+.w3css-settings__section-title {
+  display: none;
+}
+
+form.w3css-settings.w3css-is-nav-active [data-w3css-settings-section] > summary {
+  display: none;
+}
+
+form.w3css-settings.w3css-is-nav-active .w3css-settings__section-title {
+  display: block;
+  margin: 0;
+  padding-block: 1rem 0;
+  padding-inline: 1rem;
+  color: var(--w3css-settings-ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Descriptions run the full width, at every level of this form. */
+form.w3css-settings :is(.details__description, .claro-details__description) {
+  inline-size: 100%;
+  max-inline-size: none;
+  margin-block: 0 0.75rem;
+  margin-inline: 0;
+  color: var(--w3css-settings-muted);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+/* Inner tabs: core's vertical_tabs, laid out as a wrapping strip. Core owns the
+   selection and which pane shows. */
+form.w3css-settings .vertical-tabs {
+  margin: 0;
+  border: 0;
+}
+
+form.w3css-settings .vertical-tabs__menu {
+  display: flex;
+  float: none;
+  flex-wrap: wrap;
+  gap: 0.125rem 1.25rem;
+  inline-size: auto;
+  margin-block: 0 1rem;
+  margin-inline: 0;
+  padding: 0;
+  list-style: none;
+  border-block-end: 1px solid var(--w3css-settings-line);
+  background: none;
+}
+
+/* overflow: visible, or the focus ring clips. */
+form.w3css-settings .vertical-tabs__menu-item {
+  overflow: visible;
+  inline-size: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* display, not only content: core's separator selector is more specific and
+   sets content, which drew stray lines across the page. */
+form.w3css-settings .vertical-tabs__menu-item::before,
+form.w3css-settings .vertical-tabs__menu-item::after,
+form.w3css-settings .vertical-tabs__menu-link::before {
+  display: none;
+  content: none;
+}
+
+form.w3css-settings .vertical-tabs__menu-link,
+form.w3css-settings .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link {
+  display: block;
+  margin: 0;
+  text-decoration: none;
+  color: var(--w3css-settings-muted);
+  border: 0;
+  border-block-end: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 0.875rem;
+  inline-size: auto;
+  padding-block: 0.5rem;
+  padding-inline: 0;
+}
+
+form.w3css-settings .vertical-tabs__menu-link:hover {
+  color: var(--w3css-settings-ink);
+  border-block-end-color: var(--w3css-settings-ctl);
+}
+
+form.w3css-settings .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link {
+  color: var(--w3css-settings-accent);
+  border-block-end-color: var(--w3css-settings-accent);
+  font-weight: 600;
+}
+
+form.w3css-settings .vertical-tabs__menu-item-title {
+  font-weight: inherit;
+}
+
+form.w3css-settings :is(.vertical-tabs__panes, .vertical-tabs__items) {
+  float: none;
+  inline-size: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+form.w3css-settings .vertical-tabs__pane {
+  margin: 0;
+  padding: 0;
+  color: var(--w3css-settings-ink);
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+form.w3css-settings .vertical-tabs__pane > :is(.details-wrapper, .details__wrapper, .claro-details__wrapper),
+form.w3css-settings .vertical-tabs__pane > :is(.details-wrapper, .details__wrapper, .claro-details__wrapper) > :is(.details__content, .claro-details__content) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Core adds this class only in tab mode. Below its width breakpoint the tabs
+   stay plain details, so they keep their summaries. */
+form.w3css-settings .vertical-tabs__pane > summary {
+  display: none;
+}
+
+/* Fields, stacked: one column, each with its own label and description. */
+form.w3css-settings .form-item {
+  min-inline-size: 0;
+  margin-block: 1rem;
+  margin-inline: 0;
+}
+
+form.w3css-settings .form-item label:not(.option) {
+  display: block;
+  margin-block-end: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* background-color, and no padding on select: the admin theme draws a select's
+   arrow as a background image and keeps room for it in the padding. */
+form.w3css-settings :is(select, input[type="text"], input[type="url"], textarea) {
+  inline-size: 100%;
+  max-inline-size: min(100%, 36rem);
+  min-block-size: 2.25rem;
+  color: var(--w3css-settings-ink);
+  border: 1px solid var(--w3css-settings-ctl);
+  border-radius: 0.375rem;
+  background-color: var(--w3css-settings-surface);
+  font: inherit;
+}
+
+form.w3css-settings :is(input[type="text"], input[type="url"], textarea) {
+  padding-block: 0.375rem;
+  padding-inline: 0.5rem;
+}
+
+form.w3css-settings .form-item:has(> input:is([type="checkbox"], [type="radio"])) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form.w3css-settings .form-item:has(> input:is([type="checkbox"], [type="radio"])) label {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* The admin theme pulls the input left into a margin this form removes. */
+form.w3css-settings .form-item:has(> input:is([type="checkbox"], [type="radio"])) > input {
+  margin-inline-start: 0;
+}
+
+/* Under the control and its label, not in the control's column. */
+form.w3css-settings .form-item:has(> input:is([type="checkbox"], [type="radio"])) > :is(.description, .form-item__description) {
+  grid-column: 1 / -1;
+  margin-block-start: 0;
+}
+
+form.w3css-settings :is(.description, .form-item__description) {
+  margin-block-start: 0.25rem;
+  color: var(--w3css-settings-muted);
+  font-size: 0.8125rem;
+}
+
+form.w3css-settings .form-radios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+form.w3css-settings .form-radios > * {
+  inline-size: auto;
+  margin: 0;
+}
+
+/* A region's class field: stacked like every other field. */
+form.w3css-settings .w3css-settings__row > .form-item {
+  margin-block: 0 1rem;
+}
+
+form.w3css-settings .w3css-settings__row input {
+  font-family: var(--w3css-settings-mono);
+  font-size: 0.8125rem;
+}
+
+/* The CSS class reference. */
+.w3css-settings__kind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-block-end: 0.75rem;
+}
+
+.w3css-settings__kind code,
+.w3css-settings__chips code {
+  color: var(--w3css-settings-ink);
+  background: none;
+  font-family: var(--w3css-settings-mono);
+  font-size: 0.78125rem;
+  line-height: 1.3;
+}
+
+.w3css-settings__kind-count {
+  color: var(--w3css-settings-muted);
+  font-size: 0.78125rem;
+}
+
+.w3css-settings__kind-demo {
+  margin-inline-start: auto;
+  font-size: 0.8125rem;
+}
+
+.w3css-settings__chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  gap: 0.25rem 0.5rem;
+}
+
+.w3css-settings__chips code {
+  display: block;
+  user-select: all;
+  border-radius: 0.25rem;
+  background-color: var(--w3css-settings-chip);
+  padding-block: 0.1875rem;
+  padding-inline: 0.375rem;
+  overflow-wrap: anywhere;
+}
+
+/* Added by script: the class name and its copy button. */
+.w3css-settings__chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: var(--w3css-settings-chip);
+}
+
+.w3css-settings__chip code {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  background: none;
+}
+
+/* A square of the color the class paints, the size of the copy icon. */
+code.w3css-settings__swatch {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+code.w3css-settings__swatch::before {
+  flex: none;
+  box-sizing: border-box;
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  content: "";
+  border: 1px solid var(--w3css-settings-ctl);
+  border-radius: 2px;
+  background-color: var(--swatch);
+  forced-color-adjust: none;
+}
+
+.w3css-settings__copy {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-block-size: 1.5rem;
+  min-inline-size: 1.5rem;
+  padding-block: 0;
+  padding-inline: 0.25rem;
+  cursor: pointer;
+  color: var(--w3css-settings-muted);
+  border: 0;
+  background: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.w3css-settings__copy:hover,
+.w3css-settings__copy.w3css-is-done {
+  color: var(--w3css-settings-accent);
+}
+
+.w3css-settings__copy svg {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  fill: currentColor;
+}
+
+form.w3css-settings .w3css-settings__copy:focus-visible {
+  outline-width: 2px;
+  outline-offset: -2px;
+}
+
+/* The Blueprint. */
+.w3css-settings__blueprint {
+  max-inline-size: 34rem;
+  font-size: 0.78125rem;
+}
+
+.w3css-settings__bp {
+  min-inline-size: 0;
+  margin-block-start: 0.25rem;
+  padding-block: 0.1875rem;
+  padding-inline: 0.375rem;
+  border: 1px solid var(--w3css-settings-line);
+  border-radius: 0.25rem;
+  background-color: var(--w3css-settings-surface);
+}
+
+.w3css-settings__blueprint > .w3css-settings__bp:first-child {
+  margin-block-start: 0;
+}
+
+.w3css-settings__bp--box {
+  background-color: var(--w3css-settings-canvas);
+}
+
+.w3css-settings__bp a {
+  text-decoration: none;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.w3css-settings__bp a:hover {
+  text-decoration: underline;
+}
+
+.w3css-settings__bp small {
+  display: block;
+  color: var(--w3css-settings-muted);
+  font-family: var(--w3css-settings-mono);
+  font-size: 0.71875rem;
+  line-height: 1.3;
+}
+
+.w3css-settings__bp-cells {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+  gap: 0.25rem;
+  margin-block-start: 0.25rem;
+}
+
+.w3css-settings__bp-cells > .w3css-settings__bp {
+  margin: 0;
+}
+
+/* Sticky save */
+form.w3css-settings > .form-actions {
+  position: sticky;
+  z-index: 2;
+  inset-block-end: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding-block: 0.75rem;
+  padding-inline: 0;
+  border-block-start: 1px solid var(--w3css-settings-line);
+  background: var(--w3css-settings-canvas);
+}
+
+/* Two columns once the form's parent is wide enough. A float and a margin, not
+   a grid: a sticky grid item cannot leave its own row, and Save has to stay on
+   screen through the whole section. The script reads the toggle's display, so
+   this query is the only home of the breakpoint. */
+@container w3css-settings (min-width: 62rem) {
+  form.w3css-settings .w3css-settings-nav {
+    position: sticky;
+    inset-block-start: 5rem;
+    float: inline-start;
+    overflow-y: auto;
+    inline-size: 17rem;
+    max-block-size: calc(100vh - 6rem);
+    margin-block-end: 0;
+  }
+
+  /* An app shell, while the script runs the navigation: the form fits the
+     viewport below the admin theme's sticky header and is the one scroll
+     container. The menu and Save stick inside it and only the sections
+     scroll, so a section switch never changes the document's height and the
+     page never moves. The header is Gin's sticky bar under its toolbar, or
+     core's displaced toolbar, whichever is larger; both are 0 where the admin
+     theme has none. position: relative makes the form the containing block
+     of absolutely positioned descendants (core's .visually-hidden text in
+     every section), so its overflow clips them. Without it they sat at their
+     place deep in the scrolled sections, outside the form, and the document
+     grew and shrank with each section, which moved the page. */
+  form.w3css-settings.w3css-is-nav-active {
+    --w3css-settings-shell-top: max(var(--drupal-displace-offset-top, 0px), calc(var(--gin-toolbar-y-offset, 0px) + var(--gin-height-sticky, 0px)));
+    --w3css-settings-shell-height: calc(100dvh - var(--w3css-settings-shell-top) - 0.75rem);
+
+    position: relative;
+    overflow: hidden auto;
+    block-size: var(--w3css-settings-shell-height);
+    min-block-size: 0;
+    scrollbar-gutter: stable;
+  }
+
+  /* Sticky against the form now. The browser measures a sticky inset from
+     inside the scroll container's padding, so 0 is exactly where the nav
+     sits in flow (it is the form's first child, with no top margin). Any
+     larger inset pushed the nav down by the difference as soon as a section
+     was taller than the form. */
+  form.w3css-settings.w3css-is-nav-active .w3css-settings-nav {
+    inset-block-start: 0;
+    margin-block: 0;
+    max-block-size: calc(var(--w3css-settings-shell-height) - 2 * var(--w3css-settings-pad));
+  }
+
+  form.w3css-settings > :not(.w3css-settings-nav) {
+    margin-inline-start: 19rem;
+  }
+
+  .w3css-settings-nav__toggle {
+    display: none;
+  }
+}
+
+/* The admin theme animates its own summaries and tabs. */
+@media (prefers-reduced-motion: reduce) {
+  form.w3css-settings summary,
+  form.w3css-settings summary::before,
+  form.w3css-settings .vertical-tabs__menu-link {
+    transition: none;
+  }
+}
+
+/* Forced colors drop backgrounds, so state needs a real edge. */
+@media (forced-colors: active) {
+  form.w3css-settings .w3css-settings-nav__link[aria-current] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  form.w3css-settings .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link {
+    border-block-end-color: Highlight;
+  }
+
+  form.w3css-settings :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* The W3CSS Theme logo heads the section menu (the theme's own logo.svg). It is
+   sticky inside the menu, so the menu scrolls under it and the logo stays.
+   The negative offset and margins cancel the menu's padding (sticky is
+   measured inside it), so nothing shows above the logo;
+   the accent and soft colours above are the W3CSS Theme palette. */
+form.w3css-settings .w3css-settings-nav::before {
+  position: sticky;
+  z-index: 1;
+  inset-block-start: -0.75rem;
+  display: block;
+  block-size: 4rem;
+  margin-block: -0.75rem 0.75rem;
+  margin-inline: -1rem;
+  content: "";
+  border-block-end: 1px solid var(--w3css-settings-line);
+  background: var(--w3css-settings-surface) url("../../logo.svg") no-repeat 1rem center / auto 2.75rem;
+}
+
+[dir="rtl"] form.w3css-settings .w3css-settings-nav::before {
+  background-position: right 1rem center;
+}

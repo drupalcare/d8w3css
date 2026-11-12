@@ -1,0 +1,2308 @@
+/**
+ * @file
+ * W3CSS declarations that must stay unlayered. Each one beats an unlayered
+ * core, contrib, Paragraphs Bundles or VVJ rule today, and the same rule inside
+ * a w3css layer would lose to it. Moved here unchanged from css/base/w3css-base.css,
+ * css/layout/*, css/components/* and css/theme/* (a rule split in two keeps its selector and
+ * value; a declaration that still needs !important keeps it). The file is not in the ladder on purpose (rule A1 of the CSS
+ * standard: every selector starts from a W3CSS root).
+ *
+ * Bare element selectors carry a zero-specificity prefix naming the two page
+ * roots (the page wrapper and the vertical menu), so the rule reaches the same
+ * elements as before without raising its specificity. html and body rules stay
+ * in the base layer.
+ *
+ * Rival groups: core (system, node, filter, views, off-canvas dialog), contrib
+ * (webform, jquery_ui, imce, admin_toolbar and others), Paragraphs Bundles, VVJ.
+ * Census: planning/w3css-layer-losers-2026-11-10.md, made by
+ * scripts/check-winners.py --layers. Do not add rules here; write them in their
+ * layer, and use this file only for a rule that provably loses there.
+ * A declaration that keeps !important here still needs it against a rival
+ * that would otherwise beat it.
+ */
+
+/* From css/base/w3css-base.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) video {
+  display: block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) img {
+  max-width: 100%;
+  border: 0;
+  border: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3 {
+  font-weight: 600;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h4,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h5,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h6 {
+  font-weight: normal;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1 a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2 a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3 a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h4 a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h5 a,
+/* W3 buttons and hover classes are left out: their own :hover colors live in
+   layers, and this unlayered rule would otherwise beat them (light text stayed
+   on the light hover ground of the main menu). Their resting color is already
+   inherit from the library, so nothing else changes. */
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) li a:where(:not(.w3-button, .w3-bar-item, [class*="w3-hover-"])) {
+  color: inherit;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:link,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:visited,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:active,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:focus {
+  text-decoration: none;
+}
+
+/* Links inside formatted text (body, long text, comments) are underlined on
+   hover and keyboard focus. Menus, buttons and titles are not in these
+   wrappers, and no color changes. */
+.text-formatted a:not(.w3-button):hover,
+.text-formatted a:not(.w3-button):focus-visible,
+.field--type-text a:not(.w3-button):hover,
+.field--type-text a:not(.w3-button):focus-visible,
+.field--type-text-long a:not(.w3-button):hover,
+.field--type-text-long a:not(.w3-button):focus-visible,
+.field--type-text-with-summary a:not(.w3-button):hover,
+.field--type-text-with-summary a:not(.w3-button):focus-visible {
+  text-decoration: underline;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:visited,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input:visited,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) button:visited,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea:visited,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:focus-within,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input:focus-within,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) button:focus-within,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea:focus-within,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) button:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:focus,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input:focus,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) button:focus,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea:focus,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) a:active,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input:active,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) button:active,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) textarea:active {
+  border-radius: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input[type="button"],
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) input[type="search"] {
+  appearance: none;
+}
+
+.w3-ul li,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) nav.action-links li,
+nav.w3css-local-actions li {
+  border: none;
+  border-width: 0 !important;
+}
+
+.w3css-main-nav__inner--vertical li .w3-button {
+  white-space: normal;
+}
+
+/* From css/layout/w3css-page.css. */
+
+.w3css-top-region__inner .w3css-page__top-first > div,
+.w3css-top-region__inner .w3css-page__top-second > div,
+.w3css-top-region__inner .w3css-page__top-third > div,
+.w3css-main-region__inner .w3css-page__sidebar-first > div,
+.w3css-main-region__inner .w3css-page__content > div,
+.w3css-main-region__inner .w3css-page__sidebar-second > div,
+.w3css-bottom-region__inner .w3css-page__bottom-first > div,
+.w3css-bottom-region__inner .w3css-page__bottom-second > div,
+.w3css-bottom-region__inner .w3css-page__bottom-third > div,
+.w3css-bottom-region__inner .w3css-page__bottom-fourth > div,
+.w3css-footer-region__inner .w3css-page__footer-first > div,
+.w3css-footer-region__inner .w3css-page__footer-second > div,
+.w3css-footer-region__inner .w3css-page__footer-third > div {
+  width: 100% !important;
+  height: 100%;
+  padding: 24px !important;
+}
+
+@media (min-width: 62rem) {
+  .w3css-top-region__inner > .w3css-page__top > div,
+  .w3css-bottom-region__inner > .w3css-page__bottom > div,
+  .w3css-footer-region__inner > .w3css-page__footer > div {
+    float: none;
+    /* The box is a flex row, so this div stretches to its height. */
+    height: auto;
+  }
+}
+
+/* From css/layout/w3css-user-login.css. */
+
+.path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+.path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+.path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.path-user-register .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li,
+.path-user-password .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li,
+.path-user-login .w3css-main-region__inner nav.tabs > ul.tabs > li,
+.path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks > li {
+  flex: 1;
+}
+
+/* From css/layout/w3css-node-edit-form.css. */
+
+.w3css-node-edit-form__footer-content .description {
+  margin: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-footer,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-main {
+  width: 100%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-footer,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-main {
+  padding: 0;
+}
+
+.layout__region--content .w3-table-all {
+  border-color: #eaeaea !important;
+}
+
+.layout-node-form .w3-row > fieldset > div,
+.w3css-node-edit-form .w3-row > fieldset > div,
+.layout-node-form .w3-row > fieldset > div > div,
+.w3css-node-edit-form .w3-row > fieldset > div > div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.layout__region--content > .w3-row > fieldset {
+  margin-bottom: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.layout-node-form .w3-responsive,
+.w3css-node-edit-form .w3-responsive {
+  overflow-x: unset;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-item label,
+.w3css-node-edit-form .w3css-form-item label {
+  display: inline-block;
+  padding-bottom: 8px;
+  font-weight: normal;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-type-radio label,
+.w3css-node-edit-form .form-type-radio label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-type-checkbox label,
+.w3css-node-edit-form .form-type-checkbox label {
+  display: inline;
+  padding-bottom: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form th .paragraphs-actions,
+.w3css-node-edit-form th .paragraphs-actions {
+  margin-right: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .paragraph-top,
+.w3css-node-edit-form .paragraph-top {
+  align-items: center !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .field-multiple-drag,
+.w3css-node-edit-form .field-multiple-drag {
+  vertical-align: middle !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .paragraphs-actions > .button + .paragraphs-dropdown,
+.w3css-node-edit-form .paragraphs-actions > .w3css-button + .paragraphs-dropdown {
+  margin: 0 8px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-wrapper .paragraphs-dropdown-action.button,
+.w3css-node-edit-form .w3css-container .paragraphs-dropdown-action.w3css-button,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .paragraphs-dropdown-actions input,
+.w3css-node-edit-form .paragraphs-dropdown-actions input {
+  margin: 0 !important;
+}
+
+.w3css-node-edit-form__footer-content .form-actions {
+  display: flex;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-actions > input:last-of-type,
+.w3css-node-edit-form .form-actions > input:last-of-type {
+  margin-right: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form div.description,
+.w3css-node-edit-form div.w3css-form-element__description,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-item .description {
+  display: block;
+  padding: 5px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form div.description,
+.w3css-node-edit-form div.w3css-form-element__description,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .form-item .description,
+.w3css-node-edit-form .w3css-form-item .w3css-form-element__description {
+  margin: 5px 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .description ul,
+.w3css-node-edit-form .w3css-form-element__description ul,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .description ul li,
+.w3css-node-edit-form .w3css-form-element__description ul li {
+  margin: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-node-form .description ul,
+.w3css-node-edit-form .w3css-form-element__description ul {
+  list-style: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta div,
+.w3css-node-edit-form__secondary .entity-meta div,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta table,
+.w3css-node-edit-form__secondary .entity-meta table,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta details,
+.w3css-node-edit-form__secondary .entity-meta details {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta summary,
+.w3css-node-edit-form__secondary .entity-meta summary {
+  padding: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta > div > div,
+.w3css-node-edit-form__secondary .entity-meta > div > div,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta > details > div,
+.w3css-node-edit-form__secondary .entity-meta > details > div {
+  margin: 0 !important;
+}
+
+.vertical-tabs .w3-panel,
+.vertical-tabs .w3-section {
+  margin-bottom: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta fieldset,
+.w3css-node-edit-form__secondary .entity-meta fieldset {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.vertical-tabs .w3-panel,
+.vertical-tabs .w3-container,
+.layout-region-node-secondary .entity-meta details .w3-panel,
+.w3css-node-edit-form__secondary .entity-meta details .w3-panel,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta .fieldset-wrapper,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta fieldset,
+.w3css-node-edit-form__secondary .entity-meta fieldset {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary .entity-meta > details[open],
+.w3css-node-edit-form__secondary .entity-meta > details[open] {
+  padding: 8px !important;
+  background-color: #f8f8f8 !important;
+}
+
+/* From css/components/node-form.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) details.form-wrapper {
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+  color: inherit;
+  line-height: inherit;
+}
+
+details.w3css-container {
+  margin-bottom: 8px !important;
+  color: inherit;
+  line-height: inherit;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) details.form-wrapper > summary,
+details.w3css-container > summary {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) details[open] {
+  padding: 8px 16px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .modules-wrapper details[open] {
+  padding: 8px 16px !important;
+  background: white;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) details[open] > summary {
+  padding: 0 0 8px 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .tableselect-sort th:first-child,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .tableselect-sort td:first-child {
+  width: 85px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form tr.draggable td > a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form tr.draggable td > div.form-type-radio,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form tr.draggable td > div.form-type-checkbox {
+  float: left !important;
+  clear: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form a.tabledrag-handle .handle {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .draggable a.tabledrag-handle {
+  width: 25px;
+  margin: -3px 5px 0 0 !important;
+}
+
+form tr.draggable .w3-check,
+form tr.draggable .w3-radio {
+  top: 0;
+}
+
+form div.form-type-datelist.w3-section.form-item,
+form div.form-type-datelist.w3-section.w3css-form-item {
+  clear: none;
+  width: auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-date label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-color label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-select label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datelist label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datetime label {
+  display: block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-type-datelist > div {
+  padding-left: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form #edit-datetime > div {
+  width: 50%;
+  margin: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form #edit-datetime > div input {
+  min-width: 165px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-date input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-datetime input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-type-webform-time input {
+  width: calc(100% - 2px);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-range > span.field-suffix,
+form .form-item-range > span.w3css-form-element__suffix {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-range .form-item-range__output input {
+  display: inline-block;
+  clear: none;
+  width: 4em;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item-datelist #edit-datelist > div select {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .table-sort-weight.form-select {
+  width: auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .messages.messages--info,
+.w3css-status-messages.messages--info {
+  background-position: 2px 17px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .js-filter-guidelines li {
+  padding-bottom: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) fieldset.form-item > .fieldset-wrapper {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .form-item label,
+form .w3css-form-item label {
+  padding-right: 10px;
+}
+
+table ul.dropbutton li.w3-left.dropbutton-action {
+  float: none !important;
+  margin-right: 0 !important;
+  line-height: 26px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) table ul.dropbutton {
+  padding: 0 !important;
+  border: 1px solid #e8e8e8;
+  background-color: white;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .dropbutton li {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .dropbutton li a {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .dropbutton button {
+  border: 1px solid #e8e8e8;
+  border-left: none;
+  background-color: white;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .js td .dropbutton-wrapper {
+  min-height: 40px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) table ul.dropbutton li:first-child {
+  margin-right: 10px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-form table ul.dropbutton li:first-child {
+  margin-right: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) table ul.dropbutton li.dropbutton-toggle {
+  margin-right: 0 !important;
+  margin-left: 10px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-preview-container {
+  position: relative;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-preview-container a.node-preview-backlink {
+  display: inline-flex;
+  padding: 8px 12px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-preview-container a.node-preview-backlink:hover {
+  text-decoration: underline;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.node-preview-container .form-item-view-mode label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.node-preview-container .form-item-view-mode select {
+  display: inline-block;
+  width: auto;
+  border: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.node-preview-container .form-item-view-mode select {
+  min-width: 130px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .ui-dialog .ui-widget-content.ui-dialog-buttonpane .button {
+  margin: 10px auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) fieldset {
+  border-color: #eaeaea !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .ui-dialog > div {
+  border-width: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) span.admin-link button,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) span.field-edit-link button {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+/* From css/components/user-login.css. */
+
+form.user-register-form .form-actions .w3-button,
+form.user-login-form .form-actions .w3-button,
+form.user-pass .form-actions .w3-button {
+  padding: 12px 24px;
+}
+
+/* From css/components/w3css-breadcrumb.css. */
+
+ul.w3css-breadcrumb__list {
+  padding: 8px 16px;
+}
+
+ul.w3css-breadcrumb__list li,
+ol.w3css-breadcrumb__list li {
+  display: inline;
+  padding: 5px 3px 5px;
+  border-bottom: none;
+}
+
+ul.w3css-breadcrumb__list li + li::before,
+ol.w3css-breadcrumb__list li + li::before {
+  padding: 8px 0;
+  content: "/\00a0";
+}
+
+/* From css/components/w3css-ckeditor.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_top,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_bottom {
+  border: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_top {
+  border: 1px solid #eaeaea !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_bottom {
+  border: 1px solid #eaeaea !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .filter-guidelines-item li,
+.w3css-filter-guidelines__item li {
+  padding-left: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_top,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .cke_bottom {
+  border-color: #eaeaea !important;
+}
+
+/* From css/components/w3css-comment.css. */
+
+/* Comments Bartik style */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #content .comment-wrapper h2,
+#content .w3css-field-comment h2 {
+  margin-bottom: 1em;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #content .comment-wrapper h2.comment-form__title,
+#content .w3css-field-comment h2.w3css-field-comment__title {
+  margin-bottom: 1em;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .comment__attribution img {
+  border: 1px solid #d3d7d9;
+}
+
+/* This is required to win over specificity of .field--type-image img */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .comment .field--name-user-picture img,
+.w3css-comment .field--name-user-picture img {
+  margin: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .comment__author a,
+.w3css-comment__author a {
+  display: inline-block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .comment .links li,
+.w3css-comment .w3css-links li {
+  padding: 0 0.5em 0 0;
+  /* LTR */
+  font-size: 1.08em;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .comment .links li,
+[dir="rtl"] .w3css-comment .w3css-links li {
+  padding: 0 0 0 0.5em;
+}
+
+.text-format-wrapper > .w3-section,
+.w3css-text-format-wrapper > .w3-section {
+  margin-bottom: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) section.field--type-comment h2 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) section.field--type-comment > form {
+  padding: 0 !important;
+}
+
+/* From css/components/w3css-contact-form.css. */
+
+form.contact-form .form-actions .w3-button {
+  padding: 12px 24px;
+}
+
+/* From css/components/w3css-footer-menu.css. */
+
+.w3css-menu__list--menu-footer li a,
+.w3css-menu__list--menu-footer li button {
+  padding: 7px 14px;
+}
+
+#w3css-footer-menu-inner > div {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.w3css-menu__list--menu-footer li {
+  display: inline-block;
+  float: none;
+}
+
+.w3css-footer-menu__inner form label {
+  text-align: left;
+}
+
+.w3css-social-media a {
+  display: flex !important;
+  justify-content: center;
+}
+
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:hover,
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:hover,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+#w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
+#w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* From css/components/w3css-form-element.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-radios .form-item,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-checkboxes .form-item {
+  margin-top: 0.4em !important;
+  margin-bottom: 0.4em !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-type-radio label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-type-checkbox label {
+  float: none !important;
+  margin-inline-start: 4px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-type-radio .description,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-type-checkbox .description {
+  margin-inline-start: 2px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-item input.error,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-item textarea.error,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-item select.error {
+  border: 2px solid red;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .form-required::after {
+  content: "";
+}
+
+.w3css-page--admin form .form-actions > a,
+.w3css-page--admin .action-links li > a,
+.w3css-page--admin .w3css-local-actions li > a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .view-filters details.form-wrapper,
+.w3css-views-view__filters details.w3css-container {
+  box-shadow: inset 0 0 5px rgb(51, 44, 51, 0.1);
+}
+
+/* From css/components/w3css-image.css. */
+
+a.w3css-image__link {
+  display: block;
+  height: 100%;
+}
+
+a.w3css-image__link > img.w3-image {
+  float: left;
+  width: 100%;
+}
+
+.w3-disabled-has-image a.w3css-image__link > img.w3-image {
+  width: auto;
+}
+
+a:hover > img.w3-image {
+  animation: animateimg 5s;
+}
+
+/* Reduced motion: no hover zoom on linked images. */
+
+@media (prefers-reduced-motion: reduce) {
+  a:hover > img.w3-image {
+    animation: none;
+  }
+}
+
+/* From css/components/w3css-layout-builder.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas form div,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas form fieldset {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas select,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas button,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas textarea {
+  width: auto !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .item-list li,
+#drupal-off-canvas .w3css-item-list li {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas details,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas summary,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .details-wrapper {
+  display: inline-block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .details-wrapper ul,
+#drupal-off-canvas .w3css-details__wrapper ul,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .details-wrapper ul li,
+#drupal-off-canvas .w3css-details__wrapper ul li {
+  display: block;
+  width: 100%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .details-wrapper ul li a,
+#drupal-off-canvas .w3css-details__wrapper ul li a {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .details-wrapper ul li a,
+#drupal-off-canvas .w3css-details__wrapper ul li a {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.layout-builder-block .w3-left.field__item,
+.layout-builder-block .w3-left.w3css-field__item {
+  float: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .form-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas input[type="checkbox"],
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas input[type="radio"] {
+  position: relative;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .form-type-radio label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas .form-type-checkbox label {
+  display: inline-block;
+  height: 24px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #drupal-off-canvas a:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides a:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form a:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #layout-builder a:hover {
+  opacity: 1 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions a.button,
+.layout-builder-revert-overrides .form-actions a.w3css-button,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions input {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 20px 0 20px 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .form-actions input.form-submit {
+  display: inline-block;
+  clear: none;
+  margin: 0 20px 0 0;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 20px 0 20px 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .messages {
+  margin-left: 10px;
+  padding-left: 30px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder {
+  padding: 10px 15px;
+  border: 1px solid rgb(55, 170, 220);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__region {
+  outline: 1px dashed rgb(55, 170, 220);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__add-section {
+  margin-bottom: 15px;
+  padding: 0;
+  outline: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__add-block {
+  margin: 10px !important;
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__add-block > a {
+  padding: 7px 22px !important;
+  font-size: 14px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__section h2 {
+  margin: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder .field > img,
+.layout-builder .w3css-field > img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__add-block.is-layout-builder-highlighted,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__add-section.is-layout-builder-highlighted,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__layout.is-layout-builder-highlighted::before,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder__layout.is-layout-builder-highlighted,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-block.is-layout-builder-highlighted {
+  border: 2px solid #a2ceef;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .form-actions input:nth-child(2) {
+  color: white;
+  background: rgb(213, 71, 43);
+  background: -moz-linear-gradient(top, rgb(213, 71, 43) 0%, rgb(158, 46, 37) 100%);
+  background: -webkit-linear-gradient(top, rgb(213, 71, 43) 0%, rgb(158, 46, 37) 100%);
+  background: linear-gradient(to bottom, rgb(213, 71, 43) 0%, rgb(158, 46, 37) 100%);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions a.button,
+.layout-builder-revert-overrides .form-actions a.w3css-button,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .form-actions input:nth-child(1) {
+  color: white;
+  background: rgb(75, 187, 34);
+  background: -moz-linear-gradient(top, rgb(75, 187, 34) 0%, rgb(52, 130, 24) 100%);
+  background: -webkit-linear-gradient(top, rgb(75, 187, 34) 0%, rgb(52, 130, 24) 100%);
+  background: linear-gradient(to bottom, rgb(75, 187, 34) 0%, rgb(52, 130, 24) 100%);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .form-actions input:nth-child(3) {
+  color: white;
+  background: rgb(107, 129, 205);
+  background: -moz-linear-gradient(top, rgb(107, 129, 205) 0%, rgb(64, 84, 160) 100%);
+  background: -webkit-linear-gradient(top, rgb(107, 129, 205) 0%, rgb(64, 84, 160) 100%);
+  background: linear-gradient(to bottom, rgb(107, 129, 205) 0%, rgb(64, 84, 160) 100%);
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node-layout-builder-form .form-actions input:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions a.button:hover,
+.layout-builder-revert-overrides .form-actions a.w3css-button:hover,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-builder-revert-overrides .form-actions input:hover {
+  color: white !important;
+  border-radius: 0;
+  background: #45484d;
+  background: -moz-linear-gradient(-45deg, #45484d 0%, #000 100%);
+  background: -webkit-linear-gradient(-45deg, #45484d 0%, #000 100%);
+  background: linear-gradient(135deg, #45484d 0%, #000 100%);
+}
+
+/* From css/components/w3css-local-tasks.css. */
+
+nav.w3-bar.w3-section.tabs,
+nav.w3-bar.w3-section.w3css-local-tasks {
+  width: auto;
+  margin: 10px 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.tabs li,
+ul.w3css-local-tasks li,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .action-links > li,
+.w3css-local-actions > li {
+  padding: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary,
+ul.w3css-local-tasks--primary {
+  border-bottom: 1px solid #ddd;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary li.is-active > a,
+ul.w3css-local-tasks--primary li.is-active > a {
+  font-weight: bold;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary > li,
+ul.w3css-local-tasks--primary > li {
+  border: none;
+  border-right: 1px dotted #ddd;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary > li:last-child,
+ul.w3css-local-tasks--primary > li:last-child {
+  border-right: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.primary > li > a,
+ul.w3css-local-tasks--primary > li > a,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) nav.action-links > li > a,
+nav.w3css-local-actions > li > a {
+  display: block;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.secondary > li > a,
+ul.w3css-local-tasks--secondary > li > a {
+  display: block;
+  padding: 5px 10px;
+}
+
+/* From css/components/w3css-media.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .align-right,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .align-left {
+  float: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .align-center {
+  margin: 0.75rem 0;
+}
+
+@media (min-width: 36rem) {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .align-right {
+    float: left;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .align-left {
+    float: right;
+  }
+}
+
+@media (min-width: 48rem) {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .align-right {
+    float: left;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .align-left {
+    float: right;
+  }
+}
+
+/* From css/components/w3css-menu-responsive-v.css. */
+
+:where(html:not(.js)) #w3css-main-nav-vertical .w3css-menu__list li ul,
+:where(html:not(.js)) .w3css-menu--responsive-v .w3css-menu__list li ul {
+  display: block;
+}
+
+/* Hover does not open a vertical submenu; the script does. */
+
+:where(.js) .w3css-menu--responsive-v .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+:where(.js) .w3css-menu--responsive-v .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul,
+:where(.js) #w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+:where(.js) #w3css-main-nav-vertical .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
+  display: none;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list li,
+#w3css-main-nav-vertical .w3css-menu__list a,
+#w3css-main-nav-vertical .w3css-menu__list button {
+  width: 100%;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list,
+.w3css-menu--responsive-v .w3css-menu__submenu,
+.w3css-menu--responsive-v .w3css-menu__item {
+  float: inline-start !important;
+}
+
+#w3css-main-nav-vertical .w3css-menu__list,
+#w3css-main-nav-vertical .w3css-menu__submenu,
+#w3css-main-nav-vertical .w3css-menu__item {
+  float: inline-start !important;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list li ul,
+#w3css-main-nav-vertical .w3css-menu__list li ul {
+  position: relative;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list li .w3css-menu__item--expanded:hover ul,
+#w3css-main-nav-vertical .w3css-menu__list li .w3css-menu__item--expanded:hover ul {
+  left: 0;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list ul a,
+#w3css-main-nav-vertical .w3css-menu__list ul a,
+.w3css-menu--responsive-v .w3css-menu__list ul button,
+#w3css-main-nav-vertical .w3css-menu__list ul button {
+  padding-inline-start: 35px !important;
+}
+
+.w3css-menu--responsive-v .w3css-menu__list ul ul a,
+#w3css-main-nav-vertical .w3css-menu__list ul ul a,
+.w3css-menu--responsive-v .w3css-menu__list ul ul button,
+#w3css-main-nav-vertical .w3css-menu__list ul ul button {
+  padding-inline-start: 50px !important;
+}
+
+#w3css-main-nav-open {
+  background-color: transparent !important;
+}
+
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > a,
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > button {
+  margin-inline-end: 5px;
+}
+
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > span,
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > span,
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > a > span,
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > a > span,
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > button > span,
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > button > span {
+  padding-block: 0;
+  padding-inline: 10px;
+  height: 44px;
+}
+
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > a,
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > a,
+.w3css-menu--responsive-v li.w3css-menu__item--expanded > button,
+#w3css-main-nav-vertical li.w3css-menu__item--expanded > button {
+  padding-inline-end: 44px !important;
+}
+
+/* The rows match the 44px arrow, and a submenu opens in the flow here. */
+
+#w3css-main-nav-vertical .w3css-menu__list li > a,
+#w3css-main-nav-vertical .w3css-menu__list li > button,
+.w3css-menu--responsive-v .w3css-menu__list li > a,
+.w3css-menu--responsive-v .w3css-menu__list li > button {
+  padding-block: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #w3css-main-nav-vertical.w3-animate-left {
+    animation-name: w3css-slide-in-left;
+  }
+}
+
+.w3-sidebar-first .w3css-menu__list li ul,
+.w3-sidebar-second .w3css-menu__list li ul {
+  position: static;
+}
+
+.w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded,
+.w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded {
+  display: grid;
+  align-items: stretch;
+}
+
+.w3-sidebar-first .w3css-menu__list li.w3css-menu__item--expanded > span,
+.w3-sidebar-second .w3css-menu__list li.w3css-menu__item--expanded > span {
+  position: static;
+  height: auto;
+}
+
+/* From css/components/w3css-menu.css. */
+
+.w3css-menu__list li ul.w3css-menu__submenu {
+  z-index: 3000 !important;
+}
+
+.w3css-menu__list a {
+  /* 16px at the default 18px root; follows the visitor's text size. */
+  font-size: 0.8889rem !important;
+  line-height: 1.5;
+}
+
+.w3css-menu__list button {
+  /* 16px at the default 18px root; follows the visitor's text size. */
+  font-size: 0.8889rem !important;
+}
+
+.w3css-menu__list button:hover {
+  opacity: 1;
+}
+
+.w3css-menu__list > li {
+  display: inline-block;
+  float: inline-start;
+}
+
+.w3css-menu__list li a.w3css-menu__link-toggle,
+.w3css-menu__list li button.w3css-menu__link-toggle {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.w3css-menu__list li ul {
+  display: none;
+}
+
+.w3css-menu__list li li a,
+.w3css-menu__list li li button {
+  position: relative;
+  display: block;
+}
+
+.w3css-menu__list li a {
+  display: block;
+  text-align: start;
+}
+
+.w3css-menu__list li button {
+  display: block;
+}
+
+.w3css-main-nav .w3css-menu__list a,
+.w3css-main-nav .w3css-menu__list button {
+  width: 100%;
+}
+
+li.w3css-menu__item--expanded i.fa {
+  display: block;
+}
+
+li.w3css-menu__item--expanded > a.w3css-menu__link--enabled:hover {
+  cursor: pointer !important;
+}
+
+li.w3css-menu__item--expanded > span,
+li.w3css-menu__item--expanded > a > span,
+li.w3css-menu__item--expanded > button > span {
+  padding-block: 0;
+  padding-inline: 6px 12px;
+  display: flex;
+}
+
+.w3css-menu__list li.w3css-menu__item--expanded > a,
+.w3css-menu__list li.w3css-menu__item--expanded > button {
+  padding-inline-end: 42px;
+}
+
+button.w3css-menu__toggle-parent,
+button.w3css-menu__toggle-child {
+  appearance: none;
+  font: inherit;
+}
+
+.w3css-menu__arrow svg {
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+li.w3css-is-open > .w3css-menu__arrow svg,
+li.w3css-is-open > button > .w3css-menu__arrow svg,
+li.w3css-is-hovered > .w3css-menu__arrow svg,
+li.w3css-is-hovered > button > .w3css-menu__arrow svg {
+  transform: var(--w3css-menu-arrow-open);
+}
+
+.w3css-menu__list a:focus-visible,
+.w3css-menu__list button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w3css-menu__list a,
+  .w3css-menu__list button {
+    transition: none;
+  }
+
+  .w3css-menu__list li ul {
+    animation: none !important;
+  }
+}
+
+.w3css-menu__list--menu-account li {
+  display: inline-block;
+  float: none;
+}
+
+.w3css-menu__list--menu-account li a,
+.w3css-menu__list--menu-account li button {
+  padding: 7px 14px;
+}
+
+.w3css-header__inner .contextual-region.block-system-branding-block .contextual {
+  top: auto !important;
+}
+
+.w3css-header__inner nav.contextual-region .contextual {
+  top: 50px !important;
+}
+
+/* From css/components/w3css-node.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.item-list > ol.item-list > li article::after,
+div.w3css-item-list > ol.w3css-item-list > li article::after,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) div.item-list > ol.item-list > li article::before,
+div.w3css-item-list > ol.w3css-item-list > li article::before {
+  display: inline !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node__meta .node__author-image img,
+.w3css-node__meta .w3css-node__author-image img {
+  border-radius: 50%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node--view-mode-full .field--type-entity-reference .field__item:first-child a,
+.w3css-node--view-mode-full .field--type-entity-reference .w3css-field__item:first-child a {
+  padding-left: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .field.field__items > .field__item,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .field > .field__items > .field__item {
+  display: inline-block;
+}
+
+.w3-expand-fields .field.field__items > .field__item,
+.w3-expand-fields .field > .field__items > .field__item {
+  display: block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .field--label-above > .field__items > .field__item:first-child a,
+.field--label-above > .w3css-field__items > .w3css-field__item:first-child a {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.links li,
+ul.w3css-links li {
+  border: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.links li a,
+ul.w3css-links li a {
+  display: inline-block;
+  padding: 0 !important;
+  border: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .field--name-field-tags .field__item a,
+.field--name-field-tags .w3css-field__item a {
+  padding: 3px;
+  border: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node__content ul.links li:last-child,
+.w3css-node__content ul.w3css-links li:last-child {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node--view-mode-full > .node__content > .field--type-image + .field--type-text-with-summary > p:first-child,
+.w3css-node--view-mode-full > .w3css-node__content > .field--type-image + .field--type-text-with-summary > p:first-child {
+  margin-top: 0 !important;
+}
+
+/* .node--view-mode-teaser .node__content .field--type-text-long, */
+
+/* .node--view-mode-teaser .node__content .field--type-text-with-summary { */
+
+/*  display: table; */
+
+/* } */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .node--view-mode-teaser .field--type-entity-reference .field__item:first-child a,
+.w3css-node--view-mode-teaser .field--type-entity-reference .w3css-field__item:first-child a {
+  padding-left: 0 !important;
+}
+
+/* From css/components/w3css-page-title.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+h1.w3css-page-title {
+  font-size: 46px;
+}
+
+/* From css/components/w3css-pager.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .pager__items li,
+.w3css-pager__items li {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .pager__items li a,
+.w3css-pager__items li a {
+  display: inline-block;
+  padding: 6px 12px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .pager__items li.is-active,
+.w3css-pager__items li.is-active {
+  padding: 6px 12px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .pager__items li.is-active a,
+.w3css-pager__items li.is-active a {
+  padding: 0;
+}
+
+/* From css/components/w3css-search-block-form.css. */
+
+.w3-search-block-form .form-item,
+.w3-search-block-form .form-actions {
+  float: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.w3-search-block-form .form-item {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.w3-search-block-form .form-actions {
+  flex: 0 0 auto;
+}
+
+.w3-search-block-form input[type="search"] {
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  padding: 0 14px;
+  border-inline-end: 0 !important;
+  background-color: transparent;
+  color: inherit;
+}
+
+.w3-search-block-form input.w3css-search-block-form__button {
+  width: auto;
+  height: 44px;
+  margin: 0 !important;
+  padding: 0 18px;
+  border-radius: 0;
+  background-image: none;
+}
+
+.w3-search-block-form input[type="search"]:focus-visible,
+.w3-search-block-form input.w3css-search-block-form__button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+/* From css/components/w3css-search-result.css. */
+
+.path-search form.search-form > .form-wrapper > .form-submit,
+.path-search form.search-form > .w3css-container > .form-submit {
+  margin: 0 !important;
+}
+
+.path-search .w3-row.item-list > h3,
+.path-search .w3-row.w3css-item-list > h3 {
+  padding: 0 20px;
+  font-size: 20px;
+}
+
+.path-search .search-form .search-advanced #edit-type--wrapper > legend,
+.path-search .search-form .search-advanced #edit-language--wrapper > legend {
+  display: none;
+}
+
+.path-search .search-form .search-advanced #edit-type--wrapper div.fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-type--wrapper div.w3css-fieldset__wrapper,
+.path-search .search-form .search-advanced #edit-language--wrapper div.fieldset-wrapper,
+.path-search .search-form .search-advanced #edit-language--wrapper div.w3css-fieldset__wrapper,
+.path-search .search-form .search-advanced #edit-type--wrapper div.fieldset-wrapper div.form-checkboxes,
+.path-search .search-form .search-advanced #edit-type--wrapper div.w3css-fieldset__wrapper div.w3css-checkboxes,
+.path-search .search-form .search-advanced #edit-language--wrapper div.fieldset-wrapper div.form-checkboxes,
+.path-search .search-form .search-advanced #edit-language--wrapper div.w3css-fieldset__wrapper div.w3css-checkboxes {
+  margin: 0 !important;
+}
+
+.path-search .search-form .search-advanced #edit-lang-fieldset > legend,
+.path-search .search-form .search-advanced #edit-types-fieldset > legend {
+  display: inline-block;
+}
+
+/* From css/components/w3css-site-branding-animation.css. */
+
+#w3css-header.animate-name-01 a.w3css-site-name__link,
+#w3css-page-title.animate-title-01 .page-title span {
+  background: linear-gradient(45deg, #5f2879, #00418d, #00c2de, #fad717, #00ba71, #fa8901, #f43545, #ccc, #f43545, #fa8901, #00ba71, #fad717, #00c2de, #00418d, #5f2879);
+}
+
+#w3css-header.animate-name-02 a.w3css-site-name__link,
+#w3css-page-title.animate-title-02 .page-title span {
+  background: linear-gradient(45deg, #095fab, #25abe8, #57d75b, #ccc, #57d75b, #25abe8, #095fab);
+}
+
+#w3css-header.animate-name-03 a.w3css-site-name__link,
+#w3css-page-title.animate-title-03 .page-title span {
+  background: linear-gradient(45deg, #d0e4f7, #73b1e7, #e2d40b, #539fe1, #87bcea, #539fe1, #e2d40b, #73b1e7, #d0e4f7);
+}
+
+#w3css-header.animate-name-04 a.w3css-site-name__link,
+#w3css-page-title.animate-title-04 .page-title span {
+  background: linear-gradient(45deg, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5, #2196f3, #87ceeb, #00bcd4, #0ff, #009688, #4caf50, #8bc34a, #8bc34a, #8bc34a, #8bc34a, #4caf50, #009688, #0ff, #00bcd4, #87ceeb, #2196f3, #3f51b5, #673ab7, #9c27b0, #e91e63, #f44336);
+}
+
+#w3css-header.animate-name-05 a.w3css-site-name__link,
+#w3css-page-title.animate-title-05 .page-title span {
+  background: linear-gradient(45deg, #009688, #2196f3, #ffeb3b, #ff9800, #f44336, #9c27b0, #9c27b0, #f44336, #ff9800, #ffeb3b, #2196f3, #009688);
+}
+
+#w3css-header.animate-name-06 a.w3css-site-name__link,
+#w3css-page-title.animate-title-06 .page-title span {
+  background: linear-gradient(45deg, #f44336, #9c27b0, #2196f3, #4caf50, #ff9800, #ff9800, #4caf50, #2196f3, #9c27b0, #f44336);
+}
+
+#w3css-header.animate-name-07 a.w3css-site-name__link,
+#w3css-page-title.animate-title-07 .page-title span {
+  background: linear-gradient(45deg, #ffb5ba, #ff796c, #ce4676, #87ceeb, #00bcd4, #2196f3, #00bcd4, #87ceeb, #ce4676, #ff796c, #ffb5ba);
+}
+
+#w3css-header.animate-name-08 a.w3css-site-name__link,
+#w3css-page-title.animate-title-08 .page-title span {
+  background: linear-gradient(45deg, #8db600, #27a64c, #008882, #0085a1, #0085a1, #008882, #27a64c, #8db600);
+}
+
+#w3css-header.animate-name-09 a.w3css-site-name__link,
+#w3css-page-title.animate-title-09 .page-title span {
+  background: linear-gradient(45deg, #ffb7a5, #e25822, #f6a600, #dcd300, #dcd300, #f6a600, #e25822, #ffb7a5);
+}
+
+#w3css-header.animate-name-10 a.w3css-site-name__link,
+#w3css-page-title.animate-title-10 .page-title span {
+  background: linear-gradient(45deg, #008856, #00a1c2, #9065ca, #9a4eae, #9a4eae, #9065ca, #00a1c2, #008856);
+}
+
+#w3css-header.animate-name-11 a.w3css-site-name__link,
+#w3css-page-title.animate-title-11 .page-title span {
+  background: linear-gradient(45deg, #ffb5ba, #be0032, #f38400, #f3c300, #f3c300, #f38400, #be0032, #ffb5ba);
+}
+
+#w3css-header.animate-name-12 a.w3css-site-name__link,
+#w3css-page-title.animate-title-12 .page-title span {
+  background: linear-gradient(45deg, #bd1e24, #e97600, #f6c700, #007256, #0067a7, #964f8e, #964f8e, #0067a7, #007256, #f6c700, #e97600, #bd1e24);
+}
+
+#w3css-header.animate-name-13 a.w3css-site-name__link,
+#w3css-page-title.animate-title-13 .page-title span {
+  background: linear-gradient(45deg, #5f2879, #00418d, #00c2de, #fad717, #00ba71, #fa8901, #f43545, #fa8901, #00ba71, #fad717, #00c2de, #00418d, #5f2879);
+}
+
+#w3css-header.animate-name-14 a.w3css-site-name__link,
+#w3css-page-title.animate-title-14 .page-title span {
+  background: linear-gradient(45deg, #fad717, #fa8901, #f43545, #fa8901, #fad717);
+}
+
+#w3css-header.animate-name-15 a.w3css-site-name__link,
+#w3css-page-title.animate-title-15 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #cefc00, #ccc, #444, #ccc, #cefc00, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-16 a.w3css-site-name__link,
+#w3css-page-title.animate-title-16 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #ff6a00, #ccc, #444, #ccc, #ff6a00, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-17 a.w3css-site-name__link,
+#w3css-page-title.animate-title-17 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #fe0, #ccc, #444, #ccc, #fe0, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-18 a.w3css-site-name__link,
+#w3css-page-title.animate-title-18 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #46f900, #ccc, #444, #ccc, #46f900, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-19 a.w3css-site-name__link,
+#w3css-page-title.animate-title-19 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #00fcde, #ccc, #444, #ccc, #00fcde, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-20 a.w3css-site-name__link,
+#w3css-page-title.animate-title-20 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #00c9fc, #ccc, #444, #ccc, #00c9fc, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-21 a.w3css-site-name__link,
+#w3css-page-title.animate-title-21 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #e000f4, #ccc, #444, #ccc, #e000f4, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-22 a.w3css-site-name__link,
+#w3css-page-title.animate-title-22 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #f7001c, #ccc, #444, #ccc, #f7001c, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-23 a.w3css-site-name__link,
+#w3css-page-title.animate-title-23 .page-title span {
+  background: linear-gradient(45deg, #aebcbf, #6e7774, #e50095, #ccc, #444, #ccc, #e50095, #6e7774, #aebcbf);
+}
+
+#w3css-header.animate-name-24 a.w3css-site-name__link,
+#w3css-page-title.animate-title-24 .page-title span {
+  background: linear-gradient(45deg, #30267a, #0085a1, #870074, #ce4676, #ce4676, #870074, #0085a1, #30267a);
+}
+
+#w3css-header.animate-name-01 a.w3css-site-name__link,
+#w3css-header.animate-name-02 a.w3css-site-name__link,
+#w3css-header.animate-name-03 a.w3css-site-name__link,
+#w3css-header.animate-name-04 a.w3css-site-name__link,
+#w3css-header.animate-name-05 a.w3css-site-name__link,
+#w3css-header.animate-name-06 a.w3css-site-name__link,
+#w3css-header.animate-name-07 a.w3css-site-name__link,
+#w3css-header.animate-name-08 a.w3css-site-name__link,
+#w3css-header.animate-name-09 a.w3css-site-name__link,
+#w3css-header.animate-name-10 a.w3css-site-name__link,
+#w3css-header.animate-name-11 a.w3css-site-name__link,
+#w3css-header.animate-name-12 a.w3css-site-name__link,
+#w3css-header.animate-name-13 a.w3css-site-name__link,
+#w3css-header.animate-name-14 a.w3css-site-name__link,
+#w3css-header.animate-name-15 a.w3css-site-name__link,
+#w3css-header.animate-name-16 a.w3css-site-name__link,
+#w3css-header.animate-name-17 a.w3css-site-name__link,
+#w3css-header.animate-name-18 a.w3css-site-name__link,
+#w3css-header.animate-name-19 a.w3css-site-name__link,
+#w3css-header.animate-name-20 a.w3css-site-name__link,
+#w3css-header.animate-name-21 a.w3css-site-name__link,
+#w3css-header.animate-name-22 a.w3css-site-name__link,
+#w3css-header.animate-name-23 a.w3css-site-name__link,
+#w3css-header.animate-name-24 a.w3css-site-name__link,
+#w3css-page-title.animate-title-01 .page-title span,
+#w3css-page-title.animate-title-02 .page-title span,
+#w3css-page-title.animate-title-03 .page-title span,
+#w3css-page-title.animate-title-04 .page-title span,
+#w3css-page-title.animate-title-05 .page-title span,
+#w3css-page-title.animate-title-06 .page-title span,
+#w3css-page-title.animate-title-07 .page-title span,
+#w3css-page-title.animate-title-08 .page-title span,
+#w3css-page-title.animate-title-09 .page-title span,
+#w3css-page-title.animate-title-10 .page-title span,
+#w3css-page-title.animate-title-11 .page-title span,
+#w3css-page-title.animate-title-12 .page-title span,
+#w3css-page-title.animate-title-13 .page-title span,
+#w3css-page-title.animate-title-14 .page-title span,
+#w3css-page-title.animate-title-15 .page-title span,
+#w3css-page-title.animate-title-16 .page-title span,
+#w3css-page-title.animate-title-17 .page-title span,
+#w3css-page-title.animate-title-18 .page-title span,
+#w3css-page-title.animate-title-19 .page-title span,
+#w3css-page-title.animate-title-20 .page-title span,
+#w3css-page-title.animate-title-21 .page-title span,
+#w3css-page-title.animate-title-22 .page-title span,
+#w3css-page-title.animate-title-23 .page-title span,
+#w3css-page-title.animate-title-24 .page-title span {
+  /* One 5-second sweep, then still: moving text that starts on its own must stop within 5 seconds (WCAG 2.2.2). */
+  animation: animateSiteName 5s linear 1;
+  color: transparent !important;
+  background-clip: text;
+  background-size: 200% 200%;
+}
+
+#w3css-page-title.animate-title-01 .page-title,
+#w3css-page-title.animate-title-02 .page-title,
+#w3css-page-title.animate-title-03 .page-title,
+#w3css-page-title.animate-title-04 .page-title,
+#w3css-page-title.animate-title-05 .page-title,
+#w3css-page-title.animate-title-06 .page-title,
+#w3css-page-title.animate-title-07 .page-title,
+#w3css-page-title.animate-title-08 .page-title,
+#w3css-page-title.animate-title-09 .page-title,
+#w3css-page-title.animate-title-10 .page-title,
+#w3css-page-title.animate-title-11 .page-title,
+#w3css-page-title.animate-title-12 .page-title,
+#w3css-page-title.animate-title-13 .page-title,
+#w3css-page-title.animate-title-14 .page-title,
+#w3css-page-title.animate-title-15 .page-title,
+#w3css-page-title.animate-title-16 .page-title,
+#w3css-page-title.animate-title-17 .page-title,
+#w3css-page-title.animate-title-18 .page-title,
+#w3css-page-title.animate-title-19 .page-title,
+#w3css-page-title.animate-title-20 .page-title,
+#w3css-page-title.animate-title-21 .page-title,
+#w3css-page-title.animate-title-22 .page-title,
+#w3css-page-title.animate-title-23 .page-title,
+#w3css-page-title.animate-title-24 .page-title {
+  color: transparent !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form input.button.form-submit:hover,
+form input.w3css-button.form-submit:hover {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
+  animation: wiggle 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #w3css-header[class*="animate-name-"] a.w3css-site-name__link,
+  #w3css-page-title[class*="animate-title-"] .page-title span,
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form input.button.form-submit:hover,
+  form input.w3css-button.form-submit:hover {
+    animation: none;
+  }
+}
+
+/* From css/components/w3css-site-branding.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .site-name a,
+.w3css-site-name a {
+  line-height: 140%;
+}
+
+/* The site name and slogan keep the heading look when printed as paragraphs. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) p.site-name,
+p.w3css-site-name,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) p.site-slogan,
+p.w3css-site-slogan {
+  /* Beats the !important padding on every p in max-width-600.css. */
+  padding: 0 !important;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) p.site-slogan,
+p.w3css-site-slogan {
+  margin: 10px 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) p.site-name a,
+p.w3css-site-name a {
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* From css/components/w3css-status-messages.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) [dir="rtl"] .messages {
+  border-width: 1px 0 1px 1px;
+  background-position: right 10px top 17px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .messages + .messages {
+  margin-top: 1.538em;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .messages__list {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .messages--error p.error {
+  color: #a51b00;
+}
+
+/* From css/components/w3css-system-admin.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) ul.admin-list,
+ul.w3css-admin-block-content__list {
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .admin-list li,
+.w3css-admin-block-content__list li {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #bfbfbf;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .admin-list li a,
+.w3css-admin-block-content__list li a {
+  display: block;
+  min-height: 0;
+  padding: 14px 15px 14px 25px;
+  background: url(../../images/icons/chevron-disc-right.svg) no-repeat 0 16px / 16px 16px;
+}
+
+.ui-dialog-content .w3-content,
+.w3css-page--admin .block-system-main-block .w3-content {
+  max-width: 100%;
+}
+
+.w3css-page--admin .block-system-main-block .modules-tabs__menu + form.system-modules {
+  width: auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .system-modules label,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .system-modules-uninstall label {
+  font-size: 16px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .modules-tabs__pane table col.checkbox {
+  width: 3%;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .block-system-main-block .modules-tabs tr td {
+  vertical-align: baseline;
+}
+
+.dropbutton input.w3-margin-bottom,
+.dropbutton input.w3-margin-top {
+  width: 100% !important;
+  margin: 0 !important;
+  transition: 0.4s;
+  text-align: left;
+  border: none;
+}
+
+.paragraph-type-top.w3-row::before {
+  display: inline-block;
+  content: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) form .field--widget-entity-reference-paragraphs td.field-multiple-drag {
+  width: auto;
+  padding-left: 0;
+}
+
+.w3css-page--admin .block-system-main-block > div,
+.w3css-page--admin .block-system-main-block > form {
+  padding: 0 !important;
+}
+
+.w3css-page--admin nav.action-links li,
+.w3css-page--admin nav.w3css-local-actions li {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  color: inherit;
+  background-color: inherit;
+}
+
+.w3css-page--admin .region-title__action a,
+.w3css-page--admin form .form-actions > a {
+  display: inline-block;
+  margin: 16px 10px;
+  padding: 9px 16px;
+}
+
+.w3css-page--admin .region-title__action a {
+  margin: 5px;
+}
+
+.w3css-page--admin form .form-actions button,
+.w3css-page--admin form .form-actions input {
+  margin: 16px 10px 16px 0;
+}
+
+/* admin pages  */
+
+.w3css-page--admin .block-system-main-block .modules-tabs {
+  margin-right: 16px;
+  margin-left: 16px;
+  border-color: #eaeaea;
+}
+
+.w3css-page--admin .modules-tabs__pane {
+  margin: 0 0 0 240px !important;
+  padding: 8px 16px !important;
+  border-left: 1px solid #eaeaea;
+  background: #f8f8f8;
+}
+
+.w3css-page--admin .block-system-main-block .modules-tabs tr td {
+  padding: 5px;
+}
+
+.w3css-page--admin .system-modules td details {
+  margin: 0 !important;
+}
+
+.w3css-page--admin .system-modules td details summary {
+  padding: 6px 0 !important;
+}
+
+.w3css-page--admin .modules-wrapper .requirements {
+  max-width: 100%;
+}
+
+.w3css-page--admin .modules-wrapper .requirements span,
+.w3css-page--admin .modules-wrapper .w3css-status-report__requirements span {
+  display: inline-block;
+}
+
+.w3css-page--admin .item-list--comma-list li.w3-panel::after,
+.w3css-page--admin .item-list--comma-list li.w3-panel::before {
+  display: inline-block;
+  clear: none !important;
+}
+
+.w3css-page--admin .item-list--comma-list li {
+  padding: 8px 5px;
+}
+
+.w3css-page--admin .system-status-report__status-title {
+  padding: 8px !important;
+}
+
+@media screen and (min-width: 62rem) {
+  .w3css-page--admin .system-status-general-info__item {
+    border-color: #eaeaea;
+  }
+}
+
+.w3css-page--admin .system-status-report__entry__value {
+  padding-top: 0 !important;
+}
+
+.w3css-page--admin .system-status-report__status-icon::before {
+  top: 11px;
+  left: -14px;
+}
+
+.w3css-page--admin .system-status-report__requirements-group details,
+.w3css-page--admin .w3css-status-report__requirements-group details {
+  margin-bottom: 5px !important;
+}
+
+/* From css/components/w3css-table.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) tr {
+  border-bottom: 1px solid #eaeaea;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) tr.region-title {
+  background-color: #d2d2d2 !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .region-title td {
+  font-weight: bold !important;
+}
+
+.w3-table-all {
+  border-color: #eaeaea !important;
+}
+
+.w3-table td,
+.w3-table th,
+.w3-table-all td,
+.w3-table-all th {
+  text-align: initial;
+  vertical-align: middle;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) td .form-type-radio,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) td .form-type-checkbox {
+  margin: 0 !important;
+}
+
+/* From css/components/w3css-views-view.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-ui-view-displays ul li,
+.w3css-views-ui-views-listing-table__displays ul li {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .view-filters details.form-wrapper,
+.w3css-views-view__filters details.w3css-container {
+  margin: 16px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) #view-edit-form .dropbutton li a {
+  padding: 3px 9px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-ui-display-tab-bucket {
+  padding-top: 11px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-display-setting,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-display-setting input,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-display-extra-actions a {
+  font-size: 14px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-preview-wrapper {
+  border-color: #eaeaea;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .js .views-edit-view .dropbutton-wrapper .dropbutton .dropbutton-action input {
+  float: right;
+  width: 100%;
+  margin: 2px 0 !important;
+  text-align: left;
+  border: none !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-ui-display-tab-bucket .views-display-setting {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .views-ui-display-tab-bucket .dropbutton-wrapper {
+  top: 1px;
+}
+
+.views-exposed-form > div.w3-block > .form-item {
+  flex-grow: 1;
+}
+
+@media (min-width: 48rem) {
+  .views-exposed-form > div.w3-block,
+  .views-exposed-form > div.w3-block > .form-actions {
+    display: flex;
+    align-items: end;
+  }
+}
+
+/* From css/components/w3css-webform.css. */
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-submission-form fieldset {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: transparent !important;
+}
+
+.webform-submission-form fieldset .fieldset-wrapper.w3-panel {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+
+.webform-submission-form fieldset .w3css-fieldset__wrapper.w3-panel {
+  margin: 0 auto;
+  padding: 0;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-submission-form .form-actions > input {
+  margin: 15px 7px !important;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-submission-form .form-type-webform-rating label {
+  height: 25px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-table td input[type="image"] {
+  border-color: #ccc;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-add .form-type-number input {
+  display: inline-block;
+  width: 4em;
+  margin: 0;
+}
+
+.webform-multiple-add div.w3-section.form-item,
+.webform-multiple-add div.w3-section.w3css-form-item {
+  clear: none;
+  width: auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-add > div,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-add > input {
+  margin-right: 10px;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-table td.webform-multiple-table--handle {
+  width: auto;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-has-field-prefix span.field-prefix + div,
+.webform-has-field-prefix span.w3css-form-element__prefix + div {
+  display: inline-block;
+  clear: none;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-has-field-suffix > div + span.field-suffix,
+.webform-has-field-suffix > div + span.w3css-form-element__suffix {
+  display: inline-block;
+}
+
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) .webform-multiple-table td input[type="image"] + input[type="image"] {
+  margin: 2px 0 0 0;
+}
+
+/* From css/theme/min-width-993.css. */
+
+@media (min-width: 62rem) {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-secondary {
+    width: 29%;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) .layout-region-node-main {
+    width: 69%;
+  }
+
+  /* Main Menu */
+  .w3css-menu__list li > a,
+  .w3css-menu__list li > button {
+    padding: 12px 16px;
+  }
+
+  .w3css-menu__list li li > a,
+  .w3css-menu__list li li > button {
+    padding: 10px 14px;
+  }
+
+  .w3css-menu__list .w3css-menu__item--expanded:hover > ul,
+  .w3css-menu__list .w3css-menu__item--expanded .w3css-menu__item--expanded:hover > ul {
+    display: block;
+  }
+
+  li.w3css-menu__item--expanded > span,
+  li.w3css-menu__item--expanded > a > span,
+  li.w3css-menu__item--expanded > button > span {
+    height: 100%;
+  }
+}
+
+/* From css/theme/max-width-992.css. */
+
+@media (max-width: 61.99875rem) {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+  h1.w3css-page-title {
+    font-size: 32px;
+  }
+
+  .ui-dialog .ui-dialog-buttonpane {
+    text-align: center;
+  }
+
+  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: none;
+  }
+
+  #w3css-main-region-inner > div {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .w3css-menu__list li.w3css-menu__item--expanded > span,
+  .w3css-menu__list li.w3css-menu__item--expanded > a > span,
+  .w3css-menu__list li.w3css-menu__item--expanded > button > span {
+    padding-block: 0;
+    padding-inline: 16px;
+    height: 44px;
+  }
+
+  .w3css-menu__list li.w3css-menu__item--expanded > a,
+  .w3css-menu__list li.w3css-menu__item--expanded > button {
+    padding-inline-end: 56px;
+  }
+
+  /* A 44px row, the height of the arrow beside it. */
+  .w3css-menu__list li > a,
+  .w3css-menu__list li > button {
+    padding-block: 10px;
+  }
+
+  /* Horizontal Main Menu */
+  .w3css-menu--responsive-h .w3css-menu__item > a,
+  #w3css-main-nav-horizontal .w3css-menu__item > a,
+  .w3css-menu--responsive-h .w3css-menu__item > button,
+  #w3css-main-nav-horizontal .w3css-menu__item > button {
+    float: left;
+    width: 100%;
+  }
+
+  #w3css-main-nav-horizontal .w3css-menu__list ul li > a,
+  .w3css-menu--responsive-h .w3css-menu__list ul li > a,
+  #w3css-main-nav-horizontal .w3css-menu__list ul li > button,
+  .w3css-menu--responsive-h .w3css-menu__list ul li > button {
+    padding-inline-start: 35px !important;
+  }
+
+  #w3css-main-nav-horizontal .w3css-menu__list ul ul li > a,
+  .w3css-menu--responsive-h .w3css-menu__list ul ul li > a,
+  #w3css-main-nav-horizontal .w3css-menu__list ul ul li > button,
+  .w3css-menu--responsive-h .w3css-menu__list ul ul li > button {
+    padding-inline-start: 50px !important;
+  }
+}
+
+/* From css/theme/max-min-width-992-601.css. */
+
+/* Medium Screen Only */
+@media (max-width: 61.99875rem) and (min-width: 37.5rem) {
+  .w3css-top-region__inner .w3css-page__top-first > div,
+  .w3css-top-region__inner .w3css-page__top-second > div,
+  .w3css-top-region__inner .w3css-page__top-third > div,
+  .w3css-main-region__inner .w3css-page__sidebar-first > div,
+  .w3css-main-region__inner .w3css-page__content > div,
+  .w3css-main-region__inner .w3css-page__sidebar-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-first > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-third > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-fourth > div,
+  .w3css-footer-region__inner .w3css-page__footer-first > div,
+  .w3css-footer-region__inner .w3css-page__footer-second > div,
+  .w3css-footer-region__inner .w3css-page__footer-third > div,
+  .w3css-footer-menu__inner > div {
+    padding: 10px !important;
+  }
+}
+
+/* From css/theme/max-width-600.css. */
+
+@media (max-width: 37.49875rem) {
+  .w3css-top-region__inner .w3css-page__top-first > div,
+  .w3css-top-region__inner .w3css-page__top-second > div,
+  .w3css-top-region__inner .w3css-page__top-third > div,
+  .w3css-main-region__inner .w3css-page__sidebar-first > div,
+  .w3css-main-region__inner .w3css-page__content > div,
+  .w3css-main-region__inner .w3css-page__sidebar-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-first > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-second > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-third > div,
+  .w3css-bottom-region__inner .w3css-page__bottom-fourth > div,
+  .w3css-footer-region__inner .w3css-page__footer-first > div,
+  .w3css-footer-region__inner .w3css-page__footer-second > div,
+  .w3css-footer-region__inner .w3css-page__footer-third > div,
+  .w3css-footer-menu__inner > div {
+    padding: 8px !important;
+  }
+
+  .w3-container {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .w3-padding-large,
+  .w3-padding {
+    padding: 3px 6px !important;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1.page-title,
+  h1.w3css-page-title {
+    font-size: 22px;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1 {
+    font-size: 22px;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2 {
+    font-size: 20px;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3 {
+    font-size: 18px;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) h4 {
+    font-size: 16px;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) p {
+    margin: 0;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  #w3css-header-inner > nav,
+  #w3css-header-inner > nav > ul {
+    width: 100% !important;
+  }
+
+  #w3css-header-inner > nav > ul li {
+    float: left !important;
+  }
+
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) .site-name a,
+  .w3css-site-name a {
+    display: block;
+  }
+
+  #w3css-copyright-inner .w3-container {
+    padding: 0 5px !important;
+  }
+
+  .w3-section {
+    margin: 5px 0 !important;
+  }
+
+  .w3css-copyright__inner .w3-half p {
+    text-align: center !important;
+  }
+
+  /* Search Page */
+  .path-search form.search-form > .form-wrapper,
+  .path-search form.search-form > .w3css-container {
+    margin-bottom: 10px;
+  }
+
+  .path-search form.search-form > .form-wrapper > .form-submit,
+  .path-search form.search-form > .w3css-container > .form-submit {
+    margin: 0;
+  }
+
+  .path-user-register .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-register .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-password .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-password .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks,
+  .path-user-login .w3css-main-region__inner nav.tabs > ul.tabs,
+  .path-user-login .w3css-main-region__inner nav.w3css-local-tasks > ul.w3css-local-tasks {
+    align-items: start;
+  }
+}
+
+/* From css/theme/max-width-600.css: the small-screen page size answers
+   w3css_paragraphs w3-modern.css (html, body), so it stays unlayered. */
+@media (max-width: 37.49875rem) {
+  html,
+  body {
+    font-size: 100%;
+  }
+}

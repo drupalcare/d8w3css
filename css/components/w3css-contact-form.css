@@ -1,0 +1,9 @@
+@layer w3css.theme {
+  :where(.w3css-page-wrapper, #w3css-main-nav-vertical) form.contact-form .form-actions {
+    text-align: center;
+  }
+
+  form.contact-form .form-actions .w3-button {
+    float: none;
+  }
+}

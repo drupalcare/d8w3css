@@ -1,29 +1,144 @@
 {
   "_about": "Manifest for scripts/css-layers-check.py. Rules: docs/css-layers.md. Entries marked 'unlayered: migrating in batch N' are the W3CSS layers build in progress (planning: themes-layers-plan-w3css-2026-11-10.md); each batch replaces its entries with the layers its files use.",
-  "ladder": ["w3css.locked", "w3css.reset", "w3css.tokens", "w3css.base", "w3css.layout", "w3css.library", "w3css.theme", "w3css.schemes", "w3css.utilities", "w3css.subtheme", "w3css.custom"],
-  "ladder_file": "css/w3-css/w3css-layers.css",
+  "ladder": [
+    "w3css.locked",
+    "w3css.reset",
+    "w3css.tokens",
+    "w3css.base",
+    "w3css.layout",
+    "w3css.library",
+    "w3css.theme",
+    "w3css.schemes",
+    "w3css.utilities",
+    "w3css.subtheme",
+    "w3css.custom"
+  ],
+  "ladder_file": "css/base/w3css-layers.css",
   "libraries_file": "drupal8_w3css_theme.libraries.yml",
   "locked_layer": "w3css.locked",
   "tokens_layer": "w3css.tokens",
-  "element_layers": ["w3css.reset", "w3css.base"],
-  "css_dirs": ["css", "fonts"],
-  "roots": ["#w3css-", ".w3css-", ".w3-", ".d8w3css-"],
-  "important_allow": {},
+  "element_layers": [
+    "w3css.reset",
+    "w3css.base"
+  ],
+  "css_dirs": [
+    "css",
+    "fonts"
+  ],
+  "roots": [
+    "#w3css-",
+    ".w3css-",
+    ".w3-",
+    ".d8w3css-",
+    ".path-"
+  ],
+  "important_allow": {
+    "div.w3css-animate-border": "Only the box-shadow transition of the region boxes. Reveal on scroll (w3css-fade.js) fades the same boxes with its own opacity transition, and the scheme keyframes set a transition on every box; the transition list here must win over both. The reduced-motion block turns it off."
+  },
   "files": {
-    "css/w3-css/w3css-layers.css": ["w3css.locked"],
+    "css/base/w3css-layers.css": [
+      "w3css.locked"
+    ],
     "css/w3-css/w3.css": "ignored: frozen upstream W3.CSS 4.15 reference, not loaded by any library",
-    "css/w3-css/w3-modern.css": "pending: batch 2 (becomes w3css-drupal.css)",
-    "css/w3-css/w3css-extended-classes.css": "pending: batch 3",
-    "css/w3-css/w3css-color-libraries-*.css": "pending: batch 3",
-    "css/w3-css-theme/*.css": "pending: batch 4a",
-    "css/w3-css-theme-custom/*.css": "pending: batch 4b",
-    "css/base/*.css": "pending: batch 5a",
-    "css/layout/*.css": "pending: batch 5a",
-    "css/components/*.css": "pending: batch 5b",
-    "css/theme/d8w3css-settings-*.css": "admin",
-    "css/theme/*.css": "pending: batch 5c",
-    "fonts/*.css": "pending: batch 5c",
-    "fonts/css/*.css": "pending: batch 5c",
-    "fonts/css/special/*.css": "pending: batch 5c"
+    "css/base/w3css-drupal.css": [
+      "w3css.locked",
+      "w3css.reset",
+      "w3css.tokens",
+      "w3css.base",
+      "w3css.layout",
+      "w3css.library",
+      "w3css.utilities"
+    ],
+    "css/utilities/w3css-extended-classes.css": [
+      "w3css.tokens",
+      "w3css.base",
+      "w3css.library",
+      "w3css.utilities"
+    ],
+    "css/utilities/w3css-color-*.css": [
+      "w3css.tokens",
+      "w3css.utilities"
+    ],
+    "css/predefined/w3css-scheme-palette.css": [
+      "w3css.schemes",
+      "w3css.utilities"
+    ],
+    "css/predefined/w3css-scheme-keyframes.css": [
+      "w3css.library",
+      "w3css.utilities"
+    ],
+    "css/base/w3css-base.css": [
+      "w3css.reset",
+      "w3css.base"
+    ],
+    "css/base/w3css-host-overrides.css": "unlayered: declarations that beat unlayered core, contrib, PB or VVJ CSS before layering; a layer would lose them (head comment lists the rival groups)",
+    "css/layout/w3css-node-edit-form.css": {
+      "layers": [
+        "w3css.layout"
+      ],
+      "colors_ok": true,
+      "colors_note": "hex and rgb() literals (borders, backgrounds, shadow, icon fill); to tokens in a later batch"
+    },
+    "css/layout/*.css": [
+      "w3css.layout"
+    ],
+    "css/components/*.css": {
+      "layers": [
+        "w3css.theme",
+        "w3css.tokens"
+      ]
+    },
+    "css/admin/w3css-settings-*.css": "admin",
+    "css/admin/w3css-ckeditor*.css": "admin",
+    "css/utilities/w3css-animate-border.css": [
+      "w3css.tokens",
+      "w3css.utilities"
+    ],
+    "fonts/w3css-font-awesome-7.css": "ignored: vendored Font Awesome, loaded unlayered on purpose",
+    "fonts/*.css": {
+      "layers": [
+        "w3css.base"
+      ],
+      "unlayered_tail": "headings and classes that beat unlayered core, contrib or Paragraphs Bundles CSS (the PB w3-modern.css heading font) cannot sit in a layer; each starts from the page-wrapper :where() root"
+    },
+    "css/predefined/w3css-scheme-custom.css": [
+      "w3css.base",
+      "w3css.utilities",
+      "w3css.schemes",
+      "w3css.theme"
+    ],
+    "css/predefined/w3css-scheme-custom-paint.css": [
+      "w3css.base",
+      "w3css.schemes",
+      "w3css.utilities"
+    ],
+    "css/predefined/*.css": [
+      "w3css.base",
+      "w3css.schemes",
+      "w3css.utilities"
+    ],
+    "css/theme/max-width-600.css": [
+      "w3css.base",
+      "w3css.theme"
+    ],
+    "css/theme/min-width-993.css": [
+      "w3css.theme",
+      "w3css.tokens"
+    ],
+    "css/theme/*.css": [
+      "w3css.theme"
+    ]
+  },
+  "admin_allow": {
+    "nav.tabs > ul.tabs": "Login, register and password page tabs on the front end. Owner approved 2026-11-10.",
+    ".messages": "Front-end status, warning and error messages. Owner approved this kind for Solo 2026-11-10; same kind here.",
+    "ul.tabs": "Front-end local task tabs. Owner approved this kind 2026-11-10.",
+    ".tabs": "Front-end local task tabs (nav.w3-bar.w3-section.tabs). Owner approved this kind 2026-11-10.",
+    ".ui-dialog": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep).",
+    ".contextual": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep).",
+    ".toolbar-bar": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep).",
+    "#toolbar-administration": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep).",
+    "#drupal-off-canvas": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep).",
+    ".layout-builder": "Deliberate fix so the admin part works with the theme. Owner approved 2026-11-10 (keep)."
   }
 }

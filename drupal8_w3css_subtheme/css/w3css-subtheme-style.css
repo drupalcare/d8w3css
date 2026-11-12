@@ -1,0 +1,16 @@
+/**
+ * @file
+ * Starter sub-theme styles, written in CSS layers.
+ *
+ * The layer order is owned by the W3CSS Theme (css/base/w3css-layers.css, loaded
+ * first on every page); do not declare it here. Put rules in:
+ *   w3css.tokens    custom properties, and the only place for color literals
+ *   w3css.base      bare element selectors (a, button, input)
+ *   w3css.subtheme  everything else: your rules beat the W3CSS Theme's layers
+ *   w3css.locked    only an !important rule that must never change
+ * Check this file: python3 scripts/css-layers-check.py
+ */
+
+@layer w3css.subtheme {
+  /* Example (delete): .w3css-page-wrapper { --my-gap: 1rem; } */
+}

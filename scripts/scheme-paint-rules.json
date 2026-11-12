@@ -1,0 +1,1925 @@
+{
+  "_comment": "Paint rules of the color schemes. scripts/build-scheme-paint.py appends to each scheme file of a group's library the rules whose tokens that file sets. Order is cascade order: keep it.",
+  "groups": {
+    "custom": {
+      "library": "scheme-custom-paint",
+      "rules": [
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "body",
+            "button",
+            "html",
+            "input",
+            "optgroup",
+            "select",
+            "textarea"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "h1",
+            "h1 a",
+            "h2",
+            "h2 a",
+            "h3",
+            "h3 a",
+            "h4",
+            "h4 a",
+            "h5",
+            "h5 a",
+            "h6",
+            "h6 a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-heading-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "ul.primary",
+            "ul.primary > li",
+            "ul.secondary",
+            "ul.w3css-local-tasks--primary",
+            "ul.w3css-local-tasks--primary > li",
+            "ul.w3css-local-tasks--secondary"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "input:focus",
+            "select:focus",
+            "textarea:focus"
+          ],
+          "decls": [
+            [
+              "box-shadow",
+              "--w3css-custom-input-focus-shadow"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "body",
+            "button",
+            "html",
+            "input",
+            "optgroup",
+            "select",
+            "textarea"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-header-and-7-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "input:focus",
+            "select:focus",
+            "textarea:focus"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-input-select-textarea-border-color"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "input",
+            "optgroup",
+            "select",
+            "textarea"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-main-region-and-7-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "input",
+            "select",
+            "textarea"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-main-region-and-6-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "input",
+            "select",
+            "textarea"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-main-box-and-5-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "a"
+          ],
+          "decls": [
+            [
+              "transition",
+              "--w3css-custom-button-a-transition"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.base",
+          "selectors": [
+            "ul.primary",
+            "ul.primary > li",
+            "ul.secondary",
+            "ul.w3css-local-tasks--primary",
+            "ul.w3css-local-tasks--primary > li",
+            "ul.w3css-local-tasks--secondary"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-bottom-region-bottom-box-and-12-more-border-color"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-page-title",
+            "#w3css-top-region"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-page-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu p"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-paragraph-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-link-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".cke_bottom",
+            ".cke_chrome",
+            ".cke_top"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-link-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-highlighted",
+            "#w3css-page-title",
+            "#w3css-top-region"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-page-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-header-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header p"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-paragraph-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-nav-open:hover"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-nav-open-hover-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-nav-open-hover-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-bottom-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu-inner form.w3-content"
+          ],
+          "decls": [
+            [
+              "border",
+              "--w3css-custom-footer-menu-form-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-copyright-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-top-box-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header h1",
+            "#w3css-header h2",
+            "#w3css-header h3",
+            "#w3css-header h4",
+            "#w3css-header h5"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-heading-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-top-box-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region",
+            ".pager__item.is-active",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-header-and-7-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".fa",
+            ".svg-inline--fa"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-fa-svg-inline-fa-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region",
+            "#w3css-bottom-region-inner .w3css-page__bottom > div",
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            "#w3css-footer-region",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-header",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-page-title",
+            "#w3css-top-region",
+            "#w3css-top-region .w3css-page__top > div",
+            ".close-nav",
+            ".search-slide-wrapper",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-bottom-region-bottom-region-inner-and-17-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region",
+            "#w3css-bottom-region-inner .w3css-page__bottom > div",
+            "#w3css-footer-menu",
+            "#w3css-footer-region",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-page-title",
+            "#w3css-top-region",
+            "#w3css-top-region .w3css-page__top > div",
+            ".close-nav",
+            ".search-slide-wrapper",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-bottom-region-bottom-region-inner-and-15-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-menu__list--menu-footer"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-menu-list-menu-footer-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-menu__list--menu-account",
+            ":where(#w3css-footer-menu",
+            "#w3css-header) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-menu-list-menu-account-footer-menu-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            "#w3css-header",
+            "#w3css-header h1",
+            "#w3css-header h2",
+            "#w3css-header h3",
+            "#w3css-header h4",
+            "#w3css-header h5"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-header-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".close-nav",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-close-nav-main-nav-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            ".close-nav",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-footer-menu-and-4-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region .w3css-page__main > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-main-box-and-4-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-main-region .w3css-page__main > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-6-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "border",
+              "--w3css-custom-bottom-region-bottom-box-and-4-more-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ":where(#w3css-copyright) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-headings-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-menu__list--menu-account",
+            ":where(#w3css-footer-menu) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-menu-list-menu-account-footer-menu-headings-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-main-region .w3css-page__main > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".pager__item.is-active",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-bottom-region-footer-region-and-9-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".close-nav",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-close-nav-main-nav-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-header-text-2"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".pager__item.is-active",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-pager-item-is-active-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-footer-menu"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-footer-menu-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ":where(#w3css-header) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-headings-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header a",
+            "#w3css-header a:hover"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-a-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header a.w3-button:hover",
+            "#w3css-header a.w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-button-a-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-main-region .w3css-page__main > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".pager__item.is-active",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-8-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".pager__item.is-active",
+            ".search-slide-wrapper",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-pager-item-is-active-search-slide-wrapper-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ":where(#w3css-bottom-region",
+            "#w3css-footer-region",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-page-title",
+            "#w3css-top-region",
+            "#w3css-welcome-text) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-bottom-region-footer-region-and-6-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-menu__list--menu-account"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-menu-list-menu-account-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu a.w3-button:hover",
+            "#w3css-footer-menu a.w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-button-a-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "border-width",
+              "--w3css-custom-bottom-region-bottom-box-and-4-more-border-width"
+            ],
+            [
+              "border-style",
+              "--w3css-custom-bottom-region-bottom-box-and-4-more-border-style"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".search-slide-wrapper",
+            ".w3css-menu__list--menu-footer",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-5-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-header",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-header-and-3-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region",
+            ".pager__item.is-active",
+            ".search-slide-wrapper",
+            ".w3css-pager__item.is-active"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-pager-item-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-bottom-region-bottom-box-and-4-more-border-color"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ":where(.w3css-main-nav) .w3-button",
+            ":where(.w3css-main-nav) li a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-main-nav-button-a-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-menu__list--menu-account",
+            ":where(#w3css-header) :is(h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h1 a",
+            "h2 a",
+            "h3 a",
+            "h4 a",
+            "h5 a",
+            "h6 a)"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-menu-list-menu-account-header-headings-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            ".close-nav",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-footer-menu-and-4-more-text-2"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu a.w3-button:hover",
+            "#w3css-header a.w3-button:hover",
+            "#w3css-footer-menu a.w3-button:hover + .w3css-menu__arrow",
+            "#w3css-header a.w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-button-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu",
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-header-text-3"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-main-nav-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            "#w3css-header",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-footer-menu-and-4-more-text-3"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".field--type-entity-reference a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-field-type-entity-reference-a-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-copyright-footer-menu-and-3-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div"
+          ],
+          "decls": [
+            [
+              "transition",
+              "--w3css-custom-bottom-region-bottom-box-and-4-more-transition"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            ".pager__item.w3-light-gray a",
+            ".search-slide-wrapper",
+            ".w3css-menu__list--menu-footer",
+            ".w3css-page-wrapper",
+            ".w3css-pager__item.w3-light-gray a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-6-more-text-2"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu",
+            "#w3css-footer-menu h1",
+            "#w3css-footer-menu h2",
+            "#w3css-footer-menu h3",
+            "#w3css-footer-menu h4",
+            "#w3css-footer-menu h5",
+            ".close-nav",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-close-nav-and-3-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu",
+            "#w3css-main-region .w3css-page__main > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-main-region-and-7-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div.w3css-animate-border:hover",
+            "#w3css-footer-region .w3css-page__footer > div.w3css-animate-border:hover",
+            "#w3css-top-region .w3css-page__top > div.w3css-animate-border:hover"
+          ],
+          "decls": [
+            [
+              "box-shadow",
+              "--w3css-custom-bottom-region-bottom-box-and-5-more-shadow"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu",
+            "#w3css-main-region .w3css-page__main > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-main-region-and-6-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu a.w3-button:hover",
+            "#w3css-footer-menu a.w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-button-and-2-more-text-2"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-button-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region .w3css-page__main > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-main-box-and-5-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            ".pager__item.w3-light-gray a",
+            ".search-slide-wrapper",
+            ".w3css-menu__list--menu-footer",
+            ".w3css-pager__item.w3-light-gray a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-5-more-text-2"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div",
+            ".search-slide-wrapper",
+            ".w3css-menu__list--menu-footer",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-region-footer-box-and-3-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-main-nav-main-nav-close-mobile-nav-toggle-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".close-nav",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-close-nav-mobile-nav-toggle-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-main-region .w3css-page__main > div",
+            ".search-slide-wrapper",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-main-region-main-box-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header .fa",
+            "#w3css-header .svg-inline--fa",
+            ".w3css-menu__list--menu-account"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-fa-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region .w3css-page__bottom > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-top-region .w3css-page__top > div",
+            ".cke_bottom",
+            ".cke_chrome",
+            ".cke_top"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-bottom-region-bottom-box-and-12-more-border-color"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#open-search:hover",
+            "#w3css-main-nav-open:hover"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-open-search-main-nav-open-and-2-more-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-open-search-main-nav-open-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region",
+            "#w3css-footer-menu",
+            "#w3css-footer-region",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-top-region",
+            "#w3css-welcome-text"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-bottom-region-footer-menu-and-5-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region",
+            "#w3css-bottom-region-inner .w3css-page__bottom > div",
+            "#w3css-copyright",
+            "#w3css-footer-menu",
+            "#w3css-footer-menu-inner > div",
+            "#w3css-footer-region",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-header",
+            "#w3css-highlighted",
+            "#w3css-main-region",
+            "#w3css-main-region-inner .w3css-page__main > div",
+            "#w3css-page-title",
+            "#w3css-top-region",
+            "#w3css-top-region .w3css-page__top > div",
+            "#w3css-welcome-text",
+            ".close-nav",
+            ".search-slide-wrapper",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle",
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-bottom-region-bottom-region-inner-and-21-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-bottom-region-inner .w3css-page__bottom > div",
+            "#w3css-copyright",
+            "#w3css-footer-menu-inner > div",
+            "#w3css-footer-region .w3css-page__footer > div",
+            "#w3css-header",
+            "#w3css-main-region-inner .w3css-page__main > div",
+            "#w3css-page-title",
+            "#w3css-top-region .w3css-page__top > div",
+            ".close-nav",
+            ".search-slide-wrapper",
+            ".w3css-main-nav",
+            ".w3css-main-nav__close",
+            ".w3css-mobile-nav__toggle"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-bottom-region-inner-bottom-box-and-15-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu-inner"
+          ],
+          "decls": [
+            [
+              "padding",
+              "--w3css-custom-footer-menu-inner-padding"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-page-wrapper"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-page-wrapper-background"
+            ],
+            [
+              "background-size",
+              "--w3css-custom-page-wrapper-background-size"
+            ],
+            [
+              "background-image",
+              "--w3css-custom-page-wrapper-background-image"
+            ],
+            [
+              "background-position",
+              "--w3css-custom-page-wrapper-background-position"
+            ],
+            [
+              "background-repeat",
+              "--w3css-custom-page-wrapper-background-repeat"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-menu-inner"
+          ],
+          "decls": [
+            [
+              "padding",
+              "--w3css-custom-footer-menu-inner-padding-narrow"
+            ]
+          ],
+          "media": "(max-width: 61.99875rem)"
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-border"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-border"
+          ],
+          "decls": [
+            [
+              "border",
+              "--w3css-custom-border-border"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-button:hover",
+            ".w3-hover-over:hover",
+            ".w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-button-hover-over-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-button-hover-over-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-small.node__submitted"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-field-type-entity-reference-a-and-2-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-button:hover",
+            ".w3-hover-over:hover",
+            ".w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-footer-menu-button-and-2-more-text-2"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-footer-menu-button-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-button"
+          ],
+          "decls": [
+            [
+              "transition",
+              "--w3css-custom-button-a-transition"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-border"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-bottom-region-bottom-box-and-12-more-border-color"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-button:hover",
+            ".w3-hover-over:hover",
+            ".w3-button:hover + .w3css-menu__arrow"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-open-search-main-nav-open-and-2-more-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-open-search-main-nav-open-and-2-more-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l3",
+            ".w3-theme-l4",
+            ".w3-theme-l5"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-l3-theme-l4-theme-l5-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l5"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-l5-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l4"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-l4-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l3"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-l3-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l2"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-l2-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-theme-l2-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-l1"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-l1-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-theme-l1-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d1",
+            ".w3-theme-d2",
+            ".w3-theme-d3",
+            ".w3-theme-d4",
+            ".w3-theme-d5"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-d1-theme-d2-and-3-more-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d1"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-d1-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d2"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-d2-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d3"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-d3-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d4"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-d4-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-d5"
+          ],
+          "decls": [
+            [
+              "background-color",
+              "--w3css-custom-theme-d5-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-light"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-light-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-theme-light-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-theme-action",
+            ".w3-theme-dark"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-theme-action-theme-dark-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-theme-action-theme-dark-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-hover-theme:hover",
+            ".w3-theme"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-hover-theme-theme-text"
+            ],
+            [
+              "background-color",
+              "--w3css-custom-hover-theme-theme-background"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-hover-text-theme:hover",
+            ".w3-text-theme"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-hover-text-theme-text-theme-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.utilities",
+          "selectors": [
+            ".w3-border-theme",
+            ".w3-hover-border-theme:hover"
+          ],
+          "decls": [
+            [
+              "border-color",
+              "--w3css-custom-border-theme-hover-border-theme-border-color"
+            ]
+          ]
+        }
+      ]
+    },
+    "palette": {
+      "library": "scheme-palette",
+      "rules": [
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-copyright p",
+            "#w3css-copyright a"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-scheme-copyright-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-footer-region .w3css-page__footer > div.w3css-animate-border:hover"
+          ],
+          "decls": [
+            [
+              "box-shadow",
+              "--w3css-scheme-footer-box-hover-shadow"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

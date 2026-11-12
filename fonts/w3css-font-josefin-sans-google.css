@@ -1,0 +1,20 @@
+@layer w3css.base {
+  p,
+  .josefin-sans {
+    font-family: 'Josefin Sans', sans-serif;
+  }
+}
+
+/* Headings that answer other unlayered CSS stay unlayered. */
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h1,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h2,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h3,
+:where(.w3css-page-wrapper, #w3css-main-nav-vertical) h4 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* The page font answers module CSS (w3css_paragraphs w3-modern.css sets html and body), so it stays unlayered. */
+html,
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}

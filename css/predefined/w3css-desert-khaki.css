@@ -1,0 +1,48 @@
+/**
+ * @file
+ * W3CSS color scheme: Desert Khaki (option w3-theme-khaki, library w3-css-theme-khaki).
+ *
+ * Tokens only, in w3css.schemes. The rules that read them are in
+ * css/predefined/w3css-scheme-palette.css. Name map: CHANGELOG.md.
+ * Layer order: w3css-layers.css. Check: scripts/css-layers-check.py.
+ */
+
+@layer w3css.schemes {
+  :root {
+    --w3css-scheme-main-text: #242105;
+    --w3css-scheme-main-background: #fff;
+    --w3css-scheme-l5-text: #242105;
+    --w3css-scheme-l5-background: #fefef8;
+    --w3css-scheme-l4-text: #242105;
+    --w3css-scheme-l4-background: #fcfae8;
+    --w3css-scheme-l3-text: #242105;
+    --w3css-scheme-l3-background: #f9f5d2;
+    --w3css-scheme-l2-text: #242105;
+    --w3css-scheme-l2-background: #f6f0bb;
+    --w3css-scheme-l1-text: #242105;
+    --w3css-scheme-l1-background: #f3eba5;
+    --w3css-scheme-d1-text: #242105;
+    --w3css-scheme-d1-background: #ecdf6c;
+    --w3css-scheme-d2-text: #242105;
+    --w3css-scheme-d2-background: #e8d84a;
+    --w3css-scheme-d3-text: #242105;
+    --w3css-scheme-d3-background: #e3d029;
+    --w3css-scheme-d4-text: #242105;
+    --w3css-scheme-d4-background: #cbb91a;
+    --w3css-scheme-d5-text: #373307;
+    --w3css-scheme-d5-background: #a99b16;
+    --w3css-scheme-light-background: #fefef8;
+    --w3css-scheme-dark-background: #a99b16;
+    --w3css-scheme-base-text: #242105;
+    --w3css-scheme-base-background: #f0e68c;
+    --w3css-scheme-accent-text: #837811;
+    --w3css-scheme-border: #f0e68c;
+    --w3css-scheme-hover-text: #242105;
+    --w3css-scheme-hover-background: #f0e68c;
+    --w3css-scheme-keyframe-button: #f0e68c;
+    --w3css-scheme-keyframe-border: #f0e68c;
+    --w3css-scheme-pager-active-background: #fefef8;
+    --w3css-scheme-button-hover-background: #fcfae8;
+    --w3css-scheme-button-hover-text: #7f7410;
+  }
+}
