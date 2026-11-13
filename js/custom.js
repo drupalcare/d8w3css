@@ -1,4 +1,6 @@
 /**
+ * @param Drupal
+ * @param once
  * @file
  * Defines JavaScript behaviors for the W3CSS Theme.
  */
@@ -980,14 +982,16 @@
         });
       });
 
-      once('w3css-menu-arrow-toggle', '.w3css-menu__arrow-toggle', context).forEach(
-        function (element) {
-          makeButton(element, submenuToggleLabel(element));
-          element.addEventListener('click', function () {
-            showHide(element);
-          });
-        },
-      );
+      once(
+        'w3css-menu-arrow-toggle',
+        '.w3css-menu__arrow-toggle',
+        context,
+      ).forEach(function (element) {
+        makeButton(element, submenuToggleLabel(element));
+        element.addEventListener('click', function () {
+          showHide(element);
+        });
+      });
     },
   };
 
@@ -1051,14 +1055,16 @@
       });
 
       // On click expand the dropdown menu for small device.
-      once('w3css-menu-link-toggle', '.w3css-menu__link-toggle', context).forEach(
-        function (element) {
-          element.addEventListener('click', function (event) {
-            event.preventDefault();
-            showHide(element);
-          });
-        },
-      );
+      once(
+        'w3css-menu-link-toggle',
+        '.w3css-menu__link-toggle',
+        context,
+      ).forEach(function (element) {
+        element.addEventListener('click', function (event) {
+          event.preventDefault();
+          showHide(element);
+        });
+      });
     },
   };
 

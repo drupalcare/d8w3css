@@ -1,4 +1,6 @@
 /**
+ * @param Drupal
+ * @param once
  * @file
  * The theme settings form: one section shows, chosen from the left column, and
  * the class names get copy buttons. Without this file every section stays open
@@ -88,7 +90,9 @@
     if (!others.length) {
       return;
     }
-    const template = menu.querySelector('template[data-w3css-settings-icon="other"]');
+    const template = menu.querySelector(
+      'template[data-w3css-settings-icon="other"]',
+    );
     const icon = () => (template ? template.content.cloneNode(true) : '');
     const heading = document.createElement('h2');
     heading.className = 'w3css-settings-nav__group';

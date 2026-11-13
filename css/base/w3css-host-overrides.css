@@ -708,14 +708,14 @@ form.contact-form .form-actions .w3-button {
 #w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
 #w3css-footer-menu .w3css-menu__list--menu-footer li button:hover,
 #w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
-  background-color: transparent;
   text-decoration: underline;
+  background-color: transparent;
   text-underline-offset: 0.2em;
 }
 
 #w3css-footer-menu .w3css-menu__list--menu-footer li a:focus-visible,
 #w3css-footer-menu .w3css-menu__list--menu-footer li button:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
@@ -1192,7 +1192,9 @@ ul.w3css-local-tasks--secondary > li > a {
 
 .w3css-menu__list li a.w3css-menu__link-toggle,
 .w3css-menu__list li button.w3css-menu__link-toggle {
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .w3css-menu__list li ul {
@@ -1424,9 +1426,9 @@ h1.w3css-page-title {
   height: 44px;
   margin: 0;
   padding: 0 14px;
+  color: inherit;
   border-inline-end: 0 !important;
   background-color: transparent;
-  color: inherit;
 }
 
 .w3-search-block-form input.w3css-search-block-form__button {

@@ -53,7 +53,7 @@
       {%
         set item_classes = [
         'w3css-menu__item w3css-menu__item--menu-' ~ menu_name|clean_class,
-        item.is_expanded? 'w3css-menu__item--expanded',
+        item.is_expanded ? 'w3css-menu__item--expanded',
         item.is_expanded and menu_level == 0 ? 'w3css-menu__item--parent',
         item.in_active_trail ? 'active',
       ]
@@ -152,14 +152,14 @@
           {% set leaf_text = {
             '#type': 'inline_template',
             '#template': '{{ title }}<span class="visually-hidden"> {{ "(opens in a new tab)"|t }}</span>',
-            '#context': {'title': item.title},
+            '#context': {title: item.title},
           } %}
         {% endif %}
         {{
         link(
           leaf_text,
           item.url,
-          item.attributes.removeClass(item_classes).addClass(link_classes)
+          item.attributes.removeClass(item_classes).addClass(link_classes),
         )
         }}
       {% endif %}

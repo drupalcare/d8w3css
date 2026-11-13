@@ -140,7 +140,7 @@
   {% block w3css_highlighted %}
   {% if page.highlighted %}
   <!-- Start: Highlighted -->
-  <div id="w3css-highlighted" class="w3-col w3-clear w3-theme-l2 {{ color_highlighted}}">
+  <div id="w3css-highlighted" class="w3-col w3-clear w3-theme-l2 {{ color_highlighted }}">
     <div id="w3css-highlighted-inner" class="w3css-fade w3-row w3css-highlighted__inner {{ website_width }}">
       {{ page.highlighted }}
     </div>
@@ -158,7 +158,7 @@
       {% if page.top_first %}
       <!-- Start: Top container first region -->
       <div class="{{ top_w3css }} w3css-page__top {{ top_region ? 'top-region' }} w3css-page__top-first">
-        <div class="w3css-fade w3-mobile {{ border_animation ? 'w3css-animate-border' }} w3-theme-l5 {{ color_top_first}}">
+        <div class="w3css-fade w3-mobile {{ border_animation ? 'w3css-animate-border' }} w3-theme-l5 {{ color_top_first }}">
          {{ page.top_first }}
         </div>
       </div>
@@ -359,22 +359,22 @@
       <div class="w3css-fade w3-center w3-container w3-mobile w3css-social-media">
         <ul class="w3css-social-media__list">
         {% set w3css_social_links = {
-          'facebook': {'url': facebook_url, 'title': 'Facebook', 'label': 'Facebook (opens in a new tab)'|t},
-          'twitter': {'url': twitter_url, 'title': 'X', 'label': 'X (opens in a new tab)'|t},
-          'pinterest': {'url': pinterest_url, 'title': 'Pinterest', 'label': 'Pinterest (opens in a new tab)'|t},
-          'linkedin': {'url': linkedin_url, 'title': 'LinkedIn', 'label': 'LinkedIn (opens in a new tab)'|t},
-          'instagram': {'url': instagram_url, 'title': 'Instagram', 'label': 'Instagram (opens in a new tab)'|t},
-          'youtube': {'url': youtube_url, 'title': 'YouTube', 'label': 'YouTube (opens in a new tab)'|t},
-          'drupal': {'url': drupal_url, 'title': 'Drupal', 'label': 'Drupal (opens in a new tab)'|t},
-          'mastodon': {'url': mastodon_url, 'title': 'Mastodon', 'label': 'Mastodon (opens in a new tab)'|t},
-          'rss': {'url': rss_url, 'title': 'RSS Feed', 'label': 'RSS Feed (opens in a new tab)'|t},
+          facebook: {url: facebook_url, title: 'Facebook', label: 'Facebook (opens in a new tab)'|t},
+          twitter: {url: twitter_url, title: 'X', label: 'X (opens in a new tab)'|t},
+          pinterest: {url: pinterest_url, title: 'Pinterest', label: 'Pinterest (opens in a new tab)'|t},
+          linkedin: {url: linkedin_url, title: 'LinkedIn', label: 'LinkedIn (opens in a new tab)'|t},
+          instagram: {url: instagram_url, title: 'Instagram', label: 'Instagram (opens in a new tab)'|t},
+          youtube: {url: youtube_url, title: 'YouTube', label: 'YouTube (opens in a new tab)'|t},
+          drupal: {url: drupal_url, title: 'Drupal', label: 'Drupal (opens in a new tab)'|t},
+          mastodon: {url: mastodon_url, title: 'Mastodon', label: 'Mastodon (opens in a new tab)'|t},
+          rss: {url: rss_url, title: 'RSS Feed', label: 'RSS Feed (opens in a new tab)'|t},
         } %}
         {% for key, social in w3css_social_links %}
           {% if social.url %}
             <li class="w3css-social-media__item">
               <a href="{{ social.url }}" title="{{ social.title }}" class="w3css-social-media__link w3css-social-media__link--{{ key }}" target="_blank" rel="noopener noreferrer">
                 <span class="w3css-social-media__icon" aria-hidden="true">
-                  {% include '@drupal8_w3css_theme/partials/svg/_svg-' ~ key ~ '.html.twig' %}
+                  {{ include('@drupal8_w3css_theme/partials/svg/_svg-' ~ key ~ '.html.twig') }}
                 </span>
                 <span class="visually-hidden">{{ social.label }}</span>
               </a>

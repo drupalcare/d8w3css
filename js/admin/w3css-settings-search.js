@@ -1,4 +1,6 @@
 /**
+ * @param Drupal
+ * @param once
  * @file
  * Filters the W3CSS settings navigation by section, field label or help text.
  */
@@ -40,80 +42,82 @@
 
   Drupal.behaviors.w3cssSettingsSearch = {
     attach(context) {
-      once('w3css-settings-search', '.w3css-settings-nav__menu', context).forEach(
-        (menu) => {
-          const entries = Array.from(
-            menu.querySelectorAll('.w3css-settings-nav__item'),
-          ).map((item) => ({ item, text: textOf(item) }));
+      once(
+        'w3css-settings-search',
+        '.w3css-settings-nav__menu',
+        context,
+      ).forEach((menu) => {
+        const entries = Array.from(
+          menu.querySelectorAll('.w3css-settings-nav__item'),
+        ).map((item) => ({ item, text: textOf(item) }));
 
-          const box = document.createElement('div');
-          box.className = 'w3css-settings-nav__searchbox';
-          const input = document.createElement('input');
-          input.type = 'search';
-          input.className = 'w3css-settings-nav__search';
-          input.placeholder = Drupal.t('Search settings...');
-          input.setAttribute(
-            'aria-label',
-            Drupal.t('Filter settings by section name, field label or help text'),
-          );
-          const count = document.createElement('p');
-          count.className = 'w3css-settings-nav__count';
-          count.setAttribute('role', 'status');
-          box.append(input, count);
-          menu.querySelector(':scope > summary').after(box);
+        const box = document.createElement('div');
+        box.className = 'w3css-settings-nav__searchbox';
+        const input = document.createElement('input');
+        input.type = 'search';
+        input.className = 'w3css-settings-nav__search';
+        input.placeholder = Drupal.t('Search settings...');
+        input.setAttribute(
+          'aria-label',
+          Drupal.t('Filter settings by section name, field label or help text'),
+        );
+        const count = document.createElement('p');
+        count.className = 'w3css-settings-nav__count';
+        count.setAttribute('role', 'status');
+        box.append(input, count);
+        menu.querySelector(':scope > summary').after(box);
 
-          const run = () => {
-            const query = normalize(input.value);
-            let matches = 0;
-            entries.forEach(({ item, text }) => {
-              const hit = query === '' || text.includes(query);
-              item.hidden = !hit;
-              matches += hit ? 1 : 0;
-            });
-            menu.querySelectorAll('.w3css-settings-nav__list').forEach((list) => {
-              const visible = list.querySelector(
-                ':scope > .w3css-settings-nav__item:not([hidden])',
-              );
-              list.hidden = !visible;
-              const heading = list.previousElementSibling;
-              if (heading && heading.matches('.w3css-settings-nav__group')) {
-                heading.hidden = !visible;
-              }
-            });
-            count.textContent =
-              query === ''
-                ? ''
-                : Drupal.t('@count of @total sections', {
-                    '@count': matches,
-                    '@total': entries.length,
-                  });
-          };
-
-          let timer;
-          input.addEventListener('input', () => {
-            clearTimeout(timer);
-            timer = setTimeout(run, 150);
+        const run = () => {
+          const query = normalize(input.value);
+          let matches = 0;
+          entries.forEach(({ item, text }) => {
+            const hit = query === '' || text.includes(query);
+            item.hidden = !hit;
+            matches += hit ? 1 : 0;
           });
-          input.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && input.value !== '') {
-              event.preventDefault();
-              input.value = '';
-              run();
-            }
-            if (event.key === 'Enter') {
-              // Enter opens the first match instead of submitting the form.
-              event.preventDefault();
-              const first = entries.find(
-                ({ item }) =>
-                  !item.hidden && item.querySelector('.w3css-settings-nav__link'),
-              );
-              if (first) {
-                first.item.querySelector('.w3css-settings-nav__link').click();
-              }
+          menu.querySelectorAll('.w3css-settings-nav__list').forEach((list) => {
+            const visible = list.querySelector(
+              ':scope > .w3css-settings-nav__item:not([hidden])',
+            );
+            list.hidden = !visible;
+            const heading = list.previousElementSibling;
+            if (heading && heading.matches('.w3css-settings-nav__group')) {
+              heading.hidden = !visible;
             }
           });
-        },
-      );
+          count.textContent =
+            query === ''
+              ? ''
+              : Drupal.t('@count of @total sections', {
+                  '@count': matches,
+                  '@total': entries.length,
+                });
+        };
+
+        let timer;
+        input.addEventListener('input', () => {
+          clearTimeout(timer);
+          timer = setTimeout(run, 150);
+        });
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && input.value !== '') {
+            event.preventDefault();
+            input.value = '';
+            run();
+          }
+          if (event.key === 'Enter') {
+            // Enter opens the first match instead of submitting the form.
+            event.preventDefault();
+            const first = entries.find(
+              ({ item }) =>
+                !item.hidden && item.querySelector('.w3css-settings-nav__link'),
+            );
+            if (first) {
+              first.item.querySelector('.w3css-settings-nav__link').click();
+            }
+          }
+        });
+      });
     },
   };
 })(Drupal, once);

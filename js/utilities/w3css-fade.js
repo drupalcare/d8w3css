@@ -1,4 +1,6 @@
 /**
+ * @param Drupal
+ * @param once
  * @file
  * Fades content in as it scrolls into view.
  */
@@ -42,8 +44,7 @@
     const windowBottom = window.scrollY + windowHeight;
     // At the end of the page nothing can scroll further into view, so a box
     // low on the screen would otherwise stay partly transparent for good.
-    const atPageEnd =
-      windowBottom >= document.documentElement.scrollHeight - 1;
+    const atPageEnd = windowBottom >= document.documentElement.scrollHeight - 1;
 
     elements.forEach(function (element) {
       // Focused content, and the target of the page's #fragment, is always

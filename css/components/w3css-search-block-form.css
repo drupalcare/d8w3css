@@ -39,7 +39,7 @@
 
   .w3-search-block-form input.w3css-search-block-form__button {
     box-sizing: border-box;
-    text-indent: 0;
     cursor: pointer;
+    text-indent: 0;
   }
 }

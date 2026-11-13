@@ -3,9 +3,9 @@
      .visually-hidden.focusable), then shows as a high contrast bar at the top
      of the page (WCAG 2.4.1, 1.4.3: white on black is 21:1). */
   .skip-link {
+    text-decoration: none;
     color: var(--w3-white);
     background-color: var(--w3-black);
-    text-decoration: none;
   }
 
   .skip-link.focusable:focus {

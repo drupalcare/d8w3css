@@ -81,11 +81,11 @@
 
 <article{{ attributes.addClass(classes) }}>
 
-  {% if (label and view_mode != "full") or display_submitted %}
+  {% if (label and view_mode != 'full') or display_submitted %}
 
   <header class="w3-row node__header w3css-node__header">
     {{ title_prefix }}
-    {% if label and view_mode != "full" %}
+    {% if label and view_mode != 'full' %}
       <h3 {{ title_attributes.addClass('node__title', 'w3css-node__title') }}>
         <a href="{{ url }}" rel="bookmark">{{ label }}</a>
       </h3>

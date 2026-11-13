@@ -1,4 +1,6 @@
 /**
+ * @param Drupal
+ * @param once
  * @file
  * The color scheme picker: top tabs, one per color family, and the selected
  * scheme's name in text. Selection itself is native radios and needs no script;
@@ -36,7 +38,9 @@
    *   Marks the tab and the panel that hold the checked radio.
    */
   const setUpTabs = (picker) => {
-    const panels = Array.from(picker.querySelectorAll('.w3css-scheme-picker__group'));
+    const panels = Array.from(
+      picker.querySelectorAll('.w3css-scheme-picker__group'),
+    );
     if (panels.length === 0) {
       return () => {};
     }

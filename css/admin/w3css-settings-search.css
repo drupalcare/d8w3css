@@ -24,21 +24,21 @@ form.w3css-settings .w3css-settings-nav__searchbox::before {
 
 form.w3css-settings .w3css-settings-nav__search {
   box-sizing: border-box;
-  inline-size: 100%;
-  min-block-size: 2.375rem;
-  padding-block: 0.375rem;
-  padding-inline: 2.125rem 0.5rem;
+  color: var(--w3css-settings-ink);
   border: 1px solid var(--w3css-settings-ctl);
   border-radius: 0.375rem;
   background-color: var(--w3css-settings-surface);
   font-size: 0.875rem;
-  color: var(--w3css-settings-ink);
+  inline-size: 100%;
+  min-block-size: 2.375rem;
+  padding-block: 0.375rem;
+  padding-inline: 2.125rem 0.5rem;
 }
 
 form.w3css-settings .w3css-settings-nav__count {
   margin: 0.25rem 0 0;
-  font-size: 0.75rem;
   color: var(--w3css-settings-muted);
+  font-size: 0.75rem;
 }
 
 form.w3css-settings .w3css-settings-nav__count:empty {

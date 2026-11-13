@@ -25,7 +25,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .w3-button:where(:hover, :focus-visible):not(.w3css-menu__list .w3-button, .w3-bar-item) {
-      box-shadow: 0 2px 8px 0 color-mix(in srgb, currentcolor 28%, transparent);
+      box-shadow: 0 2px 8px 0 color-mix(in sRGB, currentColor 28%, transparent);
     }
   }
 
