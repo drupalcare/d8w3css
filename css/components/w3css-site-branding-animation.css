@@ -60,6 +60,7 @@
 @layer w3css.theme {
   /* stylelint-disable-next-line keyframes-name-pattern -- public animation name, also defined by the generated palettes; renaming would break them */
 
+  /* stylelint-disable-next-line keyframes-name-pattern -- public keyframe name; subthemes and site CSS may reference animateSiteName, so it is not renamed */
   @keyframes animateSiteName {
     0% {
       background-position: 0% 50%;
@@ -70,6 +71,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   .animate-text-01,
   #w3css-page-title.animate-title-01 .page-title {
     background: linear-gradient(45deg, var(--w3css-site-branding-animation-background), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-8), var(--w3css-site-branding-animation-background-7), var(--w3css-site-branding-animation-background-6), var(--w3css-site-branding-animation-background-5), var(--w3css-site-branding-animation-background-4), var(--w3css-site-branding-animation-background-3), var(--w3css-site-branding-animation-background-2), var(--w3css-site-branding-animation-background));

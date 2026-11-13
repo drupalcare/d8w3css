@@ -103,6 +103,7 @@
   }
 
   /* The skip link moves focus here; the region is not a control. */
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   #main-content:focus {
     outline: none;
   }

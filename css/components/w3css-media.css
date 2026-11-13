@@ -55,6 +55,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   .align-center img,
   .align-center video,
   .align-center audio {

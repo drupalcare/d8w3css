@@ -30,6 +30,7 @@
   }
 
   /* Border animation  */
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   #w3css-top-region .w3css-page__top > .w3css-animate-border,
   #w3css-bottom-region .w3css-page__bottom > .w3css-animate-border,
   #w3css-footer-region .w3css-page__footer > .w3css-animate-border {

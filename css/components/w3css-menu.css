@@ -141,6 +141,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   .w3css-menu__list--menu-account li {
     width: auto;
   }

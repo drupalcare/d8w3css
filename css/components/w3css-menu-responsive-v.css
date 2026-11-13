@@ -128,6 +128,7 @@
      items under it. Hover opens them, as everywhere; the arrow
      also opens them on click or from the keyboard. */
 
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   .w3-sidebar-first .w3css-menu__list li ul,
   .w3-sidebar-second .w3css-menu__list li ul {
     float: none;

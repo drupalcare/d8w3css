@@ -773,6 +773,7 @@ a.w3css-image__link > img.w3-image {
 }
 
 a:hover > img.w3-image {
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: animateimg 5s;
 }
 
@@ -1143,6 +1144,7 @@ ul.w3css-local-tasks--secondary > li > a {
 
 @media (prefers-reduced-motion: no-preference) {
   #w3css-main-nav-vertical.w3-animate-left {
+    /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
     animation-name: w3css-slide-in-left;
   }
 }
@@ -1653,6 +1655,7 @@ h1.w3css-page-title {
 #w3css-page-title.animate-title-23 .page-title span,
 #w3css-page-title.animate-title-24 .page-title span {
   /* One 5-second sweep, then still: moving text that starts on its own must stop within 5 seconds (WCAG 2.2.2). */
+  /* stylelint-disable-next-line no-unknown-animations -- keyframes are defined in another stylesheet (shared keyframes, palette or W3.CSS), so this file cannot see them */
   animation: animateSiteName 5s linear 1;
   color: transparent !important;
   background-clip: text;

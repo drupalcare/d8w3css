@@ -129,6 +129,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order -- this nested rule stays after the @media block; moving it changes which rule wins */
   .w3css-page--admin .system-status-report__requirements-group details,
   .w3css-page--admin .w3css-status-report__requirements-group details,
   .w3css-page--admin .system-status-report__requirements-group summary,
