@@ -1888,6 +1888,30 @@
               "--w3css-custom-border-theme-hover-border-theme-border-color"
             ]
           ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            "#w3css-header"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-header-own-text"
+            ]
+          ]
+        },
+        {
+          "layer": "w3css.schemes",
+          "selectors": [
+            ".w3css-main-nav"
+          ],
+          "decls": [
+            [
+              "color",
+              "--w3css-custom-main-nav-own-text"
+            ]
+          ]
         }
       ]
     },

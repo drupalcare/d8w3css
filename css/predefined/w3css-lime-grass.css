@@ -9,6 +9,7 @@
 
 @layer w3css.schemes {
   :root {
+    --w3css-custom-header-own-text: #000000;
     --w3css-custom-text: #002229;
     --w3css-custom-heading-text: #607b00;
     --w3css-custom-page-text: #313f00;
@@ -294,5 +295,11 @@
   .w3-button:hover + .w3css-menu__arrow {
     color: var(--w3css-custom-button-hover-over-text);
     background-color: var(--w3css-custom-button-hover-over-background);
+  }
+}
+
+@layer w3css.schemes {
+  #w3css-header {
+    color: var(--w3css-custom-header-own-text);
   }
 }

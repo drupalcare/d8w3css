@@ -40,6 +40,10 @@
     const animationHeight = windowHeight * 0.25;
     const ratio = Math.round((1 / animationHeight) * 10000) / 10000;
     const windowBottom = window.scrollY + windowHeight;
+    // At the end of the page nothing can scroll further into view, so a box
+    // low on the screen would otherwise stay partly transparent for good.
+    const atPageEnd =
+      windowBottom >= document.documentElement.scrollHeight - 1;
 
     elements.forEach(function (element) {
       // Focused content, and the target of the page's #fragment, is always
@@ -56,7 +60,7 @@
         : 0;
 
       if (objectTop < windowBottom) {
-        if (objectTop < windowBottom - animationHeight) {
+        if (atPageEnd || objectTop < windowBottom - animationHeight) {
           element.style.transition = 'opacity 1s linear';
           element.style.opacity = 1;
         } else {

@@ -56,13 +56,13 @@
     padding: 0 16px;
   }
 
-  .w3css-page--admin nav.action-links,
-  .w3css-page--admin nav.w3css-local-actions {
+  .w3css-page--admin .action-links,
+  .w3css-page--admin .w3css-local-actions {
     margin-left: 16px;
     list-style: none;
   }
 
-  .w3css-page--admin nav.action-links li,
+  .w3css-page--admin .action-links li,
   .w3css-page--admin nav.w3css-local-actions li {
     overflow: hidden;
     cursor: pointer;

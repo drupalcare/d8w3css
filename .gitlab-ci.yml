@@ -67,3 +67,16 @@ class-list:
   image: python:3.12-bookworm
   script:
     - python3 -I scripts/class-list.py --check
+
+# Scheme contrast: the text/ground pairs of every predefined scheme (header, main nav, main box, top, bottom,
+# footer region, footer menu, copyright, hover states, inputs) are resolved from each scheme file the way the
+# cascade paints them and must reach WCAG AA (4.5:1 text, 3:1 large text and the input focus border). Known
+# failures sit in scripts/scheme-contrast-baseline.txt (palettes are the owner's design): the job fails on a NEW
+# failure and on a baseline line that no longer fails. It prints the scheme and pair counts and fails when too
+# few were checked. --self-test proves it goes red on a planted 1:1 pair and green on a 21:1 pair.
+scheme-contrast:
+  stage: validate
+  image: python:3.12-bookworm
+  script:
+    - python3 -I scripts/check-scheme-contrast.py --self-test
+    - python3 -I scripts/check-scheme-contrast.py
