@@ -2,6 +2,7 @@
 
 ## Next release
 
+- System messages: a long word (a class name or file path in an error) wraps inside the message in a flex or grid parent too, so a message never makes the page wider than the screen.
 - Animations: the six `.w3-animate-*` timing curves had an x value above 1, which CSS rejects, so browsers dropped them and used `ease`; x is now 1, so the curves apply.
 - Accessibility: header and main navigation text in Cadet Blue, Cadet Steel, Lime Grass, Midnight Ember, Slate Amber and Teal Coral get their own color token (header-own-text, main-nav-own-text) that reaches 4.5:1; copyright and footer colors are unchanged.
 - Scheme contrast check models CSS specificity and :where() lists, so a low-specificity rule no longer hides the real header heading color; 7 false failures cleared.
