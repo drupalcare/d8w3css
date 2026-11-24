@@ -182,7 +182,7 @@ other environments get the new names instead of the old ones.
 - amun, amunet and anhur 3.0 and W3CSS Paragraphs 2.0 are built for this
   release. Composer refuses to install this theme next to amun, amunet or anhur
   older than 3.0 or W3CSS Paragraphs older than 2.0, so update them together:
-  composer require 'drupal/d8w3css:^3.0' 'drupal/amun:^3.0' (and the others you
+  composer require 'drupal/d8w3css:^3.0' 'drupal/amun-amun:^3.0' (and the others you
   use) -W.
 
 

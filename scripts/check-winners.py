@@ -37,7 +37,7 @@ import sys
 sys.dont_write_bytecode = True
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCROOT = '/Users/alaahaddad/Sites/d11/web'
+DOCROOT = '/Users/alaahaddad/Sites/workbench/d11/web'
 EXT_DIRS = ('core/modules', 'core/misc', 'modules/contrib', 'modules/custom')
 CAT = {'base': -200, 'layout': -100, 'component': 0, 'state': 100, 'theme': 200}
 BIG = 10 ** 6
